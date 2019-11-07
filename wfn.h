@@ -47,6 +47,7 @@ double SigmaJ2_2s1_1p3(double x);
 double SigmaJ2_1d3_1p1(double x);
 double SigmaJ2_1d3_1p3(double x);
 double SigmaJ2_1d5_1p1(double x);
+double SigmaJ2_1d5_1p3(double x);
 double SigmaJ2_1d5_1d5(double x);
 
 double SigmaJ3_1p3_1p3(double x);

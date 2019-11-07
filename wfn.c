@@ -85,7 +85,7 @@ void mu2e() {
  // for (int i = 0; i < 300; i++) {
  //   printf("%g, %g, %g, %g\n", i/20.0, SigmaJ0_1p1_1s1(i/20.0 + 0.00001), SigmaJ0_2s1_1p1(i/20.0 + 0.00001), SigmaJ0_1d3_1p3(i/20.0 + 0.00001));
  // }
-  printf("Test: %g\n", SigmaJ2_1p3_1s1(2.0));
+  printf("Test: %g\n", SigmaJ5_1d5_1d5(2.0));
   in_file = fopen("al27-al27_core_J0_T0_0_0.dens", "r");
 
 
@@ -407,7 +407,7 @@ double SigmaJ3_1d3_1d3(double x) {
   double z = x*M_PION/(2.0*HBARC);
   double w = b_osc(A_NUC)*M_PION/(2.0*HBARC);
 
-  double mat = 4.0/(w*w*pow(z*w, 3))*exp(-pow(z/w, 2.0))*(15.0*pow(w, 6)*(2*w*w - 1.0) + 2*pow(w, 4)*(-5 + 8*w*w + pow(w, 4))*z*z + 8*w*w*(2*w*w - 1.0)*pow(z, 4) + 16*pow(z, 6));
+  double mat = 4.0/(w*w*pow(z*w, 3))*exp(-pow(z/w, 2.0))*(15.0*pow(w, 6)*(2*w*w - 1.0) + 2*pow(w, 4)*(-5 + 8*w*w + 4*pow(w, 4))*z*z + 4*w*w*(2*w*w - 1.0)*pow(z, 4) + 8*pow(z, 6));
   mat -= sqrt(M_PI)/(z*z*z*z)*exp(w*w)*w*w*(2*w*w - 1.0)*(exp(2*z)*(-15.0 + 30*z - 24*z*z + 8*z*z*z)*gsl_sf_erfc(w + z/w) + (15 + 30*z + 24*z*z + 8*z*z*z)*exp(-2*z)*gsl_sf_erfc(w - z/w));
 
   mat *=1.0/(160.0*sqrt(5.0));
@@ -455,7 +455,7 @@ double SigmaJ5_1d5_1d5(double x) {
   double z = x*M_PION/(2.0*HBARC);
   double w = b_osc(A_NUC)*M_PION/(2.0*HBARC);
 
-  double mat = -4.0/(pow(z*w, 5))*exp(-pow(z/w, 2.0))*(945*pow(w, 8) + 210*pow(w, 6)*(3 + 2*w*w)*z*z + 4*pow(w, 4)*(63 + 24*w*w + 4*pow(w, 4))*pow(z, 4) + 8*w*w*(9 + 2*w*w)*pow(z, 6) + 16*pow(z, 8));
+  double mat = -4.0/(pow(z*w, 5))*exp(-pow(z/w, 2.0))*(945*pow(w, 8) + 210*pow(w, 6)*(3 + 2*w*w)*z*z + 4*pow(w, 4)*(63 + 28*w*w + 4*pow(w, 4))*pow(z, 4) + 8*w*w*(9 + 2*w*w)*pow(z, 6) + 16*pow(z, 8));
   mat += sqrt(M_PI)/(pow(z, 6))*exp(w*w)*pow(w, 4)*(exp(2*z)*(-945 + 1890*z - 1680*z*z + 840*z*z*z - 240*pow(z, 4) + 32*pow(z, 5))*gsl_sf_erfc(w + z/w) + (945 + 1890*z + 1680*z*z + 840*z*z*z + 240*pow(z, 4) + 32*pow(z, 5))*exp(-2*z)*gsl_sf_erfc(w - z/w));
 
   mat *=1.0/(192.0*sqrt(7.0));
@@ -528,7 +528,7 @@ double SigmaJ2_2s1_1p3(double x) {
   double z = x*M_PION/(2.0*HBARC);
   double w = b_osc(A_NUC)*M_PION/(2.0*HBARC);
 
-  double mat = -4.0/(z*z*pow(w, 4))*exp(-pow(z/w, 2.0))*(3*pow(w, 4)*(1 + w*w) + 2*w*w*(1+ w*w)*z*z + 8*pow(z, 8));
+  double mat = -4.0/(z*z*pow(w, 4))*exp(-pow(z/w, 2.0))*(3*pow(w, 4)*(1 + w*w) + 2*w*w*(1+ w*w)*z*z + 2*pow(z, 4));
   mat += sqrt(M_PI)/(z*z*z)*exp(w*w)*w*(1+ w*w)*(exp(2*z)*(-3.0 + 6*z -4*z*z)*gsl_sf_erfc(w + z/w) + (3.0 + 6*z + 4*z*z)*exp(-2*z)*gsl_sf_erfc(w - z/w));
 
   mat *=1.0/(48.0);
@@ -552,7 +552,7 @@ double SigmaJ2_1d3_1p3(double x) {
   double z = x*M_PION/(2.0*HBARC);
   double w = b_osc(A_NUC)*M_PION/(2.0*HBARC);
 
-  double mat = -4.0/(z*z*pow(w, 4))*exp(-pow(z/w, 2.0))*(3*pow(w, 4)*(1 + w*w) + 2*w*w*(1+ w*w)*z*z + 8*pow(z, 8));
+  double mat = -4.0/(z*z*pow(w, 4))*exp(-pow(z/w, 2.0))*(3*pow(w, 4)*(1 + w*w) + 2*w*w*(1+ w*w)*z*z + 2*pow(z, 4));
   mat += sqrt(M_PI)/(z*z*z)*exp(w*w)*w*(1+ w*w)*(exp(2*z)*(-3.0 + 6*z -4*z*z)*gsl_sf_erfc(w + z/w) + (3.0 + 6*z + 4*z*z)*exp(-2*z)*gsl_sf_erfc(w - z/w));
 
   mat *=1.0/(24.0*sqrt(10));
@@ -579,7 +579,7 @@ double SigmaJ2_1d5_1p3(double x) {
   double mat = -4.0/(z*z*pow(w, 4))*exp(-pow(z/w, 2.0))*(6*pow(w, 6) + 14*w*w*z*z + 4*pow(z, 4) + 21*pow(w, 4) + 4*pow(w, 4)*z*z);
   mat += sqrt(M_PI)/(z*z*z)*exp(w*w)*w*(7 + 2*w*w)*(exp(2*z)*(-3.0 + 6*z -4*z*z)*gsl_sf_erfc(w + z/w) + (3.0 + 6*z + 4*z*z)*exp(-2*z)*gsl_sf_erfc(w - z/w));
 
-  mat *=1.0/(48.0);
+  mat *=1.0/(16.0*sqrt(210.0));
 
   return mat;
 }
