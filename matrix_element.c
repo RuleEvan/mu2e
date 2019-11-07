@@ -1,5 +1,28 @@
 #include "matrix_element.h"
 
+/* One-body matrix elements */
+
+double compute_matrix_element_y1_dot_sigma_tau_dot_tau(char* density_file, int iv) {
+  int n, l, ij;
+  int np, lp, ijp;
+
+  // Open the file containing density matrix coefficients
+  FILE *in_file;
+  in_file = fopen(density_file, "r");
+  double mat = 0.0;
+  int i;
+  // Each line of the file corresponds to a nuclear shell
+  float density;
+  while(fscanf(in_file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f\n", &in1p, &ij1p, &in2p, &ij2p, &ij12p, &it12p, &in1, &ij1, &in2, &ij2, &ij12, &it12, &density) == 13) {
+
+
+  }
+
+  return mat; 
+}  
+
+/* Two-body matrix elements */
+
 double compute_matrix_element_TT(char* density_file, int iv) {
   // Computes reduced nuclear matrix elements of the two-body tensor operator
   // with arbitary radial part, specified by iv
@@ -548,3 +571,4 @@ double compute_matrix_element_M_J2(char* density_file) {
                         
   return mat;
 }
+

@@ -14,7 +14,7 @@
 #include <gsl/gsl_sf.h>
 
 // Isotope setup
-#define A_NUC 76 // Atomic Mass
+#define A_NUC 27 // Atomic Mass
 #define A_FACTOR 9.155 // [MeV] Average nuclear excitation energy
 #define B_OSC 2.927
 #define Z_ATOM 32 // Atomic Number
@@ -36,6 +36,8 @@
 #define MIN(a,b) ((a) < (b) ? (a):(b))
 #define MAX(a,b) ((a) > (b) ? (a):(b))
 
+#define M_PION 139.570 //[MeV]
+#define HBARC 197.3 // [MeV fm]
 #define PION_MASS 139.570 //[MeV]
 #define LAMBDA_V 850.0 //[MeV]
 #define LAMBDA_A 1040.0 // [MeV]
