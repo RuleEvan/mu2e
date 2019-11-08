@@ -8,6 +8,8 @@ double RombergSpline2Integrator(double (*f)(gsl_spline*, gsl_spline*, gsl_interp
 
 double RombergSplineFunIntegrator(double (*f)(double (*lep) (double), gsl_spline*, gsl_spline*, gsl_spline*, gsl_spline*, gsl_interp_accel* , gsl_interp_accel* , gsl_interp_accel* , gsl_interp_accel* , double), double (*lep) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel* acc1, gsl_interp_accel* acc2, gsl_interp_accel* acc3, gsl_interp_accel* acc4, double a, double b, double tol);
 
+double RombergSpline2FunIntegrator(double (*f)(double (*lep1) (double), double (*lep2) (double), gsl_spline*, gsl_spline*, gsl_spline*, gsl_spline*, gsl_interp_accel* , gsl_interp_accel* , gsl_interp_accel* , gsl_interp_accel* , double), double (*lep1) (double), double (*lep2) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel* acc1, gsl_interp_accel* acc2, gsl_interp_accel* acc3, gsl_interp_accel* acc4, double a, double b, double tol);
+
 
 double RombergSpline4Integrator(double (*f)(gsl_spline*, gsl_spline*, gsl_spline*, gsl_spline*, gsl_interp_accel*, gsl_interp_accel*, gsl_interp_accel*, gsl_interp_accel*, double, double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel* acc1, gsl_interp_accel* acc2, gsl_interp_accel* acc3, gsl_interp_accel* acc4, double q, double a, double b, double tol);
 

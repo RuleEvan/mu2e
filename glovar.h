@@ -27,8 +27,9 @@
 #define R_NUC 1.2 // [fm]
 #define M_ELECTRON 0.511 // [MeV]
 #define M_NEUTRON 939.57 // [MeV]
+#define M_MUON 105.658 // [MeV]
 #define E_BETA 2.55 // [MeV]
-#define G_AXIAL 1.275 // Axial coupling
+#define G_AXIAL 1.2759 // Axial coupling
 #define G_MAGNETIC 4.7
 #define G_TENSOR 0.99
 #define G_VECTOR 1.0
