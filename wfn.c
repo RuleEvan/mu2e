@@ -81,102 +81,97 @@ void mu2e() {
  */
   printf("1-body contact: %g %g %g\n", RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_2s1_2s1, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0001, 30.0, 0.00001), RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_1d3_1d3, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0001, 30.0, 0.00001), RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_1d5_1d5, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0001, 30.0, 0.00001));
 
-
-
-  double (**sigmaJ0_mat) (double) = calloc(36, sizeof(double (*) (double)));
-  double (**sigmaJ1_mat) (double) = calloc(36, sizeof(double (*) (double)));
-  double (**sigmaJ2_mat) (double) = calloc(36, sizeof(double (*) (double)));
-  double (**sigmaJ3_mat) (double) = calloc(36, sizeof(double (*) (double)));
-  double (**sigmaJ4_mat) (double) = calloc(36, sizeof(double (*) (double)));
-  double (**sigmaJ5_mat) (double) = calloc(36, sizeof(double (*) (double)));
+  int num_j = 6;
+  
+  double (**sigma_mat) (double) = calloc(36*num_j, sizeof(double (*) (double)));
 
 
   // J = 0 Matrix Elements
 
-  sigmaJ0_mat[1] = sigmaJ0_1p1_1s1;
-  sigmaJ0_mat[6] = sigmaJ0_1p1_1s1;
+  sigma_mat[1] = sigmaJ0_1p1_1s1;
+  sigma_mat[6] = sigmaJ0_1p1_1s1;
 
-  sigmaJ0_mat[9] = sigmaJ0_2s1_1p1;
-  sigmaJ0_mat[19] = sigmaJ0_2s1_1p1;
+  sigma_mat[9] = sigmaJ0_2s1_1p1;
+  sigma_mat[19] = sigmaJ0_2s1_1p1;
 
-  sigmaJ0_mat[16] = sigmaJ0_1d3_1p3;
-  sigmaJ0_mat[26] = sigmaJ0_1d3_1p3;
+  sigma_mat[16] = sigmaJ0_1d3_1p3;
+  sigma_mat[26] = sigmaJ0_1d3_1p3;
 
 
   // J = 1 Matrix Elements
 
-  sigmaJ1_mat[0] = sigmaJ1_1s1_1s1;
+  sigma_mat[0 + 36] = sigmaJ1_1s1_1s1;
 
-  sigmaJ1_mat[7] = sigmaJ1_1p1_1p1;
+  sigma_mat[7 + 36] = sigmaJ1_1p1_1p1;
 
-  sigmaJ1_mat[8] = sigmaJ1_1p3_1p1;
-  sigmaJ1_mat[13] = sigmaJ1_1p3_1p1;
+  sigma_mat[8 + 36] = sigmaJ1_1p3_1p1;
+  sigma_mat[13 + 36] = sigmaJ1_1p3_1p1;
 
-   sigmaJ1_mat[14] = sigmaJ1_1p3_1p3;
+  sigma_mat[14 + 36] = sigmaJ1_1p3_1p3;
  
-  sigmaJ1_mat[3] = sigmaJ1_2s1_1s1;
-  sigmaJ1_mat[18] = sigmaJ1_2s1_1s1;
+  sigma_mat[3 + 36] = sigmaJ1_2s1_1s1;
+  sigma_mat[18 + 36] = sigmaJ1_2s1_1s1;
  
-   sigmaJ1_mat[4] = sigmaJ1_1d3_1s1;
-    sigmaJ1_mat[24] = sigmaJ1_1d3_1s1;
+  sigma_mat[4 + 36] = sigmaJ1_1d3_1s1;
+  sigma_mat[24 + 36] = sigmaJ1_1d3_1s1;
 
-   sigmaJ1_mat[21] = sigmaJ1_2s1_2s1;
+  sigma_mat[21 + 36] = sigmaJ1_2s1_2s1;
  
-   sigmaJ1_mat[22] = sigmaJ1_1d3_2s1;
-   sigmaJ1_mat[27] = sigmaJ1_1d3_2s1;
+  sigma_mat[22 + 36] = sigmaJ1_1d3_2s1;
+  sigma_mat[27 + 36] = sigmaJ1_1d3_2s1;
 
-  sigmaJ1_mat[28] = sigmaJ1_1d3_1d3;
+  sigma_mat[28 + 36] = sigmaJ1_1d3_1d3;
   
- sigmaJ1_mat[34] = sigmaJ1_1d5_1d3;
- sigmaJ1_mat[29] = sigmaJ1_1d5_1d3;
+  sigma_mat[34 + 36] = sigmaJ1_1d5_1d3;
+  sigma_mat[29 + 36] = sigmaJ1_1d5_1d3;
 
-  sigmaJ1_mat[35] = sigmaJ1_1d5_1d5;
+  sigma_mat[35 + 36] = sigmaJ1_1d5_1d5;
 
 // J = 2 matrix elements
 
-   sigmaJ2_mat[12] = sigmaJ2_1p3_1s1;
- sigmaJ2_mat[2] = sigmaJ2_1p3_1s1;
+  sigma_mat[12 + 2*36] = sigmaJ2_1p3_1s1;
+  sigma_mat[2 + 2*36] = sigmaJ2_1p3_1s1;
 
-  sigmaJ2_mat[15] = sigmaJ2_2s1_1p3;
-  sigmaJ2_mat[20] = sigmaJ2_2s1_1p3;
+  sigma_mat[15 + 2*36] = sigmaJ2_2s1_1p3;
+  sigma_mat[20 + 2*36] = sigmaJ2_2s1_1p3;
 
-   sigmaJ2_mat[25] = sigmaJ2_1d3_1p1;
- sigmaJ2_mat[10] = sigmaJ2_1d3_1p1;
+  sigma_mat[25 + 2*36] = sigmaJ2_1d3_1p1;
+  sigma_mat[10 + 2*36] = sigmaJ2_1d3_1p1;
 
-  sigmaJ2_mat[16] = sigmaJ2_1d3_1p3;
-  sigmaJ2_mat[26] = sigmaJ2_1d3_1p3;
+  sigma_mat[16 + 2*36] = sigmaJ2_1d3_1p3;
+  sigma_mat[26 + 2*36] = sigmaJ2_1d3_1p3;
 
-   sigmaJ2_mat[31] = sigmaJ2_1d5_1p1;
- sigmaJ2_mat[11] = sigmaJ2_1d5_1p1;
+  sigma_mat[31 + 2*36] = sigmaJ2_1d5_1p1;
+  sigma_mat[11 + 2*36] = sigmaJ2_1d5_1p1;
 
-   sigmaJ2_mat[17] = sigmaJ2_1d5_1p3;
- sigmaJ2_mat[32] = sigmaJ2_1d5_1p3;
+  sigma_mat[17 + 2*36] = sigmaJ2_1d5_1p3;
+  sigma_mat[32 + 2*36] = sigmaJ2_1d5_1p3;
 
 // J = 3 matrix elements
 
-  sigmaJ3_mat[14] = sigmaJ3_1p3_1p3;
+  sigma_mat[14 + 3*36] = sigmaJ3_1p3_1p3;
 
-   sigmaJ3_mat[30] = sigmaJ3_1d5_1s1;
- sigmaJ3_mat[5] = sigmaJ3_1d5_1s1;
+  sigma_mat[30 + 3*36] = sigmaJ3_1d5_1s1;
+  sigma_mat[5 + 3*36] = sigmaJ3_1d5_1s1;
 
-  sigmaJ3_mat[28] = sigmaJ3_1d3_1d3;
+  sigma_mat[28 + 3*36] = sigmaJ3_1d3_1d3;
 
-   sigmaJ3_mat[33] = sigmaJ3_1d5_2s1;
- sigmaJ3_mat[23] = sigmaJ3_1d5_2s1;
+  sigma_mat[33 + 3*36] = sigmaJ3_1d5_2s1;
+  sigma_mat[23 + 3*36] = sigmaJ3_1d5_2s1;
 
-   sigmaJ3_mat[34] = sigmaJ3_1d5_1d3;
- sigmaJ3_mat[29] = sigmaJ3_1d5_1d3;
+  sigma_mat[34 + 3*36] = sigmaJ3_1d5_1d3;
+  sigma_mat[29 + 3*36] = sigmaJ3_1d5_1d3;
 
-  sigmaJ3_mat[35] = sigmaJ3_1d5_1d5;
+  sigma_mat[35 + 3*36] = sigmaJ3_1d5_1d5;
 
 // J = 4 matrix elements
 
-   sigmaJ4_mat[17] = sigmaJ4_1d5_1p3;
-   sigmaJ4_mat[32] = sigmaJ4_1d5_1p3;
+   sigma_mat[17 + 4*36] = sigmaJ4_1d5_1p3;
+   sigma_mat[32 + 4*36] = sigmaJ4_1d5_1p3;
 
 // J = 5 matrix elements
   
-  sigmaJ5_mat[35] = sigmaJ5_1d5_1d5;
+  sigma_mat[35 + 5*36] = sigmaJ5_1d5_1d5;
 
 
 //  for (int i = 0; i < 300; i++) {
@@ -185,7 +180,7 @@ void mu2e() {
 //  printf("Test: %g\n", sigmaJ5_1d5_1d5(2.0));
   in_file = fopen("al27-al27_core_J0_T0_0_0.dens", "r");
 
-
+  int j_op = 0;
   float density;
   mat = 0.0;
   int in1p, ij1p, in2p, ij2p, ij12p, it12p, in1, ij1, in2, ij2, ij12, it12;
@@ -271,99 +266,27 @@ void mu2e() {
     }
     if (t12 != t12p) {continue;}
     // Compute J = 0 operators
-    double mat_j0 = 0;
-    if (sigmaJ0_mat[i1p + i1*6] != NULL && sigmaJ0_mat[i2p + i2*6] != NULL) {
-      double phase = 1;
-      if (i1 > i1p) {phase *= pow(-1.0, j1p - j1);}
-      if (i2 > i2p) {phase *= pow(-1.0, j2p - j2);}
-      mat_j0 += phase*nine_j(j1p, j1, 0, j2p, j2, 0, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ0_mat[i1p + i1*6], sigmaJ0_mat[i2p + i2*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+    double mat_k1k2 = 0.0;
+    for (int k1 = 0; k1 < 6; k1++) {
+      for (int k2 = 0; k2 < 6; k2++) {
+        double cg_fact = clebsch_gordan(k1, k2, j_op, 0.0, 0.0, 0.0);
+        if (cg_fact == 0.0) {continue;}
+        if (sigma_mat[i1p + i1*6 + k1*36] != NULL && sigma_mat[i2p + i2*6 + k2*36] != NULL) {
+          double phase = 1;
+          if (i1 > i1p) {phase *= pow(-1.0, j1p - j1);}
+          if (i2 > i2p) {phase *= pow(-1.0, j2p - j2);}
+          mat_k1k2 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j1, k1, j2p, j2, k2, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigma_mat[i1p + i1*6 + k1*36], sigma_mat[i2p + i2*6 + k2*36], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+        }
+        if (sigma_mat[i1p + i2*6 + k1*36] != NULL && sigma_mat[i2p + i1*6 + k2*36] != NULL) {
+          double phase = pow(-1.0, j1 + j2 - j12 - t12);
+          if (i2 > i1p) {phase *= pow(-1.0, j1p - j2);}
+          if (i1 > i2p) {phase *= pow(-1.0, j2p - j1);}
+          mat_k1k2 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j2, k1, j2p, j1, k2, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigma_mat[i1p + i2*6 + k1*36], sigma_mat[i2p + i1*6 + k2*36], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+        }
+      }
     } 
-    if (sigmaJ0_mat[i1p + i2*6] != NULL && sigmaJ0_mat[i2p + i1*6] != NULL) {
-      double phase = pow(-1.0, j1 + j2 - j12 - t12);
-      if (i2 > i1p) {phase *= pow(-1.0,j1p - j2);}
-      if (i1 > i2p) {phase *= pow(-1.0,j2p - j1);}
-      mat_j0 += phase*nine_j(j1p, j2, 0, j2p, j1, 0, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ0_mat[i1p + i2*6], sigmaJ0_mat[i2p + i1*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    // Compute J = 1 operators
-    double mat_j1 = 0;
-    if (sigmaJ1_mat[i1p + i1*6] != NULL && sigmaJ1_mat[i2p + i2*6] != NULL) {
-      double phase = 1;
-      if (i1 > i1p) {phase *= pow(-1.0,j1p - j1);}
-      if (i2 > i2p) {phase *= pow(-1.0,j2p - j2);}
-      mat_j1 += phase*nine_j(j1p, j1, 1, j2p, j2, 1, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ1_mat[i1p + i1*6], sigmaJ1_mat[i2p + i2*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    if (sigmaJ1_mat[i1p + i2*6] != NULL && sigmaJ1_mat[i2p + i1*6] != NULL) {
-      double phase = pow(-1.0, j1 + j2 - j12 - t12);
-      if (i2 > i1p) {phase *= pow(-1.0,j1p - j2);}
-      if (i1 > i2p) {phase *= pow(-1.0,j2p - j1);}
-      mat_j1 += phase*nine_j(j1p, j2, 1, j2p, j1, 1, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ1_mat[i1p + i2*6], sigmaJ1_mat[i2p + i1*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    mat_j1 *= 3.0*clebsch_gordan(1.0, 1.0, 0.0, 0.0, 0.0, 0.0);
-    // Compute J = 2 operators
-    double mat_j2 = 0;
-    if (sigmaJ2_mat[i1p + i1*6] != NULL && sigmaJ2_mat[i2p + i2*6] != NULL) {
-      double phase = 1;
-      if (i1 > i1p) {phase *= pow(-1.0,j1p - j1);}
-      if (i2 > i2p) {phase *= pow(-1.0,j2p - j2);}
-      mat_j2 += phase*nine_j(j1p, j1, 2, j2p, j2, 2, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ2_mat[i1p + i1*6], sigmaJ2_mat[i2p + i2*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    if (sigmaJ2_mat[i1p + i2*6] != NULL && sigmaJ2_mat[i2p + i1*6] != NULL) {
-      double phase = pow(-1.0, j1 + j2 - j12 - t12);
-      if (i2 > i1p) {phase *= pow(-1.0,j1p - j2);}
-      if (i1 > i2p) {phase *= pow(-1.0,j2p - j1);}
-      mat_j2 += phase*nine_j(j1p, j2, 2, j2p, j1, 2, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ2_mat[i1p + i2*6], sigmaJ2_mat[i2p + i1*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    mat_j2 *= 5.0*clebsch_gordan(2.0, 2.0, 0.0, 0.0, 0.0, 0.0);
-    // Compute J = 3 operators
-    double mat_j3 = 0;
-    if (sigmaJ3_mat[i1p + i1*6] != NULL && sigmaJ3_mat[i2p + i2*6] != NULL) {
-      double phase = 1;
-      if (i1 > i1p) {phase *= pow(-1.0,j1p - j1);}
-      if (i2 > i2p) {phase *= pow(-1.0,j2p - j2);}
-      mat_j3 += phase*nine_j(j1p, j1, 3, j2p, j2, 3, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ3_mat[i1p + i1*6], sigmaJ3_mat[i2p + i2*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    if (sigmaJ3_mat[i1p + i2*6] != NULL && sigmaJ3_mat[i2p + i1*6] != NULL) {
-      double phase = pow(-1.0, j1 + j2 - j12 - t12);
-      if (i2 > i1p) {phase *= pow(-1.0,j1p - j2);}
-      if (i1 > i2p) {phase *= pow(-1.0,j2p - j1);}
-      mat_j3 += phase*nine_j(j1p, j2, 3, j2p, j1, 3, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ3_mat[i1p + i2*6], sigmaJ3_mat[i2p + i1*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    mat_j3 *= 7.0*clebsch_gordan(3.0, 3.0, 0.0, 0.0, 0.0, 0.0);
-
-  //printf("%d %d %d %d %g %g %g %g %g %g\n", i1p, i1, i2p, i2, mat_j0, mat_j1, mat_j2, mat_j3, mat_j4, mat_j5);
-    // Compute J = 4 operators
-    double mat_j4 = 0;
-    if (sigmaJ4_mat[i1p + i1*6] != NULL && sigmaJ4_mat[i2p + i2*6] != NULL) {
-      double phase = 1;
-      if (i1 > i1p) {phase *= pow(-1.0,j1p - j1);}
-      if (i2 > i2p) {phase *= pow(-1.0,j2p - j2);}
-      mat_j4 += phase*nine_j(j1p, j1, 4, j2p, j2, 4, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ4_mat[i1p + i1*6], sigmaJ4_mat[i2p + i2*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    if (sigmaJ4_mat[i1p + i2*6] != NULL && sigmaJ4_mat[i2p + i1*6] != NULL) {
-      double phase = pow(-1.0, j1 + j2 - j12 - t12);
-      if (i2 > i1p) {phase *= pow(-1.0,j1p - j2);}
-      if (i1 > i2p) {phase *= pow(-1.0,j2p - j1);}
-      mat_j4 += phase*nine_j(j1p, j2, 4, j2p, j1, 4, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ4_mat[i1p + i2*6], sigmaJ4_mat[i2p + i1*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    mat_j4 *= 9.0*clebsch_gordan(4.0, 4.0, 0.0, 0.0, 0.0, 0.0);
-    // Compute J = 5 operators
-    double mat_j5 = 0;
-    if (sigmaJ5_mat[i1p + i1*6] != NULL && sigmaJ5_mat[i2p + i2*6] != NULL) {
-      double phase = 1;
-      if (i1 > i1p) {phase *= pow(-1.0,j1p - j1);}
-      if (i2 > i2p) {phase *= pow(-1.0,j2p - j2);}
-      mat_j5 += phase*nine_j(j1p, j1, 5, j2p, j2, 5, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ5_mat[i1p + i1*6], sigmaJ5_mat[i2p + i2*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    if (sigmaJ5_mat[i1p + i2*6] != NULL && sigmaJ5_mat[i2p + i1*6] != NULL) {
-      double phase = pow(-1.0, j1 + j2 - j12 - t12);
-      if (i2 > i1p) {phase *= pow(-1.0,j1p - j2);}
-      if (i1 > i2p) {phase *= pow(-1.0,j2p - j1);}
-      mat_j5 += phase*nine_j(j1p, j2, 5, j2p, j1, 5, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigmaJ5_mat[i1p + i2*6], sigmaJ5_mat[i2p + i1*6], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
-    } 
-    mat_j5 *= 11.0*clebsch_gordan(5.0, 5.0, 0.0, 0.0, 0.0, 0.0);
-//   double mat_tot = density*(mat_j5)*6.0*pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*sqrt(2*j12p + 1.0)*sqrt(2*j12 + 1);
-
-   double mat_tot = density*(mat_j0 + mat_j1 + mat_j2 + mat_j3 + mat_j4 + mat_j5)*6.0*pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*sqrt(2*j12p + 1.0)*sqrt(2*j12 + 1);
+    
+   double mat_tot = density*mat_k1k2*6.0*pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*sqrt(2*j12p + 1.0)*sqrt(2*j12 + 1);
   //  if (mat != 0.0) {printf("n1p: %d j1p: %g n2p: %d j2p: %g n1: %d j1: %g n2: %d j2: %g\n", in1p, j1p, in2p, j2p, in1, j1, in2, j2);}
    if ((in1 == in2) && (j1 == j2)) {mat_tot *= 1.0/sqrt(2.0);}
    if ((in1p == in2p) && (j1p == j2p)) {mat_tot *= 1.0/sqrt(2.0);}
