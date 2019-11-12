@@ -6,8 +6,10 @@ void mu2e() {
   in_file = fopen("dirac_bound_mu.dat", "r");
   int np_mu = 359;
   int np_e = 2000;
-  double a0mu = 255.9; // [fm]
-  double a0e = 52917.7; // [fm]
+  double j_nuc = 5.0/2.0; // nuclear spin
+  double a0e = 52917.77211; // [fm]
+  double a0mu = a0e*(M_ELECTRON/M_MUON); // [fm]
+  double E_hartree = 27.211386*pow(10, -6); //[MeV]
   double x_min = 0.01; // [fm]
   double x_max = 15.0; // [fm]
   double tol = 0.00001; // [fm]
@@ -27,17 +29,18 @@ void mu2e() {
     f_arr_mu[i] = f/sqrt(a0mu);
   }
   fclose(in_file);
- 
+  // Load k = -1 electron wavefunction 
   in_file = fopen("dirac_free_e.dat", "r");
   
   for (int i = 0; i < np_e; i++) {
     double r, f, g;
     fscanf(in_file, "%lf %lf %lf\n", &r, &g, &f);
     r_arr_e[i] = a0e*r;
-    g_arr_e[i] = g/sqrt(a0e)*sqrt(2.0*ALPHA_FS)/sqrt(27.2114*pow(10, -6));
-    f_arr_e[i] = f/sqrt(a0e)*sqrt(2.0*ALPHA_FS)/sqrt(27.2114*pow(10, -6));
+    g_arr_e[i] = g/sqrt(a0e)*sqrt(2.0*ALPHA_FS)/sqrt(E_hartree);
+    f_arr_e[i] = f/sqrt(a0e)*sqrt(2.0*ALPHA_FS)/sqrt(E_hartree);
   }
   fclose(in_file);
+
 
 
   gsl_interp_accel *acc1 = gsl_interp_accel_alloc();
@@ -47,25 +50,102 @@ void mu2e() {
 
   gsl_spline *g_mu = gsl_spline_alloc(gsl_interp_cspline, np_mu);
   gsl_spline *f_mu = gsl_spline_alloc(gsl_interp_cspline, np_mu);
-  gsl_spline *g_e = gsl_spline_alloc(gsl_interp_cspline, np_e);
-  gsl_spline *f_e = gsl_spline_alloc(gsl_interp_cspline, np_e);
+  gsl_spline *g_e_m1 = gsl_spline_alloc(gsl_interp_cspline, np_e);
+  gsl_spline *f_e_m1 = gsl_spline_alloc(gsl_interp_cspline, np_e);
 
   gsl_spline_init(g_mu, r_arr_mu, g_arr_mu, np_mu);
   gsl_spline_init(f_mu, r_arr_mu, f_arr_mu, np_mu);
-  gsl_spline_init(g_e, r_arr_e, g_arr_e, np_e);
-  gsl_spline_init(f_e, r_arr_e, f_arr_e, np_e);
 
-  double mat = sqrt(2.0)*(1.799*RombergSplineFunIntegrator(&lep_int_w1,&MJ0_contact_2s1_2s1, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001) + 1.21246*RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_1d3_1d3, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001) + 8.97138*RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_1d5_1d5, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001));
-  mat *= -32.0*M_PI*clebsch_gordan(0.5, 0.5, 0, -0.5, 0.5, 0)/sqrt(6.0);
-  double core_mat = 2.0*sqrt(2.0)*(sqrt(2.0)*RombergSpline41Integrator(&core1, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001) + sqrt(2.0)*RombergSpline41Integrator(&core2, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001) + 2*RombergSpline41Integrator(&core3, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001));
+  gsl_spline_init(g_e_m1, r_arr_e, g_arr_e, np_e);
+  gsl_spline_init(f_e_m1, r_arr_e, f_arr_e, np_e);
 
-  core_mat *= 32.0*M_PI/(2.0*sqrt(M_PI))*sqrt(105.657);
+  // Load k = +1 electron wavefunction 
+  in_file = fopen("dirac_e_k1.dat", "r");
+  
+  for (int i = 0; i < np_e; i++) {
+    double r, f, g;
+    fscanf(in_file, "%lf %lf %lf\n", &r, &g, &f);
+    r_arr_e[i] = a0e*r;
+    g_arr_e[i] = g/sqrt(a0e)*sqrt(2.0*ALPHA_FS)/sqrt(E_hartree);
+    f_arr_e[i] = f/sqrt(a0e)*sqrt(2.0*ALPHA_FS)/sqrt(E_hartree);
+  }
+  fclose(in_file);
 
-  printf("T = 0: %g\n", mat + core_mat);
-  mat = sqrt(6.0)*(0.33169*RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_2s1_2s1, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001) + 0.17295*RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_1d3_1d3, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001) + 0.66729*RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_1d5_1d5, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001));
+  gsl_spline *g_e_p1 = gsl_spline_alloc(gsl_interp_cspline, np_e);
+  gsl_spline *f_e_p1 = gsl_spline_alloc(gsl_interp_cspline, np_e);
+  gsl_spline_init(g_e_p1, r_arr_e, g_arr_e, np_e);
+  gsl_spline_init(f_e_p1, r_arr_e, f_arr_e, np_e);
 
-  mat *= 32.0*M_PI*clebsch_gordan(0.5, 0.5, 1, -0.5, 0.5, 0)/sqrt(3.0*(2*5/2+1));
-  printf("T = 1: %g\n", mat);
+  double (**m_contact_mat) (double) = calloc(36*6, sizeof(double (*) (double)));
+
+  m_contact_mat[0] = MJ0_contact_1s1_1s1;
+  m_contact_mat[7] = MJ0_contact_1p1_1p1;
+  m_contact_mat[14] = MJ0_contact_1p3_1p3;
+  m_contact_mat[21] = MJ0_contact_2s1_2s1;
+  m_contact_mat[28] = MJ0_contact_1d3_1d3;
+  m_contact_mat[35] = MJ0_contact_1d5_1d5;
+
+  // Compute coherent J = 0 T = 0 contact operator  
+  in_file = fopen("al27-al27_core_1bdy_J0_T0_0_0.dens", "r");
+  int j_op = 0;
+  int t_op = 0;
+  float density;
+  double mat_w1 = 0.0;
+  double mat = 0.0;
+  double mat_w4 = 0.0;
+  int in1, ij1, in1p, ij1p;
+  int i1, i1p;
+  while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &in1p, &ij1p, &in1, &ij1, &density) == 5) {
+    // The angular momentum are doubled in the file
+    double j1 = ij1/2.0;
+    double j1p = ij1p/2.0;
+   
+    i1 = get_shell_index(in1, ij1);
+    i1p = get_shell_index(in1p, ij1p);
+    if (m_contact_mat[i1p + 6*i1] != NULL) {
+  // Compute coherent J = 0, T = 0 contact operator
+      mat_w1 += sqrt(2.0)*density*RombergSplineFunIntegrator(&lep_int_w1, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_m1, f_e_m1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
+      mat_w4 += sqrt(2.0)*density*RombergSplineFunIntegrator(&lep_int_p_w4, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
+
+    }
+  }
+  fclose(in_file);
+  mat_w1 *= 32.0*M_PI/sqrt(2.0*(2*j_nuc + 1));
+  mat_w4 *= 32.0*M_PI/sqrt(2.0*(2*j_nuc + 1));
+
+  printf("T = 0: I1: %g I4: %g\n", mat_w1, mat_w4);
+
+
+
+  // Compute non-coherent J = 0, T = 1 contact operator
+  in_file = fopen("al27-al27_core_1bdy_J0_T1_0_0.dens", "r");
+  j_op = 0;
+  t_op = 1.0;
+  mat_w1 = 0.0;
+  mat_w4 = 0.0;
+  while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &in1p, &ij1p, &in1, &ij1, &density) == 5) {
+    // The angular momentum are doubled in the file
+    double j1 = ij1/2.0;
+    double j1p = ij1p/2.0;
+   
+    i1 = get_shell_index(in1, ij1);
+    i1p = get_shell_index(in1p, ij1p);
+    if (m_contact_mat[i1p + 6*i1] != NULL) {
+  // Compute coherent J = 0, T = 0 contact operator
+      mat_w1 += sqrt(6.0)*density*RombergSplineFunIntegrator(&lep_int_w1, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_m1, f_e_m1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
+      mat_w4 += sqrt(6.0)*density*RombergSplineFunIntegrator(&lep_int_p_w4, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
+
+    }
+  }
+  fclose(in_file);
+
+  mat_w1 *= 32.0*M_PI*clebsch_gordan(0.5, 0.5, 1, -0.5, 0.5, 0)/sqrt((2*t_op + 1)*(2*5/2+1));
+  mat_w4 *= 32.0*M_PI*clebsch_gordan(0.5, 0.5, 1, -0.5, 0.5, 0)/sqrt((2*t_op + 1)*(2*5/2+1));
+
+  printf("J= 0 T = 1 contact I1: %g I4: %g\n", mat_w1, mat_w4);
+
+
+
 
   /* One matrix for each J of matrix elements
      Single Particle states are indexed as
@@ -79,7 +159,6 @@ void mu2e() {
      1d3/2 |  4
      1d5/2 |  5
  */
-  printf("1-body contact: %g %g %g\n", RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_2s1_2s1, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0001, 30.0, 0.00001), RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_1d3_1d3, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0001, 30.0, 0.00001), RombergSplineFunIntegrator(&lep_int_w1, &MJ0_contact_1d5_1d5, g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, 0.0001, 30.0, 0.00001));
 
   int num_j = 6;
   
@@ -173,18 +252,42 @@ void mu2e() {
   
   sigma_mat[35 + 5*36] = sigmaJ5_1d5_1d5;
 
+// Compute one-pion exchange 
+  in_file = fopen("al27-al27_core_1bdy_J1_T1_0_0.dens", "r");
+  j_op = 1.0;
+  t_op = 1.0;
+  mat_w1 = 0.0;
+  mat_w4 = 0.0;
+  while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &in1p, &ij1p, &in1, &ij1, &density) == 5) {
+    // The angular momentum are doubled in the file
+    double j1 = ij1/2.0;
+    double j1p = ij1p/2.0;
+   
+    i1 = get_shell_index(in1, ij1);
+    i1p = get_shell_index(in1p, ij1p);
+    if (sigma_mat[i1p + 6*i1 + 36] != NULL) {
+      mat_w1 += sqrt(6.0)*density*RombergSplineFunIntegrator(&lep_int_s_w3, sigma_mat[i1p + 6*i1 + 36], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+      mat_w4 += sqrt(6.0)*density*RombergSplineFunIntegrator(&lep_int_s_w4, sigma_mat[i1p + 6*i1 + 36], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, x_min, x_max, tol);
 
-//  for (int i = 0; i < 300; i++) {
-//    printf("%g, %g\n", i/20.0, sigmaJ5_1d5_1d5(i/20.0 + 0.00001));
-//  }
-//  printf("Test: %g\n", sigmaJ5_1d5_1d5(2.0));
+    }
+  }
+  fclose(in_file);
+
+  mat_w1 *= 45.42*G_AXIAL*32.0*M_PI*clebsch_gordan(0.5, 0.5, 1, -0.5, 0.5, 0.0)/sqrt((2*t_op + 1)*(2*j_op + 1)*(2*5/2+1));
+  mat_w4 *= 45.42*G_AXIAL*32.0*M_PI*clebsch_gordan(0.5, 0.5, 1, -0.5, 0.5, 0.0)/sqrt((2*t_op + 1)*(2*j_op + 1)*(2*5/2+1));
+
+  printf("1-Pion: J = 1 T = 0: I3: %g I4: %g\n", mat_w1, mat_w4);
+
+
+
+// Compute two-body operators
   in_file = fopen("al27-al27_core_J0_T0_0_0.dens", "r");
 
-  int j_op = 0;
-  float density;
-  mat = 0.0;
-  int in1p, ij1p, in2p, ij2p, ij12p, it12p, in1, ij1, in2, ij2, ij12, it12;
-  int i1, i2, i1p, i2p;
+  j_op = 0;
+  mat_w1 = 0.0;
+  mat_w4 = 0.0;
+  int in2p, ij2p, ij12p, it12p, in2, ij2, ij12, it12;
+  int i2, i2p;
   while(fscanf(in_file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f\n", &in1p, &ij1p, &in2p, &ij2p, &ij12p, &it12p, &in1, &ij1, &in2, &ij2, &ij12, &it12, &density) == 13) {
 
     // The angular momentum are doubled in the file
@@ -196,77 +299,16 @@ void mu2e() {
     double j2p = ij2p/2.0;
     double j12p = ij12p/2.0;
     double t12p = it12p/2.0;
-    if (in1p == 0) {
-      i1p = 0;
-    } else if (in1p == 1) {
-      if (ij1p == 1) {
-        i1p = 1;
-      } else if (ij1p == 3) {
-        i1p = 2;
-      }
-    } else if (in1p == 2) {
-      if (ij1p == 1) {
-        i1p = 3;
-      } else if (ij1p == 3) {
-        i1p = 4;
-      } else if (ij1p == 5) {
-        i1p = 5;
-      }
-    }
-    if (in2p == 0) {
-      i2p = 0;
-    } else if (in2p == 1) {
-      if (ij2p == 1) {
-        i2p = 1;
-      } else if (ij2p == 3) {
-        i2p = 2;
-      }
-    } else if (in2p == 2) {
-      if (ij2p == 1) {
-        i2p = 3;
-      } else if (ij2p == 3) {
-        i2p = 4;
-      } else if (ij2p == 5) {
-        i2p = 5;
-      }
-    }
-    if (in1 == 0) {
-      i1 = 0;
-    } else if (in1 == 1) {
-      if (ij1 == 1) {
-        i1 = 1;
-      } else if (ij1 == 3) {
-        i1 = 2;
-      }
-    } else if (in1 == 2) {
-      if (ij1 == 1) {
-        i1 = 3;
-      } else if (ij1 == 3) {
-        i1 = 4;
-      } else if (ij1 == 5) {
-        i1 = 5;
-      }
-    }
-    if (in2 == 0) {
-      i2 = 0;
-    } else if (in2 == 1) {
-      if (ij2 == 1) {
-        i2 = 1;
-      } else if (ij2 == 3) {
-        i2 = 2;
-      }
-    } else if (in2 == 2) {
-      if (ij2 == 1) {
-        i2 = 3;
-      } else if (ij2 == 3) {
-        i2 = 4;
-      } else if (ij2 == 5) {
-        i2 = 5;
-      }
-    }
+   
     if (t12 != t12p) {continue;}
+    i1 = get_shell_index(in1, ij1);
+    i2 = get_shell_index(in2, ij2);
+    i1p = get_shell_index(in1p, ij1p);
+    i2p = get_shell_index(in2p, ij2p);
+
     // Compute J = 0 operators
-    double mat_k1k2 = 0.0;
+    double mat_k1k2_w1 = 0.0;
+    double mat_k1k2_w4 = 0.0;
     for (int k1 = 0; k1 < 6; k1++) {
       for (int k2 = 0; k2 < 6; k2++) {
         double cg_fact = clebsch_gordan(k1, k2, j_op, 0.0, 0.0, 0.0);
@@ -275,31 +317,126 @@ void mu2e() {
           double phase = 1;
           if (i1 > i1p) {phase *= pow(-1.0, j1p - j1);}
           if (i2 > i2p) {phase *= pow(-1.0, j2p - j2);}
-          mat_k1k2 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j1, k1, j2p, j2, k2, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigma_mat[i1p + i1*6 + k1*36], sigma_mat[i2p + i2*6 + k2*36], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+          mat_k1k2_w1 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j1, k1, j2p, j2, k2, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigma_mat[i1p + i1*6 + k1*36], sigma_mat[i2p + i2*6 + k2*36], g_mu, f_mu, g_e_m1, f_e_m1, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+          mat_k1k2_w4 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j1, k1, j2p, j2, k2, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_p_w4, sigma_mat[i1p + i1*6 + k1*36], sigma_mat[i2p + i2*6 + k2*36], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+
         }
         if (sigma_mat[i1p + i2*6 + k1*36] != NULL && sigma_mat[i2p + i1*6 + k2*36] != NULL) {
           double phase = pow(-1.0, j1 + j2 - j12 - t12);
           if (i2 > i1p) {phase *= pow(-1.0, j1p - j2);}
           if (i1 > i2p) {phase *= pow(-1.0, j2p - j1);}
-          mat_k1k2 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j2, k1, j2p, j1, k2, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigma_mat[i1p + i2*6 + k1*36], sigma_mat[i2p + i1*6 + k2*36], g_mu, f_mu, g_e, f_e, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+          mat_k1k2_w1 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j2, k1, j2p, j1, k2, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_w1, sigma_mat[i1p + i2*6 + k1*36], sigma_mat[i2p + i1*6 + k2*36], g_mu, f_mu, g_e_m1, f_e_m1, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+          mat_k1k2_w4 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j2, k1, j2p, j1, k2, j12p, j12, 0)*RombergSpline2FunIntegrator(&lep_int2_p_w4, sigma_mat[i1p + i2*6 + k1*36], sigma_mat[i2p + i1*6 + k2*36], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+
         }
       }
     } 
     
-   double mat_tot = density*mat_k1k2*6.0*pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*sqrt(2*j12p + 1.0)*sqrt(2*j12 + 1);
+   double mat_tot_w1 = density*mat_k1k2_w1*6.0*pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*sqrt(2*j12p + 1.0)*sqrt(2*j12 + 1);
+   double mat_tot_w4 = density*mat_k1k2_w4*6.0*pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*sqrt(2*j12p + 1.0)*sqrt(2*j12 + 1);
+
   //  if (mat != 0.0) {printf("n1p: %d j1p: %g n2p: %d j2p: %g n1: %d j1: %g n2: %d j2: %g\n", in1p, j1p, in2p, j2p, in1, j1, in2, j2);}
-   if ((in1 == in2) && (j1 == j2)) {mat_tot *= 1.0/sqrt(2.0);}
-   if ((in1p == in2p) && (j1p == j2p)) {mat_tot *= 1.0/sqrt(2.0);}
-   mat += mat_tot;
+   if ((in1 == in2) && (j1 == j2)) {mat_tot_w1 *= 1.0/sqrt(2.0);
+                                    mat_tot_w4 *= 1.0/sqrt(2.0);}
+   if ((in1p == in2p) && (j1p == j2p)) {mat_tot_w1 *= 1.0/sqrt(2.0);
+                                        mat_tot_w4 *= 1.0/sqrt(2.0);}
+   mat_w1 += mat_tot_w1;
+   mat_w4 += mat_tot_w4;
   }
   fclose(in_file);
-  mat *= -1.0*1.0/4.0*64.0*113.06*pow(G_AXIAL, 2.0)/sqrt(4.0*M_PI)*(-1)*clebsch_gordan(0.5, 0.5, 0.0, -0.5, 0.5, 0.0)/sqrt(6.0);
-  printf("Final: %g\n", mat);
- 
+  mat_w1 *= -1.0*1.0/4.0*64.0*113.06*pow(G_AXIAL, 2.0)/sqrt(4.0*M_PI)*(-1)*clebsch_gordan(0.5, 0.5, 0.0, -0.5, 0.5, 0.0)/sqrt(6.0);
+  mat_w4 *= -1.0*1.0/4.0*64.0*113.06*pow(G_AXIAL, 2.0)/sqrt(4.0*M_PI)*(-1)*clebsch_gordan(0.5, 0.5, 0.0, -0.5, 0.5, 0.0)/sqrt(6.0);
 
+  printf("Two-body J = 0 T = 0: I1: %g I4: %g\n", mat_w1, mat_w4);
  
+  // Load k = +1 electron wavefunction 
+  in_file = fopen("dirac_e_k2.dat", "r");
+  
+  for (int i = 0; i < np_e; i++) {
+    double r, f, g;
+    fscanf(in_file, "%lf %lf %lf\n", &r, &g, &f);
+    r_arr_e[i] = a0e*r;
+    g_arr_e[i] = g/sqrt(a0e)*sqrt(2.0*ALPHA_FS)/sqrt(E_hartree);
+    f_arr_e[i] = f/sqrt(a0e)*sqrt(2.0*ALPHA_FS)/sqrt(E_hartree);
+  }
+  fclose(in_file);
+
+  gsl_spline *g_e_p2 = gsl_spline_alloc(gsl_interp_cspline, np_e);
+  gsl_spline *f_e_p2 = gsl_spline_alloc(gsl_interp_cspline, np_e);
+  gsl_spline_init(g_e_p2, r_arr_e, g_arr_e, np_e);
+  gsl_spline_init(f_e_p2, r_arr_e, f_arr_e, np_e);
+ 
+  // Compute J = 2 T = 0 Two-body operators
+  in_file = fopen("al27-al27_core_J2_T0_0_0.dens", "r");
+
+  j_op = 2;
+  mat_w1 = 0.0;
+  mat_w4 = 0.0;
+  while(fscanf(in_file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f\n", &in1p, &ij1p, &in2p, &ij2p, &ij12p, &it12p, &in1, &ij1, &in2, &ij2, &ij12, &it12, &density) == 13) {
+
+    // The angular momentum are doubled in the file
+    double j1 = ij1/2.0;
+    double j2 = ij2/2.0;
+    double j12 = ij12/2.0;
+    double t12 = it12/2.0;
+    double j1p = ij1p/2.0;
+    double j2p = ij2p/2.0;
+    double j12p = ij12p/2.0;
+    double t12p = it12p/2.0;
+   
+    if (t12 != t12p) {continue;}
+    i1 = get_shell_index(in1, ij1);
+    i2 = get_shell_index(in2, ij2);
+    i1p = get_shell_index(in1p, ij1p);
+    i2p = get_shell_index(in2p, ij2p);
+
+    // Compute J = 0 operators
+    double mat_k1k2_w1 = 0.0;
+    double mat_k1k2_w4 = 0.0;
+    for (int k1 = 0; k1 < 6; k1++) {
+      for (int k2 = 0; k2 < 6; k2++) {
+        double cg_fact = clebsch_gordan(k1, k2, j_op, 0.0, 0.0, 0.0);
+        if (cg_fact == 0.0) {continue;}
+        if (sigma_mat[i1p + i1*6 + k1*36] != NULL && sigma_mat[i2p + i2*6 + k2*36] != NULL) {
+          double phase = 1;
+          if (i1 > i1p) {phase *= pow(-1.0, j1p - j1);}
+          if (i2 > i2p) {phase *= pow(-1.0, j2p - j2);}
+          mat_k1k2_w1 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j1, k1, j2p, j2, k2, j12p, j12, j_op)*sqrt(2.0*j_op + 1.0)*RombergSpline2FunIntegrator(&lep_int2_w5, sigma_mat[i1p + i1*6 + k1*36], sigma_mat[i2p + i2*6 + k2*36], g_mu, f_mu, g_e_p2, f_e_p2, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+          mat_k1k2_w4 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j1, k1, j2p, j2, k2, j12p, j12, j_op)*sqrt(2.0*j_op + 1.0)*RombergSpline2FunIntegrator(&lep_int2_p_w4, sigma_mat[i1p + i1*6 + k1*36], sigma_mat[i2p + i2*6 + k2*36], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+
+        }
+        if (sigma_mat[i1p + i2*6 + k1*36] != NULL && sigma_mat[i2p + i1*6 + k2*36] != NULL) {
+          double phase = pow(-1.0, j1 + j2 - j12 - t12);
+          if (i2 > i1p) {phase *= pow(-1.0, j1p - j2);}
+          if (i1 > i2p) {phase *= pow(-1.0, j2p - j1);}
+          mat_k1k2_w1 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j2, k1, j2p, j1, k2, j12p, j12, j_op)*sqrt(2.0*j_op + 1)*RombergSpline2FunIntegrator(&lep_int2_w5, sigma_mat[i1p + i2*6 + k1*36], sigma_mat[i2p + i1*6 + k2*36], g_mu, f_mu, g_e_p2, f_e_p2, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+          mat_k1k2_w4 += phase*cg_fact*sqrt((2*k1 + 1)*(2*k2 + 1))*nine_j(j1p, j2, k1, j2p, j1, k2, j12p, j12, j_op)*sqrt(2.0*j_op + 1.0)*RombergSpline2FunIntegrator(&lep_int2_p_w4, sigma_mat[i1p + i2*6 + k1*36], sigma_mat[i2p + i1*6 + k2*36], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, x_min, x_max, tol);
+
+        }
+      }
+    } 
+    
+   double mat_tot_w1 = density*mat_k1k2_w1*6.0*pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*sqrt(2*j12p + 1.0)*sqrt(2*j12 + 1);
+   double mat_tot_w4 = density*mat_k1k2_w4*6.0*pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*sqrt(2*j12p + 1.0)*sqrt(2*j12 + 1);
+
+  //  if (mat != 0.0) {printf("n1p: %d j1p: %g n2p: %d j2p: %g n1: %d j1: %g n2: %d j2: %g\n", in1p, j1p, in2p, j2p, in1, j1, in2, j2);}
+   if ((in1 == in2) && (j1 == j2)) {mat_tot_w1 *= 1.0/sqrt(2.0);
+                                    mat_tot_w4 *= 1.0/sqrt(2.0);}
+   if ((in1p == in2p) && (j1p == j2p)) {mat_tot_w1 *= 1.0/sqrt(2.0);
+                                        mat_tot_w4 *= 1.0/sqrt(2.0);}
+   mat_w1 += mat_tot_w1;
+   mat_w4 += mat_tot_w4;
+  }
+  fclose(in_file);
+  mat_w1 *= -1.0*1.0/4.0*64.0*113.06*pow(G_AXIAL, 2.0)/sqrt(4.0*M_PI)*(-1)*clebsch_gordan(0.5, 0.5, 0.0, -0.5, 0.5, 0.0)/sqrt(6.0*(2.0*j_op + 1));
+  mat_w4 *= -1.0*1.0/4.0*64.0*113.06*pow(G_AXIAL, 2.0)/sqrt(4.0*M_PI)*(-1)*clebsch_gordan(0.5, 0.5, 0.0, -0.5, 0.5, 0.0)/sqrt(6.0*(2.0*j_op + 1));
+
+  printf("Two-body J = 2 T = 0: I1: %g I4: %g\n", mat_w1, mat_w4);
+
   return;
 }
+
+
 
 double wfn_sq(gsl_spline* g_spline, gsl_spline* f_spline, gsl_interp_accel *acc, double r) {
   double psi2 = pow(gsl_spline_eval(g_spline, r, acc), 2.0) + pow(gsl_spline_eval(f_spline, r, acc), 2.0);
@@ -309,28 +446,28 @@ double wfn_sq(gsl_spline* g_spline, gsl_spline* f_spline, gsl_interp_accel *acc,
 
 double newlep1(gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
 
-double glep = 1.0/(3.0*sqrt(2.0))/pow(105.658*b_osc(27)/197.3, 3.0)*exp(-pow(r/b_osc(27), 2.0))*pow(3.0 - 2*pow(r/b_osc(27) , 2.0), 2.0)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+double glep = 1.0/(3.0*sqrt(2.0))/pow(M_MUON*b_osc(27)/HBARC, 3.0)*exp(-pow(r/b_osc(27), 2.0))*pow(3.0 - 2*pow(r/b_osc(27) , 2.0), 2.0)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
 
   return glep;
 }
 
 double core1(gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
 
-double glep = sqrt(2.0)/pow(105.658*b_osc(27)/197.3, 3.0)*exp(-pow(r/b_osc(27), 2.0))*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+double glep = sqrt(2.0)/pow(M_MUON*b_osc(27)/HBARC, 3.0)*exp(-pow(r/b_osc(27), 2.0))*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
 
   return glep;
 }
 
 double core2(gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
 
-double glep = 2.0*sqrt(2.0)/3.0/pow(105.658*b_osc(27)/197.3, 3.0)*exp(-pow(r/b_osc(27), 2.0))*pow(r/b_osc(27), 2.0)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+double glep = 2.0*sqrt(2.0)/3.0/pow(M_MUON*b_osc(27)/HBARC, 3.0)*exp(-pow(r/b_osc(27), 2.0))*pow(r/b_osc(27), 2.0)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
 
   return glep;
 }
 
 double core3(gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
 
-double glep = 4.0/3.0/pow(105.658*b_osc(27)/197.3, 3.0)*exp(-pow(r/b_osc(27), 2.0))*pow(r/b_osc(27), 2.0)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+double glep = 4.0/3.0/pow(M_MUON*b_osc(27)/HBARC, 3.0)*exp(-pow(r/b_osc(27), 2.0))*pow(r/b_osc(27), 2.0)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
 
   return glep;
 }
@@ -338,14 +475,14 @@ double glep = 4.0/3.0/pow(105.658*b_osc(27)/197.3, 3.0)*exp(-pow(r/b_osc(27), 2.
 
 double newlep2(gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
 
-  double glep = 8.0/(15.0)/pow(105.658*b_osc(27)/197.3, 3.0)*exp(-pow(r/b_osc(27), 2.0))*pow(r/b_osc(27) , 4.0)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+  double glep = 8.0/(15.0)/pow(M_MUON*b_osc(27)/HBARC, 3.0)*exp(-pow(r/b_osc(27), 2.0))*pow(r/b_osc(27) , 4.0)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
 
   return glep;
 }
 
 double newlep3(gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
 
-  double glep = 4.0/(5.0)*sqrt(2.0/3.0)/pow(105.658*b_osc(27)/197.3, 3.0)*exp(-pow(r/b_osc(27), 2.0))*pow(r/b_osc(27) , 4.0)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+  double glep = 4.0/(5.0)*sqrt(2.0/3.0)/pow(M_MUON*b_osc(27)/HBARC, 3.0)*exp(-pow(r/b_osc(27), 2.0))*pow(r/b_osc(27) , 4.0)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
 
   return glep;
 }
@@ -353,32 +490,79 @@ double newlep3(gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_sp
 
 
 double g1lep(gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r, double q) {
-  double glep = 1.0/(2.0*sqrt(M_PI))*sqrt(105.658)*gsl_sf_bessel_j0(q*r/197.3)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+  double glep = 1.0/(2.0*sqrt(M_PI))*sqrt(M_MUON)*gsl_sf_bessel_j0(q*r/HBARC)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
   return glep;
 }
 
 double g1lep2(gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r, double q1, double q2) {
-  double glep = 1.0/(2.0*sqrt(M_PI))*sqrt(105.658)*gsl_sf_bessel_j0(q1*r/197.3)*gsl_sf_bessel_j0(q2*r/197.3)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+  double glep = 1.0/(2.0*sqrt(M_PI))*sqrt(M_MUON)*gsl_sf_bessel_j0(q1*r/HBARC)*gsl_sf_bessel_j0(q2*r/HBARC)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
   return glep;
 }
 
 double lep_int_w1(double (*f) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
 
-  double glep = 1.0/(2.0*sqrt(M_PI))*sqrt(105.658)*f(r)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+  double glep = 1.0/(2.0*sqrt(M_PI))*sqrt(M_MUON)*f(r)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
 
   return glep;
 }
 
+double lep_int_s_w3(double (*f) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
+
+  double glep = 1.0/(sqrt(6.0*M_PI))*sqrt(M_MUON)*f(r)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+
+  return glep;
+}
+
+
+double lep_int_s_w4(double (*f) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
+
+  double glep = 1.0/(2.0*sqrt(3.0*M_PI))*sqrt(M_MUON)*f(r)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+
+  return glep;
+}
+
+
+double lep_int_p_w4(double (*f) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
+
+  double glep = -1.0/(2.0*sqrt(M_PI))*sqrt(M_MUON)*f(r)*(gsl_spline_eval(fe_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) + gsl_spline_eval(ge_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+
+  return glep;
+}
+
+
 double lep_int2_w1(double (*f1) (double), double (*f2) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
 
-  double glep = 1.0/(2.0*sqrt(M_PI))*sqrt(105.658)*f1(r)*f2(r)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+  double glep = 1.0/(2.0*sqrt(M_PI))*sqrt(M_MUON)*f1(r)*f2(r)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+
+  return glep;
+}
+
+double lep_int2_w5(double (*f1) (double), double (*f2) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
+
+  double glep = -1.0/sqrt(1.0*M_PI)*sqrt(M_MUON)*f1(r)*f2(r)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) + gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+
+  return glep;
+}
+
+
+double lep_int2_p_w4(double (*f1) (double), double (*f2) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
+
+  double glep = -1.0/(2.0*sqrt(M_PI))*sqrt(M_MUON)*f1(r)*f2(r)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(fmu_spline, r, acc2) + gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(gmu_spline, r, acc4));
+
+  return glep;
+}
+
+
+double lep_int2_p_w1(double (*f1) (double), double (*f2) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
+
+  double glep = -1.0/(2.0*sqrt(3.0*M_PI))*sqrt(M_MUON)*f1(r)*f2(r)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(fmu_spline, r, acc2) + gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(gmu_spline, r, acc4));
 
   return glep;
 }
 
 
 double M_op_sd(int ijp, int ij, int j_op, double q, double b) {
-  double y = pow(b*q/(2.0*197.3), 2.0);
+  double y = pow(b*q/(2.0*HBARC), 2.0);
   printf("b: %g y: %g\n", b, y);
   double mat = pow(4.0*M_PI, -0.5)*pow(y, (j_op - 2.0)/2.0)*exp(-y);
 
@@ -426,6 +610,36 @@ double M_op_sd(int ijp, int ij, int j_op, double q, double b) {
   return mat;
 }
 
+double MJ0_contact_1s1_1s1(double x) {
+  double z = x/b_osc(A_NUC);
+  double w = b_osc(A_NUC)*M_MUON/(HBARC);
+
+  double mat = sqrt(2.0)/pow(w, 3)*exp(-z*z);
+
+  return mat;
+}
+
+double MJ0_contact_1p1_1p1(double x) {
+  double z = x/b_osc(A_NUC);
+  double w = b_osc(A_NUC)*M_MUON/(HBARC);
+
+  double mat = 2.0*sqrt(2.0)/3.0*pow(z, 2)/pow(w, 3)*exp(-z*z);
+
+
+  return mat;
+}
+
+double MJ0_contact_1p3_1p3(double x) {
+  double z = x/b_osc(A_NUC);
+  double w = b_osc(A_NUC)*M_MUON/(HBARC);
+
+  double mat = 4.0/3.0*pow(z, 2)/pow(w, 3)*exp(-z*z);
+
+
+  return mat;
+}
+
+
 double MJ0_contact_2s1_2s1(double x) {
   double z = x/b_osc(A_NUC);
   double w = b_osc(A_NUC)*M_MUON/(HBARC);
@@ -455,6 +669,57 @@ double MJ0_contact_1d5_1d5(double x) {
 
   return mat;
 }
+
+double SigmaJ1_contact_2s1_2s1(double x) {
+  double z = x/b_osc(A_NUC);
+  double w = b_osc(A_NUC)*M_MUON/(HBARC);
+
+  double mat = sqrt(2.0)/3.0/pow(w, 4)*z*exp(-z*z)*(21.0 - 20*z*z + 4*pow(z, 4));
+
+
+  return mat;
+}
+
+double SigmaJ1_contact_1d3_2s1(double x) {
+  double z = x/b_osc(A_NUC);
+  double w = b_osc(A_NUC)*M_MUON/(HBARC);
+
+  double mat = sqrt(2.0/5.0)*2.0/3.0/pow(w, 4)*z*exp(-z*z)*(15.0 - 20*z*z + 4*pow(z, 4));
+
+
+  return mat;
+}
+
+double SigmaJ1_contact_1d3_1d3(double x) {
+double z = x/b_osc(A_NUC);
+double w = b_osc(A_NUC)*M_MUON/(HBARC);
+
+double mat = 16.0/(15.0*sqrt(5.0))/pow(w, 4)*pow(z, 3.0)*exp(-z*z)*(-5.0 + z*z);
+
+
+return mat;
+}
+
+double SigmaJ1_contact_1d5_1d3(double x) {
+double z = x/b_osc(A_NUC);
+double w = b_osc(A_NUC)*M_MUON/(HBARC);
+
+double mat = 8.0/(5.0*sqrt(5.0))/pow(w, 4)*pow(z, 3.0)*exp(-z*z)*(5.0 - 2*z*z);
+
+
+return mat;
+}
+
+double SigmaJ1_contact_1d5_1d5(double x) {
+double z = x/b_osc(A_NUC);
+double w = b_osc(A_NUC)*M_MUON/(HBARC);
+
+double mat = 8.0*sqrt(2.0)/(5.0*sqrt(35.0))/pow(w, 4)*pow(z, 5.0)*exp(-z*z);
+
+
+return mat;
+}
+
 
 double MJ0_s1_s1(double x) {
   double z = x*M_PION/(2.0*HBARC);
@@ -829,7 +1094,27 @@ double sigmaJ4_1d5_1p3(double x) {
   return mat;
 }
 
-
+int get_shell_index(int in, int ij) {
+  int ind = 0;
+  if (in == 0) {
+    ind = 0;
+  } else if (in == 1) {
+    if (ij == 1) {
+      ind = 1;
+    } else if (ij == 3) {
+      ind = 2;
+    }
+  } else if (in == 2) {
+    if (ij == 1) {
+      ind = 3;
+    } else if (ij == 3) {
+      ind = 4;
+    } else if (ij == 5) {
+      ind = 5;
+    }
+  }
+  return ind;
+}
 
 double b_osc(int a_nuc) {
   double b = sqrt(0.9*pow(a_nuc, 1.0/3.0) + 0.7);

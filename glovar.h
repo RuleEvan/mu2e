@@ -23,23 +23,23 @@
 #define COR_FAC 1
 
 // Physical constants
-#define ALPHA_FS 0.007297352
+#define ALPHA_FS 0.007297352664
 #define R_NUC 1.2 // [fm]
-#define M_ELECTRON 0.511 // [MeV]
+#define M_ELECTRON 0.5109989461 // [MeV]
 #define M_NEUTRON 939.57 // [MeV]
 #define M_MUON 105.658 // [MeV]
+#define M_PION 138.039 //[MeV]
 #define E_BETA 2.55 // [MeV]
 #define G_AXIAL 1.2759 // Axial coupling
 #define G_MAGNETIC 4.7
 #define G_TENSOR 0.99
 #define G_VECTOR 1.0
+#define PION_MASS 139.570 //[MeV]
 
 #define MIN(a,b) ((a) < (b) ? (a):(b))
 #define MAX(a,b) ((a) > (b) ? (a):(b))
 
-#define M_PION 139.570 //[MeV]
-#define HBARC 197.3 // [MeV fm]
-#define PION_MASS 139.570 //[MeV]
+#define HBARC 197.326978 // [MeV fm]
 #define LAMBDA_V 850.0 //[MeV]
 #define LAMBDA_A 1040.0 // [MeV]
 #define KAPPA_1 3.7
