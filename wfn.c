@@ -3,16 +3,21 @@
 void mu2e() {
 
   FILE* in_file;
-  in_file = fopen("dirac_bound_mu.dat", "r");
   int np_mu = 359;
   int np_e = 2000;
   double j_nuc = 5.0/2.0; // nuclear spin
+
+  // Lepton wavefunction units
   double a0e = 52917.77211; // [fm]
   double a0mu = a0e*(M_ELECTRON/M_MUON); // [fm]
   double E_hartree = 27.211386*pow(10, -6); //[MeV]
+
+  // Parameters for numerical integration
   double x_min = 0.01; // [fm]
   double x_max = 15.0; // [fm]
   double tol = 0.00001; // [fm]
+
+  // Arrays to hold lepton wavefunctions
   double *r_arr_mu = (double*) malloc(sizeof(double)*np_mu);
   double *g_arr_mu = (double*) malloc(sizeof(double)*np_mu);
   double *f_arr_mu = (double*) malloc(sizeof(double)*np_mu);
@@ -21,6 +26,8 @@ void mu2e() {
   double *g_arr_e = (double*) malloc(sizeof(double)*np_e);
   double *f_arr_e = (double*) malloc(sizeof(double)*np_e);
 
+  // Read in muon wavefunction
+  in_file = fopen("isotope_data/al27/muon_wfn_al27.dat", "r");
   for (int i = 0; i < np_mu; i++) {
     double r, f, g;
     fscanf(in_file, "%lf %lf %lf\n", &r, &g, &f);
@@ -29,9 +36,9 @@ void mu2e() {
     f_arr_mu[i] = f/sqrt(a0mu);
   }
   fclose(in_file);
-  // Load k = -1 electron wavefunction 
-  in_file = fopen("dirac_free_e.dat", "r");
   
+  // Load k = -1 electron wavefunction 
+  in_file = fopen("isotope_data/al27/electron_wfn_km1_al27.dat", "r");  
   for (int i = 0; i < np_e; i++) {
     double r, f, g;
     fscanf(in_file, "%lf %lf %lf\n", &r, &g, &f);
@@ -41,27 +48,28 @@ void mu2e() {
   }
   fclose(in_file);
 
-
-
+  // Spline acceleration
   gsl_interp_accel *acc1 = gsl_interp_accel_alloc();
   gsl_interp_accel *acc2 = gsl_interp_accel_alloc();
   gsl_interp_accel *acc3 = gsl_interp_accel_alloc();
   gsl_interp_accel *acc4 = gsl_interp_accel_alloc();
 
+  // Declare muon and electron wavefunction splines
   gsl_spline *g_mu = gsl_spline_alloc(gsl_interp_cspline, np_mu);
   gsl_spline *f_mu = gsl_spline_alloc(gsl_interp_cspline, np_mu);
   gsl_spline *g_e_m1 = gsl_spline_alloc(gsl_interp_cspline, np_e);
   gsl_spline *f_e_m1 = gsl_spline_alloc(gsl_interp_cspline, np_e);
 
+  // Generate muon splines
   gsl_spline_init(g_mu, r_arr_mu, g_arr_mu, np_mu);
   gsl_spline_init(f_mu, r_arr_mu, f_arr_mu, np_mu);
 
+  // Generate k = -1 electron splines
   gsl_spline_init(g_e_m1, r_arr_e, g_arr_e, np_e);
   gsl_spline_init(f_e_m1, r_arr_e, f_arr_e, np_e);
 
   // Load k = +1 electron wavefunction 
-  in_file = fopen("dirac_e_k1.dat", "r");
-  
+  in_file = fopen("isotope_data/al27/electron_wfn_k1_al27.dat", "r");
   for (int i = 0; i < np_e; i++) {
     double r, f, g;
     fscanf(in_file, "%lf %lf %lf\n", &r, &g, &f);
@@ -71,11 +79,13 @@ void mu2e() {
   }
   fclose(in_file);
 
+  // Declare and generate k = +1 electron splines
   gsl_spline *g_e_p1 = gsl_spline_alloc(gsl_interp_cspline, np_e);
   gsl_spline *f_e_p1 = gsl_spline_alloc(gsl_interp_cspline, np_e);
   gsl_spline_init(g_e_p1, r_arr_e, g_arr_e, np_e);
   gsl_spline_init(f_e_p1, r_arr_e, f_arr_e, np_e);
 
+  // Array of functions for MJ matrix elements
   double (**m_contact_mat) (double) = calloc(36*6, sizeof(double (*) (double)));
 
   m_contact_mat[0] = MJ0_contact_1s1_1s1;
@@ -86,13 +96,15 @@ void mu2e() {
   m_contact_mat[35] = MJ0_contact_1d5_1d5;
 
   // Compute coherent J = 0 T = 0 contact operator  
-  in_file = fopen("al27-al27_core_1bdy_J0_T0_0_0.dens", "r");
+  in_file = fopen("isotope_data/ni58/density/ni58-ni58_core_1bdy_J0_T0_0_0.dens", "r");
   int j_op = 0;
   int t_op = 0;
   float density;
   double mat_w1 = 0.0;
   double mat = 0.0;
   double mat_w4 = 0.0;
+  double mat_v_w1 = 0.0;
+  double mat_v_w4 = 0.0;
   int in1, ij1, in1p, ij1p;
   int i1, i1p;
   while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &in1p, &ij1p, &in1, &ij1, &density) == 5) {
@@ -106,16 +118,19 @@ void mu2e() {
   // Compute coherent J = 0, T = 0 contact operator
       mat_w1 += sqrt(2.0)*density*RombergSplineFunIntegrator(&lep_int_w1, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_m1, f_e_m1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
       mat_w4 += sqrt(2.0)*density*RombergSplineFunIntegrator(&lep_int_p_w4, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
+      mat_v_w1 += sqrt(2.0)*density*RombergSplineFunIntegrator(&lep_int_v_w1, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_m1, f_e_m1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
+      mat_v_w4 += sqrt(2.0)*density*RombergSplineFunIntegrator(&lep_int_a_w4, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
+
 
     }
   }
   fclose(in_file);
-  mat_w1 *= 32.0*M_PI/sqrt(2.0*(2*j_nuc + 1));
+  mat_w1 *= 32.0*M_PI;///sqrt(2.0*(2*j_nuc + 1));
   mat_w4 *= 32.0*M_PI/sqrt(2.0*(2*j_nuc + 1));
-
-  printf("T = 0: I1: %g I4: %g\n", mat_w1, mat_w4);
-
-
+  mat_v_w1 *= 32.0*M_PI/sqrt(2.0*(2*j_nuc + 1));
+  mat_v_w4 *= 32.0*M_PI/sqrt(2.0*(2*j_nuc + 1));
+  printf("T = 0: Is1: %g Is4: %g\n", mat_w1, mat_w4);
+  printf("T = 0: Iv1: %g Iv4: %g\n", mat_v_w1, mat_v_w4);
 
   // Compute non-coherent J = 0, T = 1 contact operator
   in_file = fopen("al27-al27_core_1bdy_J0_T1_0_0.dens", "r");
@@ -123,6 +138,8 @@ void mu2e() {
   t_op = 1.0;
   mat_w1 = 0.0;
   mat_w4 = 0.0;
+  mat_v_w1 = 0.0;
+  mat_v_w4 = 0.0;
   while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &in1p, &ij1p, &in1, &ij1, &density) == 5) {
     // The angular momentum are doubled in the file
     double j1 = ij1/2.0;
@@ -134,16 +151,22 @@ void mu2e() {
   // Compute coherent J = 0, T = 0 contact operator
       mat_w1 += sqrt(6.0)*density*RombergSplineFunIntegrator(&lep_int_w1, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_m1, f_e_m1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
       mat_w4 += sqrt(6.0)*density*RombergSplineFunIntegrator(&lep_int_p_w4, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
+    mat_v_w1 += sqrt(6.0)*density*RombergSplineFunIntegrator(&lep_int_v_w1, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_m1, f_e_m1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
+      mat_v_w4 += sqrt(6.0)*density*RombergSplineFunIntegrator(&lep_int_a_w4, m_contact_mat[i1p + 6*i1], g_mu, f_mu, g_e_p1, f_e_p1, acc1, acc2, acc3, acc4, 0.0, 30, 0.00001);
+
 
     }
   }
   fclose(in_file);
+  mat_w1 *= 32.0*M_PI;
 
-  mat_w1 *= 32.0*M_PI*clebsch_gordan(0.5, 0.5, 1, -0.5, 0.5, 0)/sqrt((2*t_op + 1)*(2*5/2+1));
+//  mat_w1 *= 32.0*M_PI*clebsch_gordan(0.5, 0.5, 1, -0.5, 0.5, 0)/sqrt((2*t_op + 1)*(2*5/2+1));
   mat_w4 *= 32.0*M_PI*clebsch_gordan(0.5, 0.5, 1, -0.5, 0.5, 0)/sqrt((2*t_op + 1)*(2*5/2+1));
+  mat_v_w1 *= 32.0*M_PI*clebsch_gordan(0.5, 0.5, 1, -0.5, 0.5, 0)/sqrt((2*t_op + 1)*(2*5/2+1));
+  mat_v_w4 *= 32.0*M_PI*clebsch_gordan(0.5, 0.5, 1, -0.5, 0.5, 0)/sqrt((2*t_op + 1)*(2*5/2+1));
 
-  printf("J= 0 T = 1 contact I1: %g I4: %g\n", mat_w1, mat_w4);
-
+  printf("J = 0 T = 1 contact Is1: %g Is4: %g\n", mat_w1, mat_w4);
+  printf("J = 0 T = 1 contact Iv1: %g Iv4: %g\n", mat_v_w1, mat_v_w4);
 
 
 
@@ -281,6 +304,8 @@ void mu2e() {
 
 
 // Compute two-body operators
+
+  // Compute J = 0 T = 0 coherent operator
   in_file = fopen("al27-al27_core_J0_T0_0_0.dens", "r");
 
   j_op = 0;
@@ -305,7 +330,6 @@ void mu2e() {
     i2 = get_shell_index(in2, ij2);
     i1p = get_shell_index(in1p, ij1p);
     i2p = get_shell_index(in2p, ij2p);
-
     // Compute J = 0 operators
     double mat_k1k2_w1 = 0.0;
     double mat_k1k2_w4 = 0.0;
@@ -344,8 +368,8 @@ void mu2e() {
    mat_w4 += mat_tot_w4;
   }
   fclose(in_file);
-  mat_w1 *= -1.0*1.0/4.0*64.0*113.06*pow(G_AXIAL, 2.0)/sqrt(4.0*M_PI)*(-1)*clebsch_gordan(0.5, 0.5, 0.0, -0.5, 0.5, 0.0)/sqrt(6.0);
-  mat_w4 *= -1.0*1.0/4.0*64.0*113.06*pow(G_AXIAL, 2.0)/sqrt(4.0*M_PI)*(-1)*clebsch_gordan(0.5, 0.5, 0.0, -0.5, 0.5, 0.0)/sqrt(6.0);
+  mat_w1 *= 1.0/4.0*64.0*113.06*pow(G_AXIAL, 2.0)/sqrt(4.0*M_PI)*(-1)*clebsch_gordan(0.5, 0.5, 0.0, -0.5, 0.5, 0.0)/sqrt(6.0);
+  mat_w4 *= 1.0/4.0*64.0*113.06*pow(G_AXIAL, 2.0)/sqrt(4.0*M_PI)*(-1)*clebsch_gordan(0.5, 0.5, 0.0, -0.5, 0.5, 0.0)/sqrt(6.0);
 
   printf("Two-body J = 0 T = 0: I1: %g I4: %g\n", mat_w1, mat_w4);
  
@@ -505,6 +529,21 @@ double lep_int_w1(double (*f) (double), gsl_spline* gmu_spline, gsl_spline* fmu_
 
   return glep;
 }
+
+double lep_int_v_w1(double (*f) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
+
+  double glep = 1.0/(2.0*sqrt(M_PI))*sqrt(M_MUON)*f(r)*(gsl_spline_eval(ge_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) + gsl_spline_eval(fe_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+
+  return glep;
+}
+
+double lep_int_a_w4(double (*f) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
+
+  double glep = -1.0/(2.0*sqrt(M_PI))*sqrt(M_MUON)*f(r)*(gsl_spline_eval(fe_spline, r, acc1)*gsl_spline_eval(gmu_spline, r, acc2) - gsl_spline_eval(ge_spline, r, acc3)*gsl_spline_eval(fmu_spline, r, acc4));
+
+  return glep;
+}
+
 
 double lep_int_s_w3(double (*f) (double), gsl_spline* gmu_spline, gsl_spline* fmu_spline, gsl_spline* ge_spline, gsl_spline* fe_spline, gsl_interp_accel *acc1, gsl_interp_accel *acc2, gsl_interp_accel *acc3, gsl_interp_accel *acc4, double r) {
 

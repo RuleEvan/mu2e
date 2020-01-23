@@ -1,6 +1,6 @@
 #ifndef FILE_IO_H
 #define FILE_IO_H
-#include "angular.h"
+#include "multipole.h"
 
 typedef struct slater_det
 {

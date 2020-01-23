@@ -3,8 +3,8 @@ CFLAGS=-c -Wall -lm -ldl
 
 all: Mu2E
 
-Mu2E: main.o wfn.o charge.o harmonic.o file_io.o angular.o romberg.o
-	$(CC) main.o wfn.o charge.o harmonic.o file_io.o angular.o romberg.o -o Mu2E -lm -ldl -lgsl -lgslcblas
+Mu2E: main.o wfn.o charge.o harmonic.o file_io.o multipole.o angular.o romberg.o
+	$(CC) main.o wfn.o charge.o harmonic.o file_io.o multipole.o angular.o romberg.o -o Mu2E -lm -ldl -lgsl -lgslcblas
 
 main.o: main.c
 	$(CC) $(CFLAGS) main.c
@@ -20,6 +20,9 @@ charge.o: charge.c
 
 file_io.o: file_io.c
 	$(CC) $(CFLAGS) file_io.c
+
+multipole.o: multipole.c
+	$(CC) $(CFLAGS) multipole.c
 
 angular.o: angular.c
 	$(CC) $(CFLAGS) angular.c
