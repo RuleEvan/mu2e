@@ -1133,30 +1133,4 @@ double sigmaJ4_1d5_1p3(double x) {
   return mat;
 }
 
-int get_shell_index(int in, int ij) {
-  int ind = 0;
-  if (in == 0) {
-    ind = 0;
-  } else if (in == 1) {
-    if (ij == 1) {
-      ind = 1;
-    } else if (ij == 3) {
-      ind = 2;
-    }
-  } else if (in == 2) {
-    if (ij == 1) {
-      ind = 3;
-    } else if (ij == 3) {
-      ind = 4;
-    } else if (ij == 5) {
-      ind = 5;
-    }
-  }
-  return ind;
-}
 
-double b_osc(int a_nuc) {
-  double b = sqrt(0.9*pow(a_nuc, 1.0/3.0) + 0.7);
-  
-  return b;
-}

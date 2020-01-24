@@ -2,6 +2,29 @@
 #define MULTIPOLE_H
 #include "angular.h"
 
+void compute_nuclear_multipoles();
+double m0_tot(double y, double *rho, int num_shells); 
+double m1_tot(double y, double *rho, int num_shells); 
+double m2_tot(double y, double *rho, int num_shells); 
+double m3_tot(double y, double *rho, int num_shells); 
+double m4_tot(double y, double *rho, int num_shells); 
+double deltap1_tot(double y, double *rho, int num_shells); 
+double deltap2_tot(double y, double *rho, int num_shells); 
+double deltap3_tot(double y, double *rho, int num_shells); 
+double sigma1_tot(double y, double *rho, int num_shells); 
+double sigma2_tot(double y, double *rho, int num_shells); 
+double sigma3_tot(double y, double *rho, int num_shells); 
+double sigma4_tot(double y, double *rho, int num_shells); 
+double delta1_tot(double y, double *rho, int num_shells);
+double delta2_tot(double y, double *rho, int num_shells);
+double delta3_tot(double y, double *rho, int num_shells);
+double sigmap1_tot(double y, double *rho, int num_shells);
+double sigmap2_tot(double y, double *rho, int num_shells);
+
+int get_shell_index(int in, int ij);
+double b_osc(int a_nuc);
+
+
 double m0_1s1_1s1(double y);
 double sigmap1_1s1_1s1(double y);
 double sigmapp1_1s1_1s1(double y);
@@ -62,9 +85,9 @@ double sigma1_1d3_1p3(double y);
 double m3_1d3_1p3(double y);
 double deltap3_1d3_1p3(double y);
 double sigma3_1d3_1p3(double y);
-double m3_1d5_1p3(double y);
-double deltap3_1d5_1p3(double y);
-double sigma3_1d5_1p3(double y);
+double m3_1d5_1p1(double y);
+double deltap3_1d5_1p1(double y);
+double sigma3_1d5_1p1(double y);
 double m1_1d5_1p3(double y);
 double deltap1_1d5_1p3(double y);
 double sigma1_1d5_1p3(double y);

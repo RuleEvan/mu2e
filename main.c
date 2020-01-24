@@ -14,15 +14,17 @@ int main(int argc, char *argv[]) {
   printf("total: %g\n", total);
   */
 //  mu2e();
-  double *y = (double*) malloc(sizeof(double)*4);
+/*  double *y = (double*) malloc(sizeof(double)*4);
   y[0] = pow(0.1*b_osc(27)/(HBARC*2.0), 2.0);
   y[1] = pow(1.0*b_osc(27)/(HBARC*2.0), 2.0);
   y[2] = pow(10.0*b_osc(27)/(HBARC*2.0), 2.0);
   y[3] = pow(100.0*b_osc(27)/(HBARC*2.0), 2.0);
 
  for (int i = 0; i < 4; i++) {
-   printf("%g\n", m1_2s1_1p1(y[i]));
+   printf("%g %g\n", y[i], sigmapp5_1d5_1d5(y[i]));
  }
+ */
+  compute_nuclear_multipoles();
  // generate_potential_files();
  
   return 0;
