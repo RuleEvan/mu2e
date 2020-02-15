@@ -20,7 +20,7 @@
 #define Z_ATOM 32 // Atomic Number
 
 // Technical parameters
-#define COR_FAC 1
+#define COR_FAC 0
 
 // Physical constants
 #define ALPHA_FS 0.007297352664

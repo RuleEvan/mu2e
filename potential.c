@@ -21,6 +21,17 @@ double b_coeff(double n, double l, double np, double lp, double p) {
   return b;
 }
 
+double compute_rel_potential(double np, double lp, double n, double l, int J, double qt, int iv) {
+  // Sum the required Talmi integrals with the corresponding B coefficients
+  double v = 0;
+  for (int ip = l + lp; ip <= l + lp + 2*n + 2*np; ip += 2) {
+    double p = ip/2.0;
+    v += b_coeff(n, l, np, lp, p)*talmi_rel(p, iv, J, qt);
+  }
+  return v;
+}
+
+
 double compute_potential(double n, double np, double l, double lp, int iv) {
   // Sum the required Talmi integrals with the corresponding B coefficients
   double v = 0;
@@ -42,7 +53,40 @@ double talmi(double p, int iv) {
   
   return I_p;
 }
-    
+
+
+double talmi_rel(double p, int iv, int J, double qt) {
+  // Compute the order p Talmi integral
+  // Set the limits of the integral and the error tolerance
+  double r_min = 0.0001;
+  double r_max = 10.0;
+  double tol = pow(10, -6);
+  double I_p = Romberg5Vars(&talmi_integrand_rel, r_min, r_max, p, iv, J, qt, tol);
+  I_p *= 2.0/gsl_sf_gamma(p + 1.5);
+  
+  return I_p;
+}
+
+double talmi_integrand_rel(double p, int iv, double J, double qt, double q) {
+  // The integrand of the Talmi integral
+  // Plug in the required potential here
+  double v = pow(q, 2.0*p + 2.0)*exp(-q*q);
+  if (iv == 0) {return v;}
+  if (COR_FAC == 1) {
+    double beta = exp(-1.1*pow(B_OSC*q, 2))*(1.0 - 0.68*pow(B_OSC*q,2.0));
+    v *= pow(1.0 - beta, 2.0);
+  }
+
+  if (iv == 1) {
+    v *= finite_q_alpha_pot_1(q, (int) J, qt, M_PION) ;
+  }
+  if (iv == 2) {
+    v *= v_cm_finite_q(q, (int) J, qt);
+  }
+
+  return v;
+}
+
 double talmi_integrand(double q, double p, int iv) {
   // The integrand of the Talmi integral
   // Plug in the required potential here
@@ -52,8 +96,10 @@ double talmi_integrand(double q, double p, int iv) {
     double beta = exp(-1.1*pow(B_OSC*q, 2))*(1.0 - 0.68*pow(B_OSC*q,2.0));
     v *= pow(1.0 - beta, 2.0);
   }
- 
-  if (iv == 1) {
+
+  if (iv == -1 ) {
+    v *= finite_q_alpha_pot_1(q, 0, 105.0, 130.0) ;
+  } else if (iv == 1) {
     v *= v_light_limit(q);
   } else if (iv == 2) {
     v *= v_pion_f1(q);
@@ -113,6 +159,33 @@ double v_light_limit(double r) {
   return v;
 }
 
+double v_cm_finite_q(double r, int l, double q) {
+  r *= 1.84391*sqrt(2.0);
+  double v =  gsl_sf_bessel_jl(l, q*r/(2.0*HBARC));
+  return v;
+}
+
+
+double finite_q_alpha_pot_1(double r, int l, double q, double m_pi) {
+  r *= 1.84391*sqrt(2.0);
+  double v =  Romberg5Vars(&finite_q_alpha_int_1, 0.0, 1.0, r, l, q, m_pi, 0.0001);
+
+return v;
+}
+
+double finite_q_alpha_int_1(double r, int l, double q, double m_pi, double alpha) {
+  double pi = sqrt(alpha*(1.0 - alpha)*q*q + m_pi*m_pi);
+  double bess = 0.0;
+  if (alpha - 0.5 < 0.0) {
+    bess = pow(-1.0, l)*gsl_sf_bessel_jl(l, -q*r/(HBARC)*(alpha -0.5));
+  } else {
+    bess = gsl_sf_bessel_jl(l, q*r/(HBARC)*(alpha - 0.5));
+  }
+  double vi = ((2.0 - r*pi/(HBARC))/r + q*q*alpha*(1.0 - alpha)/(pi*HBARC))*exp(-r*pi/HBARC)*bess;
+  
+  return vi;
+}
+
 double v_light_limit_d(double r) {
   // Nuclear potential in the case of light neutrinos 
   // Lepton kinematics are ignored (see Haxton review sec. 3.4.2)
@@ -124,9 +197,9 @@ double v_light_limit_d(double r) {
 }
 
 double v_pion_f1(double r) {
-  r *= B_OSC;
+  r *= 1.84391*sqrt(2.0);
   double v = 1/r;
-  double x = r*PION_MASS*0.0050677;
+  double x = r*M_PION/HBARC;
   v *= (x - 2.0)*exp(-x);
   
   return v;  
@@ -135,7 +208,7 @@ double v_pion_f1(double r) {
 double v_pion_f2(double r) {
   r *= B_OSC;
   double v = 1/r;
-  double x = r*PION_MASS*0.0050677;
+  double x = r*M_PION*0.0050677;
   v *= (x + 1.0)*exp(-x);
   
   return v;  

@@ -2,25 +2,6 @@
 
 /* One-body matrix elements */
 
-double compute_matrix_element_y1_dot_sigma_tau_dot_tau(char* density_file, int iv) {
-  int n, l, ij;
-  int np, lp, ijp;
-
-  // Open the file containing density matrix coefficients
-  FILE *in_file;
-  in_file = fopen(density_file, "r");
-  double mat = 0.0;
-  int i;
-  // Each line of the file corresponds to a nuclear shell
-  float density;
-  while(fscanf(in_file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f\n", &in1p, &ij1p, &in2p, &ij2p, &ij12p, &it12p, &in1, &ij1, &in2, &ij2, &ij12, &it12, &density) == 13) {
-
-
-  }
-
-  return mat; 
-}  
-
 /* Two-body matrix elements */
 
 double compute_matrix_element_TT(char* density_file, int iv) {
@@ -183,6 +164,162 @@ double compute_matrix_element_tau_plus(char* density_file, int iv) {
                         
   return mat;
 }
+
+int get_l(int n, int j) {
+  int l;
+  if (n == 0) {
+    l = 0;
+   } else if (n == 1) {
+     l = 1;
+   } else if (n == 2) {
+     if (j == 3 || j == 5) {
+     l = 2;
+     } else {
+     l = 0;
+     }
+   }
+  return l;
+}
+
+double compute_matrix_element_sigma_0_finite_q(int in1p, int ij1p, int in2p, int ij2p, int ij12p, int in1, int ij1, int in2, int ij2, int ij12, double q, int J, int t12) {
+
+  double j1 = ij1/2.0;
+  double j2 = ij2/2.0;
+  double j12 = ij12/2.0;
+  //double t12 = it12/2.0;
+  double j1p = ij1p/2.0;
+  double j2p = ij2p/2.0;
+  double j12p = ij12p/2.0;
+//  double t12p = it12p/2.0;
+
+  int l1, l2, l1p, l2p;
+   
+  l1p = get_l(in1p, ij1p);
+  l2p = get_l(in2p, ij2p);
+  l1 = get_l(in1, ij1);
+  l2 = get_l(in2, ij2); 
+    
+  // The N's listed in the input file are energy quanta, we want radial quantum numbers
+  double n1 = (in1 - l1)/2.0;
+  double n2 = (in2 - l2)/2.0;
+  double n1p = (in1p - l1p)/2.0;
+  double n2p = (in2p - l2p)/2.0;
+ 
+  double m4 = 0.0;
+  // Convert from JJ to LS coupling (L is lambda)
+  for (int lambda = abs(l1 - l2); lambda <= (l1 + l2); lambda++) {
+    int s_max = MIN(lambda + j12, 1);
+    int s_min = abs(lambda - j12);
+    for (int s = s_min; s <= s_max; s++) {
+      double fact = sqrt((2*lambda + 1)*(2*s + 1)*(2*j1 + 1)*(2*j2 + 1));
+      fact *= sqrt((2*lambda + 1)*(2*s + 1)*(2*j1p + 1)*(2*j2p + 1));
+      fact *= nine_j(l1, l2, lambda, 0.5, 0.5, s, j1, j2, j12);
+      fact *= nine_j(l1p, l2p, lambda, 0.5, 0.5, s, j1p, j2p, j12p);
+      if (fact == 0.0) {continue;}
+      fact *= sqrt(2*j12 + 1.0);
+      double m1 = pow(-1.0, 1.0 + s)*six_j(s,0.5,0.5,1.0,0.5,0.5)*6.0;
+      m1 *= fact;
+      m1 *= compute_radial_matrix_element_J_dot_J(J, n1p, l1p, n2p, l2p, lambda, n1, l1, n2, l2, lambda, s, t12, q);
+      m4 += m1;
+    }
+  }
+  if ((n1 == n2) && (j1 == j2) && (l1 == l2)) {m4 *= 1/sqrt(2);}
+  if ((n1p == n2p) && (j1p == j2p) && (l1p == l2p)) {m4 *= 1/sqrt(2);}
+                        
+  return m4;
+}
+
+
+double compute_total_matrix_element_sigma_0_finite_q(char* density_file, double q, int J) {
+  // Computes the two-body nuclear matrix element sigma_1 dot sigma_2 tau_1+ tau_2+ with arbitrary radial function specified by iv
+  FILE *in_file;
+  in_file = fopen(density_file, "r");
+  double mat = 0.0;
+ 
+  int in1, in2, ij1, ij2, ij12, it12;
+  int in1p, in2p, ij1p, ij2p, ij12p, it12p;
+  float density;
+  while(fscanf(in_file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f\n", &in1p, &ij1p, &in2p, &ij2p, &ij12p, &it12p, &in1, &ij1, &in2, &ij2, &ij12, &it12, &density) == 13) {
+
+    printf("%g\n", mat);
+    double m4 = compute_matrix_element_sigma_0_finite_q(in1p, ij1p, in2p, ij2p, ij12p, in1, ij1, in2, ij2, ij12, q, J, it12); 
+    mat += m4*density;
+  }
+                        
+  return mat;
+}
+
+
+double compute_total_matrix_element_sigma_0(char* density_file) {
+  // Computes the two-body nuclear matrix element sigma_1 dot sigma_2 tau_1+ tau_2+ with arbitrary radial function specified by iv
+  FILE *in_file;
+  in_file = fopen(density_file, "r");
+  double mat = 0.0;
+ 
+  int in1, in2, ij1, ij2, ij12, it12;
+  int in1p, in2p, ij1p, ij2p, ij12p, it12p;
+  float density;
+  while(fscanf(in_file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f\n", &in1p, &ij1p, &in2p, &ij2p, &ij12p, &it12p, &in1, &ij1, &in2, &ij2, &ij12, &it12, &density) == 13) {
+
+    printf("%g\n", mat/(-4.0*M_PI));
+    double m4 = compute_matrix_element_sigma_0(in1p, ij1p, in2p, ij2p, ij12p, in1, ij1, in2, ij2, ij12, it12, 2); 
+    mat += m4*density;
+  }
+                        
+  return mat;
+}
+
+
+double compute_matrix_element_sigma_0(int in1p, int ij1p, int in2p, int ij2p, int ij12p, int in1, int ij1, int in2, int ij2, int ij12, int it12, int iv) {
+  // Computes the two-body nuclear matrix element sigma_1 dot sigma_2 tau_1+ tau_2+ with arbitrary radial function specified by iv
+    
+    // The angular momentum are doubled in the file
+  double j1 = ij1/2.0;
+  double j2 = ij2/2.0;
+  double j12 = ij12/2.0;
+  //  double t12 = it12/2.0;
+  double j1p = ij1p/2.0;
+  double j2p = ij2p/2.0;
+  double j12p = ij12p/2.0;
+  //  double t12p = it12p/2.0;
+
+  int l1, l2, l1p, l2p;
+     
+  l1p = get_l(in1p, ij1p);
+  l2p = get_l(in2p, ij2p);
+  l1 = get_l(in1, ij1);
+  l2 = get_l(in2, ij2); 
+    
+  // The N's listed in the input file are energy quanta, we want radial quantum numbers
+  double n1 = (in1 - l1)/2.0;
+  double n2 = (in2 - l2)/2.0;
+  double n1p = (in1p - l1p)/2.0;
+  double n2p = (in2p - l2p)/2.0;
+
+  double m4 = 0.0;
+  // Convert from JJ to LS coupling (L is lambda)
+  for (int lambda = abs(l1 - l2); lambda <= (l1 + l2); lambda++) {
+    int s_max = MIN(lambda + j12, 1);
+    int s_min = abs(lambda - j12);
+    for (int s = s_min; s <= s_max; s++) {
+      double fact = sqrt((2*lambda + 1)*(2*s + 1)*(2*j1 + 1)*(2*j2 + 1));
+      fact *= sqrt((2*lambda + 1)*(2*s + 1)*(2*j1p + 1)*(2*j2p + 1));
+      fact *= nine_j(l1, l2, lambda, 0.5, 0.5, s, j1, j2, j12);
+      fact *= nine_j(l1p, l2p, lambda, 0.5, 0.5, s, j1p, j2p, j12p);
+      if (fact == 0.0) {continue;}
+      fact *= sqrt(2*j12 + 1.0);
+      double m1 = pow(-1.0, 1.0 + s)*six_j(s,0.5,0.5,1.0,0.5,0.5)*6.0;
+      m1 *= fact;
+      m1 *= compute_radial_matrix_element_scalar(iv, n1p, l1p, n2p, l2p, n1, l1, n2, l2, lambda, s, it12);
+      m4 += m1;
+    }
+  }
+  if ((n1 == n2) && (j1 == j2) && (l1 == l2)) {m4 *= 1/sqrt(2);}
+  if ((n1p == n2p) && (j1p == j2p) && (l1p == l2p)) {m4 *= 1/sqrt(2);}
+                        
+  return m4;
+}
+
 
 double compute_matrix_element_sigma_tau_plus(char* density_file, int iv) {
   // Computes the two-body nuclear matrix element sigma_1 dot sigma_2 tau_1+ tau_2+ with arbitrary radial function specified by iv

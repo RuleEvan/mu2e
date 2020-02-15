@@ -1,4 +1,4 @@
-#include "wfn.h"
+#include "matrix_element.h"
 
 int main(int argc, char *argv[]) {
 /*  int i_eig = 0;
@@ -24,7 +24,23 @@ int main(int argc, char *argv[]) {
    printf("%g %g\n", y[i], sigmapp5_1d5_1d5(y[i]));
  }
  */
-  compute_nuclear_multipoles();
+  //compute_nuclear_multipoles();
+//  printf("%g\n", compute_rel_potential(1.0, 0.0, 1.0, 0.0, 0, 105.0, 2));
+//  printf("%g\n", compute_radial_matrix_element_J_dot_J(0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 105.0));
+/*  double q_min = 0.0;
+  double q_max = 500.0;
+  int num_q_steps = 100.0;
+  double delta_q = (q_max - q_min)/((double) num_q_steps);
+
+  for (int i = 0; i < num_q_steps; i++) {
+    double q = q_min + i*delta_q;
+    printf("%g, %g\n", q, compute_matrix_element_sigma_0_finite_q(2, 3, 2, 3, 0, 2, 3, 2, 3, 0, q, 0));
+  }
+*/
+  //printf("q = 0: %g\n", -compute_matrix_element_sigma_0(2, 3, 2, 3, 0, 2, 3, 2, 3, 0, 2)/(4.0*M_PI));
+  compute_total_matrix_element_sigma_0_finite_q("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", 105.0, 2);
+//  compute_total_matrix_element_sigma_0("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens");
+
  // generate_potential_files();
  
   return 0;

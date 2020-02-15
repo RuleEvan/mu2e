@@ -1,6 +1,6 @@
 #ifndef MULTIPOLE_H
 #define MULTIPOLE_H
-#include "angular.h"
+#include "brody.h"
 
 void compute_nuclear_multipoles();
 double m0_tot(double y, double *rho, int num_shells); 
@@ -20,6 +20,19 @@ double delta2_tot(double y, double *rho, int num_shells);
 double delta3_tot(double y, double *rho, int num_shells);
 double sigmap1_tot(double y, double *rho, int num_shells);
 double sigmap2_tot(double y, double *rho, int num_shells);
+double sigmap3_tot(double y, double *rho, int num_shells);
+double sigmap4_tot(double y, double *rho, int num_shells);
+double sigmap5_tot(double y, double *rho, int num_shells);
+double sigmapp0_tot(double y, double *rho, int num_shells);
+double sigmapp1_tot(double y, double *rho, int num_shells);
+double sigmapp2_tot(double y, double *rho, int num_shells);
+double sigmapp3_tot(double y, double *rho, int num_shells);
+double sigmapp4_tot(double y, double *rho, int num_shells);
+double sigmapp5_tot(double y, double *rho, int num_shells);
+double omegap0_tot(double y, double *rho, int num_shells);
+double omegap1_tot(double y, double *rho, int num_shells);
+double omegap2_tot(double y, double *rho, int num_shells);
+double omegap3_tot(double y, double *rho, int num_shells);
 
 int get_shell_index(int in, int ij);
 double b_osc(int a_nuc);
