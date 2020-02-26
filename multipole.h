@@ -2,7 +2,9 @@
 #define MULTIPOLE_H
 #include "brody.h"
 
-void compute_nuclear_multipoles();
+void compute_isotope_multipoles(double q);
+void compute_nuclear_multipoles(double *rhoJ0T0, double *rhoJ0T1, double *rhoJ1T0,double *rhoJ1T1,double *rhoJ2T0,double *rhoJ2T1,double *rhoJ3T0,double *rhoJ3T1,double *rhoJ4T0,double *rhoJ4T1,double *rhoJ5T0, double *rhoJ5T1, int num_shells, double q, int a_nuc);
+
 double m0_tot(double y, double *rho, int num_shells); 
 double m1_tot(double y, double *rho, int num_shells); 
 double m2_tot(double y, double *rho, int num_shells); 

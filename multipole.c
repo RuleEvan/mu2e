@@ -1,6 +1,7 @@
 #include "multipole.h"
 
-void compute_nuclear_multipoles() {
+void compute_isotope_multipoles(double q) {
+
   FILE *in_file;
   int j_op = 0;
   int t_op = 0;
@@ -22,7 +23,7 @@ void compute_nuclear_multipoles() {
   int in, ij, inp, ijp;
 
   // Compute Al27 5/2+ (gs) -> 5/2+ (gs) transition
-
+  printf("Al27 5/2+ (gs) -> 5/2+ (gs) transition\n");
   in_file = fopen("isotope_data/al27/density/al27-al27_core_1bdy_J0_T0_0_0.dens", "r");
   while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &inp, &ijp, &in, &ij, &density) == 5) {
     int ind_i = get_shell_index(in, ij);
@@ -120,77 +121,14 @@ in_file = fopen("isotope_data/al27/density/al27-al27_usdb_1bdy_J1_T1_0_0.dens", 
   fclose(in_file);
 
   FILE *out_file;
-  double y_mu = pow(105.0*b_osc(27)/(HBARC*2.0), 2.0);
-
-  out_file = fopen("MJ_q_al27_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, m0_tot(y, rhoJ0T0, num_shells), m1_tot(y, rhoJ1T0, num_shells), m2_tot(y, rhoJ2T0, num_shells), m3_tot(y, rhoJ3T0, num_shells), m4_tot(y, rhoJ4T0, num_shells), 0.0);
-  }
-  fclose(out_file);
-
-  printf("M0(m_mu): %g M1(m_mu): %g M2(m_mu): %g M3(m_mu): %g M4(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells), m1_tot(y_mu, rhoJ1T0, num_shells), m2_tot(y_mu, rhoJ2T0, num_shells), m3_tot(y_mu, rhoJ3T0, num_shells), m4_tot(y_mu, rhoJ4T0, num_shells));
-
-
-  out_file = fopen("DPJ_q_al27_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, deltap1_tot(y, rhoJ1T0, num_shells), deltap2_tot(y, rhoJ2T0, num_shells), deltap3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
-
-  printf("DP1(m_mu): %g DP2(m_mu): %g DP3(m_mu): %g\n", deltap1_tot(y_mu, rhoJ1T0, num_shells), deltap2_tot(y_mu, rhoJ2T0, num_shells), deltap3_tot(y_mu, rhoJ3T0, num_shells));
-
-
-  out_file = fopen("SJ_q_al27_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, sigma1_tot(y, rhoJ1T0, num_shells), sigma2_tot(y, rhoJ2T0, num_shells), sigma3_tot(y, rhoJ3T0, num_shells), sigma4_tot(y, rhoJ4T0, num_shells), 0.0);
-  }
-  fclose(out_file);
-
-  printf("S1(m_mu): %g S2(m_mu): %g S3(m_mu): %g S4(m_mu): %g\n", sigma1_tot(y_mu, rhoJ1T0, num_shells), sigma2_tot(y_mu, rhoJ2T0, num_shells), sigma3_tot(y_mu, rhoJ3T0, num_shells), sigma4_tot(y_mu, rhoJ4T0, num_shells));
-
-
-  out_file = fopen("DJ_q_al27_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, delta1_tot(y, rhoJ1T0, num_shells), delta2_tot(y, rhoJ2T0, num_shells), delta3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
-
-  printf("D1(m_mu): %g D2(m_mu): %g D3(m_mu): %g\n", delta1_tot(y_mu, rhoJ1T0, num_shells), delta2_tot(y_mu, rhoJ2T0, num_shells), delta3_tot(y_mu, rhoJ3T0, num_shells));
-
-
-  out_file = fopen("SPJ_q_al27_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, sigmap1_tot(y, rhoJ1T0, num_shells), sigmap2_tot(y, rhoJ2T0, num_shells), sigmap3_tot(y, rhoJ3T0, num_shells), sigmap4_tot(y, rhoJ4T0, num_shells), sigmap5_tot(y, rhoJ5T0, num_shells));
-  }
-  fclose(out_file);
-
-  printf("SP1(m_mu): %g SP2(m_mu): %g SP3(m_mu): %g SP4(m_mu): %g SP5(m_mu): %g\n", sigmap1_tot(y_mu, rhoJ1T0, num_shells), sigmap2_tot(y_mu, rhoJ2T0, num_shells), sigmap3_tot(y_mu, rhoJ3T0, num_shells), sigmap4_tot(y_mu, rhoJ4T0, num_shells), sigmap5_tot(y_mu, rhoJ5T0, num_shells));
-
-  out_file = fopen("SPPJ_q_al27_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, sigmapp0_tot(y, rhoJ0T0, num_shells), sigmapp1_tot(y, rhoJ1T0, num_shells), sigmapp2_tot(y, rhoJ2T0, num_shells), sigmapp3_tot(y, rhoJ3T0, num_shells), sigmapp4_tot(y, rhoJ4T0, num_shells), sigmapp5_tot(y, rhoJ5T0, num_shells));
-  }
-  fclose(out_file);
-
-  printf("SPP0(m_mu): %g SPP1(m_mu): %g SPP2(m_mu): %g SPP3(m_mu): %g SPP4(m_mu): %g SPP5(m_mu): %g\n", sigmapp0_tot(y_mu, rhoJ0T0, num_shells), sigmapp1_tot(y_mu, rhoJ1T0, num_shells), sigmapp2_tot(y_mu, rhoJ2T0, num_shells), sigmapp3_tot(y_mu, rhoJ3T0, num_shells), sigmapp4_tot(y_mu, rhoJ4T0, num_shells), sigmapp5_tot(y_mu, rhoJ5T0, num_shells));
-
-
-  out_file = fopen("OPJ_q_al27_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, omegap0_tot(y, rhoJ0T0, num_shells), omegap1_tot(y, rhoJ1T0, num_shells), omegap2_tot(y, rhoJ2T0, num_shells), omegap3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
+  
+  compute_nuclear_multipoles(rhoJ0T0, rhoJ0T1, rhoJ1T0, rhoJ1T1, rhoJ2T0, rhoJ2T1, rhoJ3T0, rhoJ3T1, rhoJ4T0, rhoJ4T1, rhoJ5T0, rhoJ5T1, num_shells, q, 27);
 
   // Compute Al27 1/2+ (1e) -> 5/2+ (gs) transition
   // Only J = 2, 3 operators allowed
   printf("\n");
+  printf("Al27 1/2+ (1e) -> 5/2+ (gs) transition\n");
+
   for (int i = 0; i < num_shells*num_shells; i++) {
     rhoJ0T0[i] = 0.0;
     rhoJ0T1[i] = 0.0;
@@ -238,75 +176,12 @@ in_file = fopen("isotope_data/al27/density/al27-al27_usdb_1bdy_J1_T1_0_0.dens", 
   }
   fclose(in_file);
 
-  out_file = fopen("MJ_q_al27_1_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, m0_tot(y, rhoJ0T0, num_shells), m1_tot(y, rhoJ1T0, num_shells), m2_tot(y, rhoJ2T0, num_shells), m3_tot(y, rhoJ3T0, num_shells), m4_tot(y, rhoJ4T0, num_shells), 0.0);
-  }
-  fclose(out_file);
-
-  printf("M0(m_mu): %g M1(m_mu): %g M2(m_mu): %g M3(m_mu): %g M4(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells), m1_tot(y_mu, rhoJ1T0, num_shells), m2_tot(y_mu, rhoJ2T0, num_shells), m3_tot(y_mu, rhoJ3T0, num_shells), m4_tot(y_mu, rhoJ4T0, num_shells));
-
-
-  out_file = fopen("DPJ_q_al27_1_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, deltap1_tot(y, rhoJ1T0, num_shells), deltap2_tot(y, rhoJ2T0, num_shells), deltap3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
-
-  printf("DP1(m_mu): %g DP2(m_mu): %g DP3(m_mu): %g\n", deltap1_tot(y_mu, rhoJ1T0, num_shells), deltap2_tot(y_mu, rhoJ2T0, num_shells), deltap3_tot(y_mu, rhoJ3T0, num_shells));
-
-
-  out_file = fopen("SJ_q_al27_1_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, sigma1_tot(y, rhoJ1T0, num_shells), sigma2_tot(y, rhoJ2T0, num_shells), sigma3_tot(y, rhoJ3T0, num_shells), sigma4_tot(y, rhoJ4T0, num_shells), 0.0);
-  }
-  fclose(out_file);
-
-  printf("S1(m_mu): %g S2(m_mu): %g S3(m_mu): %g S4(m_mu): %g\n", sigma1_tot(y_mu, rhoJ1T0, num_shells), sigma2_tot(y_mu, rhoJ2T0, num_shells), sigma3_tot(y_mu, rhoJ3T0, num_shells), sigma4_tot(y_mu, rhoJ4T0, num_shells));
-
-
-  out_file = fopen("DJ_q_al27_1_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, delta1_tot(y, rhoJ1T0, num_shells), delta2_tot(y, rhoJ2T0, num_shells), delta3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
-
-  printf("D1(m_mu): %g D2(m_mu): %g D3(m_mu): %g\n", delta1_tot(y_mu, rhoJ1T0, num_shells), delta2_tot(y_mu, rhoJ2T0, num_shells), delta3_tot(y_mu, rhoJ3T0, num_shells));
-
-
-  out_file = fopen("SPJ_q_al27_1_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, sigmap1_tot(y, rhoJ1T0, num_shells), sigmap2_tot(y, rhoJ2T0, num_shells), sigmap3_tot(y, rhoJ3T0, num_shells), sigmap4_tot(y, rhoJ4T0, num_shells), sigmap5_tot(y, rhoJ5T0, num_shells));
-  }
-  fclose(out_file);
-
-  printf("SP1(m_mu): %g SP2(m_mu): %g SP3(m_mu): %g SP4(m_mu): %g SP5(m_mu): %g\n", sigmap1_tot(y_mu, rhoJ1T0, num_shells), sigmap2_tot(y_mu, rhoJ2T0, num_shells), sigmap3_tot(y_mu, rhoJ3T0, num_shells), sigmap4_tot(y_mu, rhoJ4T0, num_shells), sigmap5_tot(y_mu, rhoJ5T0, num_shells));
-
-  out_file = fopen("SPPJ_q_al27_1_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, sigmapp0_tot(y, rhoJ0T0, num_shells), sigmapp1_tot(y, rhoJ1T0, num_shells), sigmapp2_tot(y, rhoJ2T0, num_shells), sigmapp3_tot(y, rhoJ3T0, num_shells), sigmapp4_tot(y, rhoJ4T0, num_shells), sigmapp5_tot(y, rhoJ5T0, num_shells));
-  }
-  fclose(out_file);
-
-  printf("SPP0(m_mu): %g SPP1(m_mu): %g SPP2(m_mu): %g SPP3(m_mu): %g SPP4(m_mu): %g SPP5(m_mu): %g\n", sigmapp0_tot(y_mu, rhoJ0T0, num_shells), sigmapp1_tot(y_mu, rhoJ1T0, num_shells), sigmapp2_tot(y_mu, rhoJ2T0, num_shells), sigmapp3_tot(y_mu, rhoJ3T0, num_shells), sigmapp4_tot(y_mu, rhoJ4T0, num_shells), sigmapp5_tot(y_mu, rhoJ5T0, num_shells));
-
-
-  out_file = fopen("OPJ_q_al27_1_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, omegap0_tot(y, rhoJ0T0, num_shells), omegap1_tot(y, rhoJ1T0, num_shells), omegap2_tot(y, rhoJ2T0, num_shells), omegap3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
+  compute_nuclear_multipoles(rhoJ0T0, rhoJ0T1, rhoJ1T0, rhoJ1T1, rhoJ2T0, rhoJ2T1, rhoJ3T0, rhoJ3T1, rhoJ4T0, rhoJ4T1, rhoJ5T0, rhoJ5T1, num_shells, q, 27);
 
   // Compute Al27 3/2+ (2e) -> 5/2+ (gs) transition
   // Only J = 1,2,3,4 operators allowed
   printf("\n");
+  printf("Al27 3/2+ (2e) -> 5/2+ (gs) transition\n");
   for (int i = 0; i < num_shells*num_shells; i++) {
     rhoJ0T0[i] = 0.0;
     rhoJ0T1[i] = 0.0;
@@ -387,77 +262,13 @@ in_file = fopen("isotope_data/al27/density/al27-al27_usdb_1bdy_J1_T1_0_0.dens", 
   }
   fclose(in_file);
 
-
-  out_file = fopen("MJ_q_al27_2_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, m0_tot(y, rhoJ0T0, num_shells), m1_tot(y, rhoJ1T0, num_shells), m2_tot(y, rhoJ2T0, num_shells), m3_tot(y, rhoJ3T0, num_shells), m4_tot(y, rhoJ4T0, num_shells), 0.0);
-  }
-  fclose(out_file);
-
-  printf("M0(m_mu): %g M1(m_mu): %g M2(m_mu): %g M3(m_mu): %g M4(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells), m1_tot(y_mu, rhoJ1T0, num_shells), m2_tot(y_mu, rhoJ2T0, num_shells), m3_tot(y_mu, rhoJ3T0, num_shells), m4_tot(y_mu, rhoJ4T0, num_shells));
-
-
-  out_file = fopen("DPJ_q_al27_2_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, deltap1_tot(y, rhoJ1T0, num_shells), deltap2_tot(y, rhoJ2T0, num_shells), deltap3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
-
-  printf("DP1(m_mu): %g DP2(m_mu): %g DP3(m_mu): %g\n", deltap1_tot(y_mu, rhoJ1T0, num_shells), deltap2_tot(y_mu, rhoJ2T0, num_shells), deltap3_tot(y_mu, rhoJ3T0, num_shells));
-
-
-  out_file = fopen("SJ_q_al27_2_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, sigma1_tot(y, rhoJ1T0, num_shells), sigma2_tot(y, rhoJ2T0, num_shells), sigma3_tot(y, rhoJ3T0, num_shells), sigma4_tot(y, rhoJ4T0, num_shells), 0.0);
-  }
-  fclose(out_file);
-
-  printf("S1(m_mu): %g S2(m_mu): %g S3(m_mu): %g S4(m_mu): %g\n", sigma1_tot(y_mu, rhoJ1T0, num_shells), sigma2_tot(y_mu, rhoJ2T0, num_shells), sigma3_tot(y_mu, rhoJ3T0, num_shells), sigma4_tot(y_mu, rhoJ4T0, num_shells));
-
-
-  out_file = fopen("DJ_q_al27_2_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, delta1_tot(y, rhoJ1T0, num_shells), delta2_tot(y, rhoJ2T0, num_shells), delta3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
-
-  printf("D1(m_mu): %g D2(m_mu): %g D3(m_mu): %g\n", delta1_tot(y_mu, rhoJ1T0, num_shells), delta2_tot(y_mu, rhoJ2T0, num_shells), delta3_tot(y_mu, rhoJ3T0, num_shells));
-
-
-  out_file = fopen("SPJ_q_al27_2_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, sigmap1_tot(y, rhoJ1T0, num_shells), sigmap2_tot(y, rhoJ2T0, num_shells), sigmap3_tot(y, rhoJ3T0, num_shells), sigmap4_tot(y, rhoJ4T0, num_shells), sigmap5_tot(y, rhoJ5T0, num_shells));
-  }
-  fclose(out_file);
-
-  printf("SP1(m_mu): %g SP2(m_mu): %g SP3(m_mu): %g SP4(m_mu): %g SP5(m_mu): %g\n", sigmap1_tot(y_mu, rhoJ1T0, num_shells), sigmap2_tot(y_mu, rhoJ2T0, num_shells), sigmap3_tot(y_mu, rhoJ3T0, num_shells), sigmap4_tot(y_mu, rhoJ4T0, num_shells), sigmap5_tot(y_mu, rhoJ5T0, num_shells));
-
-  out_file = fopen("SPPJ_q_al27_2_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, sigmapp0_tot(y, rhoJ0T0, num_shells), sigmapp1_tot(y, rhoJ1T0, num_shells), sigmapp2_tot(y, rhoJ2T0, num_shells), sigmapp3_tot(y, rhoJ3T0, num_shells), sigmapp4_tot(y, rhoJ4T0, num_shells), sigmapp5_tot(y, rhoJ5T0, num_shells));
-  }
-  fclose(out_file);
-
-  printf("SPP0(m_mu): %g SPP1(m_mu): %g SPP2(m_mu): %g SPP3(m_mu): %g SPP4(m_mu): %g SPP5(m_mu): %g\n", sigmapp0_tot(y_mu, rhoJ0T0, num_shells), sigmapp1_tot(y_mu, rhoJ1T0, num_shells), sigmapp2_tot(y_mu, rhoJ2T0, num_shells), sigmapp3_tot(y_mu, rhoJ3T0, num_shells), sigmapp4_tot(y_mu, rhoJ4T0, num_shells), sigmapp5_tot(y_mu, rhoJ5T0, num_shells));
-
-
-  out_file = fopen("OPJ_q_al27_2_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, omegap0_tot(y, rhoJ0T0, num_shells), omegap1_tot(y, rhoJ1T0, num_shells), omegap2_tot(y, rhoJ2T0, num_shells), omegap3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
-
+  compute_nuclear_multipoles(rhoJ0T0, rhoJ0T1, rhoJ1T0, rhoJ1T1, rhoJ2T0, rhoJ2T1, rhoJ3T0, rhoJ3T1, rhoJ4T0, rhoJ4T1, rhoJ5T0, rhoJ5T1, num_shells, q, 27);
 
   // Compute Si28 0+ (gs) -> 0+ (gs) transition
   // Only J = 1,2,3,4 operators allowed
   printf("\n");
+  printf("Si28 0+ (gs) -> 0+ (gs) transition\n");
+
   for (int i = 0; i < num_shells*num_shells; i++) {
     rhoJ0T0[i] = 0.0;
     rhoJ0T1[i] = 0.0;
@@ -481,75 +292,81 @@ in_file = fopen("isotope_data/al27/density/al27-al27_usdb_1bdy_J1_T1_0_0.dens", 
   }
   fclose(in_file);
 
-  out_file = fopen("MJ_q_si28_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, m0_tot(y, rhoJ0T0, num_shells), m1_tot(y, rhoJ1T0, num_shells), m2_tot(y, rhoJ2T0, num_shells), m3_tot(y, rhoJ3T0, num_shells), m4_tot(y, rhoJ4T0, num_shells), 0.0);
-  }
-  fclose(out_file);
-
-  printf("M0(m_mu): %g M1(m_mu): %g M2(m_mu): %g M3(m_mu): %g M4(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells), m1_tot(y_mu, rhoJ1T0, num_shells), m2_tot(y_mu, rhoJ2T0, num_shells), m3_tot(y_mu, rhoJ3T0, num_shells), m4_tot(y_mu, rhoJ4T0, num_shells));
-
-
-  out_file = fopen("DPJ_q_si28_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, deltap1_tot(y, rhoJ1T0, num_shells), deltap2_tot(y, rhoJ2T0, num_shells), deltap3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
-
-  printf("DP1(m_mu): %g DP2(m_mu): %g DP3(m_mu): %g\n", deltap1_tot(y_mu, rhoJ1T0, num_shells), deltap2_tot(y_mu, rhoJ2T0, num_shells), deltap3_tot(y_mu, rhoJ3T0, num_shells));
-
-
-  out_file = fopen("SJ_q_si28_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, sigma1_tot(y, rhoJ1T0, num_shells), sigma2_tot(y, rhoJ2T0, num_shells), sigma3_tot(y, rhoJ3T0, num_shells), sigma4_tot(y, rhoJ4T0, num_shells), 0.0);
-  }
-  fclose(out_file);
-
-  printf("S1(m_mu): %g S2(m_mu): %g S3(m_mu): %g S4(m_mu): %g\n", sigma1_tot(y_mu, rhoJ1T0, num_shells), sigma2_tot(y_mu, rhoJ2T0, num_shells), sigma3_tot(y_mu, rhoJ3T0, num_shells), sigma4_tot(y_mu, rhoJ4T0, num_shells));
-
-
-  out_file = fopen("DJ_q_si28_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, delta1_tot(y, rhoJ1T0, num_shells), delta2_tot(y, rhoJ2T0, num_shells), delta3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
-
-  printf("D1(m_mu): %g D2(m_mu): %g D3(m_mu): %g\n", delta1_tot(y_mu, rhoJ1T0, num_shells), delta2_tot(y_mu, rhoJ2T0, num_shells), delta3_tot(y_mu, rhoJ3T0, num_shells));
-
-
-  out_file = fopen("SPJ_q_si28_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, 0.0, sigmap1_tot(y, rhoJ1T0, num_shells), sigmap2_tot(y, rhoJ2T0, num_shells), sigmap3_tot(y, rhoJ3T0, num_shells), sigmap4_tot(y, rhoJ4T0, num_shells), sigmap5_tot(y, rhoJ5T0, num_shells));
-  }
-  fclose(out_file);
-
-  printf("SP1(m_mu): %g SP2(m_mu): %g SP3(m_mu): %g SP4(m_mu): %g SP5(m_mu): %g\n", sigmap1_tot(y_mu, rhoJ1T0, num_shells), sigmap2_tot(y_mu, rhoJ2T0, num_shells), sigmap3_tot(y_mu, rhoJ3T0, num_shells), sigmap4_tot(y_mu, rhoJ4T0, num_shells), sigmap5_tot(y_mu, rhoJ5T0, num_shells));
-
-  out_file = fopen("SPPJ_q_si28_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, sigmapp0_tot(y, rhoJ0T0, num_shells), sigmapp1_tot(y, rhoJ1T0, num_shells), sigmapp2_tot(y, rhoJ2T0, num_shells), sigmapp3_tot(y, rhoJ3T0, num_shells), sigmapp4_tot(y, rhoJ4T0, num_shells), sigmapp5_tot(y, rhoJ5T0, num_shells));
-  }
-  fclose(out_file);
-
-  printf("SPP0(m_mu): %g SPP1(m_mu): %g SPP2(m_mu): %g SPP3(m_mu): %g SPP4(m_mu): %g SPP5(m_mu): %g\n", sigmapp0_tot(y_mu, rhoJ0T0, num_shells), sigmapp1_tot(y_mu, rhoJ1T0, num_shells), sigmapp2_tot(y_mu, rhoJ2T0, num_shells), sigmapp3_tot(y_mu, rhoJ3T0, num_shells), sigmapp4_tot(y_mu, rhoJ4T0, num_shells), sigmapp5_tot(y_mu, rhoJ5T0, num_shells));
-
-
-  out_file = fopen("OPJ_q_si28_0_0.dat", "w");
-  for (int i = 0; i < 150; i++) {
-    double y = pow(i*b_osc(27)/(HBARC*2.0), 2.0);
-    fprintf(out_file, "%g, %g, %g, %g, %g, %g, %g\n", i*1.0, omegap0_tot(y, rhoJ0T0, num_shells), omegap1_tot(y, rhoJ1T0, num_shells), omegap2_tot(y, rhoJ2T0, num_shells), omegap3_tot(y, rhoJ3T0, num_shells), 0.0, 0.0);
-  }
-  fclose(out_file);
-
+  compute_nuclear_multipoles(rhoJ0T0, rhoJ0T1, rhoJ1T0, rhoJ1T1, rhoJ2T0, rhoJ2T1, rhoJ3T0, rhoJ3T1, rhoJ4T0, rhoJ4T1, rhoJ5T0, rhoJ5T1, num_shells, q, 28);
 
   return;
 }
+
+void compute_nuclear_multipoles(double *rhoJ0T0, double *rhoJ0T1, double *rhoJ1T0, double *rhoJ1T1,
+		                double *rhoJ2T0, double *rhoJ2T1, double *rhoJ3T0, double *rhoJ3T1,
+				double *rhoJ4T0, double *rhoJ4T1, double *rhoJ5T0, double *rhoJ5T1,
+				int num_shells, double q, int a_nuc) {
+
+  double y_mu = pow(q*b_osc(a_nuc)/(HBARC*2.0), 2.0);
+
+  printf("T = 0:\n");
+//  printf("M0(m_mu): %g M1(m_mu): %g M2(m_mu): %g M3(m_mu): %g M4(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells), m1_tot(y_mu, rhoJ1T0, num_shells), m2_tot(y_mu, rhoJ2T0, num_shells), m3_tot(y_mu, rhoJ3T0, num_shells), m4_tot(y_mu, rhoJ4T0, num_shells));
+
+  printf("Sum_J |M_J(m_mu)|^2: %g\n", pow(m0_tot(y_mu, rhoJ0T0, num_shells), 2) + pow(m1_tot(y_mu, rhoJ1T0, num_shells), 2) + pow(m2_tot(y_mu, rhoJ2T0, num_shells), 2) + pow(m3_tot(y_mu, rhoJ3T0, num_shells), 2) + pow(m4_tot(y_mu, rhoJ4T0, num_shells), 2));
+
+//  printf("DP1(m_mu): %g DP2(m_mu): %g DP3(m_mu): %g\n", deltap1_tot(y_mu, rhoJ1T0, num_shells), deltap2_tot(y_mu, rhoJ2T0, num_shells), deltap3_tot(y_mu, rhoJ3T0, num_shells));
+
+  printf("Sum_J (q/m_n)^2|DP_J(m_mu)|^2: %g\n", pow(q/(M_NEUTRON), 2.0)*(pow(deltap1_tot(y_mu, rhoJ1T0, num_shells), 2) + pow(deltap2_tot(y_mu, rhoJ2T0, num_shells), 2) + pow(deltap3_tot(y_mu, rhoJ3T0, num_shells), 2)));
+
+//  printf("S1(m_mu): %g S2(m_mu): %g S3(m_mu): %g S4(m_mu): %g\n", sigma1_tot(y_mu, rhoJ1T0, num_shells), sigma2_tot(y_mu, rhoJ2T0, num_shells), sigma3_tot(y_mu, rhoJ3T0, num_shells), sigma4_tot(y_mu, rhoJ4T0, num_shells));
+
+  printf("Sum_J |S_J(m_mu)|^2: %g\n", pow(sigma1_tot(y_mu, rhoJ1T0, num_shells), 2) + pow(sigma2_tot(y_mu, rhoJ2T0, num_shells), 2) + pow(sigma3_tot(y_mu, rhoJ3T0, num_shells), 2) + pow(sigma4_tot(y_mu, rhoJ4T0, num_shells), 2.0));
+
+
+//  printf("D1(m_mu): %g D2(m_mu): %g D3(m_mu): %g\n", delta1_tot(y_mu, rhoJ1T0, num_shells), delta2_tot(y_mu, rhoJ2T0, num_shells), delta3_tot(y_mu, rhoJ3T0, num_shells));
+
+  printf("Sum_J (q/m_N)^2|D_J(m_mu)|^2: %g\n", pow(q/(M_NEUTRON), 2.0)*(pow(delta1_tot(y_mu, rhoJ1T0, num_shells), 2) + pow(delta2_tot(y_mu, rhoJ2T0, num_shells), 2) + pow(delta3_tot(y_mu, rhoJ3T0, num_shells), 2)));
+
+//  printf("SP1(m_mu): %g SP2(m_mu): %g SP3(m_mu): %g SP4(m_mu): %g SP5(m_mu): %g\n", sigmap1_tot(y_mu, rhoJ1T0, num_shells), sigmap2_tot(y_mu, rhoJ2T0, num_shells), sigmap3_tot(y_mu, rhoJ3T0, num_shells), sigmap4_tot(y_mu, rhoJ4T0, num_shells), sigmap5_tot(y_mu, rhoJ5T0, num_shells));
+
+  printf("Sum_J |SP_J(m_mu)|^2: %g\n", pow(sigmap1_tot(y_mu, rhoJ1T0, num_shells), 2) + pow(sigmap2_tot(y_mu, rhoJ2T0, num_shells), 2) + pow(sigmap3_tot(y_mu, rhoJ3T0, num_shells), 2) + pow(sigmap4_tot(y_mu, rhoJ4T0, num_shells), 2) + pow(sigmap5_tot(y_mu, rhoJ5T0, num_shells), 2));
+
+//  printf("SPP0(m_mu): %g SPP1(m_mu): %g SPP2(m_mu): %g SPP3(m_mu): %g SPP4(m_mu): %g SPP5(m_mu): %g\n", sigmapp0_tot(y_mu, rhoJ0T0, num_shells), sigmapp1_tot(y_mu, rhoJ1T0, num_shells), sigmapp2_tot(y_mu, rhoJ2T0, num_shells), sigmapp3_tot(y_mu, rhoJ3T0, num_shells), sigmapp4_tot(y_mu, rhoJ4T0, num_shells), sigmapp5_tot(y_mu, rhoJ5T0, num_shells));
+
+  printf("Sum_J |SPP_J(m_mu)|^2: %g\n", pow(sigmapp0_tot(y_mu, rhoJ0T0, num_shells), 2.0) + pow(sigmapp1_tot(y_mu, rhoJ1T0, num_shells), 2) + pow(sigmapp2_tot(y_mu, rhoJ2T0, num_shells), 2) + pow(sigmapp3_tot(y_mu, rhoJ3T0, num_shells), 2) + pow(sigmapp4_tot(y_mu, rhoJ4T0, num_shells), 2) + pow(sigmapp5_tot(y_mu, rhoJ5T0, num_shells), 2));
+
+ // printf("OP0(m_mu): %g OP1(m_mu): %g OP2(m_mu): %g OP3(m_mu): %g\n", omegap0_tot(y_mu, rhoJ0T0, num_shells), omegap1_tot(y_mu, rhoJ1T0, num_shells), omegap2_tot(y_mu, rhoJ2T0, num_shells), omegap3_tot(y_mu, rhoJ3T0, num_shells));
+
+  printf("Sum_J (q/m_N)^2|OP_J(m_mu)|^2: %g\n", pow(q/(M_NEUTRON), 2.0)*(pow(omegap0_tot(y_mu, rhoJ0T0, num_shells), 2.0) + pow(omegap1_tot(y_mu, rhoJ1T0, num_shells), 2) + pow(omegap2_tot(y_mu, rhoJ2T0, num_shells), 2) + pow(omegap3_tot(y_mu, rhoJ3T0, num_shells), 2)));
+
+  printf("\n");
+  printf("T = 1:\n");
+//  printf("M0(m_mu): %g M1(m_mu): %g M2(m_mu): %g M3(m_mu): %g M4(m_mu): %g\n", m0_tot(y_mu, rhoJ0T1, num_shells), m1_tot(y_mu, rhoJ1T1, num_shells), m2_tot(y_mu, rhoJ2T1, num_shells), m3_tot(y_mu, rhoJ3T1, num_shells), m4_tot(y_mu, rhoJ4T1, num_shells));
+
+  printf("Sum_J |M_J(m_mu)|^2: %g\n", pow(m0_tot(y_mu, rhoJ0T1, num_shells), 2) + pow(m1_tot(y_mu, rhoJ1T1, num_shells), 2) + pow(m2_tot(y_mu, rhoJ2T1, num_shells), 2) + pow(m3_tot(y_mu, rhoJ3T1, num_shells), 2) + pow(m4_tot(y_mu, rhoJ4T1, num_shells), 2));
+
+ // printf("DP1(m_mu): %g DP2(m_mu): %g DP3(m_mu): %g\n", deltap1_tot(y_mu, rhoJ1T1, num_shells), deltap2_tot(y_mu, rhoJ2T1, num_shells), deltap3_tot(y_mu, rhoJ3T1, num_shells));
+
+  printf("Sum_J (q/m_N)^2|DP_J(m_mu)|^2: %g\n", pow(q/(M_NEUTRON), 2.0)*(pow(deltap1_tot(y_mu, rhoJ1T1, num_shells), 2) + pow(deltap2_tot(y_mu, rhoJ2T1, num_shells), 2) + pow(deltap3_tot(y_mu, rhoJ3T1, num_shells), 2)));
+  
+//  printf("S1(m_mu): %g S2(m_mu): %g S3(m_mu): %g S4(m_mu): %g\n", sigma1_tot(y_mu, rhoJ1T1, num_shells), sigma2_tot(y_mu, rhoJ2T1, num_shells), sigma3_tot(y_mu, rhoJ3T1, num_shells), sigma4_tot(y_mu, rhoJ4T1, num_shells));
+
+  printf("Sum_J |S_J(m_mu)|^2: %g\n", pow(sigma1_tot(y_mu, rhoJ1T1, num_shells), 2) + pow(sigma2_tot(y_mu, rhoJ2T1, num_shells), 2) + pow(sigma3_tot(y_mu, rhoJ3T1, num_shells), 2) + pow(sigma4_tot(y_mu, rhoJ4T1, num_shells), 2.0));
+
+//  printf("D1(m_mu): %g D2(m_mu): %g D3(m_mu): %g\n", delta1_tot(y_mu, rhoJ1T1, num_shells), delta2_tot(y_mu, rhoJ2T1, num_shells), delta3_tot(y_mu, rhoJ3T1, num_shells));
+
+  printf("Sum_J (q/m_N)^2|D_J(m_mu)|^2: %g\n", pow(q/(M_NEUTRON), 2.0)*(pow(delta1_tot(y_mu, rhoJ1T1, num_shells), 2) + pow(delta2_tot(y_mu, rhoJ2T1, num_shells), 2) + pow(delta3_tot(y_mu, rhoJ3T1, num_shells), 2)));
+
+//  printf("SP1(m_mu): %g SP2(m_mu): %g SP3(m_mu): %g SP4(m_mu): %g SP5(m_mu): %g\n", sigmap1_tot(y_mu, rhoJ1T1, num_shells), sigmap2_tot(y_mu, rhoJ2T1, num_shells), sigmap3_tot(y_mu, rhoJ3T1, num_shells), sigmap4_tot(y_mu, rhoJ4T1, num_shells), sigmap5_tot(y_mu, rhoJ5T1, num_shells));
+
+  printf("Sum_J |SP_J(m_mu)|^2: %g\n", pow(sigmap1_tot(y_mu, rhoJ1T1, num_shells), 2) + pow(sigmap2_tot(y_mu, rhoJ2T1, num_shells), 2) + pow(sigmap3_tot(y_mu, rhoJ3T1, num_shells), 2) + pow(sigmap4_tot(y_mu, rhoJ4T1, num_shells), 2) + pow(sigmap5_tot(y_mu, rhoJ5T1, num_shells), 2));
+
+//  printf("SPP0(m_mu): %g SPP1(m_mu): %g SPP2(m_mu): %g SPP3(m_mu): %g SPP4(m_mu): %g SPP5(m_mu): %g\n", sigmapp0_tot(y_mu, rhoJ0T1, num_shells), sigmapp1_tot(y_mu, rhoJ1T1, num_shells), sigmapp2_tot(y_mu, rhoJ2T1, num_shells), sigmapp3_tot(y_mu, rhoJ3T1, num_shells), sigmapp4_tot(y_mu, rhoJ4T1, num_shells), sigmapp5_tot(y_mu, rhoJ5T1, num_shells));
+
+  printf("Sum_J |SPP_J(m_mu)|^2: %g\n", pow(sigmapp0_tot(y_mu, rhoJ0T1, num_shells), 2.0) + pow(sigmapp1_tot(y_mu, rhoJ1T1, num_shells), 2) + pow(sigmapp2_tot(y_mu, rhoJ2T1, num_shells), 2) + pow(sigmapp3_tot(y_mu, rhoJ3T1, num_shells), 2) + pow(sigmapp4_tot(y_mu, rhoJ4T1, num_shells), 2) + pow(sigmapp5_tot(y_mu, rhoJ5T1, num_shells), 2));
+
+//  printf("OP0(m_mu): %g OP1(m_mu): %g OP2(m_mu): %g OP3(m_mu): %g\n", omegap0_tot(y_mu, rhoJ0T1, num_shells), omegap1_tot(y_mu, rhoJ1T1, num_shells), omegap2_tot(y_mu, rhoJ2T1, num_shells), omegap3_tot(y_mu, rhoJ3T1, num_shells));
+
+  printf("Sum_J (q/m_N)^2|OP_J(m_mu)|^2: %g\n", pow(q/(M_NEUTRON), 2.0)*(pow(omegap0_tot(y_mu, rhoJ0T1, num_shells), 2.0) + pow(omegap1_tot(y_mu, rhoJ1T1, num_shells), 2) + pow(omegap2_tot(y_mu, rhoJ2T1, num_shells), 2) + pow(omegap3_tot(y_mu, rhoJ3T1, num_shells), 2)));
+
+  return;
+}
+
 
 double omegap3_tot(double y, double *rho, int num_shells) {
   double mat = 0.0; 
