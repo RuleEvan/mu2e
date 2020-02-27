@@ -28,6 +28,7 @@ double compute_rel_potential(double np, double lp, double n, double l, int J, do
     double p = ip/2.0;
     v += b_coeff(n, l, np, lp, p)*talmi_rel(p, iv, J, qt);
   }
+
   return v;
 }
 
@@ -79,9 +80,12 @@ double talmi_integrand_rel(double p, int iv, double J, double qt, double q) {
 
   if (iv == 1) {
     v *= finite_q_alpha_pot_1(q, (int) J, qt, M_PION) ;
-  }
-  if (iv == 2) {
+  } else if (iv == 2) {
     v *= v_cm_finite_q(q, (int) J, qt);
+  } else if (iv == 3) {
+    v *= finite_q_alpha_pot_2(q, (int) J, qt, M_PION);
+  } else if (iv == 4) {
+    v *= finite_q_alpha_pot_3(q, (int) J, qt, M_PION);
   }
 
   return v;
@@ -173,6 +177,21 @@ double finite_q_alpha_pot_1(double r, int l, double q, double m_pi) {
 return v;
 }
 
+double finite_q_alpha_pot_2(double r, int l, double q, double m_pi) {
+  r *= 1.84391*sqrt(2.0);
+  double v =  Romberg5Vars(&finite_q_alpha_int_2, 0.0, 1.0, r, l, q, m_pi, 0.0001);
+
+return v;
+}
+
+double finite_q_alpha_pot_3(double r, int l, double q, double m_pi) {
+  r *= 1.84391*sqrt(2.0);
+  double v =  Romberg5Vars(&finite_q_alpha_int_3, 0.0, 1.0, r, l, q, m_pi, 0.0001);
+
+return v;
+}
+
+
 double finite_q_alpha_int_1(double r, int l, double q, double m_pi, double alpha) {
   double pi = sqrt(alpha*(1.0 - alpha)*q*q + m_pi*m_pi);
   double bess = 0.0;
@@ -185,6 +204,33 @@ double finite_q_alpha_int_1(double r, int l, double q, double m_pi, double alpha
   
   return vi;
 }
+
+double finite_q_alpha_int_2(double r, int l, double q, double m_pi, double alpha) {
+  double pi = sqrt(alpha*(1.0 - alpha)*q*q + m_pi*m_pi);
+  double bess = 0.0;
+  if (alpha - 0.5 < 0.0) {
+    bess = pow(-1.0, l)*gsl_sf_bessel_jl(l, -q*r/(HBARC)*(alpha -0.5));
+  } else {
+    bess = gsl_sf_bessel_jl(l, q*r/(HBARC)*(alpha - 0.5));
+  }
+  double vi = (q*q*alpha*(1.0 - alpha)/(pi*HBARC))*exp(-r*pi/HBARC)*bess;
+  
+  return vi;
+}
+
+double finite_q_alpha_int_3(double r, int l, double q, double m_pi, double alpha) {
+  double pi = sqrt(alpha*(1.0 - alpha)*q*q + m_pi*m_pi);
+  double bess = 0.0;
+  if (alpha - 0.5 < 0.0) {
+    bess = pow(-1.0, l)*gsl_sf_bessel_jl(l, -q*r/(HBARC)*(alpha -0.5));
+  } else {
+    bess = gsl_sf_bessel_jl(l, q*r/(HBARC)*(alpha - 0.5));
+  }
+  double vi = (1.0 + r*pi/(HBARC))/r*exp(-r*pi/HBARC)*bess;
+  
+  return vi;
+}
+
 
 double v_light_limit_d(double r) {
   // Nuclear potential in the case of light neutrinos 
@@ -206,9 +252,9 @@ double v_pion_f1(double r) {
 }
 
 double v_pion_f2(double r) {
-  r *= B_OSC;
+  r *= 1.84391*sqrt(2.0);
   double v = 1/r;
-  double x = r*M_PION*0.0050677;
+  double x = r*M_PION/HBARC;
   v *= (x + 1.0)*exp(-x);
   
   return v;  

@@ -24,7 +24,8 @@ int main(int argc, char *argv[]) {
    printf("%g %g\n", y[i], sigmapp5_1d5_1d5(y[i]));
  }
  */
-  compute_isotope_multipoles(105.0);
+//  compute_isotope_multipoles(105.0);
+
 //  printf("%g\n", compute_rel_potential(1.0, 0.0, 1.0, 0.0, 0, 105.0, 2));
 //  printf("%g\n", compute_radial_matrix_element_J_dot_J(0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 105.0));
 /*  double q_min = 0.0;
@@ -38,7 +39,9 @@ int main(int argc, char *argv[]) {
   }
 */
   //printf("q = 0: %g\n", -compute_matrix_element_sigma_0(2, 3, 2, 3, 0, 2, 3, 2, 3, 0, 2)/(4.0*M_PI));
-//  compute_total_matrix_element_sigma_0_finite_q("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", 500.0, 0);
+  compute_total_matrix_element_y2_finite_q_alt("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", 105.0, 2, 0);
+  printf("q = 0: %g\n", compute_total_matrix_element_TT("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", 3));
+
 //  compute_total_matrix_element_sigma_0("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens");
 
  // generate_potential_files();

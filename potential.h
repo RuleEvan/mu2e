@@ -4,6 +4,11 @@
 
 double finite_q_alpha_pot_1(double r, int l, double q, double m_pi);
 double finite_q_alpha_int_1(double r, int l, double q, double m_pi, double alpha);
+double finite_q_alpha_pot_2(double r, int l, double q, double m_pi);
+double finite_q_alpha_int_2(double r, int l, double q, double m_pi, double alpha);
+double finite_q_alpha_pot_3(double r, int l, double q, double m_pi);
+double finite_q_alpha_int_3(double r, int l, double q, double m_pi, double alpha);
+
 double compute_rel_potential(double np, double lp, double n, double l, int J, double qt, int iv);
 double talmi_rel(double p, int iv, int J, double qt);
 double talmi_integrand_rel(double q, int iv, double p, double J, double qt);
