@@ -305,7 +305,7 @@ void compute_nuclear_multipoles(double *rhoJ0T0, double *rhoJ0T1, double *rhoJ1T
   double y_mu = pow(q*b_osc(a_nuc)/(HBARC*2.0), 2.0);
 
   printf("T = 0:\n");
-//  printf("M0(m_mu): %g M1(m_mu): %g M2(m_mu): %g M3(m_mu): %g M4(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells), m1_tot(y_mu, rhoJ1T0, num_shells), m2_tot(y_mu, rhoJ2T0, num_shells), m3_tot(y_mu, rhoJ3T0, num_shells), m4_tot(y_mu, rhoJ4T0, num_shells));
+  printf("M0(m_mu): %g M1(m_mu): %g M2(m_mu): %g M3(m_mu): %g M4(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells), m1_tot(y_mu, rhoJ1T0, num_shells), m2_tot(y_mu, rhoJ2T0, num_shells), m3_tot(y_mu, rhoJ3T0, num_shells), m4_tot(y_mu, rhoJ4T0, num_shells));
 
   printf("Sum_J |M_J(m_mu)|^2: %g\n", pow(m0_tot(y_mu, rhoJ0T0, num_shells), 2) + pow(m1_tot(y_mu, rhoJ1T0, num_shells), 2) + pow(m2_tot(y_mu, rhoJ2T0, num_shells), 2) + pow(m3_tot(y_mu, rhoJ3T0, num_shells), 2) + pow(m4_tot(y_mu, rhoJ4T0, num_shells), 2));
 

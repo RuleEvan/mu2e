@@ -63,7 +63,8 @@ double compute_matrix_element_TT(int in1p, int ij1p, int in2p, int ij2p, int ij1
       fact *= nine_j(l1p, l2p, lambdap, 0.5, 0.5, 1, j1p, j2p, j12p);
       if (fact == 0.0) {continue;}
       fact *= sqrt(2*lambda + 1)*sqrt(2*lambdap + 1);
-      fact *= pow(-1.0, j12 + 1)/(8.0*M_PI)*sqrt(8.0*M_PI/15.0)*3.0;
+      fact *= pow(-1.0, j12 + 1)*3.0;
+      fact *= pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
       fact *= six_j(j12, 1, lambdap, 2, lambda, 1);
       fact *= 2.0*sqrt(5.0)*sqrt(2*j12p + 1);
       fact *= compute_radial_matrix_element_y2(iv, n1p, l1p, n2p, l2p, lambdap, n1, l1, n2, l2, lambda, 1, t12);
@@ -72,7 +73,7 @@ double compute_matrix_element_TT(int in1p, int ij1p, int in2p, int ij2p, int ij1
   }
   if ((in1 == in2) && (j1 == j2)) {m4 *= 1/sqrt(2);}
   if ((in1p == in2p) && (j1p == j2p)) {m4 *= 1/sqrt(2);}  
-   m4 *= 1.0/(2.0*sqrt(M_PI));   
+   m4 *= 1.0/(8.0*M_PI)*sqrt(8.0*M_PI/15.0);   
 
   return m4;
 }
@@ -167,12 +168,13 @@ int get_l(int n, int j) {
   return l;
 }
 
-double compute_matrix_element_sigma_0_finite_q(int in1p, int ij1p, int in2p, int ij2p, int ij12p, int in1, int ij1, int in2, int ij2, int ij12, double q, int J, int t12) {
+double compute_matrix_element_sigma_0_finite_q_op5(int in1p, int ij1p, int in2p, int ij2p, int ij12p, int in1, int ij1, int in2, int ij2, int ij12, double q, int J1, int J2, int it12) {
+  int phase = pow(-1.0, (1.0 + J1 - J2)/2.0);
 
   double j1 = ij1/2.0;
   double j2 = ij2/2.0;
   double j12 = ij12/2.0;
-  //double t12 = it12/2.0;
+  double t12 = it12/2.0;
   double j1p = ij1p/2.0;
   double j2p = ij2p/2.0;
   double j12p = ij12p/2.0;
@@ -204,6 +206,58 @@ double compute_matrix_element_sigma_0_finite_q(int in1p, int ij1p, int in2p, int
       if (fact == 0.0) {continue;}
       fact *= sqrt(2*j12 + 1.0);
       double m1 = pow(-1.0, 1.0 + s)*six_j(s,0.5,0.5,1.0,0.5,0.5)*6.0;
+      m1 *= pow(-1.0, 1.0 + t12)*sqrt(2*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
+      m1 *= fact;
+      m1 *= compute_radial_matrix_element_J_dot_J_alt(J1, J2, n1p, l1p, n2p, l2p, lambda, n1, l1, n2, l2, lambda, s, t12, q);
+      m4 += m1;
+    }
+  }
+  if ((n1 == n2) && (j1 == j2) && (l1 == l2)) {m4 *= 1/sqrt(2);}
+  if ((n1p == n2p) && (j1p == j2p) && (l1p == l2p)) {m4 *= 1/sqrt(2);}
+  m4 *= phase/(12.0*sqrt(M_PI))*(2.0*J1 + 1.0)/(2.0*J2 + 1.0)*pow(clebsch_gordan(J1, 1.0, J2, 0.0, 0.0, 0.0), 2.0);    
+
+  return m4;
+}
+
+
+double compute_matrix_element_sigma_0_finite_q(int in1p, int ij1p, int in2p, int ij2p, int ij12p, int in1, int ij1, int in2, int ij2, int ij12, double q, int J, int it12) {
+
+  double j1 = ij1/2.0;
+  double j2 = ij2/2.0;
+  double j12 = ij12/2.0;
+  double t12 = it12/2.0;
+  double j1p = ij1p/2.0;
+  double j2p = ij2p/2.0;
+  double j12p = ij12p/2.0;
+//  double t12p = it12p/2.0;
+
+  int l1, l2, l1p, l2p;
+   
+  l1p = get_l(in1p, ij1p);
+  l2p = get_l(in2p, ij2p);
+  l1 = get_l(in1, ij1);
+  l2 = get_l(in2, ij2); 
+    
+  // The N's listed in the input file are energy quanta, we want radial quantum numbers
+  double n1 = (in1 - l1)/2.0;
+  double n2 = (in2 - l2)/2.0;
+  double n1p = (in1p - l1p)/2.0;
+  double n2p = (in2p - l2p)/2.0;
+ 
+  double m4 = 0.0;
+  // Convert from JJ to LS coupling (L is lambda)
+  for (int lambda = abs(l1 - l2); lambda <= (l1 + l2); lambda++) {
+    int s_max = MIN(lambda + j12, 1);
+    int s_min = abs(lambda - j12);
+    for (int s = s_min; s <= s_max; s++) {
+      double fact = sqrt((2*lambda + 1)*(2*s + 1)*(2*j1 + 1)*(2*j2 + 1));
+      fact *= sqrt((2*lambda + 1)*(2*s + 1)*(2*j1p + 1)*(2*j2p + 1));
+      fact *= nine_j(l1, l2, lambda, 0.5, 0.5, s, j1, j2, j12);
+      fact *= nine_j(l1p, l2p, lambda, 0.5, 0.5, s, j1p, j2p, j12p);
+      if (fact == 0.0) {continue;}
+      fact *= sqrt(2*j12 + 1.0);
+      double m1 = pow(-1.0, 1.0 + s)*six_j(s,0.5,0.5,1.0,0.5,0.5)*6.0;
+      m1 *= pow(-1.0, 1.0 + t12)*sqrt(2*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
       m1 *= fact;
       m1 *= compute_radial_matrix_element_J_dot_J(J, n1p, l1p, n2p, l2p, lambda, n1, l1, n2, l2, lambda, s, t12, q);
       m4 += m1;
@@ -213,6 +267,23 @@ double compute_matrix_element_sigma_0_finite_q(int in1p, int ij1p, int in2p, int
   if ((n1p == n2p) && (j1p == j2p) && (l1p == l2p)) {m4 *= 1/sqrt(2);}
                         
   return m4;
+}
+
+double compute_total_matrix_element_sigma_0_finite_q_op5(char* density_file, double q, int J1, int J2) {
+  // Computes the two-body nuclear matrix element sigma_1 dot sigma_2 tau_1+ tau_2+ with arbitrary radial function specified by iv
+  FILE *in_file;
+  in_file = fopen(density_file, "r");
+  double mat = 0.0;
+ 
+  int in1, in2, ij1, ij2, ij12, it12;
+  int in1p, in2p, ij1p, ij2p, ij12p, it12p;
+  float density;
+  while(fscanf(in_file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f\n", &in1p, &ij1p, &in2p, &ij2p, &ij12p, &it12p, &in1, &ij1, &in2, &ij2, &ij12, &it12, &density) == 13) {
+    double m4 = compute_matrix_element_sigma_0_finite_q_op5(in1p, ij1p, in2p, ij2p, ij12p, in1, ij1, in2, ij2, ij12, q, J1, J2, it12); 
+    mat += m4*density;
+  }
+                        
+  return mat;
 }
 
 
@@ -226,8 +297,6 @@ double compute_total_matrix_element_sigma_0_finite_q(char* density_file, double 
   int in1p, in2p, ij1p, ij2p, ij12p, it12p;
   float density;
   while(fscanf(in_file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f\n", &in1p, &ij1p, &in2p, &ij2p, &ij12p, &it12p, &in1, &ij1, &in2, &ij2, &ij12, &it12, &density) == 13) {
-
-    printf("%g\n", mat);
     double m4 = compute_matrix_element_sigma_0_finite_q(in1p, ij1p, in2p, ij2p, ij12p, in1, ij1, in2, ij2, ij12, q, J, it12); 
     mat += m4*density;
   }
@@ -248,7 +317,6 @@ double compute_total_matrix_element_y2_finite_q_alt(char* density_file, double q
 
     double m4 = compute_matrix_element_y2_finite_q_alt(in1p, ij1p, in2p, ij2p, ij12p, in1, ij1, in2, ij2, ij12, it12, q, J1, J2); 
     mat += m4*density;
-    printf("%g\n", mat);
   }
                         
   return mat;
@@ -268,7 +336,6 @@ double compute_total_matrix_element_y2_finite_q(char* density_file, double q, in
 
     double m4 = compute_matrix_element_y2_finite_q(in1p, ij1p, in2p, ij2p, ij12p, in1, ij1, in2, ij2, ij12, it12, q, J1, J2); 
     mat += m4*density;
-    printf("%g\n", mat);
   }
                         
   return mat;
@@ -286,11 +353,10 @@ double compute_total_matrix_element_sigma_0(char* density_file) {
   float density;
   while(fscanf(in_file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f\n", &in1p, &ij1p, &in2p, &ij2p, &ij12p, &it12p, &in1, &ij1, &in2, &ij2, &ij12, &it12, &density) == 13) {
 
-    printf("%g\n", mat/(-4.0*M_PI));
     double m4 = compute_matrix_element_sigma_0(in1p, ij1p, in2p, ij2p, ij12p, in1, ij1, in2, ij2, ij12, it12, 2); 
     mat += m4*density;
   }
-                        
+  
   return mat;
 }
 
@@ -300,12 +366,10 @@ double compute_matrix_element_y2_finite_q_alt(int in1p, int ij1p, int in2p, int 
   double j1 = ij1/2.0;
   double j2 = ij2/2.0;
   double j12 = ij12/2.0;
-  //double t12 = it12/2.0;
   double j1p = ij1p/2.0;
   double j2p = ij2p/2.0;
   double j12p = ij12p/2.0;
   double t12 = it12/2.0;
-//  double t12p = it12p/2.0;
 
   int l1, l2, l1p, l2p;
    
@@ -338,6 +402,7 @@ double compute_matrix_element_y2_finite_q_alt(int in1p, int ij1p, int in2p, int 
       if (fact == 0.0) {continue;}
       fact *= sqrt(2*lambda + 1)*sqrt(2*lambdap + 1);
       fact *= pow(-1.0, lambda + j12 + 1)*3.0;
+      fact *= pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
       fact *= six_j(j12, 1, lambdap, 2, lambda, 1);
       fact *= 2.0*sqrt(5)*sqrt(2*j12 + 1);
       fact *= compute_radial_matrix_element_Y2_q_alt(J1, J2, n1p, l1p, n2p, l2p, lambdap, n1, l1, n2, l2, lambda, 1, t12, q);
@@ -359,12 +424,10 @@ double compute_matrix_element_y2_finite_q(int in1p, int ij1p, int in2p, int ij2p
   double j1 = ij1/2.0;
   double j2 = ij2/2.0;
   double j12 = ij12/2.0;
-  //double t12 = it12/2.0;
   double j1p = ij1p/2.0;
   double j2p = ij2p/2.0;
   double j12p = ij12p/2.0;
-  double t12 = it12;
-//  double t12p = it12p/2.0;
+  double t12 = it12/2.0;
 
   int l1, l2, l1p, l2p;
    
@@ -398,6 +461,7 @@ double compute_matrix_element_y2_finite_q(int in1p, int ij1p, int in2p, int ij2p
       fact *= sqrt(2*lambda + 1)*sqrt(2*lambdap + 1);
       fact *= pow(-1.0, j12 + 1)*3.0;
       fact *= six_j(j12, 1, lambdap, 2, lambda, 1);
+      fact *= pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
       fact *= 2.0*sqrt(5)*sqrt(2*j12 + 1);
       fact *= compute_radial_matrix_element_Y2_q(J1, J2, n1p, l1p, n2p, l2p, lambdap, n1, l1, n2, l2, lambda, 1, t12, q);
       m4 += fact;
@@ -405,7 +469,7 @@ double compute_matrix_element_y2_finite_q(int in1p, int ij1p, int in2p, int ij2p
   }
   if ((in1 == in2) && (j1 == j2)) {m4 *= 1/sqrt(2);}
   if ((in1p == in2p) && (j1p == j2p)) {m4 *= 1/sqrt(2);}  
-  m4 *= phase*sqrt((2.0*J1 + 1.0)*(2.0*J2 + 1.0))*clebsch_gordan(J1, J2, 2.0, 0.0, 0.0, 0.0)*sqrt(8.0*M_PI/3.0)/5.0;
+  m4 *= phase*sqrt((2.0*J1 + 1.0)*(2.0*J2 + 1.0)/5.0)*clebsch_gordan(J1, J2, 2.0, 0.0, 0.0, 0.0)*sqrt(8.0*M_PI/15.0)/(8.0*M_PI);
 
   return m4;
 }
@@ -418,7 +482,7 @@ double compute_matrix_element_sigma_0(int in1p, int ij1p, int in2p, int ij2p, in
   double j1 = ij1/2.0;
   double j2 = ij2/2.0;
   double j12 = ij12/2.0;
-  //  double t12 = it12/2.0;
+  double t12 = it12/2.0;
   double j1p = ij1p/2.0;
   double j2p = ij2p/2.0;
   double j12p = ij12p/2.0;
@@ -450,8 +514,9 @@ double compute_matrix_element_sigma_0(int in1p, int ij1p, int in2p, int ij2p, in
       if (fact == 0.0) {continue;}
       fact *= sqrt(2*j12 + 1.0);
       double m1 = pow(-1.0, 1.0 + s)*six_j(s,0.5,0.5,1.0,0.5,0.5)*6.0;
+      m1 *= pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
       m1 *= fact;
-      m1 *= compute_radial_matrix_element_scalar(iv, n1p, l1p, n2p, l2p, n1, l1, n2, l2, lambda, s, it12);
+      m1 *= compute_radial_matrix_element_scalar(iv, n1p, l1p, n2p, l2p, n1, l1, n2, l2, lambda, s, t12);
       m4 += m1;
     }
   }
