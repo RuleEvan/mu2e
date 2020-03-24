@@ -88,6 +88,8 @@ double talmi_integrand_rel(double p, int iv, double J, double qt, double q) {
     v *= finite_q_alpha_pot_3(q, (int) J, qt, M_PION);
   } else if (iv == 5) {
     v *= finite_q_alpha_pot_4(q, (int) J, qt, M_PION);
+  } else if (iv == 6) {
+    v *= finite_q_alpha_pot_5(q, (int) J, qt, M_PION);
   }
 
 
@@ -201,6 +203,13 @@ double finite_q_alpha_pot_4(double r, int l, double q, double m_pi) {
 return v;
 }
 
+double finite_q_alpha_pot_5(double r, int l, double q, double m_pi) {
+  r *= 1.84391*sqrt(2.0);
+  double v =  Romberg5Vars(&finite_q_alpha_int_5, 0.0, 1.0, r, l, q, m_pi, 0.0001);
+
+return v;
+}
+
 
 double finite_q_alpha_int_1(double r, int l, double q, double m_pi, double alpha) {
   double pi = sqrt(alpha*(1.0 - alpha)*q*q + m_pi*m_pi);
@@ -250,6 +259,19 @@ double finite_q_alpha_int_4(double r, int l, double q, double m_pi, double alpha
     bess = gsl_sf_bessel_jl(l, q*r/(HBARC)*(alpha - 0.5));
   }
   double vi = (1.0 - 2.0*alpha)*q/(HBARC)*exp(-r*pi/HBARC)*bess;
+  
+  return vi;
+}
+
+double finite_q_alpha_int_5(double r, int l, double q, double m_pi, double alpha) {
+  double pi = sqrt(alpha*(1.0 - alpha)*q*q + m_pi*m_pi);
+  double bess = 0.0;
+  if (alpha - 0.5 < 0.0) {
+    bess = pow(-1.0, l)*gsl_sf_bessel_jl(l, -q*r/(HBARC)*(alpha -0.5));
+  } else {
+    bess = gsl_sf_bessel_jl(l, q*r/(HBARC)*(alpha - 0.5));
+  }
+  double vi = q/(HBARC)*exp(-r*pi/HBARC)*bess;
   
   return vi;
 }

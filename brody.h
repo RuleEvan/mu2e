@@ -14,5 +14,6 @@ double compute_radial_matrix_element_J_dot_J_alt(int J1, int J2, int n1p, int l1
 double compute_radial_matrix_element_J_dot_J(int J, int n1p, int l1p, int n2p, int l2p, int lambdap, int n1, int l1, int n2, int l2, int lambda, int s, int t, double q);
 double compute_radial_matrix_element_Y2_q(int J1, int J2, int n1p, int l1p, int n2p, int l2p, int lambdap, int n1, int l1, int n2, int l2, int lambda, int s, int t, double q);
 double compute_radial_matrix_element_Y2_q_alt(int J1, int J2, int n1p, int l1p, int n2p, int l2p, int lambdap, int n1, int l1, int n2, int l2, int lambda, int s, int t, double q);
+double compute_radial_matrix_element_Y1_finite_q(int J1, int J2, int J, int n1p, int l1p, int n2p, int l2p, int lambdap, int n1, int l1, int n2, int l2, int lambda, int s, int t, double q);
 
 #endif
