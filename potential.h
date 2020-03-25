@@ -13,6 +13,12 @@ double finite_q_alpha_int_4(double r, int l, double q, double m_pi, double alpha
 double finite_q_alpha_pot_5(double r, int l, double q, double m_pi);
 double finite_q_alpha_int_5(double r, int l, double q, double m_pi, double alpha);
 
+// Spline functions
+double talmi_rel_spline(double p, gsl_spline *f_spline, gsl_interp_accel *acc);
+double talmi_integrand_spline(double p, gsl_spline *f_spline, gsl_interp_accel *acc, double q);
+double compute_rel_potential_spline(double np, double lp, double n, double l, gsl_spline *f_spline, gsl_interp_accel *acc); 
+
+
 
 double compute_rel_potential(double np, double lp, double n, double l, int J, double qt, int iv);
 double talmi_rel(double p, int iv, int J, double qt);

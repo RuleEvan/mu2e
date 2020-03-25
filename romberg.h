@@ -5,6 +5,7 @@ double RombergIntegrator(double (*f)(double), double a, double b, double tol);
 double Romberg2Vars(double (*f)(double, double), double a, double b, double r, double tol);
 double Romberg3Vars(double (*f)(double, double, int), double a, double b, double p, int iv, double tol);
 double Romberg5Vars(double (*f)(double, int, double, double, double), double a, double b, double r, int l, double q, double m, double tol);
+double RombergSpline(double (*f)(double, gsl_spline*, gsl_interp_accel*, double), double a, double b, double p, gsl_spline *f_spline, gsl_interp_accel *acc, double tol);
 
 
 double RombergSpline2Integrator(double (*f)(gsl_spline*, gsl_spline*, gsl_interp_accel* , double), gsl_spline* g_spline, gsl_spline* f_spline, gsl_interp_accel* acc, double a, double b, double tol);

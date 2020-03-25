@@ -33,6 +33,17 @@ double compute_rel_potential(double np, double lp, double n, double l, int J, do
 }
 
 
+double compute_rel_potential_spline(double np, double lp, double n, double l, gsl_spline *f_spline, gsl_interp_accel *acc) {
+  // Sum the required Talmi integrals with the corresponding B coefficients
+  double v = 0;
+  for (int ip = l + lp; ip <= l + lp + 2*n + 2*np; ip += 2) {
+    double p = ip/2.0;
+    v += b_coeff(n, l, np, lp, p)*talmi_rel_spline(p, f_spline, acc);
+  }
+
+  return v;
+}
+
 double compute_potential(double n, double np, double l, double lp, int iv) {
   // Sum the required Talmi integrals with the corresponding B coefficients
   double v = 0;
@@ -46,7 +57,7 @@ double compute_potential(double n, double np, double l, double lp, int iv) {
 double talmi(double p, int iv) {
   // Compute the order p Talmi integral
   // Set the limits of the integral and the error tolerance
-  double r_min = 0.0001;
+  double r_min = 0.001;
   double r_max = 10.0;
   double tol = pow(10, -6);
   double I_p = Romberg3Vars(&talmi_integrand, r_min, r_max, p, iv, tol);
@@ -55,14 +66,26 @@ double talmi(double p, int iv) {
   return I_p;
 }
 
-
 double talmi_rel(double p, int iv, int J, double qt) {
   // Compute the order p Talmi integral
   // Set the limits of the integral and the error tolerance
-  double r_min = 0.0001;
+  double r_min = 0.001;
   double r_max = 10.0;
   double tol = pow(10, -6);
   double I_p = Romberg5Vars(&talmi_integrand_rel, r_min, r_max, p, iv, J, qt, tol);
+  I_p *= 2.0/gsl_sf_gamma(p + 1.5);
+  
+  return I_p;
+}
+
+
+double talmi_rel_spline(double p, gsl_spline *f_spline, gsl_interp_accel *acc) {
+  // Compute the order p Talmi integral
+  // Set the limits of the integral and the error tolerance
+  double r_min = 0.001;
+  double r_max = 10.0;
+  double tol = pow(10, -6);
+  double I_p = RombergSpline(&talmi_integrand_spline, r_min, r_max, p, f_spline, acc, tol);
   I_p *= 2.0/gsl_sf_gamma(p + 1.5);
   
   return I_p;
@@ -78,8 +101,8 @@ double talmi_integrand_rel(double p, int iv, double J, double qt, double q) {
     v *= pow(1.0 - beta, 2.0);
   }
 
-  if (iv == 1) {
-    v *= finite_q_alpha_pot_1(q, (int) J, qt, M_PION) ;
+  if (iv == 1 ) {
+    v *= finite_q_alpha_pot_1(q, (int) J, qt, M_PION);
   } else if (iv == 2) {
     v *= v_cm_finite_q(q, (int) J, qt);
   } else if (iv == 3) {
@@ -92,6 +115,21 @@ double talmi_integrand_rel(double p, int iv, double J, double qt, double q) {
     v *= finite_q_alpha_pot_5(q, (int) J, qt, M_PION);
   }
 
+
+  return v;
+} 
+
+double talmi_integrand_spline(double p, gsl_spline *f_spline, gsl_interp_accel *acc, double q) {
+  // The integrand of the Talmi integral
+  // Plug in the required potential here
+  double v = pow(q, 2.0*p + 2.0)*exp(-q*q);
+  
+  if (COR_FAC == 1) {
+    double beta = exp(-1.1*pow(B_OSC*q, 2))*(1.0 - 0.68*pow(B_OSC*q,2.0));
+    v *= pow(1.0 - beta, 2.0);
+  }
+
+  v *= gsl_spline_eval(f_spline, q, acc);
 
   return v;
 }
