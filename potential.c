@@ -57,7 +57,7 @@ double compute_potential(double n, double np, double l, double lp, int iv) {
 double talmi(double p, int iv) {
   // Compute the order p Talmi integral
   // Set the limits of the integral and the error tolerance
-  double r_min = 0.001;
+  double r_min = 0.0001;
   double r_max = 10.0;
   double tol = pow(10, -6);
   double I_p = Romberg3Vars(&talmi_integrand, r_min, r_max, p, iv, tol);
@@ -69,7 +69,7 @@ double talmi(double p, int iv) {
 double talmi_rel(double p, int iv, int J, double qt) {
   // Compute the order p Talmi integral
   // Set the limits of the integral and the error tolerance
-  double r_min = 0.001;
+  double r_min = 0.0001;
   double r_max = 10.0;
   double tol = pow(10, -6);
   double I_p = Romberg5Vars(&talmi_integrand_rel, r_min, r_max, p, iv, J, qt, tol);
@@ -82,7 +82,7 @@ double talmi_rel(double p, int iv, int J, double qt) {
 double talmi_rel_spline(double p, gsl_spline *f_spline, gsl_interp_accel *acc) {
   // Compute the order p Talmi integral
   // Set the limits of the integral and the error tolerance
-  double r_min = 0.001;
+  double r_min = 0.0001;
   double r_max = 10.0;
   double tol = pow(10, -6);
   double I_p = RombergSpline(&talmi_integrand_spline, r_min, r_max, p, f_spline, acc, tol);
@@ -215,35 +215,36 @@ double v_cm_finite_q(double r, int l, double q) {
 
 double finite_q_alpha_pot_1(double r, int l, double q, double m_pi) {
   r *= 1.84391*sqrt(2.0);
-  double v =  Romberg5Vars(&finite_q_alpha_int_1, 0.0, 1.0, r, l, q, m_pi, 0.0001);
+
+  double v =  Romberg5Vars(&finite_q_alpha_int_1, 0.0, 1.0, r, l, q, m_pi, 0.000001);
 
 return v;
 }
 
 double finite_q_alpha_pot_2(double r, int l, double q, double m_pi) {
   r *= 1.84391*sqrt(2.0);
-  double v =  Romberg5Vars(&finite_q_alpha_int_2, 0.0, 1.0, r, l, q, m_pi, 0.0001);
+  double v =  Romberg5Vars(&finite_q_alpha_int_2, 0.0, 1.0, r, l, q, m_pi, 0.000001);
 
 return v;
 }
 
 double finite_q_alpha_pot_3(double r, int l, double q, double m_pi) {
   r *= 1.84391*sqrt(2.0);
-  double v =  Romberg5Vars(&finite_q_alpha_int_3, 0.0, 1.0, r, l, q, m_pi, 0.0001);
+  double v =  Romberg5Vars(&finite_q_alpha_int_3, 0.0, 1.0, r, l, q, m_pi, 0.000001);
 
 return v;
 }
 
 double finite_q_alpha_pot_4(double r, int l, double q, double m_pi) {
   r *= 1.84391*sqrt(2.0);
-  double v =  Romberg5Vars(&finite_q_alpha_int_4, 0.0, 1.0, r, l, q, m_pi, 0.0001);
+  double v =  Romberg5Vars(&finite_q_alpha_int_4, 0.0, 1.0, r, l, q, m_pi, 0.000001);
 
 return v;
 }
 
 double finite_q_alpha_pot_5(double r, int l, double q, double m_pi) {
   r *= 1.84391*sqrt(2.0);
-  double v =  Romberg5Vars(&finite_q_alpha_int_5, 0.0, 1.0, r, l, q, m_pi, 0.0001);
+  double v =  Romberg5Vars(&finite_q_alpha_int_5, 0.0, 1.0, r, l, q, m_pi, 0.000001);
 
 return v;
 }
@@ -257,7 +258,7 @@ double finite_q_alpha_int_1(double r, int l, double q, double m_pi, double alpha
   } else {
     bess = gsl_sf_bessel_jl(l, q*r/(HBARC)*(alpha - 0.5));
   }
-  double vi = ((2.0 - r*pi/(HBARC))/r + q*q*alpha*(1.0 - alpha)/(pi*HBARC))*exp(-r*pi/HBARC)*bess;
+  double vi = ((2.0 - r*pi/(HBARC))/r - q*q*alpha*(1.0 - alpha)/(pi*HBARC))*exp(-r*pi/HBARC)*bess;
   
   return vi;
 }

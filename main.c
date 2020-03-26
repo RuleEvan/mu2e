@@ -40,17 +40,19 @@ int main(int argc, char *argv[]) {
   //printf("q = 0: %g\n", -compute_matrix_element_sigma_0(2, 3, 2, 3, 0, 2, 3, 2, 3, 0, 2)/(4.0*M_PI));
   FILE *OUTFILE;
   OUTFILE = fopen("finite_q.dat", "w");
+  double Ti = 0.5;
 
-  for (int i = 0; i < 50; i++) {
-    double qy = 4.0*i;
-    double op1_0 = compute_total_matrix_element_finite_q_op1("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 0)/sqrt(2.0);
-    double op4_20 = compute_total_matrix_element_finite_q_op4("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 2, 0)/sqrt(2.0);
-    double op5_10 = compute_total_matrix_element_finite_q_op5("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 1, 0)/sqrt(2.0);
-    double op6_011 = compute_total_matrix_element_finite_q_op6("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 0, 1, 1)/sqrt(2.0);
+  for (int i = 0; i < 40; i++) {
+    double qy = 5.0*i;
 
-    double total = op1_0 + op4_20 + op5_10 + op6_011;
-    printf("%g, %g, %g, %g, %g, %g\n", qy, op1_0, op4_20, op5_10, op6_011, total);
-    fprintf(OUTFILE, "%g, %g, %g, %g, %g, %g\n", qy, op1_0, op4_20, op5_10, op6_011, total);
+    double op1_0 = compute_total_matrix_element_finite_q_op1("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 0)/sqrt(2.0*Ti + 1.0);
+  //  double op4_20 = compute_total_matrix_element_finite_q_op4("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 2, 0)/sqrt(2.0*Ti + 1.0);
+    //double op5_10 = compute_total_matrix_element_finite_q_op5("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 1, 0)/sqrt(2.0*Ti + 1.0);
+  //  double op6_011 = compute_total_matrix_element_finite_q_op6("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 0, 1, 1)/sqrt(2.0*Ti + 1.0);
+  printf("%g, %g\n", qy, op1_0);
+   // double total = op1_0 + op4_20 + op5_10 + op6_011;
+   // printf("%g, %g, %g, %g, %g, %g\n", qy, op1_0, op4_20, op5_10, op6_011, total);
+   // fprintf(OUTFILE, "%g, %g, %g, %g, %g, %g\n", qy, op1_0, op4_20, op5_10, op6_011, total);
 
   }
   fclose(OUTFILE);

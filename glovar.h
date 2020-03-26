@@ -21,9 +21,9 @@
 
 // Technical parameters
 #define COR_FAC 0
-#define RMIN 0.001
-#define RMAX 10.0
-#define NSPLINE 10000
+#define RMIN 0.0001
+#define RMAX 15.0
+#define NSPLINE 1000000
 
 // Physical constants
 #define ALPHA_FS 0.007297352664

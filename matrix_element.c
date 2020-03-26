@@ -11,7 +11,6 @@ double compute_matrix_element_finite_q_op1(int in1p, int ij1p, int in2p, int ij2
   double j1p = ij1p/2.0;
   double j2p = ij2p/2.0;
   double j12p = ij12p/2.0;
-//  double t12p = it12p/2.0;
 
   int l1, l2, l1p, l2p;
    
@@ -27,19 +26,24 @@ double compute_matrix_element_finite_q_op1(int in1p, int ij1p, int in2p, int ij2
   double n2p = (in2p - l2p)/2.0;
  
   double m4 = 0.0;
-  // Convert from JJ to LS coupling (L is lambda)
+  // Lambda = Lambdap and S = SP
   for (int lambda = abs(l1 - l2); lambda <= (l1 + l2); lambda++) {
     int s_max = MIN(lambda + j12, 1);
     int s_min = abs(lambda - j12);
     for (int s = s_min; s <= s_max; s++) {
+      // JJ -> LS coupling factors
       double fact = sqrt((2*lambda + 1)*(2*s + 1)*(2*j1 + 1)*(2*j2 + 1));
       fact *= sqrt((2*lambda + 1)*(2*s + 1)*(2*j1p + 1)*(2*j2p + 1));
       fact *= nine_j(l1, l2, lambda, 0.5, 0.5, s, j1, j2, j12);
       fact *= nine_j(l1p, l2p, lambda, 0.5, 0.5, s, j1p, j2p, j12p);
       if (fact == 0.0) {continue;}
+      // Un-reduce matrix element wrt total J
       fact *= sqrt(2*j12 + 1.0);
+      // Un-reduced matrix element of sig(1) dot sig(2)
       double m1 = pow(-1.0, 1.0 + s)*six_j(s,0.5,0.5,1.0,0.5,0.5)*6.0;
+      // Reduced matrix element of tau(1) dot tau(2)
       m1 *= pow(-1.0, 1.0 + t12)*sqrt(2*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
+
       m1 *= fact;
       m1 *= compute_radial_matrix_element_finite_q_op1(J, n1p, l1p, n2p, l2p, lambda, n1, l1, n2, l2, lambda, s, t12, q, f_spline, acc);
       m4 += m1;
@@ -48,7 +52,6 @@ double compute_matrix_element_finite_q_op1(int in1p, int ij1p, int in2p, int ij2
 
   if ((n1 == n2) && (j1 == j2) && (l1 == l2)) {m4 *= 1/sqrt(2);}
   if ((n1p == n2p) && (j1p == j2p) && (l1p == l2p)) {m4 *= 1/sqrt(2);}
-
 
   return m4;
 }
@@ -87,16 +90,22 @@ double compute_matrix_element_finite_q_op3(int in1p, int ij1p, int in2p, int ij2
     lambdap_max = MIN(lambdap_max, lambda + 2);
     if (lambdap_min > lambdap_max) {continue;}
     for (int lambdap = lambdap_min; lambdap <= lambdap_max; lambdap++) {
-      double fact = sqrt((2*j1 + 1)*(2*j2 + 1));
-      fact *= sqrt((2*j1p + 1)*(2*j2p + 1));
+      // JJ -> LS coupling factors
+      // S = SP = 1 required by spin tensor operator
+      double fact = sqrt(3.0*(2*lambda + 1)*(2*j1 + 1)*(2*j2 + 1));
+      fact *= sqrt(3.0*(2*lambdap + 1)*(2*j1p + 1)*(2*j2p + 1));
       fact *= nine_j(l1, l2, lambda, 0.5, 0.5, 1, j1, j2, j12);
       fact *= nine_j(l1p, l2p, lambdap, 0.5, 0.5, 1, j1p, j2p, j12p);
       if (fact == 0.0) {continue;}
-      fact *= sqrt(2*lambda + 1)*sqrt(2*lambdap + 1);
-      fact *= pow(-1.0, j12 + 1)*3.0;
-      fact *= six_j(j12, 1, lambdap, 2, lambda, 1);
+      // Un-reduce wrt total J
+      fact *= sqrt(2*j12 + 1);
+      // Unreduced decoupling of Y2 dot S2 matrix element
+      fact *= pow(-1.0, lambda + 1 + j12)*six_j(j12, 1, lambdap, 2, lambda, 1);
+      // Reduced matrix element of tau(1) dot tau(2)
       fact *= pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
-      fact *= 2.0*sqrt(5)*sqrt(2*j12 + 1);
+      // Reduced matrix element of [sig(1) x sig(2)]_2
+      fact *= 2.0*sqrt(5);
+     
       fact *= compute_radial_matrix_element_finite_q_op3(J1, J2, n1p, l1p, n2p, l2p, lambdap, n1, l1, n2, l2, lambda, 1, t12, q, f_spline, acc);
       m4 += fact;
     }
@@ -141,16 +150,21 @@ double compute_matrix_element_finite_q_op4(int in1p, int ij1p, int in2p, int ij2
     lambdap_max = MIN(lambdap_max, lambda + 2);
     if (lambdap_min > lambdap_max) {continue;}
     for (int lambdap = lambdap_min; lambdap <= lambdap_max; lambdap++) {
-      double fact = sqrt((2*j1 + 1)*(2*j2 + 1));
-      fact *= sqrt((2*j1p + 1)*(2*j2p + 1));
+      //  JJ -> LS coupling factors
+      double fact = sqrt(3.0*(2*lambda + 1)*(2*j1 + 1)*(2*j2 + 1));
+      fact *= sqrt(3.0*(2*lambdap + 1)*(2*j1p + 1)*(2*j2p + 1));
       fact *= nine_j(l1, l2, lambda, 0.5, 0.5, 1, j1, j2, j12);
       fact *= nine_j(l1p, l2p, lambdap, 0.5, 0.5, 1, j1p, j2p, j12p);
       if (fact == 0.0) {continue;}
-      fact *= sqrt(2*lambda + 1)*sqrt(2*lambdap + 1);
-      fact *= pow(-1.0, lambda + j12 + 1)*3.0;
+      // Unreduce wrt total J
+      fact *= sqrt(2*j12 + 1);
+      // Unreduced decoupling of Y2 dot S2
+      fact *= pow(-1.0, lambda + j12 + 1)*six_j(j12, 1, lambdap, 2, lambda, 1);
+      // Reduced matrix element of S2
+      fact *= 2.0*sqrt(5);
+      // Reduced matrix element of tau(1) dot tau(2)
       fact *= pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
-      fact *= six_j(j12, 1, lambdap, 2, lambda, 1);
-      fact *= 2.0*sqrt(5)*sqrt(2*j12 + 1);
+
       fact *= compute_radial_matrix_element_finite_q_op4(J1, J2, n1p, l1p, n2p, l2p, lambdap, n1, l1, n2, l2, lambda, 1, t12, q, f_spline, acc);
       m4 += fact;
     }
@@ -186,18 +200,22 @@ double compute_matrix_element_finite_q_op5(int in1p, int ij1p, int in2p, int ij2
   double n2p = (in2p - l2p)/2.0;
  
   double m4 = 0.0;
-  // Convert from JJ to LS coupling (L is lambda)
+  // Lambda = Lambdap and S = Sp
   for (int lambda = abs(l1 - l2); lambda <= (l1 + l2); lambda++) {
     int s_max = MIN(lambda + j12, 1);
     int s_min = abs(lambda - j12);
     for (int s = s_min; s <= s_max; s++) {
+      // JJ -> LS coupling factors
       double fact = sqrt((2*lambda + 1)*(2*s + 1)*(2*j1 + 1)*(2*j2 + 1));
       fact *= sqrt((2*lambda + 1)*(2*s + 1)*(2*j1p + 1)*(2*j2p + 1));
       fact *= nine_j(l1, l2, lambda, 0.5, 0.5, s, j1, j2, j12);
       fact *= nine_j(l1p, l2p, lambda, 0.5, 0.5, s, j1p, j2p, j12p);
       if (fact == 0.0) {continue;}
+      // Uncouple wrt total J
       fact *= sqrt(2*j12 + 1.0);
+      // Un-reduced matrix element of sigma(1) dot sigma(2)
       double m1 = pow(-1.0, 1.0 + s)*six_j(s,0.5,0.5,1.0,0.5,0.5)*6.0;
+      // Reduced matrix element of tau(1) dot tau(2)
       m1 *= pow(-1.0, 1.0 + t12)*sqrt(2*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
       m1 *= fact;
       m1 *= compute_radial_matrix_element_finite_q_op5(J1, J2, n1p, l1p, n2p, l2p, lambda, n1, l1, n2, l2, lambda, s, t12, q, f_spline, acc);
@@ -253,14 +271,19 @@ double compute_matrix_element_finite_q_op6(int in1p, int ij1p, int in2p, int ij2
         int sp_min = abs(lambdap - j12p);
         for (int sp = sp_min; sp <= sp_max; sp++) {
 	  if (s == sp) {continue;}
+	  // JJ -> LS coupling factors
           double fact = sqrt((2*lambda + 1)*(2*s + 1)*(2*j1 + 1)*(2*j2 + 1));
           fact *= sqrt((2*lambdap + 1)*(2*sp + 1)*(2*j1p + 1)*(2*j2p + 1));
           fact *= nine_j(l1, l2, lambda, 0.5, 0.5, s, j1, j2, j12);
           fact *= nine_j(l1p, l2p, lambdap, 0.5, 0.5, sp, j1p, j2p, j12p);
+	  // Unreduce wrt total J
           fact *= sqrt(2*j12 + 1.0);
+	  // Un-reduced decoupling of Y1 dot S1
 	  fact *= pow(-1.0, lambda + sp + j12)*six_j(j12, sp, lambdap, 1, lambda, s);
           if (fact == 0.0) {continue;}
+	  // Reduced matrix element of S1
           double m1 = sqrt(6.0);
+	  // Reduced matrix element of tau(1) dot tau(2)
           m1 *= pow(-1.0, 1.0 + t12)*sqrt(2*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
           m1 *= fact;
           m1 *= compute_radial_matrix_element_finite_q_op6(J1, J2, J, n1p, l1p, n2p, l2p, lambda, n1, l1, n2, l2, lambda, s, t12, q, f_spline, acc);
@@ -309,16 +332,21 @@ double compute_matrix_element_finite_q_op7(int in1p, int ij1p, int in2p, int ij2
     lambdap_max = MIN(lambdap_max, lambda + 2);
     if (lambdap_min > lambdap_max) {continue;}
     for (int lambdap = lambdap_min; lambdap <= lambdap_max; lambdap++) {
-      double fact = sqrt((2*j1 + 1)*(2*j2 + 1));
-      fact *= sqrt((2*j1p + 1)*(2*j2p + 1));
+      // JJ -> LS coupling factors
+      double fact = sqrt(3.0*(2*lambda + 1)*(2*j1 + 1)*(2*j2 + 1));
+      fact *= sqrt(3.0*(2*lambdap + 1)*(2*j1p + 1)*(2*j2p + 1));
       fact *= nine_j(l1, l2, lambda, 0.5, 0.5, 1, j1, j2, j12);
       fact *= nine_j(l1p, l2p, lambdap, 0.5, 0.5, 1, j1p, j2p, j12p);
       if (fact == 0.0) {continue;}
-      fact *= sqrt(2*lambda + 1)*sqrt(2*lambdap + 1);
-      fact *= pow(-1.0, lambda + j12 + 1)*3.0;
+      // Unreduce wrt total J
+      fact *= sqrt(2*j12 + 1);
+      // Unreduced decoupling of Y2 dot S2
+      fact *= pow(-1.0, lambda + j12 + 1)*six_j(j12, 1, lambdap, 2, lambda, 1);
+      // Reduced matrix element of tau(1) dot tau(2)
       fact *= pow(-1.0, 1.0 + t12)*sqrt(2.0*t12 + 1.0)*six_j(t12, 0.5, 0.5, 1.0, 0.5, 0.5)*6.0;
-      fact *= six_j(j12, 1, lambdap, 2, lambda, 1);
-      fact *= 2.0*sqrt(5)*sqrt(2*j12 + 1);
+      // Reduced matrix element of S2
+      fact *= 2.0*sqrt(5);
+
       fact *= compute_radial_matrix_element_finite_q_op7(J1, J2, J, n1p, l1p, n2p, l2p, lambdap, n1, l1, n2, l2, lambda, 1, t12, q, f_spline, acc);
       m4 += fact;
     }
@@ -328,8 +356,6 @@ double compute_matrix_element_finite_q_op7(int in1p, int ij1p, int in2p, int ij2
 
   return m4;
 }
-
-
 
 double compute_total_matrix_element_finite_q_op1(char* density_file, double q, int J) {
   // Computes the two-body nuclear matrix element sigma_1 dot sigma_2 tau_1+ tau_2+ with arbitrary radial function specified by iv
@@ -363,7 +389,6 @@ double compute_total_matrix_element_finite_q_op1(char* density_file, double q, i
  
   gsl_spline_free(f_spline);
   gsl_interp_accel_free(acc);  
-
 
   return mat;
 }
@@ -399,7 +424,7 @@ double compute_total_matrix_element_finite_q_op3(char* density_file, double q, i
   }
   
   int phase = pow(-1, (J1 - J2)/2.0); 
-  mat *= phase*sqrt((2.0*J1 + 1.0)*(2.0*J2 + 1.0)/5.0)*clebsch_gordan(J1, J2, 2.0, 0.0, 0.0, 0.0)*sqrt(8.0*M_PI/15.0)/(8.0*M_PI);
+  mat *= phase*sqrt((2.0*J1 + 1.0)*(2.0*J2 + 1.0))*clebsch_gordan(J1, J2, 2.0, 0.0, 0.0, 0.0)*sqrt(8.0*M_PI/3.0)/(5.0);
   
   gsl_spline_free(f_spline);
   gsl_interp_accel_free(acc);  
@@ -550,7 +575,7 @@ double compute_total_matrix_element_finite_q_op7(char* density_file, double q, i
   }
                        
   int phase = pow(-1.0, (1.0 + J1 - J2)/2.0);
-  mat *= phase/(4.0*sqrt(M_PI))*(2.0*J1 + 1.0)*clebsch_gordan(J1, 1.0, J2, 0.0, 0.0, 0.0)*clebsch_gordan(J1, 1.0, J, 0.0, 0.0, 0.0)*six_j(J1, 1, J2, 2, J, 1);    
+  mat *= -phase/(4.0*sqrt(M_PI))*(2.0*J1 + 1.0)*clebsch_gordan(J1, 1.0, J2, 0.0, 0.0, 0.0)*clebsch_gordan(J1, 1.0, J, 0.0, 0.0, 0.0)*six_j(J1, 1, J2, 2, J, 1);    
 
   return mat;
 }
