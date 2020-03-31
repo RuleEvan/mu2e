@@ -21,9 +21,11 @@ double compute_matrix_element_finite_q_op7(int in1p, int ij1p, int in2p, int ij2
 // q = 0 functions
 double compute_matrix_element_sigma_0(int in1p, int ij1p, int in2p, int ij2p, int ij12p, int in1, int ij1, int in2, int ij2, int ij12, int it12, int iv);
 double compute_matrix_element_TT(int in1p, int ij1p, int in2p, int ij2p, int ij12p, int in1, int ij1, int in2, int ij2, int ij12, int it12, int iv);
-double cme_1_sigma();
+double compute_matrix_element_I2(int in1p, int ij1p, int in2p, int ij2p, int ij12p, int in1, int ij1, int in2, int ij2, int ij12, int it12);
+
 double compute_total_matrix_element_sigma_0(char *density_file);
 double compute_total_matrix_element_TT(char * density_file, int iv);
+double compute_total_matrix_element_I2(char * density_file);
 
 int get_l(int n, int j);
 

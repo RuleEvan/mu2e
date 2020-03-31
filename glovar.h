@@ -20,10 +20,10 @@
 #define Z_ATOM 32 // Atomic Number
 
 // Technical parameters
-#define COR_FAC 0
+#define COR_FAC 1
 #define RMIN 0.0001
-#define RMAX 15.0
-#define NSPLINE 1000000
+#define RMAX 10.0
+#define NSPLINE 100000
 
 // Physical constants
 #define ALPHA_FS 0.007297352664

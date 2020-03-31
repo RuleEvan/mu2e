@@ -96,10 +96,10 @@ double talmi_integrand_rel(double p, int iv, double J, double qt, double q) {
   // Plug in the required potential here
   double v = pow(q, 2.0*p + 2.0)*exp(-q*q);
   if (iv == 0) {return v;}
-  if (COR_FAC == 1) {
-    double beta = exp(-1.1*pow(B_OSC*q, 2))*(1.0 - 0.68*pow(B_OSC*q,2.0));
-    v *= pow(1.0 - beta, 2.0);
-  }
+//  if (COR_FAC == 1) {
+//    double beta = exp(-1.1*pow(B_OSC*q, 2))*(1.0 - 0.68*pow(B_OSC*q,2.0));
+ //   v *= pow(1.0 - beta, 2.0);
+//  }
 
   if (iv == 1 ) {
     v *= finite_q_alpha_pot_1(q, (int) J, qt, M_PION);

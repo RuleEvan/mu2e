@@ -364,7 +364,7 @@ double compute_total_matrix_element_finite_q_op1(char* density_file, double q, i
   double mat = 0.0;
  
   gsl_interp_accel *acc = gsl_interp_accel_alloc();
-  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_cspline, NSPLINE + 1);
+  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_linear, NSPLINE + 1);
   double delta_r = (RMAX - RMIN)/(1.0*NSPLINE);
   double *f_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
   double *r_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
@@ -373,6 +373,7 @@ double compute_total_matrix_element_finite_q_op1(char* density_file, double q, i
     double r = RMIN + i*delta_r;
     r_array[i] = r;
     f_array[i] = finite_q_alpha_pot_1(r, J, q, M_PION);
+//    printf("%g, %g, %g\n", q, r_array[i], f_array[i]);
   } 
 
   gsl_spline_init(f_spline, r_array, f_array, NSPLINE + 1);
@@ -401,7 +402,7 @@ double compute_total_matrix_element_finite_q_op3(char* density_file, double q, i
   double mat = 0.0;
 
   gsl_interp_accel *acc = gsl_interp_accel_alloc();
-  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_cspline, NSPLINE + 1);
+  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_linear, NSPLINE + 1);
   double delta_r = (RMAX - RMIN)/(1.0*NSPLINE);
   double *f_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
   double *r_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
@@ -424,7 +425,7 @@ double compute_total_matrix_element_finite_q_op3(char* density_file, double q, i
   }
   
   int phase = pow(-1, (J1 - J2)/2.0); 
-  mat *= phase*sqrt((2.0*J1 + 1.0)*(2.0*J2 + 1.0))*clebsch_gordan(J1, J2, 2.0, 0.0, 0.0, 0.0)*sqrt(8.0*M_PI/3.0)/(5.0);
+  mat *= phase*sqrt((2.0*J1 + 1.0)*(2.0*J2 + 1.0))*clebsch_gordan(J1, J2, 2.0, 0.0, 0.0, 0.0)/(5.0*sqrt(24.0*M_PI));
   
   gsl_spline_free(f_spline);
   gsl_interp_accel_free(acc);  
@@ -440,7 +441,7 @@ double compute_total_matrix_element_finite_q_op4(char* density_file, double q, i
   double mat = 0.0;
  
   gsl_interp_accel *acc = gsl_interp_accel_alloc();
-  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_cspline, NSPLINE + 1);
+  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_linear, NSPLINE + 1);
   double delta_r = (RMAX - RMIN)/(1.0*NSPLINE);
   double *f_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
   double *r_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
@@ -477,7 +478,7 @@ double compute_total_matrix_element_finite_q_op5(char* density_file, double q, i
   double mat = 0.0;
 
   gsl_interp_accel *acc = gsl_interp_accel_alloc();
-  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_cspline, NSPLINE + 1);
+  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_linear, NSPLINE + 1);
   double delta_r = (RMAX - RMIN)/(1.0*NSPLINE);
   double *f_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
   double *r_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
@@ -516,7 +517,7 @@ double compute_total_matrix_element_finite_q_op6(char* density_file, double q, i
   double mat = 0.0;
 
   gsl_interp_accel *acc = gsl_interp_accel_alloc();
-  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_cspline, NSPLINE + 1);
+  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_linear, NSPLINE + 1);
   double delta_r = (RMAX - RMIN)/(1.0*NSPLINE);
   double *f_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
   double *r_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
@@ -553,7 +554,7 @@ double compute_total_matrix_element_finite_q_op7(char* density_file, double q, i
   double mat = 0.0;
  
   gsl_interp_accel *acc = gsl_interp_accel_alloc();
-  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_cspline, NSPLINE + 1);
+  gsl_spline *f_spline = gsl_spline_alloc(gsl_interp_linear, NSPLINE + 1);
   double delta_r = (RMAX - RMIN)/(1.0*NSPLINE);
   double *f_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
   double *r_array = (double*) malloc(sizeof(double)*(NSPLINE + 1));
@@ -725,6 +726,67 @@ double compute_matrix_element_TT(int in1p, int ij1p, int in2p, int ij2p, int ij1
 
   return m4;
 }
+
+double compute_total_matrix_element_I2(char* density_file) {
+  // Computes the two-body nuclear matrix element sigma_1 dot sigma_2 tau_1+ tau_2+ with arbitrary radial function specified by iv
+  FILE *in_file;
+  in_file = fopen(density_file, "r");
+  double mat = 0.0;
+ 
+  int in1, in2, ij1, ij2, ij12, it12;
+  int in1p, in2p, ij1p, ij2p, ij12p, it12p;
+  float density;
+  while(fscanf(in_file, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%f\n", &in1p, &ij1p, &in2p, &ij2p, &ij12p, &it12p, &in1, &ij1, &in2, &ij2, &ij12, &it12, &density) == 13) {
+
+    double m4 = compute_matrix_element_I2(in1p, ij1p, in2p, ij2p, ij12p, in1, ij1, in2, ij2, ij12, it12); 
+    mat += m4*density;
+  }
+                        
+  return mat;
+}
+
+
+double compute_matrix_element_I2(int in1p, int ij1p, int in2p, int ij2p, int ij12p, int in1, int ij1, int in2, int ij2, int ij12, int it12) {
+  // Computes matrix elements of two-body identity operator
+
+  double j1 = ij1/2.0;
+  double j2 = ij2/2.0;
+  double j12 = ij12/2.0;
+  double t12 = it12/2.0;
+  double j1p = ij1p/2.0;
+  double j2p = ij2p/2.0;
+  double j12p = ij12p/2.0;
+  if (j12 != j12p) {return 0.0;}
+
+  int l1, l2, l1p, l2p;
+   
+  l1p = get_l(in1p, ij1p);
+  l2p = get_l(in2p, ij2p);
+  l1 = get_l(in1, ij1);
+  l2 = get_l(in2, ij2); 
+    
+  // The N's listed in the input file are energy quanta, we want radial quantum numbers
+  double n1 = (in1 - l1)/2.0;
+  double n2 = (in2 - l2)/2.0;
+  double n1p = (in1p - l1p)/2.0;
+  double n2p = (in2p - l2p)/2.0;
+
+  double m4 = 0.0;
+  if ((in1 == in1p) && (j1 == j1p) && (in2 == in2p) && (j2 == j2p)) {
+    m4 += 1.0;
+  }
+  if ((in1 == in2p) && (j1 == j2p) && (in2 == in1p) && (j2 == j1p)) {
+    m4 += pow(-1.0, j1 + j2 + j12 + t12);
+  }
+
+  if ((in1 == in2) && (j1 == j2)) {m4 *= 1/sqrt(2);}
+  if ((in1p == in2p) && (j1p == j2p)) {m4 *= 1/sqrt(2);}  
+
+  m4 *= sqrt(2.0*j12p + 1.0)*sqrt(2*t12 + 1.0);   
+
+  return m4;
+}
+
 
 int get_l(int n, int j) {
   int l;
