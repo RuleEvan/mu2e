@@ -3,8 +3,8 @@ CFLAGS=-c -Wall -lm -ldl
 
 all: Mu2E
 
-Mu2E: main.o matrix_element.o wfn.o charge.o harmonic.o file_io.o multipole.o brody.o potential.o angular.o romberg.o
-	$(CC) main.o matrix_element.o wfn.o charge.o harmonic.o file_io.o multipole.o brody.o potential.o angular.o romberg.o -o Mu2E -lm -ldl -lgsl -lgslcblas
+Mu2E: main.o matrix_element.o wfn.o charge.o file_io.o multipole.o brody.o potential.o angular.o romberg.o
+	$(CC) main.o matrix_element.o wfn.o charge.o file_io.o multipole.o brody.o potential.o angular.o romberg.o -o Mu2E -lm -ldl -lgsl -lgslcblas
 
 main.o: main.c
 	$(CC) $(CFLAGS) main.c

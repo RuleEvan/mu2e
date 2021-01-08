@@ -82,9 +82,9 @@ double talmi_rel(double p, int iv, int J, double qt) {
 double talmi_rel_spline(double p, gsl_spline *f_spline, gsl_interp_accel *acc) {
   // Compute the order p Talmi integral
   // Set the limits of the integral and the error tolerance
-  double r_min = 0.0001;
-  double r_max = 10.0;
-  double tol = pow(10, -6);
+  double r_min = 0.001;
+  double r_max = 5.0;
+  double tol = pow(10, -5);
   double I_p = RombergSpline(&talmi_integrand_spline, r_min, r_max, p, f_spline, acc, tol);
   I_p *= 2.0/gsl_sf_gamma(p + 1.5);
   
@@ -125,7 +125,7 @@ double talmi_integrand_spline(double p, gsl_spline *f_spline, gsl_interp_accel *
   double v = pow(q, 2.0*p + 2.0)*exp(-q*q);
   
   if (COR_FAC == 1) {
-    double beta = exp(-1.1*pow(B_OSC*q, 2))*(1.0 - 0.68*pow(B_OSC*q,2.0));
+    double beta = exp(-1.1*pow(B_OSC*q*sqrt(2.0), 2))*(1.0 - 0.68*pow(B_OSC*q*sqrt(2.0),2.0));
     v *= pow(1.0 - beta, 2.0);
   }
 
@@ -207,14 +207,15 @@ double v_light_limit(double r) {
 }
 
 double v_cm_finite_q(double r, int l, double q) {
-  r *= 1.84391*sqrt(2.0);
+  r *= B_OSC*sqrt(2.0);
   double v =  gsl_sf_bessel_jl(l, q*r/(2.0*HBARC));
+
   return v;
 }
 
 
 double finite_q_alpha_pot_1(double r, int l, double q, double m_pi) {
-  r *= 1.84391*sqrt(2.0);
+  r *= B_OSC*sqrt(2.0);
 
   double v =  Romberg5Vars(&finite_q_alpha_int_1, 0.0, 1.0, r, l, q, m_pi, 0.000001);
 
@@ -222,28 +223,28 @@ return v;
 }
 
 double finite_q_alpha_pot_2(double r, int l, double q, double m_pi) {
-  r *= 1.84391*sqrt(2.0);
+  r *= B_OSC*sqrt(2.0);
   double v =  Romberg5Vars(&finite_q_alpha_int_2, 0.0, 1.0, r, l, q, m_pi, 0.000001);
 
 return v;
 }
 
 double finite_q_alpha_pot_3(double r, int l, double q, double m_pi) {
-  r *= 1.84391*sqrt(2.0);
+  r *= B_OSC*sqrt(2.0);
   double v =  Romberg5Vars(&finite_q_alpha_int_3, 0.0, 1.0, r, l, q, m_pi, 0.000001);
 
 return v;
 }
 
 double finite_q_alpha_pot_4(double r, int l, double q, double m_pi) {
-  r *= 1.84391*sqrt(2.0);
+  r *= B_OSC*sqrt(2.0);
   double v =  Romberg5Vars(&finite_q_alpha_int_4, 0.0, 1.0, r, l, q, m_pi, 0.000001);
 
 return v;
 }
 
 double finite_q_alpha_pot_5(double r, int l, double q, double m_pi) {
-  r *= 1.84391*sqrt(2.0);
+  r *= B_OSC*sqrt(2.0);
   double v =  Romberg5Vars(&finite_q_alpha_int_5, 0.0, 1.0, r, l, q, m_pi, 0.000001);
 
 return v;
@@ -561,3 +562,36 @@ double h_F(double r) {
 
   return v;
 }
+
+double b_osc(int a_nuc) {
+  double b = sqrt(0.9*pow(a_nuc, 1.0/3.0) + 0.7);
+  
+  return b;
+}
+
+double radial_osc_wfn(int n, int l, double x, double b) {
+  double q = x/b;
+  double norm = 2.0*gsl_sf_fact(n)/(gsl_sf_gamma(n + l + 1.5)*pow(b, 3.0));
+
+  norm = sqrt(norm);
+   
+  double u_nl = norm*pow(q, l)*exp(-q*q/2.0)*gsl_sf_laguerre_n(n, l + 0.5, q*q);
+  
+  return u_nl;
+}
+
+double radial_osc_wfn_q(int n, int l, double q, double b) {
+  // Computes the radial harmonic oscillator wavefunction 
+  // in momentum space. 
+  // Units: 
+  //        [q] = [MeV]
+  //        [b] = [fm]
+
+  double y = q*b/197.3; // Divide by (hbar c) in units of [MeV][fm]
+  double norm = sqrt(2.0*gsl_sf_fact(n)*pow(b/197.3, 3.0)/gsl_sf_gamma(n + l + 1.5));
+
+  double u_nl = norm*pow(y, l)*exp(-y*y/2.0)*gsl_sf_laguerre_n(n, l + 0.5, y*y);
+
+  return u_nl;
+}
+

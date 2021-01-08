@@ -20,11 +20,11 @@ int main(int argc, char *argv[]) {
   y[2] = pow(10.0*b_osc(27)/(HBARC*2.0), 2.0);
   y[3] = pow(100.0*b_osc(27)/(HBARC*2.0), 2.0);
 
+
  for (int i = 0; i < 4; i++) {
    printf("%g %g\n", y[i], sigmapp5_1d5_1d5(y[i]));
  }
  */
-//  compute_isotope_multipoles(105.0);
 
 //  printf("%g\n", compute_rel_potential(1.0, 0.0, 1.0, 0.0, 0, 105.0, 2));
 //  printf("%g\n", compute_radial_matrix_element_J_dot_J(0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 105.0));
@@ -38,26 +38,46 @@ int main(int argc, char *argv[]) {
   }
 */
   //printf("q = 0: %g\n", -compute_matrix_element_sigma_0(2, 3, 2, 3, 0, 2, 3, 2, 3, 0, 2)/(4.0*M_PI));
-//  printf("%g\n", compute_total_matrix_element_I2("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens"));
-  
+//   convert_density_file("Al27_exsp_J0_T0.dens");
+//   char density_file[] = "isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens";
+
+//    char density_file[] = "al27test2.den2b";
+//    translate_cj_to_er(density_file);
+//   char density_file[] = "al27_cj_translated.dens";
+//	printf("Sum rule: %g\n", compute_total_matrix_element_I2_cj(density_file)/(sqrt(6.0)));
+
+//  printf("%g\n", compute_total_matrix_element_sigma_0("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens"));
+//  generate_bigstick_int_file();
+//  exit(0);
+//	printf("Sum rule: %g\n", compute_total_matrix_element_I2(density_file)/(sqrt(12.0)));
+//   for (int i = 0; i < 1000; i++) {
+//     double r = i*0.01;
+//     printf("%g, %g\n", r, compute_total_relative_density(density_file, r));
+//   } 
 
   FILE *OUTFILE;
-  OUTFILE = fopen("finite_q_no_corr.dat", "w");
+  OUTFILE = fopen("al27_finite_q_no_corr.dat", "w");
+
+ char density_file[] = "isotope_data/al27/density/al27-al27_core_2body_J0_T0_0_0.dens";
+
+  printf("Sum rule: %lf\n", compute_total_matrix_element_I2(density_file));
   double Ti = 0.5;
 
-  for (int i = 0; i < 41; i++) {
-    double qy = 0.0 + 5.0*i;
-    double op1_0 = 2.0*compute_total_matrix_element_finite_q_op1("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 0)/sqrt(2.0*Ti + 1.0);
+  for (int i = 0; i < 20; i++) {
+    double qy = i*5.0;
+//    compute_isotope_multipoles(qy);
 
-    double op4_20 = 2.0*compute_total_matrix_element_finite_q_op4("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 2, 0)/sqrt(2.0*Ti + 1.0);
-    double op5_10 = 2.0*compute_total_matrix_element_finite_q_op5("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 1, 0)/sqrt(2.0*Ti + 1.0);
-    double op6_011 = 2.0*compute_total_matrix_element_finite_q_op6("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", qy, 0, 1, 1)/sqrt(2.0*Ti + 1.0);
+    double op1_0 = compute_total_matrix_element_finite_q_op1(density_file, qy, 0)/sqrt(2.0*Ti + 1.0);
+    double op4_20 = compute_total_matrix_element_finite_q_op4(density_file, qy, 2, 0)/sqrt(2.0*Ti + 1.0);
+    double op5_10 = compute_total_matrix_element_finite_q_op5(density_file, qy, 1, 0)/sqrt(2.0*Ti + 1.0);
+    double op6_011 = compute_total_matrix_element_finite_q_op6(density_file, qy, 0, 1, 1)/sqrt(2.0*Ti + 1.0);
+//  printf("Result: %g\n", op6_011);
     double total = op1_0 + op4_20 + op5_10 + op6_011;
-    printf("%g, %g, %g, %g, %g, %g\n", qy, op1_0, op4_20, op5_10, op6_011, total);
+    printf("q: %g O1: %g  O4: %g O5: %g O6: %g Total: %g\n", qy, op1_0, op4_20, op5_10, op6_011, total);
     fprintf(OUTFILE, "%g, %g, %g, %g, %g, %g\n", qy, op1_0, op4_20, op5_10, op6_011, total);
 
-  }
-  fclose(OUTFILE);
+ }
+//  fclose(OUTFILE);
 //  double q = 105.0;
 //  printf("q = %g\n", q);
 //  double op1 = compute_total_matrix_element_finite_q_op1("isotope_data/al27/density/al27-al27_core_J0_T0_0_0.dens", q, 0)/sqrt(2.0);
@@ -81,7 +101,7 @@ int main(int argc, char *argv[]) {
 //  printf("q = 0 tensor: %g\n", tensor_q0);
 //  printf("q = 0 total: %g\n", scalar_q0 + tensor_q0);
 
- // generate_potential_files();
+//  generate_potential_files();
  
   return 0;
 }

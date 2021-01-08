@@ -37,7 +37,6 @@ double omegap2_tot(double y, double *rho, int num_shells);
 double omegap3_tot(double y, double *rho, int num_shells);
 
 int get_shell_index(int in, int ij);
-double b_osc(int a_nuc);
 
 
 double m0_1s1_1s1(double y);

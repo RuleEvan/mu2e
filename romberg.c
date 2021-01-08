@@ -520,7 +520,7 @@ double Romberg5Vars(double (*f)(double, int, double, double, double), double a, 
   romb = g0;
   free(g);
   if (i > maxiter && fabs(error) > tol) {
-    printf("Rombint failed to converge; integral= %g, error= %g \n", romb, error);
+    printf("Rombint 5Var failed to converge; integral= %g, error= %g \n", romb, error);
     
     return romb;
   }

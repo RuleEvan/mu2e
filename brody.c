@@ -90,6 +90,36 @@ double brody_mosh(int n_rel, int l_rel, int n_cm, int l_cm, int l_tot, int n1, i
   return bm;
 }
 
+double compute_relative_density_scalar(double r, int n1p, int l1p, int n2p, int l2p, int n1, int l1, int n2, int l2, int lambda, int s, int t) {
+  // Computes the matrix element 
+  // <n1p l1p n2p l2p lambdap| V(r) | n1 l1 n2 l2 lambda>
+  // in terms of Moshinsky brackets and Talmi integrals
+  double mat = 0.0;
+  int max = 2*n1 + 2*n2 + l1 + l2;
+  int maxp = 2*n1p + 2*n2p + l1p + l2p;
+  for (int l_cm = 0; l_cm <= max; l_cm++) {
+    for (int l_rel = 0; l_rel <= max - l_cm; l_rel ++) {
+      double sym = 1.0;//; + pow(-1.0, l_rel + s + 1 + t);
+      if (sym == 0.0) {continue;}
+      if (pow(-1.0, l_cm + l_rel) != pow(-1.0, l1 + l2)) {continue;}
+      for (int n_cm = 0; n_cm <= (max - l_cm - l_rel)/2; n_cm++) {
+        int n_rel = (max - l_rel - l_cm)/2 - n_cm;
+        int n_relp = n_rel + (maxp - max)/2;
+        if (n_relp < 0) {continue;}
+        double rm = brody_mosh(n_rel, l_rel, n_cm, l_cm, lambda, n1, l1, n2, l2);
+        rm *= brody_mosh(n_relp, l_rel, n_cm, l_cm, lambda, n1p, l1p, n2p, l2p);
+        if (rm == 0.0) {continue;}
+        rm *= sym;
+        rm *= pow(radial_osc_wfn(n_rel, l_rel, r, b_osc(27)), 2);
+        mat += rm;
+      }
+    }
+  } 
+
+  return mat;
+}
+
+
 double compute_radial_matrix_element_scalar(int iv, int n1p, int l1p, int n2p, int l2p, int n1, int l1, int n2, int l2, int lambda, int s, int t) {
   // Computes the matrix element 
   // <n1p l1p n2p l2p lambdap| V(r) | n1 l1 n2 l2 lambda>
@@ -166,7 +196,7 @@ double compute_radial_matrix_element_finite_q_op1(int J, int n1p, int l1p, int n
   for (int l_cm = 0; l_cm <= max; l_cm++) {
     for (int l_rel = 0; l_rel <= max - l_cm; l_rel ++) {
       if (pow(-1.0, l_rel + l_cm) != pow(-1.0, l1 + l2)) {continue;}
-      double sym = 1.0 + pow(-1.0, l_rel + s + 1 + t);
+      double sym =  1.0 + pow(-1.0, l_rel + s + 1 + t);
       if (sym == 0.0) {continue;}
       for (int n_cm = 0; n_cm <= (max - l_cm - l_rel)/2; n_cm++) {
         int n_rel = (max - l_rel - l_cm)/2 - n_cm;
@@ -183,8 +213,10 @@ double compute_radial_matrix_element_finite_q_op1(int J, int n1p, int l1p, int n
             rm *= 1.0/(4.0*M_PI)*pow(-1.0, l_rel + l_relp + lambda)*(2.0*J + 1.0)*sqrt((2.0*l_rel + 1.0)*(2.0*l_relp + 1.0)*(2.0*l_cm + 1.0)*(2.0*l_cmp + 1.0))*three_j(l_relp, J, l_rel, 0.0, 0.0, 0.0)*three_j(l_cmp, J, l_cm, 0.0, 0.0, 0.0)*six_j(lambda, l_cmp, l_relp, J, l_rel, l_cm);
             if (rm == 0.0) {continue;}
             rm *= sym;
-            rm *= compute_rel_potential_spline(n_relp, l_relp, n_rel, l_rel, f_spline, acc);
-	    rm *= compute_rel_potential(n_cmp, l_cmp, n_cm, l_cm, J, q, 2);
+            double mrel = compute_rel_potential_spline(n_relp, l_relp, n_rel, l_rel, f_spline, acc);
+//	    printf("np: %d lp: %d n: %d l: %d mat: %g\n", n_relp, l_relp, n_rel, l_rel, mrel);
+	    rm *= compute_rel_potential(n_cmp, l_cmp, n_cm, l_cm, J, q, 2)*mrel;
+	  //  printf("Np: %d LP: %d N: %d L: %d RCM: %g\n", n_cmp, l_cmp, n_cm, l_cm, compute_rel_potential(n_cmp, l_cmp, n_cm, l_cm, J, q, 2));
             mat += rm;
 	    }
 	  }
@@ -232,6 +264,7 @@ double compute_radial_matrix_element_finite_q_op3(int J1, int J2, int n1p, int l
     }
   }
 
+
   return mat;
 }
 
@@ -262,8 +295,8 @@ double compute_radial_matrix_element_finite_q_op4(int J1, int J2, int n1p, int l
             rm *= sqrt(5.0)/(4.0*M_PI)*pow(-1.0, l_relp + l_cmp)*sqrt((2.0*l_rel + 1.0)*(2.0*l_relp + 1.0)*(2.0*l_cm + 1.0)*(2.0*l_cmp + 1.0)*(2.0*J1 + 1.0)*(2.0*J2 + 1.0)*(2.0*lambda + 1.0)*(2.0*lambdap + 1.0))*three_j(l_relp, J1, l_rel, 0.0, 0.0, 0.0)*three_j(l_cmp, J2, l_cm, 0.0, 0.0, 0.0)*nine_j(l_relp, l_rel, J1, l_cmp, l_cm, J2, lambdap, lambda, 2);
             if (rm == 0.0) {continue;}
             rm *= sym;
-            rm *= compute_rel_potential_spline(n_relp, l_relp, n_rel, l_rel, f_spline, acc);
-	    rm *= compute_rel_potential(n_cmp, l_cmp, n_cm, l_cm, J2, q, 2);
+            double mrel = compute_rel_potential_spline(n_relp, l_relp, n_rel, l_rel, f_spline, acc);
+	    rm *= compute_rel_potential(n_cmp, l_cmp, n_cm, l_cm, J2, q, 2)*mrel;
             mat += rm;
 	    }
 	  }
@@ -352,6 +385,7 @@ double compute_radial_matrix_element_finite_q_op6(int J1, int J2, int J, int n1p
     }
   }
 
+  
   return mat;
 }
 
@@ -391,5 +425,6 @@ double compute_radial_matrix_element_finite_q_op7(int J1, int J2, int J, int n1p
     }
   }
 
+  printf("n1p: %d l1p: %d n2p: %d l2p: %d lambdap: %d n1: %d l1: %d n2: %d l2: %d lambda: %d S: %d T: %d mat: %g\n", n1p, l1p, n2p, l2p, lambdap, n1, l1, n2, l2, lambda, s, t, mat);
   return mat;
 }

@@ -294,8 +294,107 @@ in_file = fopen("isotope_data/al27/density/al27-al27_usdb_1bdy_J1_T1_0_0.dens", 
 
   compute_nuclear_multipoles(rhoJ0T0, rhoJ0T1, rhoJ1T0, rhoJ1T1, rhoJ2T0, rhoJ2T1, rhoJ3T0, rhoJ3T1, rhoJ4T0, rhoJ4T1, rhoJ5T0, rhoJ5T1, num_shells, q, 28);
 
+  printf("Mg24\n");
+  for (int i = 0; i < num_shells*num_shells; i++) {
+    rhoJ0T0[i] = 0.0;
+  }
+
+  in_file = fopen("isotope_data/mg24/density/mg24-mg24_core_1body_J0_T0_0_0.dens", "r");
+  while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &inp, &ijp, &in, &ij, &density) == 5) {
+    int ind_i = get_shell_index(in, ij);
+    int ind_f = get_shell_index(inp, ijp);
+    rhoJ0T0[ind_f + num_shells*ind_i] = density;
+  }
+  fclose(in_file);
+   double y_mu = pow(q*b_osc(24)/(HBARC*2.0), 2.0);
+ 
+  printf("M0(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells));
+
+  printf("Ne20\n");
+  for (int i = 0; i < num_shells*num_shells; i++) {
+    rhoJ0T0[i] = 0.0;
+  }
+
+  in_file = fopen("isotope_data/ne20/density/ne20-ne20_core_1body_J0_T0_0_0.dens", "r");
+  while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &inp, &ijp, &in, &ij, &density) == 5) {
+    int ind_i = get_shell_index(in, ij);
+    int ind_f = get_shell_index(inp, ijp);
+    rhoJ0T0[ind_f + num_shells*ind_i] = density;
+  }
+  fclose(in_file);
+  y_mu = pow(q*b_osc(20)/(HBARC*2.0), 2.0);
+ 
+  printf("M0(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells));
+
+  printf("P31\n");
+  for (int i = 0; i < num_shells*num_shells; i++) {
+    rhoJ0T0[i] = 0.0;
+  }
+
+  in_file = fopen("isotope_data/p31/density/p31-p31_core_1body_J0_T0_0_0.dens", "r");
+  while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &inp, &ijp, &in, &ij, &density) == 5) {
+    int ind_i = get_shell_index(in, ij);
+    int ind_f = get_shell_index(inp, ijp);
+    rhoJ0T0[ind_f + num_shells*ind_i] = density;
+  }
+  fclose(in_file);
+  y_mu = pow(q*b_osc(31)/(HBARC*2.0), 2.0);
+ 
+  printf("M0(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells));
+
+  printf("S32\n");
+  for (int i = 0; i < num_shells*num_shells; i++) {
+    rhoJ0T0[i] = 0.0;
+  }
+
+  in_file = fopen("isotope_data/s32/density/s32-s32_core_1body_J0_T0_0_0.dens", "r");
+  while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &inp, &ijp, &in, &ij, &density) == 5) {
+    int ind_i = get_shell_index(in, ij);
+    int ind_f = get_shell_index(inp, ijp);
+    rhoJ0T0[ind_f + num_shells*ind_i] = density;
+  }
+  fclose(in_file);
+  y_mu = pow(q*b_osc(32)/(HBARC*2.0), 2.0);
+ 
+  printf("M0(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells));
+
+  printf("Cl35\n");
+  for (int i = 0; i < num_shells*num_shells; i++) {
+    rhoJ0T0[i] = 0.0;
+  }
+
+  in_file = fopen("isotope_data/cl35/density/cl35-cl35_core_1body_J0_T0_0_0.dens", "r");
+  while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &inp, &ijp, &in, &ij, &density) == 5) {
+    int ind_i = get_shell_index(in, ij);
+    int ind_f = get_shell_index(inp, ijp);
+    rhoJ0T0[ind_f + num_shells*ind_i] = density;
+  }
+  fclose(in_file);
+  y_mu = pow(q*b_osc(35)/(HBARC*2.0), 2.0);
+ 
+  printf("M0(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells));
+
+  printf("F19\n");
+  for (int i = 0; i < num_shells*num_shells; i++) {
+    rhoJ0T0[i] = 0.0;
+  }
+
+  in_file = fopen("isotope_data/f19/density/f19-f19_core_1body_J0_T0_0_0.dens", "r");
+  while(fscanf(in_file, "%d, %d, %d, %d, %f\n", &inp, &ijp, &in, &ij, &density) == 5) {
+    int ind_i = get_shell_index(in, ij);
+    int ind_f = get_shell_index(inp, ijp);
+    rhoJ0T0[ind_f + num_shells*ind_i] = density;
+  }
+  fclose(in_file);
+  y_mu = pow(q*b_osc(19)/(HBARC*2.0), 2.0);
+ 
+  printf("M0(m_mu): %g\n", m0_tot(y_mu, rhoJ0T0, num_shells));
+
+
   return;
 }
+
+
 
 void compute_nuclear_multipoles(double *rhoJ0T0, double *rhoJ0T1, double *rhoJ1T0, double *rhoJ1T1,
 		                double *rhoJ2T0, double *rhoJ2T1, double *rhoJ3T0, double *rhoJ3T1,
@@ -2105,8 +2204,4 @@ int get_shell_index(int in, int ij) {
   return ind;
 }
 
-double b_osc(int a_nuc) {
-  double b = sqrt(0.9*pow(a_nuc, 1.0/3.0) + 0.7);
-  
-  return b;
-}
+
