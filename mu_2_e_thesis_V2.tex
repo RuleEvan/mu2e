@@ -106,7 +106,7 @@ The coming decade promises exceptional experimental progress in searches for lep
 \chapter{Introduction}
 Throughout the modern history of particle physics, tests of lepton flavor violation have played a crucial role in advancing theoretical understanding. When it was first hypothesized that the weak interaction is mediated by charged bosons, only a single neutrino flavor was known to exist. Based on this assumption, Feinberg \cite{PhysRev.110.1482} in 1958 noted that the charged bosons of the weak force would induce $\mu^+\rightarrow e^+ + \gamma$ at the level of $10^{-4}$, a branching ratio already excluded by the upper limit of $2\times 10^{-5}$ on this process set in 1955 by the Columbia University Nevis cyclotron \cite{PhysRev.98.240}. The work of Feinberg immediately led to the two-neutrino hypothesis, where separate neutrinos couple to the muon and electron, respectively, thereby forbidding (in the absence of neutrino flavor violation) the $\mu^+\rightarrow e^+ + \gamma$ decay. When the two-neutrino hypothesis was confirmed at Brookhaven National Laboratory \cite{PhysRevLett.9.36} in 1965, it was the first indication of a conserved quantum number associated with lepton flavor, extending to both the charged and neutral leptons\footnote{This progress also contributed to the eventual recognition that the ``$\mu$ meson'', as it was known at the time of Feinberg's seminal work, is not associated with the strong nuclear force and is in fact a lepton.}. To this day, lepton flavor is enshrined in the Lagrangian of the standard model of particle physics as a conserved quantity. 
 
-On the other hand, the modern philosophy of particle physics is that global symmetries which are not the result of an underlying gauge symmetry are ``accidental'' and ultimately violated, though perhaps to a highly suppressed degree. This is precisely the expectation for the accidental symmetries of baryon and lepton number conservation. Many extensions of the standard model, including supersymmetry and other Grand Unified Theories (GUTs), lead to the violation of baryon and lepton number at high energies, permitting, for example, a free proton to decay on an extremely long timescale. 
+On the other hand, the modern philosophy of particle physics is that global symmetries that are not the result of an underlying gauge symmetry are ``accidental'' and ultimately violated, though perhaps to a highly suppressed degree. This is precisely the expectation for the accidental standard-model symmetries of baryon and lepton number conservation. Many extensions of the standard model, including supersymmetry and other Grand Unified Theories (GUTs), lead to the violation of baryon and lepton number at high energies, permitting, for example, a free proton to decay on an extremely long timescale. 
 
 Through the observation of neutrino oscillations, it is already known that lepton flavor is not exactly conserved in nature, and some modification of the standard model is required to account for this physics. Given that neutrinos oscillate between flavor eigenstates as they propagate and that charged leptons interact with neutrinos through the electroweak force, one can immediately envision processes, for example those shown in Figure \ref{fig:neutrino_clfv}, through which charged lepton flavor is violated at one-loop level. The rate for such processes, however, is suppressed by $(m_{\nu}/m_W)^4$, leading to an overall branching ratio that is $\sim 40$ orders of magnitude below current experimental sensitivities. This implies that any observation of charged lepton flavor violation (CLFV) is an unambiguous sign of physics beyond the standard model (BSM).
 
@@ -150,7 +150,7 @@ Through the observation of neutrino oscillations, it is already known that lepto
 \end{figure}
  
 
-In fact, observable rates of CLFV are a consequence of many proposed BSM theories, including extensions which generate neutrino masses, account for the muon $g-2$ anomaly, exploit supersymmetry or other mechanisms for unification, etc. In addition to the $\mu\rightarrow e\gamma$ reaction originally considered by Feinberg, the CLFV processes $\mu\rightarrow e$ conversion in nuclei and $\mu\rightarrow 3e$ are among the most sensitive tests of new physics beyond the standard model. In particular, such processes provide a more general constraint on supersymmetric grand unification than either proton decay or neutrino masses \citep{Barbieri_1994}.
+In fact, observable rates of CLFV are a consequence of many proposed BSM theories including, among others, extensions which generate neutrino masses \cite{PhysRevD.67.076006,Abada:2015oba}, account for the muon $g-2$ anomaly \cite{Lindner:2016bgg,Li:2021lnz}, exploit supersymmetry \cite{Carvalho:2002bq,PhysRevD.74.116002,Figueiredo:2013tea,Gomez:2017dhl} or other mechanisms \cite{Ciafaloni:1995ad,Benbrik:2010cf,Feldmann:2016hvo} for unification, and explain the observed matter/antimatter asymmetry \cite{PhysRevD.83.076007,Merlo:2018rin}. In addition to the $\mu\rightarrow e\gamma$ reaction originally considered by Feinberg, the CLFV processes of $\mu\rightarrow e$ conversion in nuclei and $\mu\rightarrow 3e$ are among the most sensitive tests of new physics beyond the standard model. In particular, such processes provide a more general constraint on supersymmetric grand unification than either proton decay or neutrino masses \citep{Barbieri_1994}.
 
 In this work, our primary focus is the process of $\mu\rightarrow e$ conversion, in which a muon is captured into the Coulomb field of an atomic nucleus. 
 Once bound, the muon quickly  de-excites to the $1s$ ground state of the nuclear Coulomb field. The timescale for transition to the ground state (within $10^{-9}$ to $10^{-12}$ seconds) is much faster than standard model muon decay processes ($\sim 10^{-5}$ seconds), and therefore one may describe the muon as residing in the $1s$ state. There are two primary standard model processes through which the muons then decay: decay in orbit
@@ -161,19 +161,17 @@ and standard muon capture
 \begin{equation}
 \mu^- + A(Z,N)\rightarrow \nu_{\mu}+A(Z-1,N+1),
 \end{equation}
-where $Z$ is the nuclear charge and $N$ the number of neutrons. Both of these processes conserve total lepton number as well as lepton flavor; the former produces a continuous spectrum of electrons which constitute the primary experimental background in searches for the CLFV decay. 
-
-We are interested in the process
+where $Z$ is the nuclear charge and $N$ the number of neutrons. Both of these processes conserve total lepton number as well as lepton flavor; the former produces a continuous spectrum of electrons which constitute the primary experimental background in searches for CLFV $\mu\rightarrow e$ conversion. We are interested in the process
 \begin{equation}
 \mu^-+A(Z,N)\rightarrow e^- + A(Z,N),
 \end{equation}
-which conserves total lepton number but violates lepton flavor conservation by converting a muon into an electron with no neutrino byproducts. The relevant quantity that is constrained by experiments is the branching ratio
+which conserves total lepton number but violates lepton flavor  by converting a muon into an electron with no neutrino byproducts. The relevant quantity that is constrained by experiments is the branching ratio
 \begin{equation}
 B(\mu^-+(A,Z)\rightarrow e^- + (A,Z))\equiv\frac{\Gamma(\mu^-+(A,Z)\rightarrow e^-+(A,Z))}{\Gamma(\mu^-+(A,Z)\rightarrow\nu_{\mu}+A(Z-1,N+1))},
 \end{equation}
-where the numerator is the rate for the CLFV conversion process, and the denominator is the rate of standard muon capture. The current best limit on this branching ratio is $B(\mu^-\rightarrow e^-)<7\times 10^{-13}$ (90\% confidence level), set by the SINDRUM-II collaboration \citep{Bertl2006} using Au as the target nucleus. The next generation of experiments, Mu2e at Fermilab\citep{Bernstein_2019} and the COherent Muon to Electron Transition (COMET) experiment \citep{10.3389/fphy.2018.00133} at Japan Proton Research Complex (J-PARC), are expected to improve this limit by four orders of magnitude. An upgrade of the Mu2e experiment has recently been proposed which would improve upon this sensitivity by a further order of magnitude \cite{Mu2e:2018osu}.
+where the numerator is the rate for the CLFV conversion process, and the denominator is the rate of standard muon capture. The current best limit on this branching ratio is $B(\mu^-\rightarrow e^-)<7\times 10^{-13}$ (90\% confidence level), set by the SINDRUM-II collaboration \citep{Bertl2006} using Au as the target nucleus. The next generation of experiments, Mu2e at Fermilab \citep{Bernstein_2019} and the COherent Muon to Electron Transition (COMET) experiment \citep{10.3389/fphy.2018.00133} at Japan Proton Research Complex (J-PARC), are expected to improve this limit by four orders of magnitude. An upgrade of the Mu2e experiment has recently been proposed which would improve upon this sensitivity by a further order of magnitude \cite{Mu2e:2018osu}.
 
-Significant advances are also expected in the sensitivity of searches for $\mu\rightarrow e\gamma$ and $\mu\rightarrow 3e$ with the advent, respectively, of the Mu to E Gamma (MEG) II and Mu3e experiments, both located at the Paul Scherrer Institute (PSI). The branching ratios for these two processes are measured relative to the dominant free-muon decay mode; that is
+Significant advances in the sensitivity of searches for $\mu\rightarrow e\gamma$ and $\mu\rightarrow 3e$ are also soon expected with the advent, respectively, of the Mu to E Gamma (MEG) II and Mu3e experiments, both located at the Paul Scherrer Institute (PSI). The branching ratios for these two processes are measured relative to the dominant free-muon decay mode; that is
 \begin{equation}
 B(\mu\rightarrow e\gamma)\equiv\frac{\Gamma\left(\mu\rightarrow e+\gamma\right)}{\Gamma\left(\mu\rightarrow e+2\nu\right)},\;\;B(\mu\rightarrow 3e)\equiv\frac{\Gamma\left(\mu\rightarrow 3e\right)}{\Gamma\left(\mu\rightarrow e+2\nu\right)}.
 \end{equation} 
@@ -221,13 +219,18 @@ $\mu^+\rightarrow e^+e^-e^+$ & $<4 \times 10^{-16}$ & Mu3e at PSI (Phase II) & \
 \label{tab:future_rates}
 \end{table} 
 
-Depending on the underlying CLFV physics, the three processes may be strongly interconnected or essentially independent. For example, an operator which mediates $\mu\rightarrow e\gamma$ can be embedded in a nucleus (the photon is virtual and exchanged with the nuclear charge) and thereby induce $\mu\rightarrow e$ conversion. On the other hand, mechanisms for $\mu\rightarrow e$ conversion exist which are entirely independent of the photonic CLFV process. Particular UV models of CLFV should provide unambiguous predictions for the branching ratios of $B(\mu\rightarrow e)$, $B(\mu\rightarrow e\gamma)$, and $B(\mu\rightarrow e)$ in various target nuclei. Therefore if these quantities can be computed with known uncertainties, then measurements of various CLFV processes can be used to exclude specific CLFV models. Two major theoretical hurdles to reliable error quantification lie in the transition from quarks to nucleons and the nuclear structure which embeds nucleon-level operators into a nuclear wave function. In Section \ref{sec:uncertainty_quant}, we discuss a few examples of this. 
+Depending on the underlying CLFV physics, these three processes may be strongly interconnected or essentially independent. For example, an operator which mediates $\mu\rightarrow e\gamma$ can be embedded in a nucleus (the photon is virtual and exchanged with the nuclear charge) and thereby induce $\mu\rightarrow e$ conversion. On the other hand, mechanisms for $\mu\rightarrow e$ conversion exist which are entirely independent of the photonic CLFV process. 
 
-On the other hand, this approach is top-down, model-dependent and exclusionary. While it may be helpful to exclude particular candidate UV theories of CLFV,  $\mu\rightarrow e$ conversion has the advantage that the nuclear target can be varied, potentially providing additional complimentary measurements. One would like a way to extract all of the information contained in the branching ratio $B(\mu\rightarrow e)$. Relating the low-energy $\mu\rightarrow e$ conversion process to the underlying UV theory of CLFV is a formidable theoretical challenge due in part to the significant range of energy scales which the problem spans. The situation is illustrated in Figure \ref{fig:eft_tower}. Typically, the CLFV physics is associated with an energy scale $\Lambda_{CLFV}$ at which the CLFV couplings (possibly to new degrees of freedom) are order one. In the spirit of effective theory, at energies below $\Lambda_{CLFV}$, we may integrate out the new degrees of freedom, giving rise to a set of effective operators in terms of standard-model degrees of freedom. In particular, the strong nuclear physics at this level is described by quark and gluon degrees of freedom and the theory of quantum chromodynamics (QCD). 
+Particular UV models of CLFV should provide unambiguous predictions for the branching ratios $B(\mu\rightarrow e)$, $B(\mu\rightarrow e\gamma)$, and $B(\mu\rightarrow e)$ in various target nuclei. Therefore if these quantities can be computed with well-understood uncertainties, then measurements of CLFV processes can be used to exclude specific CLFV models. 
+Relating the low-energy $\mu\rightarrow e$ conversion process to the underlying UV theory of CLFV, however, is a formidable theoretical challenge due in part to the significant range of energy scales which the problem spans. The situation is illustrated in Figure \ref{fig:eft_tower}. The CLFV physics is associated with an energy scale $\Lambda_{CLFV}$ -- typically well above the electroweak scale -- at which the CLFV couplings (potentially to new degrees of freedom) are order one. In the spirit of effective theory, at energies below $\Lambda_{CLFV}$, we may integrate out the new degrees of freedom, giving rise to a set of effective operators in terms of standard-model degrees of freedom.  
 
-Herein lies the first major hurdle in connecting the UV CLFV theory to $\mu\rightarrow e$ conversion observables: at energies well above 1 GeV, QCD is weakly-coupled and can be treated perturbatively, but as one approaches this energy the quarks confine into hadrons and the theory becomes nonperturbative. In order to proceed below the QCD scale, we must match the SM EFT onto chiral EFT, which retains the approximate $SU(2)_L\times SU(2)_R$ quark flavor symmetry of QCD but trades the quark and gluon degrees of freedom for protons, neutrons and light mesons. The matching requires knowledge of low-energy constants (LECs) associated with nonperturbative QCD; in theory, the LECs can be fit to experimental data or obtained from lattice QCD calculations. 
+Two major theoretical hurdles arise as one attempts to extract from the standard-model effective theory a prediction for the $\mu\rightarrow e$ conversion branching ratio. At energies $\gtrsim 1$ GeV, the strong force physics is described by quark and gluon degrees of freedom and a perturbative treatment of the theory of quantum chromodynamics (QCD). The conversion experiments, on the other hand, are performed at sufficiently low energies that the quarks hadronize into nucleons; although QCD is still the correct theory in this regime, it is strongly-coupled and essentially intractable. Instead, one must undertake a non-perturbative matching between quark and hadron degrees of freedom that requires input from either experiment or lattice QCD calculations. Fortunately, we are entering an era where precision lattice QCD calculations make it possible to quantify the errors associated with this matching procedure. 
 
-Finally, the nucleon-level operators of chiral EFT must be embedded in a nucleus, where the form of the response is constrained by the angular momentum, isospin, parity and time-reversal symmetries of the nuclear ground state. This is the second major theoretical hurdle in connecting the UV theory to experiment due to the nuclear many-body physics required to evaluate the necessary response functions. In order to construct a many-body wave function for a nucleus like $^{27}$Al in the nuclear shell model one relies upon phenomenological interactions which have been tuned to reproduce low-energy nuclear observables such as charge radii and low-lying spectra. The errors associated with these treatments are not rigorously quantified and can certainly be significant.
+The nucleon-level operators thus obtained must ultimately be embedded in a nucleus, where the form of the response is constrained by the angular momentum, isospin, parity and time-reversal symmetries of the nuclear ground state. This is the second major theoretical hurdle in connecting the UV theory to experiment due to the complex nuclear many-body physics required to evaluate the relevant response functions. In order to construct a many-body wave function for a nucleus like $^{27}$Al in the nuclear shell-model, one relies upon phenomenological interactions which have been tuned to reproduce low-energy nuclear observables such as charge radii and low-lying spectra. The errors associated with these treatments are not rigorously quantified and can certainly be significant. 
+
+These difficulties can be circumvented if one restricts focus to the case of coherent $\mu\rightarrow e$ conversion, in which the only nuclear operator under consideration is the monopole charge operator. The term ``coherent'' refers to the fact that this operator couples to every nucleon in the nucleus, and therefore the amplitude is enhanced by roughly a factor of $A=N+Z$ relative to the incoherent process. Restricting to the coherent case results in a dramatic simplification of the nuclear physics: rather than relying on difficult and imprecise modeling of the nuclear many-body wave function, the coherent amplitude can be computed from an experimentally determined quantity, the scalar nucleon density. Thus, if one connects the coherent nucleon operator to its quark-level counterparts -- relying on lattice QCD to quantify the associated matching errors -- it is possible to complete the chain of effective theories from the scale of $\mu\rightarrow e$ conversion up to the high-energy realm of candidate UV CLFV theories, yielding a prediction for the conversion branching ratio with well-understood uncertainties. This construction was recently completed though next-to-leading order in the quark/hadron matching \cite{2018PhRvC..98a5208B,Cirigliano:2022ekw}, providing a valuable tool for discriminating among BSM theories.
+
+On the other hand, this ``top-down'' approach is not general and can only be applied to exclude those particular UV models which yield a leading coherent response. While it may be helpful to exclude particular candidate UV theories of CLFV,  $\mu\rightarrow e$ conversion has the advantage that the nuclear target can be varied, potentially providing additional complimentary measurements. One would like a way to extract all of the information contained in the branching ratio $B(\mu\rightarrow e)$.  
 
 If one begins from the most general effective theory of CLFV at the level of SM EFT and proceeds down to the nuclear scale then one must reproduce the most general nuclear-level theory. However, it is highly likely that in doing so one has horribly obscured the underlying CLFV physics, convoluting it with the nuclear physics. But it is clear that the CLFV physics does not depend on the choice of nuclear target. As we demonstrate in this work, if we begin by formulating an effective theory directly at the nuclear scale, then we can ensure a factorization between the CLFV physics -- which is independent of the choice of target -- and the nuclear physics.
 
@@ -493,19 +496,19 @@ Locally in this potential, the momentum of the electron is the effective momentu
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{Fig2_Alelectron.pdf}
+\includegraphics[scale=0.47]{Fig2_Alelectron.pdf}
 \caption{The Dirac Coulomb solutions $G(r)$ and $F(r)$ for the highly-relativistic outgoing electron produced in $\mu\rightarrow e$ conversion in $^{27}$Al (green line) are compared to the free solution (orange) and to the free solution evaluated with $q_\mathrm{eff}$ (blue dashed), for low partial waves. The nuclear charge distribution is shown by the shading (arbitrary normalization). The agreement between the Coulomb and free solutions evaluated with $q_\mathrm{eff}$ is quite good.}
 \label{fig:Alelectron}
 \end{figure}
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{Fig3_Tielectron.pdf}
+\includegraphics[scale=0.47]{Fig3_Tielectron.pdf}
 \caption{Same as Figure \ref{fig:Alelectron} but for $^{48}$Ti}.
 \label{fig:Tielectron}
 \end{figure}
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{Fig4_Welectron.pdf}
+\includegraphics[scale=0.47]{Fig4_Welectron.pdf}
 \caption{Same as Figure \ref{fig:Alelectron} but for $^{184}$W}.
 \label{fig:Welectron}
 \end{figure}
@@ -587,7 +590,7 @@ $^{184}$W & 47.79\% & 28.17\% & 28.13\% & 47.91\% & 25.77\% & 26.60\% & 26.86\% 
 \section{Approximate Treatment of the Bound Muon}
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{Fig1_Muon.pdf}
+\includegraphics[scale=0.48]{Fig1_Muon.pdf}
 \caption{Lower panels: muon $\kappa=-1$ bound state Dirac solutions $G(r)/r$ (orange line) and $F(r)/r$ (green) are shown for $^{27}$Al (left) and $^{48}$Ti (right), along with the Schroedinger solutions (blue dashed). These solutions are computed for extended nuclear charges, using the parameterizations of Table \ref{tab:input}, and are properly normalized. Upper panels: the $G(r)$ (orange), $F(r)$ (green), and Schroedinger (red) solutions; also shown are the volume-weighted charge distributions $r^2\rho(r)j_0(qr)$ and $r^2\rho(r)j_2(qr)$ (shaded). The overall normalization (but not the relative normalization) of the two densities is arbitrary. As the muon wave functions varies slowly over the nuclear, it is appropriate to use an average value: the black dotted line is the value obtained by averaging over $r^2\rho(r)j_0(qr)$.}
 \label{fig:muon}
 \end{figure}
@@ -625,10 +628,10 @@ $^{184}$W & 47.79\% & 28.17\% & 28.13\% & 47.91\% & 25.77\% & 26.60\% & 26.86\% 
 \begin{figure}
 \centering
 \subfloat[]{
-\includegraphics[scale=0.54]{al27_rho_nsm_vs_2pf.png}
+\includegraphics[scale=0.53]{al27_rho_nsm_vs_2pf.png}
 }
 \subfloat[]{
-\includegraphics[scale=0.53]{ti48_rho_nsm_vs_2pf.png}
+\includegraphics[scale=0.52]{ti48_rho_nsm_vs_2pf.png}
 }
 \caption{Comparison of the proton density $r^2\rho_p(r)$ obtained from the nuclear shell model (blue curve) and the 2-parameter Fermi function fit to elastic electron scattering data (orange curve) in the target nuclei $^{27}$Al (left) and $^{48}$Ti (right). The Fermi function parameters $c$ and $\beta$ are given in Table \ref{tab:input}. For both nuclei, the nuclear oscillator parameter $b$ has been tuned to reproduce the measured RMS charge radius. The particular shell model interactions employed were Brown-Wildenthal and KB3P for $^{27}$Al and $^{48}$Ti, respectively.}
 \end{figure}
@@ -1376,7 +1379,8 @@ we can express both components of the muon wave function in terms of the radial 
 where $\vec{p}_{\mu}$ is the muon momentum operator. Figure \ref{fig:muon_f_eff} compares the numerically obtained Coulomb solution $F(r)$ to the effective lower component wave function in Eq. \ref{eq:muon_f_eff} in four target nuclei. From the lightest nucleus, $^{12}$C, to the heaviest, $^{184}$W, the effective form of the lower component reproduces very well the reference solution; even in $^{184}$W, the relative root-mean-square error -- defined in analogy with Eq. \ref{eq:rms_error} -- is $\approx 1$\%. In the next-generation target $^{27}$Al, the RMS error is $\approx 0.5$\%. 
 
 \begin{figure}
-\includegraphics[scale=0.7]{muon_f_eff_combined.png}
+\centering
+\includegraphics[scale=0.67]{muon_f_eff_combined.png}
 \caption{Comparison of the exact result (green line) for the absolute value of the muon wave function lower component $|F(r)/r|$ and the effective wave function (blue dashed line) given by Eq. \ref{eq:muon_f_eff} in four target nuclei: $^{12}$C, $^{27}$Al, $^{63}$Cu, and $^{184}$W. The grey shaded region shows the extent of the nuclear density $r^2\rho(r)$ (arbitrary normalization). Note that the scale of the plot is different across the four nuclei. In all cases, the effective wave function provides a good approximation of the muon's lower component.} 
 \label{fig:muon_f_eff}
 \end{figure}
@@ -1409,6 +1413,17 @@ l_0^{\tau}&\rightarrow l_0^{\tau}+b_2^{\tau}i\hat{q}\cdot\frac{\vec{v}_{\mu}}{2}
 \vec{l}_5^{\tau}&\rightarrow \vec{l}_5^{\tau}+b_5^{\tau}i\hat{q}\times\frac{\vec{v}_{\mu}}{2}+b_8^{\tau}\frac{\vec{v}_{\mu}}{2}+b_{12}^{\tau}\frac{\vec{v}_{\mu}}{2}\times\vec{\sigma}_L+b_{13}^{\tau}i\hat{q}\times\left[\frac{\vec{v}_{\mu}}{2}\times\vec{\sigma}_L\right]\\&+b_{14}^{\tau}\frac{\vec{v}_{\mu}}{2}\cdot\vec{\sigma}_L\;i\hat{q}
 +b_{15}^{\tau}i\hat{q}\cdot\left[\frac{\vec{v}_{\mu}}{2}\times\vec{\sigma}_L\right]i\hat{q}+b_{16}^{\tau}i\hat{q}\cdot\frac{\vec{v}_{\mu}}{2}\;i\hat{q}\\
 &\equiv \vec{l}_5^{\tau}+\vec{l}_{5f}^{\tau}
+\end{split}
+\end{equation}
+We find six new nuclear operators associated with the muon lower component
+\begin{equation}
+\begin{split}
+M^{(1)}_{JM;\tau}(q)&\equiv \sum_{i=1}^A\sqrt{J(J+1)}\frac{1}{qx_i}j_J(qx_i)Y_{JM}(\hat{x}_i)\;t^{\tau}(i)\\
+M^{(2)}_{JM;\tau}(q)&\equiv \sum_{i=1}^A\frac{d}{dqx_i}j_J(qx_i)Y_{JM}(\hat{x}_i)\;t^{\tau}(i)\\
+\Sigma^{'(0)}_{JM;\tau}(q)&\equiv \sum_{i=1}^Aj_J(qx_i)\left[\sqrt{\frac{J}{2J+1}}\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J+1}{2J+1}}\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)\\
+\Sigma^{'(2)}_{JM;\tau}(q)&\equiv\sum_{i=1}^A\left[-\sqrt{\frac{J}{2J+1}}\frac{d}{dqx_i}j_{J+1}(qx_i)\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J+1}{2J+1}}\frac{d}{dqx_i}j_{J-1}(qx_i)\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)\\
+\Sigma^{''(0)}_{JM;\tau}(q)&\equiv\sum_{i=1}^Aj_J(qx_i)\left[-\sqrt{\frac{J+1}{2J+1}}\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J}{2J+1}}\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)\\
+\Sigma^{''(2)}_{JM;\tau}(q)&\equiv\sum_{i=1}^A\left[\sqrt{\frac{J+1}{2J+1}}\frac{d}{dqx_i}j_{J+1}(qx_i)\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J}{2J+1}}\frac{d}{dqx_i}j_{J-1}(qx_i)\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)
 \end{split}
 \end{equation}
 \section{Form Factors and LEC-independence}
@@ -1615,13 +1630,13 @@ Turning to the velocity-dependent response functions in Figure \ref{fig:v_dep_re
 Comparing across all twelve allowed response functions, it appears that $^{27}$Al is a rather good choice of initial nuclear target for the next-generation experiments.
 \begin{figure}
 \centering
-\includegraphics[scale=0.65]{v_independent_combined.pdf}
+\includegraphics[scale=0.62]{v_independent_combined.pdf}
 \caption{Velocity-independent response functions computed for the eleven nuclear targets of interest.}
 \label{fig:v_ind_responses}
 \end{figure}
 \begin{figure}
 \centering
-\includegraphics[scale=0.65]{v_dependent_combined.pdf}
+\includegraphics[scale=0.62]{v_dependent_combined.pdf}
 \caption{Velocity-dependent response functions computed for the eleven nuclear targets of interest and multiplied by the corresponding momentum suppression factor $q_\mathrm{eff}^2/m_N^2$.}
 \label{fig:v_dep_responses}
 \end{figure}
@@ -1739,11 +1754,9 @@ Many of the above-mentioned processes are interrelated. For example, if the CLFV
 \fmf{fermion}{i2,v1}
 \fmf{fermion}{v1,o2}
 \fmfv{d.sh=circle,d.f=shaded}{v1}
-\fmflabel{$\mu^-$}{i2}
-\fmflabel{$e^-$}{o2}
-\fmf{photon}{v1,v2}
-\fmf{phantom}{v2,b1}
-\fmflabel{$\gamma$}{v2}
+\fmflabel{$\mu$}{i2}
+\fmflabel{$e$}{o2}
+\fmf{photon,label=$\gamma$}{v1,b1}
 \end{fmfgraph*}
 \end{fmffile}
 }
@@ -1760,8 +1773,8 @@ Many of the above-mentioned processes are interrelated. For example, if the CLFV
 \fmf{fermion}{v2,o2}
 \fmflabel{$N$}{o1}
 \fmflabel{$N$}{i1}
-\fmflabel{$\mu^-$}{i2}
-\fmflabel{$e^-$}{o2}
+\fmflabel{$\mu$}{i2}
+\fmflabel{$e$}{o2}
 \end{fmfgraph*}
 \end{fmffile}
 }
@@ -1804,7 +1817,7 @@ If we assume that the momentum-dependence of the form factors is mild $\tilde{f}
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.85]{Fig6_muegamma_b.pdf}
+\includegraphics[scale=0.83]{Fig6_muegamma_b.pdf}
 \caption{Exclusion curves for the CLFV elecromagnetic coupling considered in Eq. \ref{eq:em_clfv} for the case $\tilde{f}_A=\tilde{f}_E=0$ and $|\tilde{f}_R|+|\tilde{f}_M|=1$. The dashed (solid) black curve shows the (expected) limit for on-shell $\mu\rightarrow e\gamma$ conversion obtained from MEG (MEG-II). The branching ratio limits are $B(\mu\rightarrow e\gamma)<4.2\times 10^{-13}$ for the MEG experiment and $6\times 10^{-14}$ for MEG-II. The dashed (solid) green curve shows the (expected) limit for $\mu\rightarrow 3e$ conversion obtained from Mu3e Phase-I (Phase-II). The branching ratio limit is $B(\mu\rightarrow 3e)<2.0\times 10^{-15}$ $(10^{-16})$ for Phase-I (II)  of Mu3e. The orange curve corresponds to the existing limit $B(\mu\rightarrow 3e)<1.0\times 10^{-12}$ obtained by SINDRUM. The solid red (blue) curve corresponds to a $\mu\rightarrow e$ branching ratio limit $B(\mu\rightarrow e)<10^{-17}$ $(7\times 10^{-15})$ for the case where $\tilde{f}_R$ and $\tilde{f}_M$ contribute with the same sign. The dashed red (blue) curve is analogous to the solid red (blue) curve for the case where $\tilde{f}_R$ and $\tilde{f}_M$ are opposite sign. In this case, the charge radius and magnetic dipole contributions to the coherent conversion on nuclei cancel when $|\tilde{f}_R/\tilde{f}_M|=1$.}
 \label{fig:mu2e_meg_mu3e}
 \end{figure}
@@ -1829,14 +1842,54 @@ f_A&=-i\frac{m_{\mu}^2}{\Lambda^2}\frac{1}{(4\pi)^2}\frac{2}{3}\left(C^L_{\mu ee
 where we have retained only the large logarithm contributions.
 
 \begin{figure}
+\centering
 \subfloat[]{
-\includegraphics[scale=0.85]{mu3e_loop_diagram.png}
+\begin{fmffile}{mu3e_loop}
+\begin{fmfgraph*}(130,130)
+\fmfcmd{
+    path quadrant, q[], otimes;
+    quadrant = (0, 0) -- (0.5, 0) & quartercircle & (0, 0.5) -- (0, 0);
+    for i=1 upto 4: q[i] = quadrant rotated (45 + 90*i); endfor
+    otimes = q[1] & q[2] & q[3] & q[4] -- cycle;
 }
-\hfill
+\fmfwizard
+\fmfleft{i1} \fmfright{o1}\fmfbottom{b1}
+\fmf{fermion}{i1,v1}
+\fmf{fermion}{v1,o1}
+\fmf{fermion,right=1.0,tension=0.3,label=$e^-$}{v1,v2}
+\fmf{fermion,right=1.0,tension=0.3,label=$e^+$}{v2,v1}
+\fmfv{d.sh=otimes,d.f=empty}{v1}
+\fmf{photon,label=$\gamma$}{v2,b1}
+\fmflabel{$\mu$}{i1}
+\fmflabel{$e$}{o1}
+\end{fmfgraph*}
+\end{fmffile}
+}
+\hspace{3cm}
 \subfloat[]{
-\includegraphics[scale=0.65]{mu3e_dipole_diagram.png}
+\begin{fmffile}{mu3e_dipole}
+\begin{fmfgraph*}(130,130)
+\fmfcmd{
+    path quadrant, q[], otimes;
+    quadrant = (0, 0) -- (0.5, 0) & quartercircle & (0, 0.5) -- (0, 0);
+    for i=1 upto 4: q[i] = quadrant rotated (45 + 90*i); endfor
+    otimes = q[1] & q[2] & q[3] & q[4] -- cycle;
 }
-\hfill
+\fmfwizard
+\fmfleft{i1,i2,i3,i4} \fmfright{o1,o2,o3,o4}
+\fmf{fermion}{i3,v1}
+\fmf{fermion}{v1,o3}
+\fmf{fermion,tension=0.8}{o2,v2}
+\fmf{fermion,tension=1.2}{v2,o1}
+\fmfv{d.sh=circle,d.f=shaded}{v1}
+\fmf{photon,tension=1.5,label=$\gamma$}{v1,v2}
+\fmflabel{$\mu$}{i3}
+\fmflabel{$e^-$}{o1}
+\fmflabel{$e^+$}{o2}
+\fmflabel{$e$}{o3}
+\end{fmfgraph*}
+\end{fmffile}
+}
 \caption{(a) One-loop diagram in which an underlying $\mu\rightarrow 3e$ vertex (Eq. \ref{eq:L_mu3e}) generates $\mu\rightarrow e\gamma$. This contribution is only nonzero for off-shell photons. (b) Tree-level diagram in which $\mu\rightarrow e$ induces $\mu\rightarrow 3e$ via pair production.}
 \label{fig:mu3e_diagrams}
 \end{figure}
@@ -2458,7 +2511,6 @@ As usual, the induced dipole operator can mediate $\mu\rightarrow e$ conversion 
 \fmf{photon,label=$\gamma$}{v3,b5}
 \fmf{phantom,tension=0.45}{v5,t2}
 \fmf{phantom,tension=0.2}{v6,t3}
-\fmfdot{v5}
 \fmflabel{$\mu$}{i1}
 \fmflabel{$e$}{o1}
 \fmfdot{v1}
@@ -2482,11 +2534,35 @@ where we have divided by the branching ratio for the on-shell photon process to 
 \end{equation}
 \begin{figure}
 \centering
-\includegraphics[scale=1.0]{higgs_clfv_exclusion.png}
+\includegraphics[scale=1.2]{higgs_clfv_exclusion.png}
 \caption{Exclusion curves for the Higgs-mediated CLFV model considered in Eq. \ref{eq:L_higgs}. The dashed (solid) black curve shows the (expected) limit for on-shell $\mu\rightarrow e\gamma$ conversion obtained from MEG (MEG II). The branching ratio limits are $B(\mu\rightarrow e\gamma)<4.2\times 10^{-13}$ for the MEG experiment and $6\times 10^{-14}$ for MEG II. The red (blue) curve corresponds to a $\mu\rightarrow e$ branching ratio limit $B(\mu\rightarrow e)<10^{-17}$ $(7\times 10^{-15})$ in $^{27}$Al.}
 \label{fig:higgs_clfv_exclusion}
 \end{figure}
 The primary source of error in the ratio in Eq. \ref{eq:BR_ratio_mu_e_gamma} is the uncertainty in the hadronic parameters whereas in Eq. \ref{eq:BR_ratio_Ti_Al} the primary source of error is the uncertainty in the neutron overlap integrals. When computing the ratio of $\mu\rightarrow e$ conversion rates in two different targets, the hadronic uncertainties are common to both nuclei and therefore have a negligible impact on the overall error.
+\section{Matching to Nuclear Effective Theory}
+The one-loop pion form factor $F(q^2/m_{\pi}^2)$ and the momentum-dependent correction to the strange quark sigma term $\dot{\sigma}_sq^2$ will be evaluated at the effective momentum transfer $q_\mathrm{eff}$.
+
+The low-energy coefficient $c_1$ corresponds to the scalar leptonic charge and therefore depends on the \textit{sum} of left- and right-handed Wilson coefficients
+\begin{equation}
+\begin{split}
+&\tilde{c}_1^0=\frac{1}{2\sqrt{2}}\frac{m_{\mu}}{\Lambda^2}\bigg\{\left[\sigma_{\pi N}-\frac{3g_A^2m_{\pi}^2}{64\pi f_{\pi}^2}\Big(k_Ff_\mathrm{eff}^{SI}+m_{\pi}F\left(q_\mathrm{eff}^2/m_{\pi}^2\right)\Big)\right]\left[C_{SR}^{(0)}+C_{SL}^{(0)}+\frac{8\pi}{9}(C_{GR}+C_{GL})\right]\\
+&+\left(\sigma_s-\dot{\sigma}_sq_\mathrm{eff}^2\right)\left[C_{SR}^{(s)}+C_{SL}^{(s)}+\frac{8\pi}{9}\left(C_{GR}+C_{GL}\right)\right]+\frac{8\pi}{9}m_N\left(C_{GR}+C_{GL}\right)\bigg\}+\sqrt{\alpha\pi}v^2\left(C_{DR}+C_{DL}\right),
+\end{split}
+\end{equation}
+whereas $c_{11}$ corresponds to the lepton axial charge and depends on the \textit{difference} of left- and right-handed Wilson coefficients
+\begin{equation}
+\begin{split}
+&\tilde{c}_{11}^0=\frac{1}{2\sqrt{2}}\frac{m_{\mu}}{\Lambda^2}\bigg\{\left[\sigma_{\pi N}-\frac{3g_A^2m_{\pi}^2}{64\pi f_{\pi}^2}\Big(k_Ff_\mathrm{eff}^{SI}+m_{\pi}F\left(q_\mathrm{eff}^2/m_{\pi}^2\right)\Big)\right]\left[C_{SR}^{(0)}-C_{SL}^{(0)}+\frac{8\pi}{9}(C_{GR}-C_{GL})\right]\\
+&+\left(\sigma_s-\dot{\sigma}_sq_\mathrm{eff}^2\right)\left[C_{SR}^{(s)}-C_{SL}^{(s)}+\frac{8\pi}{9}\left(C_{GR}-C_{GL}\right)\right]+\frac{8\pi}{9}m_N\left(C_{GR}-C_{GL}\right)\bigg\}+\sqrt{\alpha\pi}v^2\left(C_{DR}-C_{DL}\right).
+\end{split}
+\end{equation}
+The same is true for the isovector operators
+\begin{equation}
+\begin{split}
+\tilde{c}_1^1&=-\frac{1}{2\sqrt{2}}\frac{m_{\mu}}{\Lambda^2}\frac{\delta m_N}{4}\left[C_{SR}^{(1)}+C_{SL}^{(1)}+\frac{16\pi}{9}\left(C_{GR}+C_{GL}\right)\right]+\sqrt{\alpha\pi}v^2\left(C_{DR}+C_{DL}\right)\\
+\tilde{c}_{11}^1&=-\frac{1}{2\sqrt{2}}\frac{m_{\mu}}{\Lambda^2}\frac{\delta m_N}{4}\left[C_{SR}^{(1)}-C_{SL}^{(1)}+\frac{16\pi}{9}\left(C_{GR}-C_{GL}\right)\right]+\sqrt{\alpha\pi}v^2\left(C_{DR}-C_{DL}\right)
+\end{split}
+\end{equation}
 \chapter{Two-Nucleon Contribution to $\mu\rightarrow e$ Conversion}
 In the previous chapter, we found that at next-to-leading order in the chiral power counting, there is a two-nucleon diagram that contributes to scalar-mediated $\mu\rightarrow e$ conversion. In this section, we will first discuss in detail how the two-nucleon operator can be evaluated in the nuclear shell model. Then we study the behavior of the two-nucleon operator as a function of the three-momentum transfer and relate this matrix element to the effective one-body operator obtained through the Fermi gas average procedure.
 \section{Fourier Transform of Two-Nucleon Operator}
@@ -2506,7 +2582,10 @@ The three-momentum transfers are defined to be
 \end{equation}
 and we use the notation $q_i=|\vec{q}_i|$ to denote the length of the three-vectors. Then to transform to coordinate space and enforce momentum conservation, we have
 \begin{equation}
-\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})=\frac{1}{(2\pi)^{12}}\int d^3p_1\;d^3p_1'\;d^3p_2\;d^3p'_2\;\tilde{J}_2(\vec{q}_1,\vec{q}_2,\vec{q})(2\pi)^3\delta(\vec{p}_1+\vec{p}_2-\pvec{p}'_1-\pvec{p}'_2-\vec{q})e^{i\left(\pvec{p}'_1\cdot\pvec{x}_1'+\pvec{p}'_2\cdot\pvec{x}'_2-\vec{p}_1\cdot\vec{x}_1-\vec{p}_2\cdot\vec{x}_2\right)}
+\begin{split}
+&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})\\
+&=\frac{1}{(2\pi)^{12}}\int d^3p_1\;d^3p_1'\;d^3p_2\;d^3p'_2\;\tilde{J}_2(\vec{q}_1,\vec{q}_2,\vec{q})(2\pi)^3\delta(\vec{p}_1+\vec{p}_2-\pvec{p}'_1-\pvec{p}'_2-\vec{q})e^{i\left(\pvec{p}'_1\cdot\pvec{x}_1'+\pvec{p}'_2\cdot\pvec{x}'_2-\vec{p}_1\cdot\vec{x}_1-\vec{p}_2\cdot\vec{x}_2\right)}
+\end{split}
 \end{equation}
 We transform our integration variables to
 \begin{equation}
@@ -2518,7 +2597,8 @@ We transform our integration variables to
 so that
 \begin{equation}
 \begin{split}
-\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}'_2,\vec{q})&=\frac{1}{(2\pi)^9}\int d^3P_1\;d^3P_2\;d^3q_1\;d^3q_2\;\rho(\vec{q}_1,\vec{q}_2,\vec{q})\delta(\vec{q}_1+\vec{q}_2-\vec{q})e^{i\left[\vec{P}_1\cdot(\pvec{x}_1'-\vec{x}_1)+\vec{P}_2\cdot(\pvec{x}_2'-\vec{x}_2)-\frac{1}{2}\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')-\frac{1}{2}\vec{q}_2\cdot(\vec{x}_2+\pvec{x}_2')\right]}\\
+&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}'_2,\vec{q})\\
+&=\frac{1}{(2\pi)^9}\int d^3P_1\;d^3P_2\;d^3q_1\;d^3q_2\;\rho(\vec{q}_1,\vec{q}_2,\vec{q})\delta(\vec{q}_1+\vec{q}_2-\vec{q})e^{i\left[\vec{P}_1\cdot(\pvec{x}_1'-\vec{x}_1)+\vec{P}_2\cdot(\pvec{x}_2'-\vec{x}_2)-\frac{1}{2}\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')-\frac{1}{2}\vec{q}_2\cdot(\vec{x}_2+\pvec{x}_2')\right]}\\
 &=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}'_1)\delta(\vec{x}_2-\pvec{x}_2')\int d^3q_1\;d^3q_2\;\rho(\vec{q}_1,\vec{q}_2,\vec{q})\delta(\vec{q}_1+\vec{q}_2-\vec{q})e^{-\frac{i}{2}\left[\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')+\vec{q}_2\cdot(\vec{x}_2+\pvec{x}_2')\right]}\\
 &=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\int d^3 q_1\;\rho(\vec{q}_1,\vec{q}-\vec{q}_1,\vec{q})e^{-\frac{i}{2}\left[\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')+(\vec{q}-\vec{q}_1)\cdot(\vec{x}_2+\pvec{x}_2')\right]}.
 \end{split}
@@ -2581,15 +2661,19 @@ For this last integration we have employed the identity
 Putting these pieces together yields
 \begin{equation}
 \begin{split}
-&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}'_2)e^{-i\vec{q}\cdot\vec{x}_1}\int_0^1d\alpha\;e^{i\alpha\vec{q}\cdot\vec{r}-\Pi(q,\alpha)r}\Bigg\{-i\alpha\hat{r}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)+i(1-\alpha)\vec{q}\cdot\vec{\sigma}(1)\hat{r}\cdot\vec{\sigma}(2)\\
-&-\frac{1}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\frac{1}{r}\left[2-r\Pi(q,\alpha)\right]+\alpha(1-\alpha)\frac{1}{\Pi(q,\alpha)}\vec{q}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)+\sqrt{\frac{8\pi}{15}}\frac{1}{r}\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\odot Y_2(\hat{r})\left[1+r\Pi(q,\alpha)\right]\Bigg\}
+&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}'_2)e^{-i\vec{q}\cdot\vec{x}_1}\int_0^1d\alpha\;e^{i\alpha\vec{q}\cdot\vec{r}-\Pi(q,\alpha)r}\Bigg\{-i\alpha\hat{r}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)\\
+&+i(1-\alpha)\vec{q}\cdot\vec{\sigma}(1)\hat{r}\cdot\vec{\sigma}(2)-\frac{1}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\frac{1}{r}\left[2-r\Pi(q,\alpha)\right]+\alpha(1-\alpha)\frac{1}{\Pi(q,\alpha)}\vec{q}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)\\
+&+\sqrt{\frac{8\pi}{15}}\frac{1}{r}\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\odot Y_2(\hat{r})\left[1+r\Pi(q,\alpha)\right]\Bigg\}
 \label{eq:two_body_master}
 \end{split}
 \end{equation}
 In the $\vec{q}\rightarrow 0$ limit, the Feynman parameter integral becomes trivial, $\Pi(q,\alpha)\rightarrow m_{\pi}$, and the two-body current becomes
 \begin{equation}
-\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',0)=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\frac{1}{r}\left\{\frac{1}{3}F_1(r/m_{\pi})\vec{\sigma}(1)\cdot\vec{\sigma}(2)+\sqrt{\frac{8\pi}{15}}F_2(r/m_{\pi})Y_2(\hat{r})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\right\},
+\begin{split}
+\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',0)=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\frac{1}{r}\bigg\{&\frac{1}{3}F_1(r/m_{\pi})\vec{\sigma}(1)\cdot\vec{\sigma}(2)\\
+&+\sqrt{\frac{8\pi}{15}}F_2(r/m_{\pi})Y_2(\hat{r})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\bigg\},
 \label{eq:two_body_q_zero}
+\end{split}
 \end{equation}
 where the form factors are given by
 \begin{equation}
@@ -2658,8 +2742,8 @@ Therefore we have the operator
 As before, the Feynman parameter integral vanishes unless $L_1$ is even. The Clebsch-Gordan coefficient then implies that $L_2$ must be even as well. Thus
 \begin{equation}
 \begin{split}
-\mathcal{O}_3(\vec{r},\vec{R},q)&=\frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(L_1-L_2)/2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
-&\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)}.
+\mathcal{O}_3(\vec{r},\vec{R},q)&=\frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(L_1-L_2)/2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}\\
+&\times j_{L_2}(q R)\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)}.
 \end{split}
 \end{equation}
 Now we turn our attention to the term in the third line of Eq. \ref{eq:two_body_master}. The only angular dependence on $\hat{q}$ is in the exponentials but after completing the angular integral we must recouple the resulting two $\hat{r}$ spherical harmonics. For this task we need the identity
@@ -2743,7 +2827,8 @@ The total two-body operator can then be expressed as
 \end{equation}
 where the summation over $i,j$ extends over all nucleons in the target nucleus.
 \begin{figure}
-\includegraphics[scale=0.65]{relative_op_strength_al27.png}
+\centering
+\includegraphics[scale=0.63]{relative_op_strength_al27.png}
 \caption{The relative strength of various tensor components of the two-nucleon operators evaluated in $^{27}$Al with $q = 104.976$ MeV. Labels in parentheses indicate the angular momenta $(L)$, $(L_1, L_2)$, or $(L_1, L_2, J)$ of the tensor operator. For this chart, we ignore the sign of the resulting matrix element and normalize by the leading operator, the $L=0$ component of $\mathcal{O}_1$.}
 \label{fig:rel_op_str}
 \end{figure}
@@ -2763,7 +2848,7 @@ Figure \ref{fig:two_body_finite_q} also compares the nuclear shell-model result 
 \braket{J_i||\mathcal{O}^{(2)}(q)||J_i}=-\frac{3g_A^2m_{\pi}^2k_F}{64\pi f_{\pi}^2}f^{SI}_\mathrm{eff,NSM}\braket{J_i||M_0(q)||J_i},
 \label{eq:eff_equiv}
 \end{equation}
-where $M_{00}(q)=\sum_{i=1}^Aj_0(qr_i)Y_{00}(\hat{r})$ is the isoscalar one-body monopole charge operator. The resulting values of $f^{SI}_\mathrm{eff,NSM}$ for the nuclear targets of interest are shown in Table \ref{tab:two_body}. We see that the effective coupling implied by the shell model is essentially constant across the range of nuclei from $^{12}$C to $^{63}$Cu, and the value is insensitive to the interaction employed to obtain the wave function. 
+where $M_{00}(q)=\sum_{i=1}^Aj_0(qr_i)Y_{00}(\hat{r}_i)$ is the isoscalar one-body monopole charge operator. The resulting values of $f^{SI}_\mathrm{eff,NSM}$ for the nuclear targets of interest are shown in Table \ref{tab:two_body}. We see that the effective coupling implied by the shell model is essentially constant across the range of nuclei from $^{12}$C to $^{63}$Cu, and the value is insensitive to the interaction employed to obtain the wave function. 
 
 \section{Correlation Function}
 \label{sec:cor_fun}
@@ -2848,6 +2933,17 @@ Linearly interpolating between the measured nuclear Fermi momenta for $^{24}$Mg 
 Figure \ref{fig:two_body_finite_q} shows the leading coherent two-body operator evaluated for a range of momentum transfer $q$ for the case of $^{27}$Al. The two-body matrix element is computed from a nuclear shell model wavefunction with and without the additional short-range correlation function. We see that the correlation function reduces the two-body matrix element by roughly 40\%. Even without this addition reduction, the two-body matrix element computed in the nuclear shell model falls outside of the 1$\sigma$ error bar on the 1-body effective operator, though well within the 2$\sigma$ error.
 
 \chapter{Conclusions}
+\section{Next Steps: EFT Matching and the Inelastic Case}
+\section{Summary}
+Inspired by previous work on dark matter direct detection \cite{Fitzpatrick_2013} and spurred by the looming promise of exceptional experimental progress in searches for charged lepton flavor violation, we have developed a nuclear effective theory of $\mu\rightarrow e$ conversion. Whereas previous works in the literature have either focused on the narrow -- though exceptionally interesting -- case of coherent conversion or retained only the relatively simple nuclear charge and spin operators, we have, for the first time, identified the most general set of response functions which can be probed through measurements of elastic $\mu\rightarrow e$ conversion in nuclei. As the nature of possible CLFV operators is yet entirely undetermined, one should consider a complete basis of effective operators (through a given order in some small power-counting parameter). Such a construction can be performed at a variety of energy scales in terms of different degrees of freedom, but the nuclear scale effective theory is the most natural in the sense that it interfaces directly with experiments. Moreover, by constructing the effective theory directly at the nuclear scale, we are able to achieve a factorization between the underlying CLFV physics -- which must be independent of the choice of target -- and the nuclear physics. This separation provides a clean path for constraining the underlying CLFV response functions through an ensemble of $\mu\rightarrow e$ conversion measurements on various nuclear targets. 
+
+Crucial to obtaining the simple yet general form of our effective theory are the approximations that we have employed for the leptonic fields. In particular, the effective momentum approximation allows us to accurately model the outgoing electron as a Dirac plane wave, thereby permitting a straightforward multipole decomposition of the nuclear charges and currents. Our novel application of this technique -- which has heretofore been employed in high-energy electron scattering studies -- yields a powerful compromise between the numerical solution, which is highly-accurate but extremely cumbersome to employ in the general case, and the uncorrected plane wave solution, which allows for a simplified treatment but is a rather poor model of the outgoing electron. Indeed, the effective momentum solution introduces RMS errors $\lesssim 1\%$ in $^{27}$Al while retaining all the advantages of the plane wave.
+
+The muon wave function can be treated exactly in the effective theory while maintaining a reasonably simple expression for the conversion rate. An even more transparent form for the effective theory can be obtained by neglecting entirely the muon's lower component and/or replacing the muon's slowly-varying (compared to the nuclear extent) radial wave function by a constant value. Applying both of these approximations, performing the multipole decomposition of the nuclear charges and currents, and appealing to the approximately good parity and time-reversal symmetries of the nuclear ground state, we find that the most general $\mu\rightarrow e$ conversion response is governed by six response functions and two interference terms. Restoring the muon's lower component will supplement the effective theory with [add this once we know] additional response functions, which are proportional to the muon velocity and therefore subleading.
+
+The form of the effective theory dictates what can and cannot be learned about CLFV operators from measurements of elastic $\mu\rightarrow e$ conversion: in principle, one can constrain the values of the leptonic response functions but one cannot parse out the values of the individual low-energy constants of the nucleon-level effective theory. Only the particular bilinear combinations of LECs specified by the CLFV response functions can be constrained by experiment. The nuclear effective theory provides a blueprint for a program of $\mu\rightarrow e$ conversion measurements on an ensemble of nuclear targets which would allow one to probe the various CLFV response functions.
+
+As the ultimate goal of this experimental program is to constrain and/or determine the nature of beyond-standard-model CLFV physics, one must be able to port any information obtained in the nuclear-level effective theory to candidate UV theories. These apparently disparate descriptions can be connected through a program of effective theory renormalization and matching that relates physics at different energy scales, beginning from the very low nuclear scale of $\mu\rightarrow e$ conversion experiments, past the scale where quarks deconfine, past the scale of electroweak symmetry breaking, and eventually to the scale of new CLFV physics. In fact, this matching program has already been explicitly realized in the special case of scalar-mediated coherent conversion. Work is now underway to extend the matching to the general effective theory. An analogous matching program has already been completed for the previously mentioned case of dark matter direct detection, connecting UV models of dark matter to the corresponding nuclear scale effective theory. 
 
 \bibliographystyle{unsrtnat}
 \bibliography{../../bib_erule}
@@ -3081,6 +3177,14 @@ These vector components can be obtained by projecting with the spherical basis v
 \begin{equation}
 V_\lambda=\hat{e}_\lambda\cdot\vec{V}.
 \end{equation}
+Taking cross products of the spherical basis vectors
+\begin{equation}
+\begin{split}
+\hat{e}_{\lambda}\times\hat{e}_{\lambda}&=0\\
+\hat{e}_{\pm}\times\hat{e}_{\mp}&=\pm i\hat{e}_0\\
+\hat{e}_{\pm}\times\hat{e}_0&=\pm i\hat{e}_{\pm}
+\end{split}
+\end{equation}
 \section{Vector Spherical Harmonics}
 \label{sec:vector_spherical_harmonics}
 The ordinary spherical harmonics $Y_{\ell m}(\theta,\phi)=Y_{\ell m}(\hat{r})$ form a basis of scalar functions on the sphere; that is, any (well-behaved) smooth function $f(\theta,\phi)$ can be decomposed as
@@ -3223,8 +3327,14 @@ whereas an arbitrary three-current has three independent projections
 \mathcal{T}^\mathrm{mag}_{JM}(q)&=\int d^3r\;\vec{M}_{J\;J\;M}(q\vec{r})\cdot\vec{J}(\vec{r})
 \end{split}
 \end{equation}
-\chapter{Nuclear matrix elements of one-body operators}
+\chapter{Nuclear Matrix Elements of One- and Two-body Operators}
 \label{app:density}
+In order to make contact with $\mu\rightarrow e$ conversion experiments, the underlying nuclear operators must be evaluated between many-body wave functions that accurately capture the detailed structure of the target nucleus. Although many competing methods for these evaluations exist, our preferred paradigm is that of the nuclear shell model. In the shell-model approach, the total nuclear wave function is composed of linear combinations of Slater determinant basis elements. Each Slater determinant is a totally anti-symmetric combination of single-particle harmonic oscillator states labeled by nodal quantum number $n$, orbital angular momentum $\ell$, spin $s=1/2$, and total angular momentum $j=\ell\pm 1/2$. Separate Slater determinants are constructed for neutron and proton degrees of freedom which are distinguished by the isospin quantum number $m_t=+1/2$ $(-1/2)$ for protons (neutrons). 
+
+Having specified the basis, the required wave functions are obtained by diagonalizing a suitable Hamiltonian which describes the interactions among the nucleons. One encounters several difficulties in this construction: first, the exact form of these interactions -- which contain two-body, three-body, and higher contributions -- is not known precisely; the proper theory is that specified by quantum chromodynamics (QCD), which does not lend itself to a simple description in the strongly-coupled regime of nuclear physics. Second, the shell-model space which we have adopted must be severely truncated in practical calculations, requiring one to perform a program of operator and wave function renormalization. These complications can be avoided by abandoning efforts to root the calculation of the nuclear wave function in the first-principles of QCD and instead adopting a phenomenological interaction that has been tuned in the model space to reproduce low-energy nuclear observables such as charge radii and low-lying spectra. This is the strategy which we apply in work; the interactions and shell-mdel spaces which we employ are given in Table \ref{tab:nsm_params}. 
+
+Having thus obtained the nuclear wave functions, there remains a significant computational task in evaluating matrix elements of few-body operators. A well-organized approach is required to avoid unnecessary effort and potential confusion. By formulating the problem in terms of irreducible tensor operators and exploiting the good angular momentum $J$ and (approximate) isospin $T$ quantum numbers of the nuclear ground state, we are able to factorize many-body matrix elements of few-body operators in terms of few-body matrix elements, extracting from the total nuclear wave function only that nuclear structure information which is required to evaluate the few-body operators under consideration. In this appendix, we will demonstrate how this factorization is performed for one- and two-body operators.
+\section{One-body Density Matrices}
 The total one-body tensor operator for a system of $A$ nucleons can be written in the coordinate representation as
 \begin{equation}
 \mathcal{O}_{JM}=\sum_{i=1}^A\mathcal{O}_{JM}(\vec{x}_i),
@@ -3236,46 +3346,113 @@ or in the second-quantized form as
 with 
 \begin{equation}
 \begin{split}
-\mathcal{O}^{\alpha\beta}_{JM}\equiv \braket{\alpha|\mathcal{O}_{JM}|\beta}\\ 
-&=\int d^3x\;\phi^{\dag}_{\alpha}(\vec{x})\mathcal{O}_{JM}(\vec{x})\phi_{\beta}(\vec{x})
+\mathcal{O}^{\alpha\beta}_{JM}\equiv \braket{\alpha|\mathcal{O}_{JM}|\beta}=\int d^3x\;\phi^{\dag}_{\alpha}(\vec{x})\mathcal{O}_{JM}(\vec{x})\phi_{\beta}(\vec{x}).
 \end{split}
 \end{equation}
-The summation $\alpha$ extends to all single-particle states; that is, $\alpha=(j_{\alpha},m_{\alpha})$. The operators and the states may carry additional isospin quantum numbers which we suppress here for brevity (the generalization is straightforward).
+The summation $\alpha$ extends to all single-particle states; that is, $\alpha=(j_{\alpha},m_{\alpha})$. The operators and the states may carry additional isospin quantum numbers which we suppress here for brevity (the generalization to include isospin is straightforward).
 
-Our aim is to evaluate the given operator for a total nuclear wave function. The nuclear response can be factorized into a piece which describes how the operator acts on single-particle states and a piece which encodes how the single-particle states are embedded in the total nuclear wave functions. The later is known as the one-body density matrix. Its form can be obtained directly from 
+Our aim is to evaluate the given operator for a total nuclear wave function. The nuclear response can be factorized into a piece which describes how the operator acts on single-particle states and a piece which encodes how the single-particle states are embedded in the initial and final nuclear wave functions. The latter quantity is known as the one-body density matrix. Its form can be obtained directly from the second-quantized form of the operator:
 \begin{equation}
 \begin{split}
 \braket{J_f||\mathcal{O}_J||J_i}
 &=\sum_{a,b}\frac{1}{\sqrt{2J+1}}\braket{J_f||\left[c^{\dag}_a\otimes\tilde{c}_b\right]_J||J_i}\braket{a||\mathcal{O}_J||b}\\
-&\equiv \sum_{a,b}\rho^{f,i}_J(ab)\braket{a||\mathcal{O}_J||b},
+&\equiv \sum_{a,b}\rho^{f,i;J}_{ab}\braket{a||\mathcal{O}_J||b},
+\label{eq:one_body_density}
 \end{split}
 \end{equation}
 where we have defined the reduced one-body density matrix
 \begin{equation}
-\rho^{f,i}_J(ab)\equiv \frac{1}{\sqrt{2J+1}}\braket{J_f||\left[c^{\dag}_a\otimes\tilde{c}_b\right]_J||J_i},
+\rho^{f,i;J}_{ab}\equiv \frac{1}{\sqrt{2J+1}}\braket{J_f||\left[c^{\dag}_a\otimes\tilde{c}_b\right]_J||J_i},
 \end{equation}
 and introduced the time-reversed annihilation operator
 \begin{equation}
 \tilde{c}_b=\tilde{c}_{j_b,m_b}=(-1)^{j_b+m_b}c_{j_b,-m_b}.
 \end{equation}
+The summation in Eq. \ref{eq:one_body_density} is over single-particle orbits $a,b$, which do not carry magnetic angular momentum quantum numbers, as all of the matrix elements have been reduced. Thus the problem of computing many-body matrix elements of single-nucleon operators has been reduced in terms of single-nucleon matrix elements. Assuming that one has obtained the initial and final nuclear wave functions in a Slater-determinant basis, it is straightforward -- though perhaps computationally intensive -- to obtain the desired one-body density matrix. 
+
+Restoring the isospin quantum numbers, we may define the doubly-reduced one-body density matrix by 
+\begin{equation}
+\rho^{f,i;J,T}_{ab}\equiv \frac{1}{\sqrt{2J+1}}\frac{1}{\sqrt{2T+1}}\braket{J_f;T_f|||\left[c^{\dag}_a\otimes\tilde{c}_b\right]_{J,T}|||J_i;T_i},
+\end{equation}
+where the time-reversed annihilation operator now satisfies
+\begin{equation}
+\tilde{c}_b=\tilde{c}_{j_b,m_b;\frac{1}{2},m_{tb}}=(-1)^{j_b+m_b+1/2+m_{tb}}c_{j_b,-m_b;\frac{1}{2},-m_{tb}}.
+\end{equation}
+The doubly-reduced density matrix allows for efficient calculation of the doubly-reduced matrix element
+\begin{equation}
+\braket{J_f;T_f|||\mathcal{O}_{J,T}|||J_i;T_i}=\sum_{a,b}\rho^{f,i}_{J,T}(ab)\braket{a|||\mathcal{O}_{J,T}|||b}.
+\end{equation}
+\section{Two-Body Density Matrices}
+The total two-body operator for a nuclear system can be written in the coordinate representation as
+\begin{equation}
+\mathcal{O}_{J,M}=\sum_{i<j}\mathcal{O}_{J,M}\left(\vec{x}_i,\vec{x}_j\right)=\frac{1}{2}\sum_{i\neq j}\mathcal{O}_{J,M}(\vec{x}_i,\vec{x}_j),
+\end{equation}
+or in the occupation number representation as
+\begin{equation}
+\mathcal{O}_{J,M}=\frac{1}{2}\sum_{\alpha\beta\gamma\delta}\mathcal{O}_{J,M}^{\alpha\beta\gamma\delta}c^{\dag}_{\alpha}c^{\dag}_{\beta}c_{\delta}c_{\gamma},
+\end{equation}
+where 
+\begin{equation}
+\mathcal{O}_{J,M}^{\alpha\beta\gamma\delta}\equiv \int d^3\vec{x}_1d^3\vec{x}_2\;\phi^{\dag}_{\alpha}(\vec{x}_1)\phi^{\dag}_{\beta}(\vec{x}_2)\mathcal{O}_{J,M}\left(\vec{x}_1,\vec{x}_2\right)\phi_{\gamma}(\vec{x}_1)\phi_{\delta}(\vec{x}_2).
+\end{equation}
+In the occupation number representation, the operator can also be written in terms of anti-symmetrized matrix elements
+\begin{equation}
+\mathcal{O}_{J,M}=\frac{1}{4}\sum_{abcd}\bar{\mathcal{O}}_{J,M}^{\alpha\beta\gamma\delta}c^{\dag}_{\alpha}c^{\dag}_{\beta}c_{\delta}c_{\gamma},
+\end{equation}
+where
+\begin{equation}
+\bar{\mathcal{O}}^{\alpha\beta\gamma\delta}_{J,M}\equiv \mathcal{O}^{\alpha\beta\gamma\delta}_{J,M}-\mathcal{O}^{\alpha\beta\delta\gamma}_{J,M}.
+\end{equation}
+Defining two-particle states by
+\begin{equation}
+\ket{\alpha\beta}=c^{\dag}_{\alpha}c^{\dag}_{\beta}\ket{0},
+\end{equation}
+we write
+\begin{equation}
+\bar{\mathcal{O}}^{\alpha\beta\gamma\delta}_{J,M}=\braket{\alpha\beta|\mathcal{O}_{J,M}|\gamma\delta}.
+\end{equation}
+We wish to compute many-body expectation values in terms of two-particle states coupled to good total angular momentum; that is, we define the two-body density matrix by
+\begin{equation}
+\braket{J_f||\mathcal{O}_J||J_i}=\sum_{abcd}\sum_{J_{ab}J_{cd}}\rho_{abcd}^{f,i,J;J_{ab},J_{cd}}\braket{ab;J_{ab}||\mathcal{O}_J||cd;J_{cd}},
+\label{eq:2bdy_dm}
+\end{equation}
+where the normalized two-particle coupled states are defined as
+\begin{equation}
+\ket{a\;b;J,M}=\mathcal{N}_{ab}(J)\left[c^{\dag}_{a}c^{\dag}_{b}\right]_{J,M}\ket{0},
+\end{equation}
+where $\ket{0}$ is a suitable vacuum state and the normalization factor is given by
+\begin{equation}
+\mathcal{N}_{ab}(J)\equiv \frac{\sqrt{1-\delta_{ab}(-1)^J}}{1+\delta_{ab}}.
+\end{equation}
+The form of the coupled, reduced two-body density matrix follows from inserting the second-quantized form of the operator into Eq. \ref{eq:2bdy_dm}:
+\begin{equation}
+\rho_{abcd}^{f,i,J;J_{ab}J_{cd}}
+=\frac{1}{4}\frac{(-1)^{J_c+J_d-J_{cd}}}{\sqrt{2J+1}}\braket{J_f||\left[[c_a^{\dag}\otimes c_b^{\dag}]_{J_{ab}}\otimes [\tilde{c}_d\otimes\tilde{c}_c]_{J_{cd}}\right]_J||J_i}.
+\end{equation}
+The preceding section can be generalized in a straightforward manner to include isospin.
 \chapter{Single-nucleon Response Functions}
 \label{app:single_nucleon_response}
-The eleven single-nucleon response functions through order $1/m_N^2$ are given in Eq. \ref{eq:single_nucleon_responses}. One would like to evaluate matrix elements of these operators between nuclear wave functions corresponding to the chosen nuclear target. In Appendix \ref{app:density}, we demonstrated that total nuclear matrix elements of one-body operators can be factorized in terms of single-particle matrix elements multiplied by the relevant one-body density matrix. In this section, we discuss how to evaluate the single-particle matrix elements of the eleven multipole operators when the single-particle states are elements of a harmonic oscillator basis. 
+The eleven single-nucleon response functions through order $1/m_N^2$ are given in Eq. \ref{eq:single_nucleon_responses}. One would like to evaluate matrix elements of these operators between nuclear wave functions corresponding to the chosen nuclear target. In Appendix \ref{app:density}, we demonstrated how total nuclear matrix elements of one-body operators can be factorized in terms of single-particle matrix elements multiplied by the relevant one-body density matrix. In this section, we discuss how to evaluate the single-particle matrix elements of the eleven multipole operators when the single-particle states are elements of a harmonic oscillator basis. 
 
-The basic operators are $M_{JM}(q\vec{r})$, $\vec{M}_{J\;L\;M}(q\vec{r})$, $\vec{M}_{J\;L\;M}(q\vec{r})\cdot\frac{1}{q}\vec{\nabla}$, $M_{J,M}(q\vec{r})\;\vec{\sigma}\cdot\frac{1}{q}\vec{\nabla}$ and $\vec{M}_{J\;L\;M}(q\vec{r})\cdot\left(\vec{\sigma}\times\frac{1}{q}\vec{\nabla}\right)$. Matrix elements of the standard charge multipole and the projections of the spin current are relatively straightforward
+The basic operators from which the multipole responses are constructed are $M_{JM}(q\vec{r})$, $\vec{M}_{J\;L\;M}(q\vec{r})$, $\vec{M}_{J\;L\;M}(q\vec{r})\cdot\frac{1}{q}\vec{\nabla}$, $M_{J,M}(q\vec{r})\;\vec{\sigma}\cdot\frac{1}{q}\vec{\nabla}$ and $\vec{M}_{J\;L\;M}(q\vec{r})\cdot\left(\vec{\sigma}\times\frac{1}{q}\vec{\nabla}\right)$. Matrix elements of the standard charge multipole and the projections of the spin current are relatively straightforward
 \begin{equation}
-\braket{n'\left(\ell'\;1/2\right)j'||M_J(q\vec{r})||n\left(\ell\;1/2\right)j}=\frac{1}{\sqrt{4\pi}}(-1)^{J+j+1/2}[\ell'][\ell][j'][j][J]\left\{\begin{array}{ccc}
+\begin{split}
+\braket{n'\left(\ell'\;1/2\right)j'||M_J(q\vec{r})||n\left(\ell\;1/2\right)j}&=\frac{1}{\sqrt{4\pi}}(-1)^{J+j+1/2}[\ell'][\ell][j'][j][J]\\
+&\times\left\{\begin{array}{ccc}
 \ell' & j' & \frac{1}{2}\\
 j & \ell & J
 \end{array}\right\}\left(\begin{array}{ccc}
 \ell' & J & \ell\\
 0 & 0 & 0
-\end{array}\right)\braket{n'\ell'|j_J(\rho)|n\ell}
+\end{array}\right)\braket{n'\ell'|j_J(\rho)|n\ell},
 \label{eq:MJ_mat}
+\end{split}
 \end{equation}
 and
 \begin{equation}
-\braket{n'\left(\ell'\;1/2\right)j'||\vec{M}_{J\;L}(q\vec{r})\cdot\vec{\sigma}||n\left(\ell\;1/2\right)j}=\frac{\sqrt{6}}{\sqrt{4\pi}}(-1)^{\ell'}[\ell'][\ell][j'][j][L][J]\left\{\begin{array}{ccc}
+\begin{split}
+\braket{n'\left(\ell'\;1/2\right)j'||\vec{M}_{J\;L}(q\vec{r})\cdot\vec{\sigma}||n\left(\ell\;1/2\right)j}&=\frac{\sqrt{6}}{\sqrt{4\pi}}(-1)^{\ell'}[\ell'][\ell][j'][j][L][J]\\
+&\times\left\{\begin{array}{ccc}
 \ell' & \ell & L\\
 \frac{1}{2} & \frac{1}{2} & 1\\
 j' & j & J
@@ -3284,6 +3461,7 @@ j' & j & J
 0 & 0 & 0
 \end{array}\right)\braket{n'\ell'|j_L(\rho)|n\ell},
 \label{eq:MJL_sigma_mat}
+\end{split}
 \end{equation}
 where $[J]=\sqrt{2J+1}$ and $\rho=qr$. The radial matrix elements are computed in terms of radial harmonic oscillator wave functions
 \begin{equation}
@@ -3318,11 +3496,11 @@ Here the 3-$j$ symbols imply that $L+\ell'+\ell$ must be odd.
 &\braket{n'\left(\ell'\;1/2\right)j'||M_J(q\vec{r})\vec{\sigma}\cdot\frac{1}{q}\vec{\nabla}||n\left(\ell\;1/2\right)j}=\frac{1}{\sqrt{4\pi}}(-1)^{\ell'}[\ell'][j'][j][2j-\ell][J]\left\{\begin{array}{ccc}
 \ell' & j' & \frac{1}{2}\\
 j & 2j-\ell & J
-\end{array}\right\}\left(\begin{array}{ccc}
+\end{array}\right\}\\
+&\times\left(\begin{array}{ccc}
 \ell' & J & 2j-\ell\\
 0 & 0 & 0
-\end{array}\right)\\
-&\times\Bigg\{-\delta_{j,\ell+1/2}\braket{n'\ell'|j_J(\rho)\left(\frac{d}{d\rho}-\frac{\ell}{\rho}\right)|n\ell}+\delta_{j,\ell-1/2}\braket{n'\ell'|j_J(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}\Bigg\}
+\end{array}\right)\Bigg\{-\delta_{j,\ell+1/2}\braket{n'\ell'|j_J(\rho)\left(\frac{d}{d\rho}-\frac{\ell}{\rho}\right)|n\ell}+\delta_{j,\ell-1/2}\braket{n'\ell'|j_J(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}\Bigg\}
 \end{split}
 \end{equation}
 again we find $J+\ell'+\ell$ is odd.
@@ -3341,9 +3519,6 @@ Then the projections of the spin-velocity current are
 \ell' & \ell & K\\
 \frac{1}{2} & \frac{1}{2} & 1\\
 j' & j & J
-\end{array}\right\}\left\{\begin{array}{ccc}
-1 & 1 & 1\\
-J & K & L
 \end{array}\right\}\Bigg[\sqrt{\ell+1}[\ell+1]\left\{\begin{array}{ccc}
 L & 1 & K\\
 \ell & \ell' & \ell + 1
@@ -3357,7 +3532,10 @@ L & 1 & K\\
 \end{array}\right\}\left(\begin{array}{ccc}
 \ell' & L & \ell-1\\
 0 & 0 & 0
-\end{array}\right)\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}\Bigg]
+\end{array}\right)\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}\Bigg]\left\{\begin{array}{ccc}
+1 & 1 & 1\\
+J & K & L
+\end{array}\right\}
 \end{split}
 \end{equation}
 and $L+\ell'+\ell$ is odd.
@@ -3428,28 +3606,117 @@ n-j-1
 \end{equation}
 \begin{equation}
 \begin{split}
-\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}-\frac{\ell}{\rho}\right)|n\ell}&=\sqrt{\frac{2\Gamma(n')}{\Gamma(n'+\ell'+1/2)}\frac{2\Gamma(n)}{\Gamma(n+\ell+1/2)}}\sum_{i=0}^{n'-1}\sum_{j=0}^{n-1}\left(\begin{array}{c}
+&\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}-\frac{\ell}{\rho}\right)|n\ell}=\sqrt{\frac{2\Gamma(n')}{\Gamma(n'+\ell'+1/2)}\frac{2\Gamma(n)}{\Gamma(n+\ell+1/2)}}\sum_{i=0}^{n'-1}\sum_{j=0}^{n-1}\left(\begin{array}{c}
 n'+\ell'-1/2\\
 n'-i-1
-\end{array}\right)\left(\begin{array}{c}
+\end{array}\right)\\
+&\times\left(\begin{array}{c}
 n+\ell-1/2\\
 n-j-1
-\end{array}\right)\\
-&\times\frac{(-1)^{i+j}}{i!j!}\left[2jI_L\left(1+2i+2j+\ell'+\ell,y\right)-I_L\left(3+2i+2j+\ell'+\ell,y\right)\right],
+\end{array}\right)\frac{(-1)^{i+j}}{i!j!}\left[2jI_L\left(1+2i+2j+\ell'+\ell,y\right)-I_L\left(3+2i+2j+\ell'+\ell,y\right)\right],
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
-\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}&=\sqrt{\frac{2\Gamma(n')}{\Gamma(n'+\ell'+1/2)}\frac{2\Gamma(n)}{\Gamma(n+\ell+1/2)}}\sum_{i=0}^{n'-1}\sum_{j=0}^{n-1}\left(\begin{array}{c}
+&\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}=\sqrt{\frac{2\Gamma(n')}{\Gamma(n'+\ell'+1/2)}\frac{2\Gamma(n)}{\Gamma(n+\ell+1/2)}}\sum_{i=0}^{n'-1}\sum_{j=0}^{n-1}\left(\begin{array}{c}
+n'+\ell'-1/2\\
+n'-i-1
+\end{array}\right)\\
+&\times\left(\begin{array}{c}
+n+\ell-1/2\\
+n-j-1
+\end{array}\right)\frac{(-1)^{i+j}}{i!j!}\left[\left(2j+2\ell+1\right)I_L\left(1+2i+2j+\ell'+\ell,y\right)-I_L\left(3+2i+2j+\ell'+\ell,y\right)\right],
+\end{split}
+\end{equation}
+\section{Operators Generated by the Muon's Lower Component}
+As discussed in Section \ref{sec:muon_lower}, the inclusion of the muon's lower Dirac component leads to the introduction of new nuclear multipole operators. We will now discuss how single-particle matrix elements of these operators can be evaluated in a harmonic oscillator basis. 
+
+\begin{equation}
+\begin{split}
+\braket{n'\left(\ell'\;1/2\right)j'||M_J^{(1)}(q\vec{r})||n\left(\ell\;1/2\right)j}&=\frac{1}{\sqrt{4\pi}}(-1)^{J+j+1/2}[\ell'][\ell][j'][j][J]\sqrt{J(J+1)}\\
+&\times\left\{\begin{array}{ccc}
+\ell' & j' & \frac{1}{2}\\
+j & \ell & J
+\end{array}\right\}\left(\begin{array}{ccc}
+\ell' & J & \ell\\
+0 & 0 & 0
+\end{array}\right)\braket{n'\ell'|\frac{1}{\rho}j_J(\rho)|n\ell}
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\braket{n'\left(\ell'\;1/2\right)j'||M_J^{(1)}(q\vec{r})||n\left(\ell\;1/2\right)j}&=\frac{1}{\sqrt{4\pi}}(-1)^{J+j+1/2}[\ell'][\ell][j'][j][J]\\
+&\times\left\{\begin{array}{ccc}
+\ell' & j' & \frac{1}{2}\\
+j & \ell & J
+\end{array}\right\}\left(\begin{array}{ccc}
+\ell' & J & \ell\\
+0 & 0 & 0
+\end{array}\right)\braket{n'\ell'|\frac{dj_J(\rho)}{d\rho}|n\ell}
+\end{split}
+\end{equation}
+In order to compute matrix elements of the modified spin projections $\Sigma'^{(0)}$, $\Sigma''^{(0)}$, we define the operator
+\begin{equation}
+\vec{M}^{(0)}_{J\;L\;M}(q\vec{r})\equiv j_J(qr)\vec{Y}_{J\;L\;M}(\hat{r})
+\end{equation}
+with matrix elements
+\begin{equation}
+\begin{split}
+\braket{n'\left(\ell'\;1/2\right)j'||\vec{M}^{(0)}_{J\;L}(q\vec{r})\cdot\vec{\sigma}||n\left(\ell\;1/2\right)j}&=\frac{\sqrt{6}}{\sqrt{4\pi}}(-1)^{\ell'}[\ell'][\ell][j'][j][L][J]\\
+&\times\left\{\begin{array}{ccc}
+\ell' & \ell & L\\
+\frac{1}{2} & \frac{1}{2} & 1\\
+j' & j & J
+\end{array}\right\}\left(\begin{array}{ccc}
+\ell' & L & \ell\\
+0 & 0 & 0
+\end{array}\right)\braket{n'\ell'|j_J(\rho)|n\ell},
+\end{split}
+\end{equation}
+Similarly, to compute matrix elements of the operators $\Sigma'^{(2)}$, $\Sigma''^{(2)}$, we define
+\begin{equation}
+\vec{M}^{(2)}_{J\;L\;M}(q\vec{r})\equiv \frac{dj_L(qr)}{dqr}\;\vec{Y}_{J\;L\;M}(\hat{r})
+\end{equation}
+with corresponding matrix elements
+\begin{equation}
+\begin{split}
+\braket{n'\left(\ell'\;1/2\right)j'||\vec{M}^{(2)}_{J\;L}(q\vec{r})\cdot\vec{\sigma}||n\left(\ell\;1/2\right)j}&=\frac{\sqrt{6}}{\sqrt{4\pi}}(-1)^{\ell'}[\ell'][\ell][j'][j][L][J]\\
+&\times\left\{\begin{array}{ccc}
+\ell' & \ell & L\\
+\frac{1}{2} & \frac{1}{2} & 1\\
+j' & j & J
+\end{array}\right\}\left(\begin{array}{ccc}
+\ell' & L & \ell\\
+0 & 0 & 0
+\end{array}\right)\braket{n'\ell'|\frac{dj_L(\rho)}{d\rho}|n\ell},
+\end{split}
+\end{equation}
+For the lower component matrix elements we have
+\begin{equation}
+\begin{split}
+\braket{n'\ell'|\frac{1}{\rho}j_L(\rho)|n\ell}&=\sqrt{\frac{2\Gamma(n')}{\Gamma(n'+\ell'+1/2)}\frac{2\Gamma(n)}{\Gamma(n+\ell+1/2)}}\sum_{i=0}^{n'-1}\sum_{j=0}^{n-1}\left(\begin{array}{c}
 n'+\ell'-1/2\\
 n'-i-1
 \end{array}\right)\left(\begin{array}{c}
 n+\ell-1/2\\
 n-j-1
 \end{array}\right)\\
-&\times\frac{(-1)^{i+j}}{i!j!}\left[\left(2j+2\ell+1\right)I_L\left(1+2i+2j+\ell'+\ell,y\right)-I_L\left(3+2i+2j+\ell'+\ell,y\right)\right],
+&\times\frac{(-1)^{i+j}}{i!j!}\frac{1}{2\sqrt{y}}I_L\left(1+2i+2j+\ell'+\ell,y\right)
 \end{split}
 \end{equation}
+\begin{equation}
+\begin{split}
+&\braket{n'\ell'|\frac{dj_L(\rho)}{d\rho}|n\ell}=\sqrt{\frac{2\Gamma(n')}{\Gamma(n'+\ell'+1/2)}\frac{2\Gamma(n)}{\Gamma(n+\ell+1/2)}}\sum_{i=0}^{n'-1}\sum_{j=0}^{n-1}\left(\begin{array}{c}
+n'+\ell'-1/2\\
+n'-i-1
+\end{array}\right)\left(\begin{array}{c}
+n+\ell-1/2\\
+n-j-1
+\end{array}\right)\\
+&\times\frac{(-1)^{i+j}}{i!j!}\frac{1}{2L+1}\left[LI_{L-1}\left(2+2i+2j+\ell'+\ell,y\right)-(L+1)I_{L+1}\left(2+2i+2j+\ell'+\ell,y\right)\right]
+\end{split}
+\end{equation}
+As before, these radial matrix elements are finite polynomials in $y$.
 \chapter{Fermi Gas Average}
 \label{app:fga}
 In the Fermi Gas Average (FGA) approach, we choose a target nucleon and sum over its interaction with a spin and isospin symmetric core. The core nucleons occupy momentum states up to the nuclear Fermi momentum, $k_F$. Starting from a two-nucleon operator $\mathcal{O}^{(2)}$, an effective one-body operator is obtained by performing a mean-field-like sum over direct and exchange terms
@@ -3567,7 +3834,8 @@ f^\mathrm{SD}(\vec{q},\vec{k})&=\frac{4}{\pi}k_F\int_{-1/2}^{1/2}d\beta\int_0^1d
 The following three integrals necessary to compute the form factors can be performed analytically:
 \begin{equation}
 \begin{split}
-\int_0^1 d\bar{p}\;\frac{\bar{p}^2}{(\bar{p}^2+\bar{\Delta})^2-4\bar{p}^2\bar{Q}^2}&=\frac{1}{4}\frac{1}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\left[\arctan\left(\frac{1-\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)+\arctan\left(\frac{1+\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)\right]-\frac{1}{8\bar{Q}}\log\left(\frac{1+\bar{\Delta}+2\bar{Q}}{1+\bar{\Delta}-2\bar{Q}}\right)\\
+\int_0^1 d\bar{p}\;\frac{\bar{p}^2}{(\bar{p}^2+\bar{\Delta})^2-4\bar{p}^2\bar{Q}^2}&=\frac{1}{4}\frac{1}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\left[\arctan\left(\frac{1-\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)+\arctan\left(\frac{1+\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)\right]\\
+&-\frac{1}{8\bar{Q}}\log\left(\frac{1+\bar{\Delta}+2\bar{Q}}{1+\bar{\Delta}-2\bar{Q}}\right)\\
 \int_0^1 d\bar{p}\;\frac{\bar{p}^4}{(\bar{p}^2+\bar{\Delta})^2-4\bar{p}^2\bar{Q}^2}&=-\frac{1}{4}\frac{3\bar{\Delta}-4\bar{Q}^2}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\left[\arctan\left(\frac{1-\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)+\arctan\left(\frac{1+\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)\right]\\
 &+1+\frac{\bar{\Delta}-4\bar{Q}^2}{8\bar{Q}}\log\left(\frac{1+\bar{\Delta}+2\bar{Q}}{1+\bar{\Delta}-2\bar{Q}}\right)\\
 \int_0^1d\bar{p}\;\bar{p}\;\mathrm{arctanh}\left(\frac{2\bar{p}\bar{Q}}{\bar{p}^2+\bar{\Delta}}\right)&=\bar{Q}+\bar{Q}\sqrt{\bar{\Delta}-\bar{Q}^2}\left[\mathrm{arctan}\left(\frac{1-\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)+\mathrm{arctan}\left(\frac{1+\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)\right]\\
@@ -3577,10 +3845,10 @@ The following three integrals necessary to compute the form factors can be perfo
 Combining these results with the proper prefactors in Eq. \ref{eq:fsi_fsd_pre_int}, the resulting spin-independent and spin-dependent form factors are 
 \begin{equation}
 \begin{split}
-f^{SI}(\bar{q},\bar{k})&=\frac{2}{\pi}\int_{-1/2}^{1/2}d\beta\left[2\left(1+\frac{-\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}\right)\right.\\
-&-\left(\frac{4(\frac{1}{4}-\beta^2)\bar{q}^2+3\bar{m}^2}{\sqrt{(\frac{1}{4}-\beta^2)\bar{q}^2+\bar{m}^2}}\right)\left(\arctan\left(\frac{1+\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}{\sqrt{(\frac{1}{4}-\beta^2)\bar{q}^2+\bar{m}^2}}\right)+\arctan\left(\frac{1-\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}{\sqrt{(\frac{1}{4}-\beta^2)\bar{q}^2+\bar{m}^2}}\right)\right)\\
-&+\frac{1}{2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}\left(1+2\bar{m}^2+\left(\frac{3}{4}-4\beta^2\right)\bar{q}^2-\bar{k}^2+2\beta\bar{k}\cdot\bar{q}\right.\\
-&\left.\left.+\beta\frac{\left(1+\frac{1}{4}\bar{q}^2+\bar{m}^2+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}\right)\left(\bar{k}\cdot\bar{q}-\beta\bar{q}^2\right)}{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}\right)\log\left(\frac{1+2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}{1-2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}\right)\right]\\
+f^{SI}(\bar{q},\bar{k})&=\frac{2}{\pi}\int_{-1/2}^{1/2}d\beta\Bigg\{2\left(1+\frac{-\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}\right)-\left(\frac{4(\frac{1}{4}-\beta^2)\bar{q}^2+3\bar{m}^2}{\sqrt{(\frac{1}{4}-\beta^2)\bar{q}^2+\bar{m}^2}}\right)\\
+&\times\left[\arctan\left(\frac{1+\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}{\sqrt{(\frac{1}{4}-\beta^2)\bar{q}^2+\bar{m}^2}}\right)+\arctan\left(\frac{1-\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}{\sqrt{(\frac{1}{4}-\beta^2)\bar{q}^2+\bar{m}^2}}\right)\right]\\
+&+\frac{1}{2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}\log\left(\frac{1+2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}{1-2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}\right)\\
+&\times\Bigg[1+2\bar{m}^2+\left(\frac{3}{4}-4\beta^2\right)\bar{q}^2-\bar{k}^2+2\beta\bar{k}\cdot\bar{q}+\beta\frac{\left(1+\frac{1}{4}\bar{q}^2+\bar{m}^2+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}\right)\left(\bar{k}\cdot\bar{q}-\beta\bar{q}^2\right)}{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}\Bigg]\Bigg\}\\
 f^{SD}(\bar{q},\bar{k})&=-\frac{2}{\pi}\int_{-1/2}^{1/2}d\beta\frac{1}{\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}\left[\frac{1}{\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}\right.\\
 &\left.-\frac{1+\bar{m}^2+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2}{4\left(\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2\right)}\log\left(\frac{1+2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}{1-2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}\right)\right]
 \end{split}
@@ -3603,132 +3871,5 @@ Note that these functions depend on not only the magnitude of the dimensionless 
 
 
 This calculation was first performed in \cite{2018PhRvC..98a5208B} but several errors were committed which resulted in incorrect expressions for $f^\mathrm{SI}(\bar{q},\bar{k}$, $f^\mathrm{SD}(\bar{q},\bar{k})$ and all quantities derived from them.
-\chapter{Matrix Elements of Two-Body Operators}
-\subsection{Two-Body Density Matrix}
-The total two-body operator for a nuclear system can be written in the coordinate representation as
-\begin{equation}
-\mathcal{O}_{J,M}=\sum_{i<j}\mathcal{O}_{J,M}\left(\vec{x}_i,\vec{x}_j\right)=\frac{1}{2}\sum_{i\neq j}\mathcal{O}_{J,M}(\vec{x}_i,\vec{x}_j),
-\end{equation}
-or in the occupation number representation as
-\begin{equation}
-\mathcal{O}_{J,M}=\frac{1}{2}\sum_{abcd}\mathcal{O}_{J,M}^{\alpha\beta\gamma\delta}c^{\dag}_{\alpha}c^{\dag}_{\beta}c_{\delta}c_{\gamma},
-\end{equation}
-where 
-\begin{equation}
-\mathcal{O}_{J,M}^{\alpha\beta\gamma\delta}\equiv \int \phi^{\dag}_{\alpha}(\vec{x}_1)\phi^{\dag}_{\beta}(\vec{x}_2)\mathcal{O}_{J,M}\left(\vec{x}_1,\vec{x}_2\right)\phi_{\gamma}(\vec{x}_1)\phi_{\delta}(\vec{x}_2)\;d^3\vec{x}_1d^3\vec{x}_2.
-\end{equation}
-In the occupation number representation, the operator can also be written in terms of anti-symmetrized matrix elements
-\begin{equation}
-\mathcal{O}_{J,M}=\frac{1}{4}\sum_{abcd}\bar{\mathcal{O}}_{J,M}^{\alpha\beta\gamma\delta}c^{\dag}_{\alpha}c^{\dag}_{\beta}c_{\delta}c_{\gamma},
-\end{equation}
-where
-\begin{equation}
-\bar{\mathcal{O}}^{\alpha\beta\gamma\delta}_{J,M}\equiv \mathcal{O}^{\alpha\beta\gamma\delta}_{J,M}-\mathcal{O}^{\alpha\beta\delta\gamma}_{J,M}.
-\end{equation}
-Defining two-particle states by
-\begin{equation}
-\ket{\alpha\beta}=c^{\dag}_{\alpha}c^{\dag}_{\beta}\ket{0},
-\end{equation}
-we write
-\begin{equation}
-\bar{\mathcal{O}}^{\alpha\beta\gamma\delta}_{J,M}=\braket{\alpha\beta|\mathcal{O}_{J,M}|\gamma\delta}.
-\end{equation}
-We wish to compute many-body expectation values in terms of two-particle states coupled to good total angular momentum $J$. That is, we define the two-body density matrix by
-\begin{equation}
-\braket{J_f||\mathcal{O}_J||J_i}=\sum_{abcd}\sum_{J_{ab}J_{cd}}\psi_{abcd}^{f,i,J;J_{ab},J_{cd}}\braket{ab;J_{ab}||\mathcal{O}_J||cd;J_{cd}},
-\label{eq:2bdy_dm}
-\end{equation}
-where the normalized two-particle coupled states are defined as
-\begin{equation}
-\ket{\alpha\;\beta;J,M}=\mathcal{N}_{ab}(J)\left[c^{\dag}_{\alpha}c^{\dag}_{\beta}\right]_{J,M}\ket{0},
-\end{equation}
-where $\ket{0}$ is a suitable vacuum state and the normalization factor is given by
-\begin{equation}
-\mathcal{N}_{ab}(J)\equiv \frac{\sqrt{1-\delta_{ab}(-1)^J}}{1+\delta_{ab}}.
-\end{equation}
-We can now work out the form of the coupled, reduced two-body density matrix
-\begin{equation}
-\psi_{abcd}^{f,i,J;J_{ab}J_{cd}}
-=\frac{1}{4}\frac{(-1)^{J_c+J_d-J_{cd}}}{\sqrt{2J+1}}\braket{J_f||\left[[c_a^{\dag}\otimes c_b^{\dag}]_{J_{ab}}\otimes [\tilde{c}_d\otimes\tilde{c}_c]_{J_{cd}}\right]_J||J_i}.
-\end{equation}
-The preceding section can be generalized in a straightforward manner to include isospin.
-Note that the operator which we derived in the previous section differs from this expression by a factor of $1/2$. The two-body density matrix is generated using our own code to process the wavefunction generated by BIGSTICK. One check on the $J=0$, $T=0$ two-body density matrix is the sum rule
-\begin{equation}
-\frac{A(A-1)}{2}=\frac{1}{\sqrt{(2J_i+1)(2T_i+1)}}\sum_{a,b,c,d}\sum_{J_{12},T_{12}}\sqrt{(2J_{12}+1)(2T_{12}+1)}\psi^{J_{12},T_{12}}_{a,b,c,d}\left(\delta_{ac}\delta_{bd}+(-1)^{J_c+J_d+J_{12}+T_{12}}\delta_{ad}\delta_{bd}\right)
-\end{equation}
-Indeed, our two-body density matrix satisfies this sum rule.
-\subsection{Two-Body Density Matrix}
-The two-body density matrix is computed in terms of coupled two-body states:
-\begin{equation}
-\ket{n_1\;l_1\;j_1\;n_2\;l_2\;j_2\;j_{12}}
-\end{equation}
-Let $a$ denote a set of quantum numbers $nlj$. Then the many-body reduced matrix element of a two-body operator may be written
-\begin{equation}
-\braket{I'||\mathcal{O}_J||I}=\sum_{a,b,c,d}\sum_{J_{12},J_{12}'}\rho^{f,i,J,J'_{12},J_{12}}_{a,b,c,d}\braket{(ab)J_{12}'||\mathcal{O}_J||(cd)J_{12}}
-\end{equation}
-The coupling scheme employed here is the so-called ``$jj$-coupling" where first we couple $(ls)j$ for each particle and then couple the $j$ for each particle together to total spin $j_{12}$. In computing reduced matrix elements of operators with good total orbital angular momentum $\Lambda$ and total spin $S$, we will find it more convenient to use the ``$ls$-coupling" in which we  couple the angular momentum of each particle $(l_1l_2)L_{12}$ and the spin of each particle $(\frac{1}{2}\frac{1}{2})S_{12}$, and then couple $(L_{12}S_{12})J_{12}$. The two coupling schemes are related (independent of magnetic quantum numbers) by the Wigner $9$-$j$ symbol
-\begin{equation}
-\braket{(l_1l_2)L_{12},(s_1s_2)S_{12},J_{12}|(l_1s_1)j_1,(l_2s_2)j_2,J_{12}}=\sqrt{(2j_1+1)(2j_2+1)(2L_{12}+1)(2S_{12}+1)}\left\{\begin{array}{ccc}
-l_1 & s_1 & j_1\\
-l_2 & s_2 & j_2\\
-L_{12} & S_{12} & J_{12}
-\end{array}\right\}
-\end{equation}
-In general the spin matrix element may be computed as
-\begin{equation}
-\begin{split}
-\braket{(\frac{1}{2}\frac{1}{2})S'_{12}||\left[\vec{\sigma}_1\otimes\vec{\sigma}_2\right]_S||(\frac{1}{2}\frac{1}{2})S_{12}}&=\sqrt{(2S'_{12}+1)(2S_{12}+1)(2S+1)}\braket{\frac{1}{2}||\vec{\sigma}_1||\frac{1}{2}}\braket{\frac{1}{2}||\vec{\sigma}_2||\frac{1}{2}}\left\{\begin{array}{ccc}
-\frac{1}{2} & \frac{1}{2} & 1\\
-\frac{1}{2} & \frac{1}{2} & 1\\ 
-S_{12}' & S_{12} & S
-\end{array}\right\}\\
-&=6\sqrt{(2S'_{12}+1)(2S_{12}+1)(2S+1)}\left\{\begin{array}{ccc}
-\frac{1}{2} & \frac{1}{2} & 1\\
-\frac{1}{2} & \frac{1}{2} & 1\\ 
-S_{12}' & S_{12} & S
-\end{array}\right\}
-\end{split}
-\end{equation}
-The isospin part is
-\begin{equation}
-\braket{(\frac{1}{2}\frac{1}{2})T_{12}'||\vec{\tau}_1\cdot\vec{\tau}_2||(\frac{1}{2}\frac{1}{2})T_{12}}=6(-1)^{1+T_{12}}\sqrt{2T_{12}+1}\delta_{T_{12},T_{12}'}\left\{\begin{array}{ccc}
-T_{12} & \frac{1}{2} & \frac{1}{2}\\
-1 & \frac{1}{2} & \frac{1}{2}
-\end{array}\right\}
-\end{equation}
-\subsection{Evaluating Coupled Two-Body HO Matrix Elements}
-We need the matrix element
-\begin{equation}
-\braket{\left(\frac{1}{2}\frac{1}{2}\right)S'||\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_1||\left(\frac{1}{2}\frac{1}{2}\right)S}=\frac{\sqrt{6}}{2}\left[1-(-1)^{S+S'}\right]
-\end{equation}
-Suppose that the radial functions are given by $f(r)$ and $g(R)$, respectively. Reduced matrix elements of spherical harmonics are given by
-\begin{equation}
-\braket{l'||Y_J(\hat{r})||l}=\sqrt{\frac{[J][l'][l]}{4\pi}}\left(\begin{array}{ccc}
-l' & J & l\\
-0 & 0 & 0
-\end{array}\right),
-\end{equation} 
-where $[J]\equiv 2J+1$.
-Then
-\begin{equation}
-\begin{split}
-\braket{n'l'\;N'L'\;\Lambda'\mu'|f(r)g(R)\;Y_J(\hat{r})\odot Y_J(\hat{R})|nl\;NL\;\Lambda\mu}&=\frac{(-1)^{l+l'+\Lambda}}{4\pi}\delta_{\Lambda,\Lambda'}\delta_{\mu,\mu'}[J]\sqrt{[l'][l][L'][L]}\left\{\begin{array}{ccc}
-\Lambda & L' & l'\\
-J & l & L
-\end{array}\right\}\\
-&\times\left(\begin{array}{ccc}
-l' & J & l\\
-0 & 0 & 0
-\end{array}\right)
-\left(\begin{array}{ccc}
-L' & J & L\\
-0 & 0 & 0
-\end{array}\right)\braket{n'l'||f(r)||nl}\braket{N'L'||g(R)||NL},
-\end{split}
-\end{equation}
-Note that Moshinsky defines the relative coordinates as
-\begin{equation}
-\vec{r}=\frac{1}{\sqrt{2}}\left(\vec{x}_1-\vec{x}_2\right),\;\vec{R}=\frac{1}{\sqrt{2}}\left(\vec{x}_1+\vec{x}_2\right).
-\end{equation}
-We account for the additional factor of $1/\sqrt{2}$ relative to our definition when computing radial matrix elements. 
+
 \end{document}
