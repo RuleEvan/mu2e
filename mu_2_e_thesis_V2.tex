@@ -254,13 +254,13 @@ These difficulties can be circumvented if one restricts focus to the case of coh
 
 On the other hand, this ``top-down'' approach is not general and can only be used to exclude those particular UV models that yield a leading coherent operator. At present, there is no reason to expect that nature has been so kind as to concentrate sources of CLFV into such a narrow response. Indeed, one should consider the problem in general, including all operators allowed by the relevant symmetries through a given order in some small parameter. Of course, each of the various effective theories represented in Fig. \ref{fig:eft_tower} provides a complete description of the physics within its domain of applicability, and if one were to, say, begin from the most general effective theory of CLFV at the level of standard-model degrees of freedom and proceed downward to the nuclear scale, then one must recover the most general nuclear-level effective theory. In doing so, however, it is highly likely that one has horribly obscured the underlying CLFV physics, convoluting it with the nuclear physics. The $\mu\rightarrow e$ conversion experiments have the advantage that the nuclear target can be varied, potentially providing additional complementary measurements. As such, a formalism that factorizes the part of the response that depends on the choice of nuclear target from the CLFV physics is highly desirable. Furthermore, being the scale at which the relevant measurements are conducted, the nuclear scale is the most natural setting for an effective theory of $\mu\rightarrow e$ conversion, allowing one to identify those quantities that are directly probed by experiment. In this sense, the nuclear-scale effective theory represents the most general constraint that elastic $\mu\rightarrow e$ conversion can place on underlying CLFV operators.
 
-The bulk of this thesis is dedicated to the development and application of a nuclear effective theory for the elastic $\mu\rightarrow e$ conversion process. This formalism was first introduced in \cite{rule2021nucleonlevel,haxton_2022}. In many ways, the effective theory of $\mu\rightarrow e$ conversion is analogous to the effective theory of dark matter direct detection \cite{Fitzpatrick_2013,Anand:2014kea}. The development of the effective theory is mirrored in the structure of this thesis, which we now outline.
+The bulk of this thesis is dedicated to the development and application of a nuclear effective theory for the elastic $\mu\rightarrow e$ conversion process. This formalism was first introduced in \cite{rule2021nucleonlevel,haxton_2022}. The development of the effective theory is mirrored in the structure of this thesis, which we now outline.
 
-Chapter \ref{chap:leptonic} describes the treatment of the leptonic fields. We demonstrate how accurate wave functions for both the bound muon and outgoing electron can be obtained by numerical solution of the Dirac equation with potential given by the nuclear Coulomb field. Although these solutions can be fruitfully employed in the case of coherent conversion---as has been done extensively in the existing literature---they are very tedious to extend to the general case, obscuring what is actually rather simple physics. In contrast, by introducing an approximate form for the electron wave function, we are able to achieve a dramatically simplified expression for the most general CLFV amplitude without compromising the accuracy. Previous investigators employed a na\"ive plane wave form for the electron and as a result incurred significant errors.
+Chapter \ref{chap:leptonic} describes the treatment of the leptonic fields. We demonstrate how accurate wave functions for both the bound muon and outgoing electron can be obtained by numerical solution of the Dirac equation with potential given by the nuclear Coulomb field. Although these solutions can be fruitfully employed in the case of coherent conversion---as has been done extensively in the existing literature---they are very tedious to extend to the general case, obscuring what is actually rather simple physics. In contrast, by introducing an approximate form for the electron wave function, we are able to achieve a dramatically simplified expression for the most general CLFV amplitude without compromising the accuracy. Previous investigators who have attempted to extend beyond the coherent case have employed a na\"ive plane wave form for the electron and as a result incurred significant errors. Our treatment retains the both the simplicity of the plane wave solution and the accuracy of the numerical solution.
 
-We argue that the slowly-varying radial wave function of the muon can be readily replaced by a constant value. Particularly in light nuclei with $\alpha Z\ll 1$, one can neglect entirely the lower component of the muon's Dirac wave function. (In Chapter \ref{chap:nucleon_level_eft}, we demonstrate how the lower component can be efficiently retained in terms of the muon velocity acting on the upper component and explore the impact of including this operator in the effective theory.) 
+We further simplify the formalism by introducing several  approximations for the bound muon. Particularly in light nuclei, one can neglect entirely the lower component of the muon's Dirac wave function. (In Chapter \ref{chap:muon_lower}, we describe the lower component in terms of the muon velocity operator and explore the impact of retaining this operator in the effective theory.) In addition, we argue that the slowly-varying radial wave function of the muon's upper component can be readily replaced by a constant value.
 
-In Chapter \ref{chap:nucleon_level_eft}, we identify the six (neglecting the muon velocity) basic Hermitian operators from which the effective theory is constructed. When combined to first order in the relevant power-counting parameters, these six operators yield 16 CLFV single-nucleon operators, representing the basis of our effective theory. Performing a multipole decomposition of the nuclear charges and currents, we identify eleven independent nuclear responses; however, the approximate parity and time-reversal symmetries of the nuclear ground state limit the operators that can contribute to the elastic $\mu\rightarrow e$ conversion process to just six allowed responses. The rate for $\mu\rightarrow e$ conversion is then expressed in terms of the six allowed responses and two interference terms. Each term is factorized into a product of leptonic and nuclear response functions.
+In Chapter \ref{chap:nucleon_level_eft}, we identify the six (neglecting the muon velocity) basic Hermitian operators from which the effective theory is constructed. When combined through first order in the relevant power-counting parameters, these six building-block operators yield the 16 CLFV operators that represent the basis of the nucleon-level effective theory. Performing a multipole decomposition of the nuclear charges and currents, we identify eleven independent nuclear responses. However, the approximate parity and time-reversal symmetries of the nuclear ground state limit the operators that can contribute to the elastic $\mu\rightarrow e$ conversion process to just six allowed responses. The rate for $\mu\rightarrow e$ conversion is then expressed in terms of the six allowed responses and two interference terms. Each term is factorized into a product of leptonic and nuclear response functions.
 
 In Chapter \ref{chap:nuclear_response}, we explore the properties of each of the six allowed nuclear response functions, including those aspects that depend only on macroscopic nuclear quantities like charge, spin, and isospin. We also demonstrate the dependence on fine details of nuclear structure, correlations that are properly captured by nuclear shell-model calculations. 
 
@@ -272,17 +272,23 @@ In Chapter \ref{chap:coherent_conversion}, we explicitly construct the tower of 
 
 In Chapter \ref{chap:two_nucleon}, we describe in more detail the treatment of the two-nucleon contribution to scalar-mediated coherent conversion, including the shell-model calculation.
 
-In Chapter \ref{chap:conclusion}, we conclude with a summary of the progress presented in this thesis and discuss a few directions for future work. 
+In Chapter \ref{chap:conclusion}, we conclude with a summary of the progress reported in this thesis and discuss a few directions for future work. In particular, we describe an extension of the effective theory formalism to include the inelastic conversion process in which the nucleus transitions to an excited state.
 
-In particular, we identify six CLFV response functions and two interference terms that represent the most general coupling of the leptons to the target nucleus.
+In order to maintain a clear and concise narrative, many detailed calculations have been relegated to a series of Appendices:
+
+Appendix \ref{app:tensors} provides an introduction to spherical tensor operators. Particular attention is devoted to the vector spherical harmonics which arise frequently in the nuclear multipole decomposition.
+
+Appendix \ref{app:density} introduces the one- and two-body density matrices that are used to efficiently compute many-body matrix elements of few-body operators.
+
+Appendix \ref{app:single_nucleon_response} contains details of the calculation of harmonic oscillator matrix elements of the single-nucleon response functions.
+
+Appendix \ref{app:fga} provides a detailed calculation of the Fermi gas average approach to reducing the two-nucleon operator to an effective single-nucleon operator.
+
+
+In many ways, the effective theory of $\mu\rightarrow e$ conversion is analogous to the effective theory of dark matter direct detection \cite{Fitzpatrick_2013,Anand:2014kea}.
+
  
-While the kinematics are ideal for detecting the electron that results from a flavor-violating decay of a trapped muon, the relationship between the observed low-energy process and the underlying CLFV physics is heavily obscured by the intervening nuclear physics. As the nature of possible CLFV operators is almost entirely unconstrained, one should consider the problem in general. The existing literature on $\mu\rightarrow e$ conversion, however, is quite specific, with many studies restricted to the case of so-called ``coherent conversion'' in which the underlying operator carries zero angular momentum and couples equally to protons and neutrons. As we shall discuss in detail, such approaches can be useful for excluding particular UV models of CLFV. In this work, we detail the construction of a nuclear-level effective theory of $\mu\rightarrow e$ conversion, first reported in \cite{rule2021nucleonlevel}. 
-
- We formulate the most general response for elastic $\mu\rightarrow e$ conversion, showing that six response functions and two interference terms can be probed through an ensemble of measurements on different nuclear targets. 
- 
-We also show that there are underlying CLFV operators that are not probed by the elastic process. If CLFV arises only in these couplings, then $\mu\rightarrow e$ experiments will only be sensitive to excited state processes.
-
-The nuclear effective theory of $\mu\rightarrow e$ conversion that we describe shares many similarities with the effective theory of dark matter detection \cite{Fitzpatrick_2013}, which indeed served as the impetus for the present work.
+%While the kinematics are ideal for detecting the electron that results from a flavor-violating decay of a trapped muon, the relationship between the observed low-energy process and the underlying CLFV physics is heavily obscured by the intervening nuclear physics. As the nature of possible CLFV operators is almost entirely unconstrained, one should consider the problem in general. The existing literature on $\mu\rightarrow e$ conversion, however, is quite specific, with many studies restricted to the case of so-called ``coherent conversion'' in which the underlying operator carries zero angular momentum and couples equally to protons and neutrons. As we shall discuss in detail, such approaches can be useful for excluding particular UV models of CLFV. In this work, we detail the construction of a nuclear-level effective theory of $\mu\rightarrow e$ conversion, first reported in \cite{rule2021nucleonlevel}. 
 
 \chapter{Treatment of the Leptonic Fields}
 \label{chap:leptonic}
@@ -1567,7 +1573,7 @@ $j$ & $\mathcal{L}^j_\mathrm{int}$ & Pauli Reduction & $\sum_ic_i\mathcal{O}_i$\
 \chapter{Nuclear Response Function Properties}
 \label{chap:nuclear_response}
 \thispagestyle{headings}
-The factorized form of the conversion rate implies a clear path to extracting all of the information about CLFV operators that can be probed in elastic $\mu\rightarrow e$ conversion. Indeed, the nuclear response functions $W$ can be interpreted as the ``nuclear dials'' available to an experimentalist---dials that can be tuned through nuclear target selection in order to vary the $W$ functions and thereby probe different linear combinations of the CLFV response functions. To aid in this endeavor, one would like to understand the general properties of the six (twelve, accounting for isospin) allowed nuclear response functions, including their dependence on macroscopic nuclear quantities.
+The factorized form of the conversion rate presents a clear path to extracting all of the information about CLFV operators that can be probed in elastic $\mu\rightarrow e$ conversion. Indeed, the nuclear response functions $W$ can be interpreted as the ``nuclear dials'' available to an experimentalist---dials that can be tuned through nuclear target selection in order to probe different linear combinations of the CLFV response functions. To aid in this endeavor, one would like to understand the general properties of the six (twelve, accounting for isospin) allowed nuclear response functions, including their dependence on macroscopic nuclear quantities such as charge and spin.
 
 Broadly, we may distinguish three of the allowed nuclear responses, $M$, $\Sigma'$ and $\Sigma''$, as velocity-\textit{independent} and the remaining three, $\Delta$, $\tilde{\Phi}$' and $\Phi''$, as velocity-\textit{dependent}. The velocities in question---consistent with our definition of the effective interaction in terms of intrinsic nuclear coordinates---are the relative (or Jacobi) velocities of the nucleons. As these quantities are purely internal to the nuclear system, the velocity-dependent operators must vanish in the limit of a point-like nucleus. One way of approaching the point-like limit is to consider that the nucleus is probed by a very long wavelength operator, i.e., $q_\mathrm{eff}\rightarrow 0$. We note that in the expression for the $\mu\rightarrow e$ decay rate, Eq. (\ref{eq:mu2e_rate}), each of the velocity-dependent operators is accompanied by a factor $q_\mathrm{eff}^2/m_N^2$, reflecting the fact that these responses vanish in the point-like limit. 
 
@@ -1594,9 +1600,9 @@ Although the prefactor $q_\mathrm{eff}^2/m_N^2$ causes their response functions 
 \end{equation}
 where $\vec{\ell}$ is the orbital angular momentum operator, and $\otimes$ denotes a spherical tensor product whereas $\times$ denotes the conventional cross product. The lowest multipole of the transverse-electric projection of the spin-velocity current is $J=2$, and therefore $\tilde{\Phi}'$ can only contribute if $j_N\geq 1$.
 
-The momentum-dependence of the nuclear response functions $W^{\tau\tau}_\mathcal{O}(q_\mathrm{eff})$ for $^{27}$Al is shown in Fig. \ref{fig:Al_responses}. In Fig. \ref{fig:Cu_responses}, we show the corresponding results for Cu---a case analogous to Al, as the only stable isotopes, $^{63}$Cu and $^{65}$Cu, have an unpaired nucleon. The nuclear responses for Al were computed by diagonalizing the USDA interaction in the $2s$-$1d$ shell-model space whereas for Cu we employed the GCN2850 interaction in the $1f_{5/2}$-$2p$-$1g_{9/2}$ valence space. The ground state of $^{27}$Al has total angular momentum $j_N=\frac{5}{2}$, and both isotopes of Cu have ground-state angular momentum $j_N=\frac{3}{2}$. The angular momentum selection rules therefore allow all six response functions to contribute. Similarly, the nuclei $^{27}$Al, $^{63}$Cu, and $^{65}$Cu carry total isospin $T=\frac{1}{2}$, $T=\frac{5}{2}$, and $T=\frac{7}{2}$, respectively, thereby permitting a coupling to isovector operators in all cases.
+The momentum-dependence of the nuclear response functions $W^{\tau\tau}_\mathcal{O}(q)$ for $^{27}$Al is shown in Fig. \ref{fig:Al_responses}. In Fig. \ref{fig:Cu_responses}, we show the corresponding results for Cu---a case analogous to Al, as the only stable isotopes, $^{63}$Cu and $^{65}$Cu, have an unpaired nucleon. The nuclear responses for Al were computed by diagonalizing the USDB interaction in the $2s$-$1d$ shell-model space, whereas for Cu we employed the GCN2850 interaction in the $1f_{5/2}$-$2p$-$1g_{9/2}$ valence space. The ground state of $^{27}$Al has total angular momentum $j_N=\frac{5}{2}$, and both isotopes of Cu have ground-state angular momentum $j_N=\frac{3}{2}$. The angular momentum selection rules therefore allow all six response functions to contribute. The nuclei $^{27}$Al, $^{63}$Cu, and $^{65}$Cu carry total isospin $T=\frac{1}{2}$, $T=\frac{5}{2}$, and $T=\frac{7}{2}$, respectively, thereby permitting a coupling to isovector operators in all cases.
 
-The isoscalar nuclear response is dominated, unsurprisingly, by the charge operator, particularly the coherent contribution of $M_{00}$. Somewhat surprising is the strength of the $\Phi''$ response. In the long-wavelength limit, $\Phi''_{00}$ reduces to the spin-orbit operator, which satisfies (for spin $s=1/2$ nucleons)
+The isoscalar nuclear response is dominated, unsurprisingly, by the charge operator, particularly the coherent contribution of $M_{00}$. Quite remarkable is the strength of the $\Phi''$ response. In the long-wavelength limit, $\Phi''_{00}$ reduces to the spin-orbit operator, which satisfies (for spin $s=1/2$ nucleons)
 \begin{equation}
 \begin{split}
 \vec{\sigma}\cdot\vec{\ell}&=\vec{j}^{\;2}-\vec{\ell}^{\;2}-\vec{s}^{\;2}\\
@@ -1605,15 +1611,15 @@ The isoscalar nuclear response is dominated, unsurprisingly, by the charge opera
 \end{equation}
 There are $2(\ell+1)$ states where $j=\ell+\frac{1}{2}$, for which the spin-orbit term evaluates to $\ell$, and $2\ell$ states where $j=\ell-\frac{1}{2}$, for which the spin-orbit term evaluates to $-(\ell+1)$. In nuclei, the strong nuclear spin-orbit force breaks the degeneracy between the $j=\ell\pm\frac{1}{2}$ subshells and moves the spin-aligned subshell $j=\ell+\frac{1}{2}$ to lower energy. As this subshell is progressively filled with nucleons, the spin-orbit response of $\Phi''_{0}$ sums coherently. Once the spin-anti-aligned $j=\ell-\frac{1}{2}$ subshell starts to be filled, the spin-orbit contribution begins to cancel against that from the spin-aligned subshell. When both subshells are completely occupied, the total spin-orbit contribution is identically zero.
 
-$^{27}$Al is an ideal nucleus for exploiting the semi-coherence of $\Phi''_{0}$: in the extreme single-particle picture, all five states of the spin-aligned $1d_{5/2}$ subshell are occupied, while the anti-aligned $1d_{3/2}$ subshell is entirely vacant. Even after accounting for the additional momentum suppression factor---not included in the figures---$q_\mathrm{eff}^2/m_N^2W_{\Phi''}^{00}(q_\mathrm{eff})\approx 0.15$ is larger than either of the spin responses $W_{\Sigma'}^{00}(q_\mathrm{eff})\approx 0.09$, $W_{\Sigma''}^{00}(q_\mathrm{eff})\approx 0.11$. 
+$^{27}$Al is an ideal nucleus for exploiting the semi-coherence of $\Phi''_{0}$: in the extreme single-particle picture, all five states of the spin-aligned $1d_{5/2}$ subshell are occupied, while the anti-aligned $1d_{3/2}$ subshell is entirely vacant. Even after accounting for the additional momentum suppression factor---not included in the figures---$q_\mathrm{eff}^2/m_N^2W_{\Phi''}^{00}(q_\mathrm{eff})\approx 0.16$ is larger than either of the spin responses $W_{\Sigma'}^{00}(q_\mathrm{eff})\approx 0.09$, $W_{\Sigma''}^{00}(q_\mathrm{eff})\approx 0.11$. 
 
-Cu also shows a strong semi-coherent response from the operator $\Phi''_0$. Protons completely fill the $1f_{7/2}$ subshell, leaving the anti-aligned counterpart vacant. In $^{63}$Cu ($^{65}$Cu), neutrons completely fill the $1f_{7/2}$ and $2p_{3/2}$ subshells with two (four) neutrons occupying the anti-aligned $1f_{5/2}$ subshell, partially negating the coherence of the spin-orbit operator.  Nonetheless, we find that the semi-coherence significantly enhances the response: $q_\mathrm{eff}^2/m_N^2W_{\Phi''}^{00}(q_\mathrm{eff})\approx 0.78$ is larger than either of the spin responses $W_{\Sigma'}^{00}(q_\mathrm{eff})\approx 0.12$, $W_{\Sigma''}^{00}(q_\mathrm{eff})\approx 0.15$. 
+Cu also shows a strong semi-coherent response from the operator $\Phi''_0$. Protons completely fill the $1f_{7/2}$ subshell, leaving the anti-aligned counterpart vacant. In $^{63}$Cu ($^{65}$Cu), neutrons completely fill the $1f_{7/2}$ and $2p_{3/2}$ subshells with two (four) neutrons occupying the anti-aligned $1f_{5/2}$ subshell, partially negating the coherence of the spin-orbit operator.  Nonetheless, we find that the semi-coherence significantly enhances the response: $q_\mathrm{eff}^2/m_N^2W_{\Phi''}^{00}(q_\mathrm{eff})\approx 0.78$ is larger than either of the spin responses $W_{\Sigma'}^{00}(q_\mathrm{eff})\approx 0.15$, $W_{\Sigma''}^{00}(q_\mathrm{eff})\approx 0.12$. 
 
 Consequently, in the targets Al and Cu, we identify a hierarchy of isoscalar response functions
 \begin{equation}
 W_M^{00}\gg \bigg\{W^{00}_{\Sigma'},W_{\Sigma''}^{00},\frac{q_\mathrm{eff}^2}{m_N^2}W^{00}_{\Phi''}\bigg\}\gg\bigg\{\frac{q_\mathrm{eff}^2}{m_N^2}W^{00}_{\Delta},\frac{q^2_\mathrm{eff}}{m_N^2}W_{\tilde{\Phi}'}^{00}\bigg\},
 \end{equation}
-contrary to a na\"ive picture in which the velocity-dependent operators are generically subleading. As $\Phi''$ is associated with the spin-velocity current $\vec{v}_N\times\vec{\sigma}_N$ that arises for tensor and other more exotic interactions, targets like Al and Cu have a special sensitivity to velocity-dependent couplings associated with such interactions. 
+that is contrary to the na\"ive picture in which the velocity-dependent operators are generically subleading. As $\Phi''$ is associated with the spin-velocity current $\vec{v}_N\times\vec{\sigma}_N$, which arises for tensor and other more exotic interactions, targets like Al and Cu have a special sensitivity to velocity-dependent couplings associated with such interactions. 
 
 In the case of isovector couplings, an isospin-symmetric core makes no contribution, and consequently in light targets with no appreciable neutron excess like $^{27}$Al, one finds a hierarchy
 \begin{equation}
@@ -1622,18 +1628,18 @@ In the case of isovector couplings, an isospin-symmetric core makes no contribut
 that is fully dictated by velocity-suppression. To an extent, this picture is altered in heavier nuclei, where the excess of neutrons restores some of the coherence from the $M_{00;1}$ and $\tilde{\Phi}''_{00;1}$ responses. This effect is readily observed in Fig. \ref{fig:Cu_responses} in the case of Cu.
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{Fig4_Alformfactor.pdf}
+\includegraphics[scale=0.67]{responses_al27_combined.png}
 \caption{The nuclear response functions $W^{\tau\tau}_\mathcal{O}(q_\mathrm{eff})$ for the six operators contributing to elastic $\mu\rightarrow e$ conversion in $^{27}$Al. The left (right) panel gives the results for the isoscalar (isovector) coupling. The response functions are needed at the three-momentum transfer $q_\mathrm{eff}$ indicated by the dashed line. The results in blue correspond to charge and spin couplings, while those in orange correspond to the velocity-dependent operators where the response functions are accompanied by the additional factor $q^2_\mathrm{eff}/m_N^2\approx 0.014$.}
 \label{fig:Al_responses}
 \end{figure}
 \begin{figure}
 \centering
-\includegraphics[scale=0.6]{Fig5_Cuformfactor.pdf}
+\includegraphics[scale=0.67]{responses_cu63_combined.png}
 \caption{As in Fig. \ref{fig:Al_responses} but for Cu.}
 \label{fig:Cu_responses}
 \end{figure}
 
-Figure \ref{fig:v_ind_responses} shows the strength of the various velocity-independent response functions across eleven different nuclear targets, ranging in mass from the lightest, carbon, to the heaviest, copper. One can plainly see how the coherent response increases with nucleon number $A$, though it is also dampened by the nuclear diffraction minimum for heavier nuclei. The isovector charge response function also generally exhibits the expected behavior and is roughly proportional to the isospin asymmetry $|Z-N|$. Examining the spin-dependent responses, the targets that are composed primary of odd-nucleon isotopes---F, Na, Al, and Cu---provide the strongest response. The minor impurities of $^{13}$C, $^{27}$Si, $^{33}$S, $^{47}$Ti/$^{49}$Ti, and $^{57}$Fe are not sufficient to produce much of a spin-dependent response in those targets. It is interesting to note how strong the $\Sigma'$ and $\Sigma''$ responses are in $^{19}$F.
+Figure \ref{fig:v_ind_responses} shows the strength of the various velocity-independent response functions across eleven different nuclear targets, ranging in mass from the lightest, carbon, to the heaviest, copper. One can plainly see how the coherent response increases with nucleon number $A$, though it is also dampened by the nuclear diffraction minimum for heavier nuclei. The isovector charge response function $W_M^{11}$ also generally exhibits the expected behavior and is roughly proportional to the isospin asymmetry $|Z-N|$. Examining the spin-dependent responses, the targets that are composed primary of odd-nucleon isotopes---F, Na, Al, and Cu---provide the strongest response. The minor impurities of $^{13}$C, $^{27}$Si, $^{33}$S, $^{47}$Ti/$^{49}$Ti, and $^{57}$Fe are not sufficient to produce much of a spin-dependent response in those targets. It is interesting to note how strong the $\Sigma'$ and $\Sigma''$ responses are in $^{19}$F.
 
 Turning to the velocity-dependent response functions in Fig. \ref{fig:v_dep_responses}, the trends are a bit tougher to discern. It is clear that $\tilde{\Phi}'$, the transverse-electric projection of the spin-velocity current, is consistently the weakest nuclear response, owing to the fact that it is velocity-suppressed and its leading multipole is $J=2$. The transverse-magnetic projection of convective current, $\Delta$, is also generally suppressed, though it is worth noting that $^{27}$Al shows the strongest $\Delta$ response in both isospin channels of all nuclei considered. Finally, as discussed above, the longitudinal projection of the spin-velocity current, $\Phi''$, sums coherently over spin-aligned $j=\ell+\frac{1}{2}$ and $j=\ell-\frac{1}{2}$ subshells, but vanishes when both subshells are fully occupied. As such, this contribution vanishes entirely for the doubly-magic nuclei $^{16}$O and $^{40}$Ca (though the response for the natural targets O and Ca is nonzero due to valence neutrons in the non-magic isotopes). The spin-orbit response is strongest when the lower-energy spin-aligned subshells are filled and the anti-aligned subshells are vacant. In Ti especially, we see how the response is primarily driven by neutrons filling the $1f_{7/2}$ shell, leading to a strong isovector response.
 
@@ -1920,6 +1926,7 @@ We reiterate that the scenario discussed here is not general. Although Eq. (\ref
 
 Finally, if the source of CLFV is such that the charge radius and magnetic dipole couplings are roughly equal $|\tilde{f}_R/\tilde{f}_M|\approx 1$, then we must also consider the possible cancellation in the $\mu\rightarrow e$ conversion rate. Without cancellation, we could observe one of four possible outcomes: (1) detection at MEG II, Mu2e/COMET and Mu3e (2) detection at Mu2e/COMET and Mu3e but not MEG II (3) detection only at Mu3e (4) no detection. If the cancellation is significant, then we don't expect any signal from the conversion experiments Mu2e and COMET. One particularly interesting possibility is that we may observe a CLFV signal at MEG II and Mu3e but not Mu2e/COMET. Such a result could be interpreted as good evidence for the cancellation scenario, though a more general analysis would be warranted.
 \chapter{The Muon Lower Component and Muon Velocity Operator}
+\label{chap:muon_lower}
 In our primary formulation of the nuclear effective theory of $\mu\rightarrow e$ conversion, we argued that for light- and medium-mass nuclei it is an acceptable approximation to neglect contributions proportional to the lower component of the muon wave function. This stands in contrast to many previous authors, who---typically focusing only on the case of coherent conversion---retain the complete numerical Dirac solution for the lower component. In that restricted setting, such a treatment makes it possible to obtain percent-level errors in the prediction for the $\mu\rightarrow e$ conversion rate without unduly complicating the calculation. In general, however, inclusion of the lower component of the muon requires a significant extension of the formalism, and the impact of these relativistic corrections is not as immediate as in the coherent case.  
 
 As we shall demonstrate in this chapter, the lower component of the muon's Dirac wave function is effectively generated by the action of the muon velocity operator $\vec{v}_{\mu}$ on the upper component. Thus, the inclusion of the muon's lower component in the effective theory is (approximately) equivalent to the addition of the muon velocity operator. The effective theory describes the intrinsic interactions that result from removing the center-of-mass motion of the system by a phase space integration see Eq. (\ref{eq:H_NRET}) and subsequent discussion]. The initial system, assumed to be at rest, is described by $A-1$ inter-nucleon coordinates and one coordinate describing the muon's position relative to the nuclear center-of-mass. Consequently, there are $A-1$ inter-nucleon velocity operators and one muon velocity operator, which, again, is defined relative to the nuclear center-of-mass. From this perspective, the muon velocity operator is not privileged---it is one of $A$ internal bound-state velocities. In fact, one may argue that it is more essential to retain the nucleon velocity operator than that of the muon: In $^{27}$Al, $\sqrt{\braket{v_{\mu}^2}}\approx 0.05$, whereas for a single unpaired $1d_{5/2}$ proton $\sqrt{\braket{v_N^2}}\approx 0.21$. As the electron is ultra-relativistic, the muon's lower component always appears in combination with the upper component and therefore can be considered a correction. On the other hand, depending on the underlying CLFV operators, the $\mu\rightarrow e$ conversion response may be generated at leading order by $\vec{v}_N$. 
@@ -1927,7 +1934,6 @@ As we shall demonstrate in this chapter, the lower component of the muon's Dirac
 As discussed at the end of Chapter \ref{chap:nuclear_response}, the most fundamental nuclear-scale effective theory is that of the point-like nucleus, which depends on three nuclear response functions. The point-like effective theory can then be extended to include first-order corrections in the nucleon velocity operator $\vec{v}_N$, generating three additional nuclear responses. Based on the above discussion, a final step in this program is to introduce operators that are first-order in the muon velocity $\vec{v}_{\mu}$ (neglecting terms of order $v_{\mu}v_N\approx 1/100$).  We will now undertake this construction, introducing the modifications of the nuclear-scale effective theory that are necessary in order to include the impact of the muon's lower component, leading to the introduction of six additional nuclear response functions.
 
 \section{Relationship between $F(r)$ and $\vec{v}_{\mu}$}
-\label{chap:muon_lower}
 We begin by demonstrating how the muon's lower component can be obtained by action of the muon velocity operator on the corresponding upper component. [See Chapter \ref{chap:leptonic}, in particular Section \ref{sec:muon_treatment}, for details of the Dirac treatment of the muon wave function.] For $\kappa=-1$, the radial Dirac equation implies that
 \begin{equation}
 \frac{d}{dr}\left(\frac{G(r)}{r}\right)=\left(2\bar{m}-E^\mathrm{bind}_{\mu}-V(r)\right)\frac{F(r)}{r}.
@@ -1984,7 +1990,9 @@ We now construct all operators through first-order in the muon velocity operator
 \mathcal{O}_{16}^{f'}&=i\hat{q}\cdot\frac{\vec{v}_{\mu}}{2}\;i\hat{q}\cdot\vec{\sigma}_N,
 \end{split}
 \end{equation}
-where the superscript $f$ indicates that these operators are paired with the muon lower component wave function. The lower component operators are related to their upper-component counterparts by exchanging $\vec{v}_N\leftrightarrow \vec{v}_{\mu}/2$ and $\vec{\sigma}_N\leftrightarrow\vec{\sigma}_L$. The effective theory Lagrangian is now expanded to include the lower component operators with corresponding low-energy constants $b_i^{\tau}$. As we neglect terms that depend on both the muon and nucleon velocity operators, the resulting operators contain only the nucleon charge $1_N$ and spin-current $\vec{\sigma}_N$. Consequently, we modify the leptonic currents [originally defined in Eq. 9\ref{eq:leptonic_currents})] as
+where the superscript $f$ indicates that these operators are paired with the muon lower component wave function. The lower component operators are related to their upper-component counterparts by exchanging $\vec{v}_N\leftrightarrow \vec{v}_{\mu}/2$ and $\vec{\sigma}_N\leftrightarrow\vec{\sigma}_L$. The operators that do not have a lower-component analogue, $\mathcal{O}_1$, $\mathcal{O}_4$, $\mathcal{O}_6$, $\mathcal{O}_9$, $\mathcal{O}_{10}$ and $\mathcal{O}_{11}$, transform among themselves under the lepton $\leftrightarrow$ nucleon interchange.
+
+The effective theory Lagrangian is now expanded to include the lower component operators with corresponding low-energy constants $b_i^{\tau}$. As we neglect terms that depend on both the muon and nucleon velocity operators, the resulting operators contain only the nucleon charge $1_N$ and spin-current $\vec{\sigma}_N$. Consequently, we modify the leptonic currents [originally defined in Eq. 9\ref{eq:leptonic_currents})] as
 \begin{equation}
 \begin{split}
 l_0^{\tau}&\rightarrow l_0^{\tau}+b_2^{\tau}i\hat{q}\cdot\frac{\vec{v}_{\mu}}{2}+b_3^{\tau}i\hat{q}\cdot\left[\frac{\vec{v}_{\mu}}{2}\times\vec{\sigma}_L\right]+b_7^{\tau}\frac{\vec{v}_{\mu}}{2}\cdot\vec{\sigma}_L\\
@@ -1994,13 +2002,12 @@ l_0^{\tau}&\rightarrow l_0^{\tau}+b_2^{\tau}i\hat{q}\cdot\frac{\vec{v}_{\mu}}{2}
 &\equiv \vec{l}_5^{\tau}+\vec{l}_{5f}^{\tau},
 \end{split}
 \end{equation}
-with $l_0^{A\;\tau}$, $\vec{l}_M^{\tau}$, and $\vec{l}_E^{\tau}$ unchanged.
-
+with $l_0^{A\;\tau}$, $\vec{l}_M^{\tau}$, and $\vec{l}_E^{\tau}$ unchanged. The conversion amplitude is then given by
 \begin{equation}
 \begin{split}
-\mathcal{M}&=\sqrt{\frac{E_e}{2m_e}}\frac{q_\mathrm{eff}}{q}\sum_{\tau=0,1}\bra{\frac{1}{2}s_f;j_Nm_f}\Bigg[\sum_{i=1}^Ae^{-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i}\left(l_0^{\tau}\frac{g(x_i)}{\sqrt{4\pi}}+l_{0f}^{\tau}(\hat{x}_i)\frac{if(x_i)}{\sqrt{4\pi}}\right)\\
+\mathcal{M}&=\sqrt{\frac{E_e}{2m_e}}\frac{q_\mathrm{eff}}{q}\sum_{\tau=0,1}\bra{\frac{1}{2}s_f;j_Nm_f}\Bigg[\sum_{i=1}^Ae^{-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i}\left(l_0^{\tau}\frac{g(x_i)}{\sqrt{4\pi}}-l_{0f}^{\tau}(\hat{x}_i)\frac{if(x_i)}{\sqrt{4\pi}}\right)\\
 &+l_0^{A\;\tau}\sum_{i=1}^A\frac{1}{2m_N}\left(-\frac{1}{i}\overleftarrow{\nabla}_i\cdot\vec{\sigma}_N(i)\;e^{-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i}\frac{g(x_i)}{\sqrt{4\pi}}+\frac{g(x_i)}{\sqrt{4\pi}}e^{-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i}\vec{\sigma}_N(i)\cdot\frac{1}{i}\overrightarrow{\nabla}_i\right)\\
-&+\sum_{i=1}^A\vec{\sigma}(i)\;e^{-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i}\cdot\left(\vec{l}_5^{\tau}\frac{g(x_i)}{\sqrt{4\pi}}+\vec{l}_{5f}^{\tau}(\hat{x}_i)\frac{if(x_i)}{\sqrt{4\pi}}\right)\\
+&+\sum_{i=1}^A\vec{\sigma}(i)\;e^{-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i}\cdot\left(\vec{l}_5^{\tau}\frac{g(x_i)}{\sqrt{4\pi}}-\vec{l}_{5f}^{\tau}(\hat{x}_i)\frac{if(x_i)}{\sqrt{4\pi}}\right)\\
 &+\vec{l}_M^{\tau}\cdot\sum_{i=1}^A\frac{1}{2m_N}\left(-\frac{1}{i}\overleftarrow{\nabla}_i\;e^{-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i}\frac{g(x_i)}{\sqrt{4\pi}}+\frac{g(x_i)}{\sqrt{4\pi}}e^{-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i}\frac{1}{i}\overrightarrow{\nabla}_i\right)\\
 &+\vec{l}_E^{\tau}\cdot\sum_{i=1}^A\frac{1}{2m_N}\left(\overleftarrow{\nabla}_i\times\vec{\sigma}_N(i)\;e^{-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i}\frac{g(x_i)}{\sqrt{4\pi}}+\frac{g(x_i)}{\sqrt{4\pi}}e^{-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i}\vec{\sigma}_N(i)\times\overrightarrow{\nabla}_i\right)\Bigg]_\mathrm{int}t^{\tau}(i)\ket{\frac{1}{2}s_i;j_Nm_i},
 \end{split}
@@ -2016,10 +2023,10 @@ l^{\tau}_{0f}(\hat{x}_i)&\equiv b_2^{\tau}i\hat{q}\cdot\hat{x}_i+b_3^{\tau}i\hat
 \begin{equation}
 \begin{split}
 &\mathcal{M}=\sqrt{\frac{E_e}{2m_e}}\frac{q_\mathrm{eff}}{q}\sum_{\tau=0,1}\bra{\frac{1}{2}s_f;j_Nm_f}\\
-&\Bigg[\sum_{J=0,2,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\left(l_0^{\tau}M^g_{J0;\tau}(q_\mathrm{eff})+il_0^{\tau(2)}M_{J0;\tau}^{(2)f}(q_\mathrm{eff})+\frac{q_\mathrm{eff}}{m_N}l_{E0}^{\tau}\Phi^{''g}_{J0;\tau}(q_\mathrm{eff})\right)\\
+&\Bigg[\sum_{J=0,2,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\left(l_0^{\tau}M^g_{J0;\tau}(q_\mathrm{eff})-il_0^{\tau(2)}M_{J0;\tau}^{(2)f}(q_\mathrm{eff})+\frac{q_\mathrm{eff}}{m_N}l_{E0}^{\tau}\Phi^{''g}_{J0;\tau}(q_\mathrm{eff})\right)\\
 &+\sum_{J=1,3,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(-il_{5\lambda}^{\tau}\Sigma^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(0)}_{5\lambda}\Sigma^{'(0)}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(2)}_{5\lambda}\Sigma'_{J-\lambda;\tau}(q_\mathrm{eff})\right.\\
-&\left.\hspace*{5.5cm}-\frac{q_\mathrm{eff}}{m_N}l^{\tau}_{M\lambda}\lambda\Delta^g_{J-\lambda;\tau}(q_\mathrm{eff})\right]\\
-&+\sum_{J=2,4,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(il_5^{\tau(1)}M_{J-\lambda;\tau}^{(1)f}(q_\mathrm{eff})-\frac{q_\mathrm{eff}}{m_N}l_{E\lambda}^{\tau}\tilde{\Phi}^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})\right)\\
+&\left.\hspace*{5.5cm}+i\frac{q_\mathrm{eff}}{m_N}l^{\tau}_{M\lambda}\lambda\Delta^g_{J-\lambda;\tau}(q_\mathrm{eff})\right]\\
+&+\sum_{J=2,4,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(-il_5^{\tau(1)}M_{J-\lambda;\tau}^{(1)f}(q_\mathrm{eff})-\frac{q_\mathrm{eff}}{m_N}l_{E\lambda}^{\tau}\tilde{\Phi}^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})\right)\\
 &+\sum_{J=1,3,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\left(il_{50}^{\tau}\Sigma^{''g}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(0)}\Sigma^{''(0)f}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(2)}\Sigma^{''(2)f}_{J0;\tau}(q_\mathrm{eff})\right)\Bigg]\ket{\frac{1}{2}s_i;j_Nm_i}
 \end{split}
 \end{equation}
@@ -2048,7 +2055,42 @@ M^{(2)}_{JM;\tau}(q)&\equiv \sum_{i=1}^A\frac{d}{dqx_i}j_J(qx_i)Y_{JM}(\hat{x}_i
 \Sigma^{''(2)}_{JM;\tau}(q)&\equiv\sum_{i=1}^A\left[\sqrt{\frac{J+1}{2J+1}}\frac{d}{dqx_i}j_{J+1}(qx_i)\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J}{2J+1}}\frac{d}{dqx_i}j_{J-1}(qx_i)\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)
 \end{split}
 \end{equation}
+Using the recurrence relations of the spherical Bessel functions
+\begin{equation}
+\begin{split}
+\frac{2J+1}{z}j_J(z)&=j_{J-1}(z)+j_{J+1}(z),\\
+(2J+1)\frac{d}{dz}j_J(z)&=Jj_{J-1}(z)-(J+1)j_{J+1}(z),
+\end{split}
+\end{equation}
+we find that harmonic oscillator matrix elements of the lower component response functions can be expressed in the usual way
+as
+\begin{equation}
+\braket{n'\left(\ell'\;1/2\right)j'||T_J(q\vec{r})||n\left(\ell\;1/2\right)j}=\frac{1}{\sqrt{4\pi}}y^{(J-K)/2}e^{-y}p(y)
+\end{equation}
+\begin{table}
+\centering
+{\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{cccccc}
+\hline
+\hline
+Projection & Charge/Current & Operator & Even J & Odd J & LECs Probed\\
+\hline
+Charge & $\hat{x}\cdot\vec{\sigma}_N$ & $\Sigma^{''(0)}_{JM}$ & O-O & E-E & \\
+Longitudinal & $\hat{x}$ & $M^{(2)}_{JM}$ & E-E & O-O & \\
+Transverse magnetic & " & --- & --- & --- & --- \\
+Transverse electric & " & $M^{(1)}_{JM}$ & E-E & O-O & \\
+Longitudinal & $\hat{x}\times\vec{\sigma}_N$ & $\Sigma^{(1)}_{JM}$ & E-O & O-E & \\
+Transverse magnetic & " & $\Sigma^{'(0)}_{JM}$ & O-O & E-E & \\
+Transverse electric & " & $\Sigma^{(2)}_{JM}$ & E-O & O-E & \\
+\hline
+\hline
+\end{tabular}
+}
+\end{table}
 \section{Connection to Relativistic Amplitudes}
+The operators $\mathcal{O}^f_i$ naturally arise from a Pauli reduction of the lepton-nucleon Dirac spinor currents. In Appendix \ref{app:lepton_spinors}, the leptonic bilinears are expanded through first order in $\vec{v}_{\mu}$. The mappings between the relativistic amplitudes and the Pauli-reduced effective operators linear in $\vec{v}_{\mu}$ are shown in Table \ref{tab:operator_list_v_mu}. These results should be added to the corresponding terms in Table \ref{tab:operator_list} to obtain the complete expression. The fact that the upper and lower muon components are constrained by Lorentz covariance gives some advantage to the relativistic effective theory as a starting point over the Pauli-reduced form.
+
+The 20 relativistic amplitudes that we consider correspond to scalar and vector couplings of the leptons to the nucleons.  Originally, we found that operators that depend on the nucleon spin-current $\vec{v}_N\times\vec{\sigma}_N$ cannot be obtained from these simple interactions but require more exotic mediators, such as the pseudo-tensor interaction $\bar{\chi}_ei\sigma^{\mu\nu}\gamma^5\chi_{\mu}\bar{N}i\sigma_{\mu\nu}\gamma^5 N$. The underlying reason for this is that the Pauli-reduced nucleon currents can be suppressed by factors of $q/m_N$ and/or $\vec{v}_N$; indeed, the relativistic amplitudes that generate the nucleon spin-velocity current are suppressed by both of these factors and hence are neglected. In the leptonic case, the ultra-relativistic electron depends on the quantity $\hat{q}$, which removes the suppression penalty and allows one to obtain the lepton spin-velocity current $\vec{v}_{\mu}\times\vec{\sigma}_L$ from the scalar and vector interactions. Hence all 10 of the lower component operators are generated by the set of 20 relativistic amplitudes.
 \begin{table}
 \centering
 {\renewcommand{\arraystretch}{1.5}
@@ -2072,8 +2114,8 @@ $j$ & $\mathcal{L}^j_\mathrm{int}$ & Pauli Reduction & $\sum_ic_i\mathcal{O}_i$\
 \hline
 \hline
 \end{tabular}}
-\caption{Relativistic $\mu$-to-$e$ conversion amplitudes $\mathcal{L}_\mathrm{int}^j$, the corresponding linear combinations of the $\mathcal{O}_i$ resulting from the Pauli reduction, and the transformation properties of the interactions (even E or odd O) under parity and time reversal. Bjorken and Drell spinor and gamma matrix conventions are used. An overall factor of $\sqrt{\frac{E_e}{2m_e}}|R_{1s}^\mathrm{Z_{eff}}(0)|$ has been removed from the third column.}
-\label{tab:operator_list}
+\caption{As in Table \ref{tab:operator_list} but listing the additional terms that are generated when the muon velocity operator $\vec{v}_{\mu}$ is retained to first order. The terms presented in this table should be combined with the corresponding results in Table \ref{tab:operator_list} to obtain the full result.}
+\label{tab:operator_list_v_mu}
 \end{table}
 \chapter{Scalar-mediated Coherent $\mu\rightarrow \lowercase{e}$ Conversion}
 \label{chap:coherent_conversion}
@@ -2885,7 +2927,7 @@ and finally with two factors of $\hat{q}_1$:
 \end{equation}
 For this last integration we have employed the identity
 \begin{equation}
-\left(\hat{q}\cdot\vec{\sigma}(1)\right)\left(\hat{q}\cdot\vec{\sigma}(2)\right)=\frac{1}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)+\sqrt{\frac{8\pi}{15}}Y_2(\hat{q})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right].
+\left(\hat{q}\cdot\vec{\sigma}(1)\right)\left(\hat{q}\cdot\vec{\sigma}(2)\right)=\frac{1}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)+\sqrt{\frac{8\pi}{15}}Y_2(\hat{q})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2.
 \label{eq:tensor_identity}
 \end{equation}
 Putting these pieces together yields
@@ -3185,27 +3227,58 @@ $^{63}_{29}$Cu & 2.097 & 21.322 & 259.0 & 103.471 & $0.51^{+0.03}_{-0.26}$ & $(0
 \label{tab:two_body}
 \end{table}
 We observe this same overestimation in the case at hand; the ratio of the FGA to NSM result ranges from 2.0 for $^{12}$C to 2.83 for $^{63}$Cu. It is worth noting that the value of the effective one-body coupling implied by the NSM calculation $f^{SI}_\mathrm{eff,NSM}$ is nearly constant across the range of nuclei considered in Table \ref{tab:two_body}.
-\chapter{Inelastic $\mu\rightarrow \lowercase{e}$ Conversion}
+\chapter{Conclusions}
+We now discuss two directions for future work.
+\label{chap:conclusion}
 \thispagestyle{headings}
-We have learned from our effective theory of $\mu\rightarrow e$ conversion that focusing attention on the elastic process where the nucleus remains in the ground state restricts the possible responses from eleven independent multipole operators to six. 
-\begin{figure}
-\includegraphics[scale=1.0]{czarnecki_backgrounds.png}
-\caption{The differential decay rate for standard model $\mu\rightarrow e+2\nu$ decays, taken from [cite czarnecki].}
-\end{figure}
-\section{Kinematics}
-Given the form of the electron background from standard weak muon decays, the favorable energy window for experiments is typically ~3 MeV. Therefore we will restrict our consideration of inelastic processes to nuclear transitions with $\Delta E^\mathrm{nuc}=E^\mathrm{nuc}_f-E^\mathrm{nuc}_i \lesssim 3$ MeV. This energy transfer to the nucleus will be subtracted from the energy of the outgoing electron. As the energy transfer is still small compared to the energy of the outgoing electron, the electron will still be ultra-relativistic. We will employ the same effective momentum approximation but now the effective momentum is computed as
+\section{Next Step: Inelastic $\mu\rightarrow \lowercase{e}$ Conversion}
+\thispagestyle{headings}
+In Chapter \ref{chap:nucleon_level_eft}, we identified eleven independent response functions arising from the multipole decomposition of the relevant nuclear charges and currents. Restricting our attention to the case of elastic conversion, we found that the approximate parity and time-reversal symmetries of the nuclear ground state permit only six allowed response functions to contribute to the CLFV amplitude (each response appearing in only even or odd multipoles). Consequently, we determined that four of the sixteen single-nucleon CLFV operators are not probed in elastic $\mu\rightarrow e$ conversion. This apparent blind spot can be remedied by extending the effective theory formalism to the case of inelastic $\mu\rightarrow$ conversion, allowing the nucleus to transition to an excited state. Experimentally, it is a considerable challenge to distinguish outgoing electrons originating in the inelastic conversion process from background electrons. Nonetheless, one can likely set interesting limits on otherwise inaccessible regions of CLFV parameter space.
+
+The energy required to excite the nucleus is subtracted from the energy of the outgoing electron
 \begin{equation}
-q^2_\mathrm{eff}=\frac{M_T}{m_{\mu}+M_T}\left[\left(m_{\mu}+E_{\mu}^\mathrm{bind}-\Delta E^\mathrm{nuc}-\bar{V}_c\right)^2-m_e^2\right]
+E_e=m_{\mu}-E^\mathrm{bind}_{\mu}-\frac{\vec{q}^{\;2}}{2M_T}-\Delta E_\mathrm{nuc}, 
 \end{equation}
-in order to account for the energy transferred to the nucleus. Otherwise the kinematics are unchanged.
-\section{Current Conservation and Siegert's Theorem}
-Operators $\mathcal{O}_2'$ and $\mathcal{O}_{16}'$ contain the longitudinal projection of the convection current $\hat{q}\cdot\vec{v}_N$, which is constrained through Siegert's theorem by current conservation (see Sec. \ref{sec:siegert}.
+where $\Delta E_\mathrm{nuc}$ is the energy difference between the final and initial nuclear states. The case of elastic conversion ($\Delta E_\mathrm{nuc}=0$) is experimentally favorable because the energy of the conversion electron is at the exact endpoint of the spectrum of background electrons that originate in standard-model $\mu\rightarrow e+2\nu$ decays. In the inelastic process, the outgoing electron is shifted into a region with considerably larger backgrounds. Near the endpoint energy, the spectrum of background decay-in-orbit electrons may be approximated as \cite{Czarnecki:2011mx}
+\begin{equation}
+\frac{1}{\Gamma_0}\frac{d\Gamma}{dE_e}\approx B\left(m_{\mu}-E^\mathrm{bind}_{\mu}-E_e-\frac{E_e^2}{2M_T}\right)^5,
+\end{equation}
+where
+\begin{equation}
+\Gamma_0=\frac{G_F^2m_{\mu}^5}{192\pi^3},
+\end{equation}
+is the free-muon decay rate and $B=8.98\times 10^{-17}$ MeV$^{-6}$ in $^{27}$Al. The $\mu\rightarrow e+2\nu$ background increases dramatically as the electron energy decreases.
+
+Sufficiently far from the endpoint energy, one begins to encounter an additional electron background from radiative muon capture (RMC)
+\begin{equation}
+\mu^-+A(Z,N)\rightarrow \nu_{\mu}+\gamma+A(Z-1,N+1),
+\end{equation}
+where the emitted photon can subsequently undergo pair production $\gamma\rightarrow e^+e^-$. The maximum energy of the emitted electron is limited by mass difference between the initial and final nuclei. In $^{27}$Al, with daughter nucleus $^{27}$Mg, the endpoint of the RMC electron spectrum is 2.61 MeV below the conversion electron energy.
+
+
+The resulting spectrum is shown in Fig. \ref{fig:backgrounds}. (The RMC background is indicated by a region, as the exact shape of this spectrum near the endpoint is not well-known.) There are four states of $^{27}$Al that are capable of producing $\mu\rightarrow e$ conversion electrons with an energy above the endpoint of the RMC background: the ground state with spin $J=\frac{5}{2}^+$ and the first three excited states with spin $J=\frac{1}{2}^+$, $\frac{3}{2}^+$, and $\frac{7}{2}^+$, respectively, and excitation energies $\Delta E_\mathrm{nuc}=0.844$ MeV, $1.015$ MeV, and $2.212$ MeV. The design goal of the Mu2e experiment is to reconstruct the energy of the outgoing electron with full width at half maximum (FWHM) resolution $\approx 900$ KeV/c for electrons near the end of the spectrum. To assess the size of the decay-in-orbit background relevant to each transition, we have marked resolution windows around the electron energy of $\mu\rightarrow e$ conversion which proceeds to each of the four final states. 
+
+ 
+
+Given the form of the electron background from standard weak muon decays, the favorable energy window for experiments is typically $\approx 3 MeV$. Therefore we will restrict our consideration of inelastic processes to nuclear transitions with $\Delta E^\mathrm{nuc}=E^\mathrm{nuc}_f-E^\mathrm{nuc}_i \lesssim 3$ MeV. This energy transfer to the nucleus will be subtracted from the energy of the outgoing electron. As the energy transfer is still small compared to the energy of the outgoing electron, the electron will still be ultra-relativistic. Employing the same approximation scheme as before, the effective momentum of the electron is now
+\begin{equation}
+q^2_\mathrm{eff}=\frac{M_T}{m_{\mu}+M_T}\left[\left(m_{\mu}+E_{\mu}^\mathrm{bind}-\Delta E^\mathrm{nuc}-\bar{V}_c\right)^2-m_e^2\right].
+\end{equation}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.8]{inelastic_al27.png}
+\caption{Comparison of the backgrounds for elastic and inelastic $\mu\rightarrow e$ conversion. The curve shows the differential decay rate for standard model $\mu\rightarrow e+2\nu$ decays. The vertical bands represent the approximate energy resolution window of the Mu2e detector centered on the energy of the outgoing conversion electron for the ground state $J=\frac{5}{2}^+$ and first three excited states $J=\frac{1}{2}^+$, $J=\frac{3}{2}^+$ and $J=\frac{7}{2}^+$ of $^{27}$Al.}
+\label{fig:backgrounds}
+\end{figure}
+
+Operators $\mathcal{O}_2'$ and $\mathcal{O}_{16}'$ contain the longitudinal projection of the convection current $\hat{q}\cdot\vec{v}_N$, which is constrained through Siegert's theorem by current conservation.
 The continuity equation in momentum space takes the form
 \begin{equation}
 \vec{q}\cdot\vec{J}(\vec{q})=-i\dot{\rho}(\vec{q})=\left[H_0,\rho(\vec{q})\right],
 \end{equation}
 where $\rho$ is the charge and $H_0$ is the nuclear Hamiltonian.
-\section{Expression for the Branching Ratio}
+
 \begin{equation}
 \begin{split}
 \mathcal{M}_\mathrm{nucleus/EFT}&=\sum_{\tau=0,1}\bra{\frac{1}{2}m_{s_f};j_fm_f}\left[\sum_{J=0}^{\infty}\sqrt{4\pi(2J+1)}(-i)^J\left[l_0^{\tau}M_{J0;\tau}(q_\mathrm{eff})-il_0^{A\;\tau}\frac{q}{m_N}\tilde{\Omega}_{J0;\tau}(q_\mathrm{eff})\right]\right.\\
@@ -3280,13 +3353,7 @@ R_{\Sigma'\tilde{\Phi}}^{\tau\tau'}=R_{\Sigma\tilde{\Phi}'}^{\tau\tau'}&=\mathrm
 Therefore we identify 15 independent nuclear responses allowing one to probe 15 independent linear combinations of the underlying LECs, compared to the 8 independent linear combinations probed by the elastic process. Moreover, all 16 (32 including isospin) of the LECs are probed by inelastic transitions whereas only 12 (24) are probed by the elastic process.
 
 If the nucleus transitions to a state of opposite parity, then the nuclear response functions must change to opposite parity. The response functions $R$ are unchanged but the overall expression is
-\section{Parity-violating Nuclear Transitions}
-In the case where the nucleus transitions to a state of opposite parity, then the response functions exchange (even $J$ $\leftrightarrow$ odd $J$).
-
-\chapter{Conclusions}
-\label{chap:conclusion}
-\thispagestyle{headings}
-\section{Next Steps: EFT Matching and the Inelastic Case}
+\section{Next Step: EFT Matching}
 \section{Summary}
 Inspired by previous work on dark matter direct detection and spurred by the looming promise of exceptional experimental progress in searches for charged lepton flavor violation, we have developed a nuclear effective theory of $\mu\rightarrow e$ conversion. Whereas previous works in the literature have either focused on the narrow---though exceptionally interesting---case of coherent conversion or retained only the relatively simple nuclear charge and spin operators, we have, for the first time, identified the most general set of response functions that can be probed through measurements of elastic $\mu\rightarrow e$ conversion in nuclei. As the nature of possible CLFV operators is yet entirely undetermined, one should consider a complete basis of effective operators (through a given order in some small power-counting parameter). Such a construction can be performed at a variety of energy scales in terms of different degrees of freedom, but the nuclear scale effective theory is the most natural in the sense that it interfaces directly with experiments. Moreover, by constructing the effective theory directly at the nuclear scale, we are able to achieve a factorization between the underlying CLFV physics---which must be independent of the choice of target---and the nuclear physics. This separation provides a clean path for constraining the underlying CLFV response functions through an ensemble of $\mu\rightarrow e$ conversion measurements on various nuclear targets. 
 
@@ -3375,6 +3442,7 @@ Then we may compute
 \end{split}
 \end{equation}
 \chapter{Expansion of Spinor Currents}
+\label{app:spinor_expansion}
 \thispagestyle{headings}
 Following Bjorken \& Drell, we work in the Dirac representation of the $\gamma$ matrices and employ the following normalization convention for spinors:
 \begin{equation}
@@ -3485,6 +3553,7 @@ Then it is a straightforward exercise in vector and spinor algebra to derive the
 \end{equation}
 Combining these results with the analogous expressions for the reduction of the nucleon currents, one can arrive at Table \ref{tab:operator_list}. As for the nucleons, there are four unique Hermitian operators that appear in the reduction of the leptonic currents: $1_L$, $i\hat{q}$, $\vec{v}_{\mu}$ and $\vec{\sigma}_L$. 
 \chapter{Spherical Tensor and Tensor Operators}
+\label{app:tensors}
 \thispagestyle{headings}
 We follow the conventions of Edmonds \cite{edmonds1996angular}. 
 \section{Spherical Basis}
@@ -3686,8 +3755,8 @@ whereas an arbitrary three-current has three independent projections
 \end{split}
 \end{equation}
 \chapter{Nuclear Matrix Elements of One- and Two-body Operators}
-\thispagestyle{headings}
 \label{app:density}
+\thispagestyle{headings}
 In order to make contact with $\mu\rightarrow e$ conversion experiments, the underlying nuclear operators must be evaluated between many-body wave functions that accurately capture the detailed structure of the target nucleus. Although many competing methods for these evaluations exist, our preferred paradigm is that of the nuclear shell model. In the shell-model approach, the total nuclear wave function is composed of linear combinations of Slater determinant basis elements. Each Slater determinant is a totally anti-symmetric combination of single-particle harmonic oscillator states labeled by nodal quantum number $n$, orbital angular momentum $\ell$, spin $s=1/2$, and total angular momentum $j=\ell\pm 1/2$. Separate Slater determinants are constructed for neutron and proton degrees of freedom, which are distinguished by the isospin quantum number $m_t=+1/2$ $(-1/2)$ for protons (neutrons). 
 
 Having specified the basis, the required wave functions are obtained by diagonalizing a suitable Hamiltonian that describes the interactions among the nucleons. One encounters several difficulties in this construction: first, the exact form of these interaction---which contain two-body, three-body, and higher contributions---is not known precisely; the proper theory is that specified by quantum chromodynamics (QCD), which does not lend itself to a simple description in the strongly-coupled regime of nuclear physics. Second, the shell-model space that we have adopted must be severely truncated in practical calculations, requiring one to perform a program of operator and wave function renormalization. These complications can be avoided by abandoning efforts to root the calculation of the nuclear wave function in the first-principles of QCD and instead adopting a phenomenological interaction that has been tuned in the model space to reproduce low-energy nuclear observables such as charge radii and low-lying spectra. This is the strategy that we apply in work; the interactions and shell-mdel spaces that we employ are given in Table \ref{tab:nsm_params}. 
