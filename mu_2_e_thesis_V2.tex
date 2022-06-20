@@ -3247,13 +3247,13 @@ where
 \begin{equation}
 \Gamma_0=\frac{G_F^2m_{\mu}^5}{192\pi^3},
 \end{equation}
-is the free-muon decay rate and $B=8.98\times 10^{-17}$ MeV$^{-6}$ in $^{27}$Al. The $\mu\rightarrow e+2\nu$ background increases dramatically as the electron energy decreases.
+is the free-muon decay rate and $B=8.98\times 10^{-17}$ MeV$^{-6}$ in $^{27}$Al. The $\mu\rightarrow e+2\nu$ background increases dramatically as the electron energy decreases (as the fifth power of the energy difference from the endpoint).
 
 Sufficiently far from the endpoint energy, one begins to encounter an additional electron background from radiative muon capture (RMC)
 \begin{equation}
 \mu^-+A(Z,N)\rightarrow \nu_{\mu}+\gamma+A(Z-1,N+1),
 \end{equation}
-where the emitted photon can subsequently undergo pair production $\gamma\rightarrow e^+e^-$. The maximum energy of the emitted electron is limited by mass difference between the initial and final nuclei. In $^{27}$Al, with daughter nucleus $^{27}$Mg, the endpoint of the RMC electron spectrum is 2.61 MeV below the conversion electron energy.
+where the emitted photon can subsequently undergo pair production $\gamma\rightarrow e^+e^-$. The maximum energy of the emitted electron is limited by the mass difference between the initial and final nuclei. In $^{27}$Al, with daughter nucleus $^{27}$Mg, the endpoint of the RMC electron spectrum is 2.61 MeV below the conversion electron energy.
 
 
 The resulting spectrum is shown in Fig. \ref{fig:backgrounds}. (The RMC background is indicated by a region, as the exact shape of this spectrum near the endpoint is not well-known.) There are four states of $^{27}$Al that are capable of producing $\mu\rightarrow e$ conversion electrons with an energy above the endpoint of the RMC background: the ground state with spin $J=\frac{5}{2}^+$ and the first three excited states with spin $J=\frac{1}{2}^+$, $\frac{3}{2}^+$, and $\frac{7}{2}^+$, respectively, and excitation energies $\Delta E_\mathrm{nuc}=0.844$ MeV, $1.015$ MeV, and $2.212$ MeV. The design goal of the Mu2e experiment is to reconstruct the energy of the outgoing electron with full width at half maximum (FWHM) resolution $\approx 900$ KeV/c for electrons near the end of the spectrum. To assess the size of the decay-in-orbit background relevant to each transition, we have marked resolution windows around the electron energy of $\mu\rightarrow e$ conversion which proceeds to each of the four final states. 
@@ -3679,7 +3679,15 @@ where $f(r)$ is any (well-behaved) scalar function. Conversely, the ordinary sph
 \begin{split}
 \vec{\nabla}\cdot\left(f(r)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})\right)&=-\sqrt{\frac{\ell+1}{2\ell+1}}\left(\frac{d}{dr}+\frac{\ell+2}{r}\right)f(r)Y_{\ell\;M}(\hat{r})\\
 \vec{\nabla}\cdot\left(f(r)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)&=0,\;\mathrm{for\;any}\;f(r)\\
-\vec{\nabla}\cdot\left(f(r)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})\right)&=\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}-\frac{\ell-1}{r}\right)f(r)\;Y_{\ell\;M}(\hat{r}).
+\vec{\nabla}\cdot\left(f(r)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})\right)&=\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}-\frac{\ell-1}{r}\right)f(r)\;Y_{\ell\;M}(\hat{r}),
+\end{split}
+\end{equation}
+as well as the unit vector 
+\begin{equation}
+\begin{split}
+\hat{r}\cdot\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})&=-\sqrt{\frac{\ell+1}{2\ell+1}}Y_{\ell\;M}(\hat{r})\\
+\hat{r}\cdot\vec{Y}_{\ell\;\ell\;M}(\hat{r})&=0\\
+\hat{r}\cdot\vec{Y}_{\ell;\ell-1\;M}(\hat{r})&=\sqrt{\frac{\ell}{2\ell+1}}Y_{\ell\;M}(\hat{r}).
 \end{split}
 \end{equation}
 Finally, as the curl operator $\vec{\nabla}\times$ maps vector fields to vector fields, so it relates the vector spherical harmonics
@@ -3688,6 +3696,14 @@ Finally, as the curl operator $\vec{\nabla}\times$ maps vector fields to vector 
 \vec{\nabla}\times\left(f(r)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})\right)&=i\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}+\frac{\ell+2}{r}\right)f(r)\vec{Y}_{\ell\;\ell\;M}(\hat{r}),\\
 \vec{\nabla}\times\left(f(r)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)&=i\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}-\frac{\ell}{r}\right)f(r)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})+i\sqrt{\frac{\ell+1}{2\ell+1}}\left(\frac{d}{dr}+\frac{\ell+1}{r}\right)f(r)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r}),\\
 \vec{\nabla}\times\left(f(r)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})\right)&=i\sqrt{\frac{\ell+1}{2\ell+1}}\left(\frac{d}{dr}-\frac{\ell-1}{r}\right)f(r)\vec{Y}_{\ell\;\ell\;M}(\hat{r}).
+\end{split}
+\end{equation}
+Similarly, 
+\begin{equation}
+\begin{split}
+\hat{r}\times\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})&=i\sqrt{\frac{\ell}{2\ell+1}}\vec{Y}_{\ell\;\ell\;M}(\hat{r})\\
+\hat{r}\times\vec{Y}_{\ell\;\ell\;M}(\hat{r})&=i\sqrt{\frac{\ell+1}{2\ell+1}}\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})+i\sqrt{\frac{\ell}{2\ell+1}}\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})\\
+\hat{r}\times\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})&=i\sqrt{\frac{\ell+1}{2\ell+1}}\vec{Y}_{\ell\;\ell\;M}(\hat{r}).
 \end{split}
 \end{equation}
 In this work, we often find that the scalar function is the regular spherical Bessel function of order $J$, $f(r)=j_\ell(qr)$. Then it is useful to know the raising and lowering operators for the spherical Bessel functions
