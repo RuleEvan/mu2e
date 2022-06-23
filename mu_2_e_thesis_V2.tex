@@ -2024,9 +2024,9 @@ l^{\tau}_{0f}(\hat{x}_i)&\equiv b_2^{\tau}i\hat{q}\cdot\hat{x}_i+b_3^{\tau}i\hat
 \begin{split}
 &\mathcal{M}=\sqrt{\frac{E_e}{2m_e}}\frac{q_\mathrm{eff}}{q}\sum_{\tau=0,1}\bra{\frac{1}{2}s_f;j_Nm_f}\\
 &\Bigg[\sum_{J=0,2,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\left(l_0^{\tau}M^g_{J0;\tau}(q_\mathrm{eff})-il_0^{\tau(2)}M_{J0;\tau}^{(2)f}(q_\mathrm{eff})+\frac{q_\mathrm{eff}}{m_N}l_{E0}^{\tau}\Phi^{''g}_{J0;\tau}(q_\mathrm{eff})\right)\\
-&+\sum_{J=1,3,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(-il_{5\lambda}^{\tau}\Sigma^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(0)}_{5\lambda}\Sigma^{'(0)}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(2)}_{5\lambda}\Sigma'_{J-\lambda;\tau}(q_\mathrm{eff})\right.\\
+&+\sum_{J=1,3,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(-il_{5\lambda}^{\tau}\Sigma^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(0)}_{5\lambda}\Sigma^{'(0)f}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(2)}_{5\lambda}\Sigma^{'(2)f}_{J-\lambda;\tau}(q_\mathrm{eff})\right.\\
 &\left.\hspace*{5.5cm}+i\frac{q_\mathrm{eff}}{m_N}l^{\tau}_{M\lambda}\lambda\Delta^g_{J-\lambda;\tau}(q_\mathrm{eff})\right]\\
-&+\sum_{J=2,4,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(-il_5^{\tau(1)}M_{J-\lambda;\tau}^{(1)f}(q_\mathrm{eff})-\frac{q_\mathrm{eff}}{m_N}l_{E\lambda}^{\tau}\tilde{\Phi}^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})\right)\\
+&+\sum_{J=2,4,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(-il_\lambda^{\tau(1)}M_{J-\lambda;\tau}^{(1)f}(q_\mathrm{eff})-\frac{q_\mathrm{eff}}{m_N}l_{E\lambda}^{\tau}\tilde{\Phi}^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})\right)\\
 &+\sum_{J=1,3,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\left(il_{50}^{\tau}\Sigma^{''g}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(0)}\Sigma^{''(0)f}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(2)}\Sigma^{''(2)f}_{J0;\tau}(q_\mathrm{eff})\right)\Bigg]\ket{\frac{1}{2}s_i;j_Nm_i}
 \end{split}
 \end{equation}
@@ -2066,6 +2066,81 @@ we find that harmonic oscillator matrix elements of the lower component response
 as
 \begin{equation}
 \braket{n'\left(\ell'\;1/2\right)j'||T_J(q\vec{r})||n\left(\ell\;1/2\right)j}=\frac{1}{\sqrt{4\pi}}y^{(J-K)/2}e^{-y}p(y)
+\end{equation}
+{
+\allowdisplaybreaks
+\begin{align*}
+&\frac{1}{2j_N+1}\sum_{m_f,m_i}|\braket{\frac{1}{2}s_f;j_Nm_f|\mathcal{M}|\frac{1}{2}s_i;j_Nm_i}|^2=\frac{E_e}{2m_e}\frac{q_\mathrm{eff}^2}{q^2}\frac{4\pi}{2j_N+1}\sum_{\tau=0,1}\sum_{\tau'=0,1}\\
+&\Bigg\{\sum_{J=0,2,...}^{\infty}\Bigg(\braket{l_0^{\tau}}\braket{l_0^{\tau'}}^*\braket{j_N||M^g_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^g_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+2\;\mathrm{Re}\left[i\braket{l_0^{\tau}}\braket{l_0^{\tau'(2)}}^*\right]\braket{j_N||M^g_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\braket{l_0^{\tau(2)}}\braket{l_0^{\tau'(2)}}^*\braket{j_N||M^{(2)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\frac{\vec{q}_\mathrm{eff}}{m_N}\cdot\braket{\vec{l}_E^{\tau}}\frac{\vec{q}_\mathrm{eff}}{m_N}\cdot\braket{\vec{l}_E^{\tau'}}^*\braket{j_N||\Phi^{''g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Phi^{''g}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\frac{2\vec{q}_\mathrm{eff}}{m_N}\cdot\mathrm{Re}\left[i\braket{\vec{l}_E^{\tau}}\braket{l_0^{\tau'}}^*\right]\braket{j_N||\Phi^{''g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{g}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\frac{2\vec{q}_\mathrm{eff}}{m_N}\cdot\mathrm{Re}\left[i\braket{\vec{l}_E^{\tau}}\braket{l_0^{\tau'(2)}}^*\right]\braket{j_N||\Phi^{''g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\Bigg)\\
+&+\sum_{J=2,4,...}\Bigg(\frac{1}{2}\left(\frac{q^2_\mathrm{eff}}{m_N}\braket{\vec{l}_E^{\tau}}\cdot\braket{\vec{l}_E^{\tau'}}^*-\frac{\vec{q}_\mathrm{eff}}{m_N}\cdot\braket{\vec{l}_E^{\tau}}\frac{\vec{q}_\mathrm{eff}}{m_N}\cdot\braket{\vec{l}_E^{\tau'}}^*\right)\braket{j_N||\tilde{\Phi}^{'g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\tilde{\Phi}^{'g}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\frac{1}{2}\left(\braket{\vec{l}^{\tau(1)}}\cdot\braket{\vec{l}^{\tau'(1)}}^*-\hat{q}\cdot\braket{\vec{l}^{\tau(1)}}\hat{q}\cdot\braket{\vec{l}^{\tau'(1)}}^*\right)\braket{j_N||M^{(1)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(1)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&-\mathrm{Re}\left[\frac{q_\mathrm{eff}}{m_N}i\braket{\vec{l}_E^{\tau}}\cdot\braket{\vec{l}^{\tau'(1)}}^*-\frac{\vec{q}_\mathrm{eff}}{m_N}\cdot i\braket{\vec{l}_E^{\tau}}\hat{q}\cdot\braket{\vec{l}^{\tau'(1)}}^*\right]\braket{j_N||\tilde{\Phi}^{'g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(1)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\Bigg)\\
+&+\sum_{J=1,3,...}^{\infty}\Bigg(\frac{1}{2}\left(\braket{\vec{l}_5^{\tau}}\cdot\braket{\vec{l}_5^{\tau'}}^*-\hat{q}\cdot\braket{\vec{l}_5^{\tau}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'}}^*\right)\braket{j_N||\Sigma^{'g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'g}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\frac{1}{2}\left(\braket{\vec{l}_5^{\tau(0)}}\cdot\braket{\vec{l}_5^{\tau'(0)}}^*-\hat{q}\cdot\braket{\vec{l}_5^{\tau(0)}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'(0)}}^*\right)\braket{j_N||\Sigma^{'(0)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'(0)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\tag{\stepcounter{equation}\theequation}\\
+&+\frac{1}{2}\left(\braket{\vec{l}_5^{\tau(2)}}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*-\hat{q}\cdot\braket{\vec{l}_5^{\tau(2)}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*\right)\braket{j_N||\Sigma^{'(2)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&-\mathrm{Re}\left[\braket{\vec{l}_5^{\tau}}\cdot i\braket{\vec{l}_5^{\tau'(0)}}^*-\hat{q}\cdot\braket{\vec{l}_5^{\tau}}i\hat{q}\cdot\braket{\vec{l}_5^{\tau'(0)}}^*\right]\braket{j_N||\Sigma^{'g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'(0)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&-\mathrm{Re}\left[\braket{\vec{l}_5^{\tau}}\cdot i\braket{\vec{l}_5^{\tau'(2)}}^*-\hat{q}\cdot\braket{\vec{l}_5^{\tau}}i\hat{q}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*\right]\braket{j_N||\Sigma^{'g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\mathrm{Re}\left[\braket{\vec{l}_5^{(0)\tau}}\cdot \braket{\vec{l}_5^{\tau'(2)}}^*-\hat{q}\cdot\braket{\vec{l}_5^{\tau(0)}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*\right]\braket{j_N||\Sigma^{'(0)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\frac{1}{2}\left(\frac{q^2_\mathrm{eff}}{m_N^2}\braket{\vec{l}_M^{\tau}}\cdot\braket{\vec{l}_M^{\tau'}}^*-\frac{\vec{q}_\mathrm{eff}}{m_N}\cdot\braket{\vec{l}^{\tau}_M}\frac{\vec{q}_\mathrm{eff}}{m_N}\cdot\braket{\vec{l}^{\tau'}_M}^*\right)\braket{j_N||\Delta^{g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Delta^{g}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\frac{\vec{q}_\mathrm{eff}}{m_N}\cdot\mathrm{Re}\left[i\braket{\vec{l}_M^{\tau}}\times\braket{\vec{l}_5^{\tau'}}^*\right]\braket{j_N||\Delta^{g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'g}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\frac{\vec{q}_\mathrm{eff}}{m_N}\cdot\mathrm{Re}\left[\braket{\vec{l}_M^{\tau}}\times\braket{\vec{l}_5^{\tau'(0)}}^*\right]\braket{j_N||\Delta^{g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'(0)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\frac{\vec{q}_\mathrm{eff}}{m_N}\cdot\mathrm{Re}\left[\braket{\vec{l}_M^{\tau}}\times\braket{\vec{l}_5^{\tau'(2)}}^*\right]\braket{j_N||\Delta^{g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\hat{q}\cdot\braket{\vec{l}_5^{\tau}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'}}^*\braket{j_N||\Sigma^{''g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''g}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\hat{q}\cdot\braket{\vec{l}_5^{\tau(0)}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'(0)}}^*\braket{j_N||\Sigma^{''(0)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(0)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+\hat{q}\cdot\braket{\vec{l}_5^{\tau(2)}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*\braket{j_N||\Sigma^{''(2)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+2\;\mathrm{Re}\left[\hat{q}\cdot\braket{\vec{l}_5^{\tau}}i\hat{q}\cdot\braket{\vec{l}_5^{\tau'(0)}}^*\right]\braket{j_N||\Sigma^{''g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(0)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+2\;\mathrm{Re}\left[\hat{q}\cdot\braket{\vec{l}_5^{\tau}}i\hat{q}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*\right]\braket{j_N||\Sigma^{''g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+&+2\;\mathrm{Re}\left[\hat{q}\cdot\braket{\vec{l}_5^{\tau(0)}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*\right]\braket{j_N||\Sigma^{''(0)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\Bigg)\Bigg\}
+\end{align*}
+}
+We express the final decay rate by their dependence on the muon lower component
+\begin{equation}
+\Gamma(\mu\rightarrow e)=\Gamma^{(0)}+2\frac{\braket{f}}{\braket{g}}\Gamma^{(1)}+\left(\frac{\braket{f}}{\braket{g}}\right)^2\Gamma^{(2)}
+\end{equation}
+The factor of two in the first-order corresponds stems from the fact that these are interference terms.
+
+Defining the leptonic tensors
+\begin{equation}
+\begin{split}
+R_{MM^{(2)}}&\equiv \mathrm{Im}\left[c_1^{\tau}b_2^{\tau'*}-c_{11}^{\tau}b_7^{\tau'*}\right]\\
+R_{\Sigma\Sigma^{'(0)}}&\equiv \mathrm{Im}\left[c_4^{\tau}b_{14}^{\tau'*}+c_9^{\tau}(-b_{12}^{\tau'*}+b_{15}^{\tau'*})\right]\\
+R_{\Sigma\Sigma^{'(2)}}&\equiv \mathrm{Im}\left[c_4^{\tau}(-b_{13}^{\tau'*}+b_{14}^{\tau'*})+c_9^{\tau}b_{15}^{\tau'*}\right]\\
+R_{\Sigma''\Sigma^{''(0)}}&\equiv \mathrm{Im}\left[(c_6^{\tau}-c_4^{\tau})b_{13}^{\tau'*}-c_{10}^{\tau}b_8^{\tau'*}\right]\\
+R_{\Sigma''\Sigma^{''(2)}}&\equiv\mathrm{Im}\left[(c_6^{\tau}-c_4^{\tau})(b_{13}^{\tau'*}-b_{14}^{\tau'*})+c_{10}^{\tau}b_{16}^{\tau'*}\right]\\
+R_{\Delta\Sigma^{'(0)}}&\equiv \mathrm{Im}\left[c_5^{\tau}b_{14}^{\tau'*}+c_8^{\tau}(-b_{12}^{\tau'*}+b_{15}^{\tau'*})\right]\\
+R_{\Delta\Sigma^{'(2)}}&\equiv \mathrm{Im}\left[c_5^{\tau}(-b_{13}^{\tau'*}+b_{14}^{\tau'*})+c_8^{\tau}b_{15}^{\tau'*}\right]\\
+R_{\tilde{\Phi}'M^{(1)}}&\equiv \mathrm{Im}\left[c_{12}^{\tau}b_7^{\tau'*}-c_{13}^{\tau}b_3^{\tau'*}\right]\\
+R_{\Phi''M^{(2)}}&\equiv \mathrm{Im}\left[-c_3^{\tau}b_2^{\tau'*}+(-c_{12}^{\tau}+c_{15}^{\tau})b_7^{\tau'*}\right]
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+\Gamma^{(1)}=\frac{G_F^2}{\pi}\frac{q_\mathrm{eff}^2}{1+\frac{q}{M_T}}|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|^2\sum_{\tau=0,1}\sum_{\tau'=0,1}&\Bigg\{\tilde{R}_{MM^{(2)}}^{\tau\tau'}W_{MM^{(2)}}^{\tau\tau'}(q_\mathrm{eff})\\
+&+\tilde{R}_{\Sigma'\Sigma^{'(0)}}^{\tau\tau'}W_{\Sigma'\Sigma^{'(0)}}^{\tau\tau'}+\tilde{R}_{\Sigma'\Sigma^{'(2)}}^{\tau\tau'}W_{\Sigma'\Sigma^{'(2)}}^{\tau\tau'}\\
+&+\tilde{R}_{\Sigma''\Sigma^{''(0)}}^{\tau\tau'}W_{\Sigma''\Sigma^{''(0)}}^{\tau\tau'}+\tilde{R}_{\Sigma''\Sigma^{''(2)}}^{\tau\tau'}W_{\Sigma''\Sigma^{''(2)}}^{\tau\tau'}\\
+&+\frac{q_\mathrm{eff}}{m_N}\left[\tilde{R}_{\Delta\Sigma^{'(0)}}^{\tau\tau'}W_{\Delta\Sigma^{'(0)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Delta\Sigma^{'(2)}}^{\tau\tau'}W_{\Delta\Sigma^{'(2)}}^{\tau\tau'}(q_\mathrm{eff})\right]\\
+&+\frac{q_\mathrm{eff}}{m_N}\left[\tilde{R}_{\Phi''M^{(2)}}^{\tau\tau'}W_{\Phi''M^{(2)}}(q_\mathrm{eff})+\tilde{R}_{\tilde{\Phi}'M^{(1)}}^{\tau\tau'}W_{\tilde{\Phi}'M^{(1)}}^{\tau\tau'}(q_\mathrm{eff})\right]\Bigg\}\\
+\end{split}
+\end{equation}
+
+
+\begin{equation}
+\begin{split}
+R_{M^{(1)}}&\equiv b_3^{\tau}b_3^{\tau'*}+b_7^{\tau}b_7^{\tau'*}\\
+R_{M^{(2)}}&\equiv b_2^{\tau}b_2^{\tau'*}+b_7^{\tau}b_7^{\tau'*}\\
+R_{\Sigma^{''(0)}}&\equiv b_8^{\tau}b_8^{\tau'*}+b_{13}^{\tau}b_{13}^{\tau'*}\\
+R_{\Sigma^{''(2)}}&\equiv (b_{13}^{\tau}-b_{14}^{\tau})(b_{13}^{\tau'*}-b_{14}^{\tau'*})+b_{16}^{\tau}b_{16}^{\tau'*}\\
+R_{\Sigma^{'(0)}}&\equiv (-b_{12}^{\tau}+b_{15}^{\tau})(-b_{12}^{\tau'*}+b_{15}^{\tau'*})+b_{14}^{\tau}b_{14}^{\tau'*}\\
+R_{\Sigma^{'(2)}}&\equiv (-b_{13}^{\tau}+b_{14}^{\tau})(-b_{13}^{\tau'*}+b_{14}^{\tau'*})+b_{15}^{\tau}b_{15}^{\tau'*}\\
+R_{\Sigma^{''(0)}\Sigma^{''(2)}}&\equiv \mathrm{Re}\left[b_8^{\tau}b_{16}^{\tau'*}+b_{13}^{\tau}(b_{13}^{\tau'*}-b_{14}^{\tau'*})\right]\\
+R_{\Sigma^{'(0)}\Sigma^{'(2)}}&\equiv \mathrm{Re}\left[(-b_{12}^{\tau}+b_{15}^{\tau})b_{15}^{\tau'*}+b_{14}^{\tau}(-b_{13}^{\tau'*}+b_{14}^{\tau'*})\right]
+\end{split}
 \end{equation}
 %\begin{table}
 %\centering
@@ -3329,16 +3404,16 @@ We see that all eleven nuclear response functions, and various interference term
 where the R's are given by
 \begin{equation}
 \begin{split}
-R_M^{\tau\tau'}&\equiv c_1^{\tau}c_1^{\tau'}+c_{11}^{\tau}c_{11}^{\tau'}\\
-R_{\Phi''}^{\tau\tau'}&\equiv c_3^{\tau}c_3^{\tau'}+(c_{12}^{\tau}-c_{15}^{\tau})(c_{12}^{\tau'}-c_{15}^{\tau'})\\
-R_{\tilde{\Delta}''}^{\tau\tau'}&\equiv c_2^{\tau}c_2^{\tau'}+(c_8^{\tau}-c_{16}^{\tau})(c_8^{\tau'}-c_{16}^{\tau'})\\
-R_{\Sigma''}^{\tau\tau'}&\equiv(c_4^{\tau}-c_6^{\tau})(c_4^{\tau'}-c_6^{\tau'})+c_{10}^{\tau}c_{10}^{\tau'}\\
-R_{\tilde{\Omega}}^{\tau,\tau'}&\equiv c_7^{\tau}c_7^{\tau'}+c_{14}^{\tau}c_{14}^{\tau'}\\
-R_{\tilde{\Phi}}^{\tau\tau'}=R_{\tilde{\Phi}'}^{\tau\tau'}&\equiv c_{12}^{\tau}c_{12}^{\tau'}+c_{13}^{\tau}c_{13}^{\tau'}\\
-R_{\Sigma}^{\tau\tau'}=R_{\Sigma'}^{\tau\tau'}&\equiv c_4^{\tau}c_4^{\tau'}+c_9^{\tau}c_9^{\tau'}\\
-R_{\Delta}^{\tau\tau'}=R_{\Delta'}^{\tau\tau'}&\equiv c_5^{\tau}c_5^{\tau'}+c_8^{\tau}c_8^{\tau'}\\
-R_{\Phi''M}^{\tau\tau'}&\equiv c_3^{\tau}c_1^{\tau'}-(c_{12}^{\tau}-c_{15}^{\tau})c_{11}^{\tau'}\\
-R_{\Delta'\Sigma}^{\tau\tau'}=R_{\Delta\Sigma'}^{\tau\tau'}&\equiv c_5^{\tau}c_4^{\tau'}+c_8^{\tau}c_9^{\tau'}.\\
+R_M^{\tau\tau'}&\equiv c_1^{\tau}c_1^{\tau'*}+c_{11}^{\tau}c_{11}^{\tau'*}\\
+R_{\Phi''}^{\tau\tau'*}&\equiv c_3^{\tau}c_3^{\tau'*}+(c_{12}^{\tau}-c_{15}^{\tau})(c_{12}^{\tau'*}-c_{15}^{\tau'*})\\
+R_{\tilde{\Delta}''}^{\tau\tau'}&\equiv c_2^{\tau}c_2^{\tau'*}+(c_8^{\tau}-c_{16}^{\tau})(c_8^{\tau'*}-c_{16}^{\tau'*})\\
+R_{\Sigma''}^{\tau\tau'}&\equiv(c_4^{\tau}-c_6^{\tau})(c_4^{\tau'*}-c_6^{\tau'*})+c_{10}^{\tau}c_{10}^{\tau'*}\\
+R_{\tilde{\Omega}}^{\tau,\tau'}&\equiv c_7^{\tau}c_7^{\tau'*}+c_{14}^{\tau}c_{14}^{\tau'*}\\
+R_{\tilde{\Phi}}^{\tau\tau'}=R_{\tilde{\Phi}'}^{\tau\tau'}&\equiv c_{12}^{\tau}c_{12}^{\tau'*}+c_{13}^{\tau}c_{13}^{\tau'*}\\
+R_{\Sigma}^{\tau\tau'}=R_{\Sigma'}^{\tau\tau'}&\equiv c_4^{\tau}c_4^{\tau'*}+c_9^{\tau}c_9^{\tau'*}\\
+R_{\Delta}^{\tau\tau'}=R_{\Delta'}^{\tau\tau'}&\equiv c_5^{\tau}c_5^{\tau'*}+c_8^{\tau}c_8^{\tau'*}\\
+R_{\Phi''M}^{\tau\tau'}&\equiv \mathrm{Re}\left[c_3^{\tau}c_1^{\tau'*}-(c_{12}^{\tau}-c_{15}^{\tau})c_{11}^{\tau'*}\right]\\
+R_{\Delta'\Sigma}^{\tau\tau'}=R_{\Delta\Sigma'}^{\tau\tau'}&\equiv \mathrm{Re}\left[c_5^{\tau}c_4^{\tau'*}+c_8^{\tau}c_9^{\tau'*}\right].\\
 \end{split}
 \end{equation}
 Therefore, we identify 10 unique CLFV response functions, allowing one to probe 10 independent linear combinations of the underlying LECs, compared to 8 independent linear combinations probed by the elastic process. The transverse-electric and transverse-magnetic projections of a given current are always paired with the same leptonic response. As a result, the addition of the nuclear responses $\Sigma$, $\tilde{\Phi}$, and $\Delta'$, which were excluded from the elastic process, does not actually lead to further constraints on CLFV operators. The novel responses that do extend the utility of the effective theory are the axial charge $\tilde{\Omega}$ and the longitudinal projection of the convection current $\tilde{\Delta}''$. Together, these responses provide sensitivity to the four LECs to which the elastic theory is blind: $c_2$, $c_7$, $c_{14}$, and $c_{16}$.
@@ -3346,11 +3421,11 @@ Therefore, we identify 10 unique CLFV response functions, allowing one to probe 
 Seven of the possible interference terms do not appear in Eq. \ref{eq:full_inelastic_prob}. As we have assumed that the nuclear wave function conserves CP, these seven terms involve leptonic responses that are odd under time-reversal; that is, the $R$ functions are non-vanishing only if the CLFV LECs have an imaginary component, which is forbidden by hermiticity. Therefore the following terms are zero
 \begin{equation}
 \begin{split}
-R_{\tilde{\Delta}''M}^{\tau\tau'}&\equiv\mathrm{Im}\left[-c_2^{\tau}c_1^{\tau'}+(c_8^{\tau}-c_{16}^{\tau})c_{11}^{\tau'}\right]=0\\
-R_{\Phi''\tilde{\Delta}''}^{\tau\tau'}&\equiv\mathrm{Im}\left[-c_3^{\tau}c_2^{\tau'}-(c_{12}^{\tau}-c_{15}^{\tau})(c_8^{\tau'}-c_{16}^{\tau'})\right]=0\\
-R_{\Sigma''\tilde{\Omega}}^{\tau\tau'}&\equiv\mathrm{Im}\left[(c_4^{\tau}-c_6^{\tau})c_{14}^{\tau'}-c_{10}^{\tau}c_7^{\tau'}\right]=0\\
-R_{\Delta\tilde{\Phi}}^{\tau\tau'}=R_{\Delta'\tilde{\Phi}'}^{\tau\tau'}&\equiv\mathrm{Im}\left[-\left(c_5^{\tau}c_{13}^{\tau'}+c_8^{\tau}c_{12}^{\tau'}\right)\right]=0\\
-R_{\Sigma'\tilde{\Phi}}^{\tau\tau'}=R_{\Sigma\tilde{\Phi}'}^{\tau\tau'}&\equiv\mathrm{Im}\left[-\left(c_4^{\tau}c_{13}^{\tau'}+c_9^{\tau}c_{12}^{\tau'}\right)\right]=0.
+R_{\tilde{\Delta}''M}^{\tau\tau'}&\equiv\mathrm{Im}\left[-c_2^{\tau}c_1^{\tau'*}+(c_8^{\tau}-c_{16}^{\tau})c_{11}^{\tau'*}\right]\\
+R_{\Phi''\tilde{\Delta}''}^{\tau\tau'}&\equiv\mathrm{Im}\left[-c_3^{\tau}c_2^{\tau'*}-(c_{12}^{\tau}-c_{15}^{\tau})(c_8^{\tau'*}-c_{16}^{\tau'*})\right]\\
+R_{\Sigma''\tilde{\Omega}}^{\tau\tau'}&\equiv\mathrm{Im}\left[(c_4^{\tau}-c_6^{\tau})c_{14}^{\tau'*}-c_{10}^{\tau}c_7^{\tau'*}\right]\\
+R_{\Delta\tilde{\Phi}}^{\tau\tau'}=R_{\Delta'\tilde{\Phi}'}^{\tau\tau'}&\equiv\mathrm{Im}\left[-\left(c_5^{\tau}c_{13}^{\tau'*}+c_8^{\tau}c_{12}^{\tau'*}\right)\right]\\
+R_{\Sigma'\tilde{\Phi}}^{\tau\tau'}=R_{\Sigma\tilde{\Phi}'}^{\tau\tau'}&\equiv\mathrm{Im}\left[-\left(c_4^{\tau}c_{13}^{\tau'*}+c_9^{\tau}c_{12}^{\tau'*}\right)\right].
 \end{split}
 \end{equation}
 
