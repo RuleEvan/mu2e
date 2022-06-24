@@ -8,7 +8,9 @@
 \usepackage{tikz}
 \usepackage{tikz-cd}
 \usepackage{slashed}
-\usepackage[numbers]{natbib}
+%\usepackage[numbers]{natbib}
+\usepackage[style=phys,backend=bibtex]{biblatex}
+\addbibresource{../../bib_erule.bib}
 \usepackage{subfig}
 \usepackage{hyperref}
 \newcommand{\prc}{Phys. Rev. C}
@@ -183,7 +185,7 @@ which conserves total lepton number but violates lepton flavor  by converting a 
 \begin{equation}
 B(\mu^-+(A,Z)\rightarrow e^- + (A,Z))\equiv\frac{\Gamma(\mu^-+(A,Z)\rightarrow e^-+(A,Z))}{\Gamma(\mu^-+(A,Z)\rightarrow\nu_{\mu}+A(Z-1,N+1))},
 \end{equation}
-where the numerator is the rate for the CLFV conversion process, and the denominator is the rate of standard muon capture. The current best limit on this branching ratio is $B(\mu\rightarrow e)<7\times 10^{-13}$ (90\% confidence level), set by the SINDRUM-II collaboration \citep{Bertl2006} using Au as the target nucleus. The next generation of experiments, Mu2e at Fermilab \citep{Bernstein_2019} and the COherent Muon to Electron Transition (COMET) experiment \citep{10.3389/fphy.2018.00133} at Japan Proton Research Complex (J-PARC), are expected to improve this limit by four orders of magnitude, potentially probing new physics scales up to $10^4$ TeV. Both of these experiments have chosen $^{27}$Al as the target nucleus, and in this work we will frequently specialize to this case. Beyond the initial run, it is a high priority for both experiments to explore different target nuclei. An upgrade of the Mu2e experiment has recently been proposed that aims to progress the sensitivity by a further order of magnitude \cite{Mu2e:2018osu}.
+where the numerator is the rate for the CLFV conversion process, and the denominator is the rate of standard muon capture. The current best limit on this branching ratio is $B(\mu\rightarrow e)<7\times 10^{-13}$ (90\% confidence level), set by the SINDRUM-II collaboration \cite{Bertl2006} using Au as the target nucleus. The next generation of experiments, Mu2e at Fermilab \cite{Bernstein_2019} and the COherent Muon to Electron Transition (COMET) experiment \cite{10.3389/fphy.2018.00133} at Japan Proton Research Complex (J-PARC), are expected to improve this limit by four orders of magnitude, potentially probing new physics scales up to $10^4$ TeV. Both of these experiments have chosen $^{27}$Al as the target nucleus, and in this work we will frequently specialize to this case. Beyond the initial run, it is a high priority for both experiments to explore different target nuclei. An upgrade of the Mu2e experiment has recently been proposed that aims to progress the sensitivity by a further order of magnitude \cite{Mu2e:2018osu}.
 
 Significant advances in the sensitivity of searches for $\mu\rightarrow e\gamma$ and $\mu\rightarrow 3e$ are also soon expected with the advent, respectively, of the Mu to E Gamma (MEG) II and Mu3e experiments, both located at the Paul Scherrer Institute (PSI). The branching ratios for these two processes are measured relative to the dominant free-muon decay mode; that is
 \begin{equation}
@@ -206,8 +208,8 @@ $\mu^-+^{32}$S $\rightarrow e^-+^{32}$S &$<7 \times 10^{-11}$ & SIN & 1981 & \ci
 $\mu^-+$Pb $\rightarrow e^-+$Pb & $<4.6 \times 10^{-11}$ & SINDRUM II & 1996 & \cite{PhysRevLett.76.200}\\
 $\mu^-+$Ti $\rightarrow e^-+$Ti &$<6.1 \times 10^{-13}$ & SINDRUM II & 1998 & \cite{wintz} \\
 $\mu^-+$Au $\rightarrow e^-+$Au & $<7.0 \times 10^{-13}$ & SINDRUM II & 2006 & \cite{SINDRUMII:2006dvw} \\
-$\mu^+\rightarrow e^+\gamma$ & $<4.2 \times 10^{-13}$ & MEG at PSI & 2016 & \cite{themegcollaboration2016search}\\
-$\mu^+\rightarrow e^+e^-e^+$ & $<1.0 \times 10^{-12}$ & SINDRUM & 1988 & \cite{BELLGARDT19881}\\
+$\mu^+\rightarrow e^+\gamma$ & $<4.2 \times 10^{-13}$ & MEG at PSI & 2016 & \cite{MEG:2016leq}\\
+$\mu^+\rightarrow e^+e^-e^+$ & $<1.0 \times 10^{-12}$ & SINDRUM & 1988 & \cite{SINDRUM:1987nra}\\
 \hline
 \hline
 \end{tabular}
@@ -945,7 +947,7 @@ Bartolotta \& Ramsey-Musolf & 2018 \cite{2018PhRvC..98a5208B} & $^{27}$Al & $M_{
 Cirigliano, Davidson, \& Kuno & 2018 \cite{cirigliano2017} & $^{27}$Al & $M_{0;\tau}\;\Sigma'_{J;\tau}\;\Sigma''_{J;\tau}$ & Plane wave & $|\phi_{1s}^{Z}(\vec{0})|^2$ \\
 Davidson, Kuno, \& Saporta & 2018 \cite{davidson2018} & $^{27}$Al, Ti & $M_{0;\tau}\;\Sigma'_{J;\tau}\;\Sigma''_{J;\tau}$ & Plane wave & $|\phi_{1s}^{Z}(\vec{0})|^2$\\
 Civitarese \& Tarutina$^{\dag}$ & 2019 \cite{PhysRevC.99.065504} & $^{208}$Pb & $M_{0;\tau}$ & Plane wave & $|G(R_N)|^2$ \\
- Heeck, Szafron, \& Uesaka & 2022 \cite{2022arXiv220300702H} & Many & $M_{0;\tau}$ & Dirac & Dirac \\
+ Heeck, Szafron, \& Uesaka & 2022 \cite{Heeck:2022wer} & Many & $M_{0;\tau}$ & Dirac & Dirac \\
 Cirigliano et al. & 2022 \cite{Cirigliano:2022ekw} & $^{27}$Al,$^{48}$Ti,$^{197}$Au,$^{208}$Pb & $M_{0;\tau}$& Dirac & Dirac \\
 \hline
 \hline
@@ -1426,7 +1428,7 @@ Frequently when one performs a multipole decomposition, the expansion converges 
 
 Not only is the dimensionless parameter $y$ large enough to warrant the inclusion of terms beyond the leading multipole, but it turns out that any truncation scheme in $y$ is an uncontrolled approximation. Eq. (\ref{eq:multipole_polynomial}) describes the dependence on $y$ of single-particle matrix elements. As discussed in the previous section, the total nuclear matrix elements can be decomposed into a sum of single-particle matrix elements multiplied by the corresponding one-body density matrix factor. The details of nuclear structure that are encoded in the density matrix determine the overall $y$-dependence of the nuclear response functions $W(y)$ and may significantly enhance or suppress contributions from higher-$J$ multipoles. One frequently-exploited example of this is the coherent enhancement of the isoscalar monopole operator $M_{0;0}$. Let us specialize for the moment to $^{27}$Al. At the level of single-particle matrix elements, one na\"ively expects the quadrupole operator $M_{2;0}$ to be suppressed by $y\approx 0.27$ relative to the monopole. Due to coherent enhancement of the monopole, however, the total nuclear matrix element of $M_{2;0}$ is suppressed by roughly an additional order of magnitude relative to the monopole $\braket{j_N||M_{2;0}(q_\mathrm{eff})||j_N}/\braket{j_N||M_{0;0}(q_\mathrm{eff})||j_N}\approx 0.027$. Thus in the case of coherent conversion, one is justified in retaining only the leading multipole; the resulting error in the $\mu\rightarrow e$ rate is less than $0.1\%$.
 
-The isoscalar charge operator is very much a special case. Let us repeat the previous exercise with the corresponding isovector operators. Now there is no coherent enhancement, and the quadrupole operator $M_{2;1}$ is suppressed by roughly the expected factor of $y$: $\braket{j_N||M_{2;1}(q_\mathrm{eff})||j_N}/\braket{j_N||M_{0;1}(q_\mathrm{eff})||j_N}\approx -0.23$. Truncating the multipole expansion at leading order then introduces a 4.8\% error in the conversion rate. A point of caution should be made in regard to calculations of coherent $\mu\rightarrow e$ conversion in the literature. In many works specialized to coherent conversion (e.g.,\cite{PhysRevD.20.1608,Czarnecki_1998,PhysRevD.66.096002,cirigliano2009,crivellin2017,2018PhRvC..98a5208B,2022arXiv220300702H,Cirigliano:2022ekw}), the isovector operator is retained even though the multipole expansion is truncated at leading order. The neglect of higher multipoles should be justified when the isoscalar component is significant enough to provide a coherent enhancement, for example if the coupling is purely to either protons or neutrons, $(1\pm\tau_3)/2$. However, in cases where the nuclear ground state carries sufficient angular momentum $j_N\geq 1$, one should not trust the result of these calculations when the coupling becomes dominantly isovector, the coherent enhancement diminishes, and higher multipoles become significant.
+The isoscalar charge operator is very much a special case. Let us repeat the previous exercise with the corresponding isovector operators. Now there is no coherent enhancement, and the quadrupole operator $M_{2;1}$ is suppressed by roughly the expected factor of $y$: $\braket{j_N||M_{2;1}(q_\mathrm{eff})||j_N}/\braket{j_N||M_{0;1}(q_\mathrm{eff})||j_N}\approx -0.23$. Truncating the multipole expansion at leading order then introduces a 4.8\% error in the conversion rate. A point of caution should be made in regard to calculations of coherent $\mu\rightarrow e$ conversion in the literature. In many works specialized to coherent conversion (e.g., \cite{PhysRevD.20.1608,Czarnecki_1998,PhysRevD.66.096002,cirigliano2009,crivellin2017,2018PhRvC..98a5208B,Heeck:2022wer,Cirigliano:2022ekw}), the isovector operator is retained even though the multipole expansion is truncated at leading order. The neglect of higher multipoles should be justified when the isoscalar component is significant enough to provide a coherent enhancement, for example if the coupling is purely to either protons or neutrons, $(1\pm\tau_3)/2$. However, in cases where the nuclear ground state carries sufficient angular momentum $j_N\geq 1$, one should not trust the result of these calculations when the coupling becomes dominantly isovector, the coherent enhancement diminishes, and higher multipoles become significant.
 
 The impact of higher order multipoles is also significant for spin-dependent nuclear operators. Among the 11 targets that we focus on in this work, there are three---Na, Al, and Cu---with only odd isotopes, an unpaired proton, and a ground-state angular momentum $j_N\geq \frac{3}{2}$ so that more than one multipole operator contributes to the total response function. Consider the spin-dependent interaction $\mathcal{O}_4=\vec{\sigma}_L\cdot\vec{\sigma}_N$, which generates the $\Sigma'_J$ and $\Sigma''_J$ response functions comprised of odd $J$ multipoles, and suppose that the isospin coupling is $(1+\tau_3)/2$ so that the operator couples only to the unpaired proton. Evaluating the $\mu\rightarrow e$ decay rate first retaining only the leading $J=1$ multipoles and then with all contributing multipoles, we find rate increases of 22.4\% in Na, 4.7\% in Al, and 65.4\% in Cu. In Al, the truncation of the multipole expansion has produced only a modest error in the decay rate whereas in Cu the error is nearly $o(1)$. It is therefore essential that one retain all allowed multipole operators in the general effective theory.
 
@@ -2495,7 +2497,7 @@ $\sigma_{\pi N}$ & $59.1\pm 3.5$ MeV & \cite{hoferichter-2015} \\
 $\sigma_s$ & $41\pm 9$ MeV & \cite{Aoki:2021kgd} \\
 $\dot{\sigma}_s$ & $0.3\pm 0.2$ GeV$^{-1}$ & \cite{hoferichter-2012}\\
 $\epsilon$ & $0.365\pm 0.23$ & \cite{Aoki:2021kgd} \\
-$\delta m_N$ & $2.32\pm 0.17$ MeV & \cite{brantley2016strong} \\
+$\delta m_N$ & $2.32\pm 0.17$ MeV & \cite{Brantley:2016our} \\
 $f_{\pi}$ & $92.2\pm 0.1$ MeV & \cite{Aoki:2021kgd} \\
 $g_A$ & $1.2759\pm 0.0045$ & \cite{UCNA:2010les}\\
 \hline
@@ -3074,7 +3076,7 @@ where the form factors are given by
 \begin{equation}
 F_1(x)\equiv e^{-x}(x-2),\;F_2(x)\equiv e^{-x}(x+1).
 \end{equation}
-This is a familiar result from studies of $0\nu\beta\beta$-decay (e.g. \cite{Pr_zeau_2003}), where the leading long-range contribution is due to two-pion exchange. In that case, however, the three-momentum transfer is small compared to the pion mass, and so it is justified to work in the limit $\vec{q}\rightarrow 0$. In coherent $\mu\rightarrow e$ conversion, $q\approx m_{\mu}$, and we must work at finite q. 
+This is a familiar result from studies of $0\nu\beta\beta$-decay (e.g. \cite{2003PhRvD..68c4016P}), where the leading long-range contribution is due to two-pion exchange. In that case, however, the three-momentum transfer is small compared to the pion mass, and so it is justified to work in the limit $\vec{q}\rightarrow 0$. In coherent $\mu\rightarrow e$ conversion, $q\approx m_{\mu}$, and we must work at finite q. 
 
 If we were to Fourier transform the two-body current in Eq. (\ref{eq:two_body_master}) with respect to the momentum transfer $\vec{q}$
 \begin{equation}
@@ -3589,8 +3591,9 @@ As the ultimate goal of this experimental program is to constrain and/or determi
 
 Having successfully modeled our effective theory of $\mu\rightarrow e$ conversion after its dark matter predecessor, we can begin to think of nuclear effective theory as a general approach, applicable to a variety of problems where the nucleus acts as a low-energy laboratory in which to search for new physics. As nuclear many-body theory progresses to the level of a genuine effective theory with controlled approximations and well-understood uncertainties, we expect that formalisms like the one developed in this work will play a key part in utilizing low-energy measurements to probe physics at energy scales far beyond the reach of direct searches.
 
-\bibliographystyle{unsrtnat}
-\bibliography{../../bib_erule}
+%\bibliographystyle{unsrtnat}
+%\bibliography{../../bib_erule}
+\printbibliography
 
 \appendix
 \chapter{Notation, Definitions and Basic Proofs}
