@@ -987,9 +987,9 @@ $F_0(q_\mathrm{eff})/A$  & 0.561 & 0.501 & 0.459 & 0.428 & 0.397 & 0.082\\
 \chapter{Nuclear Effective Theory}
 \label{chap:nucleon_level_eft}
 \thispagestyle{headings}
-In the previous chapter, we demonstrated that the essential physical behavior of the bound muon and the outgoing electron can be captured by approximate functions that dramatically simplify the description of the leptons in $\mu\rightarrow e$ conversion. In this chapter, our primary focus is the nucleon degrees of freedom. After performing a standard non-relativistic reduction of the nucleon currents, we demonstrate that when these results are combined with the approximate lepton wave functions, a simplified effective theory emerges that is constructed from four basic Hermitian vector operators acting between Pauli spinors. 
+In the previous chapter, we demonstrated that the essential physical behavior of the bound muon and the outgoing electron can be captured by approximate wave functions that dramatically simplify the description of the leptons in $\mu\rightarrow e$ conversion. In this chapter, our primary focus is the nucleon degrees of freedom. After performing a standard non-relativistic reduction of the nucleon currents, we demonstrate that when these results are combined with the approximate lepton wave functions, a simplified effective theory emerges that is built from four basic Hermitian vector operators acting between Pauli spinors. 
 
-The construction of an effective theory involves the enumeration of all operators that respect the chosen symmetries. The complete effective theory basis is generally an infinite set of operators, each with an unknown coupling coefficient. In order for the theory to have predictive power, we must reduce this basis to a finite number of operators by imposing a power-counting scheme, allowing us to identify and retain all operators through a given order in the power-counting. This truncation should translate to a small but systematically improvable (by progressing to higher-order in the power-counting) error in the calculation of observables.
+The construction of an effective theory involves the enumeration of all operators that respect the chosen symmetries. The complete effective theory basis is generally an infinite set of operators, each with an unknown coupling coefficient. In order for the theory to have predictive power, we must reduce this basis to a finite number of operators by imposing a power-counting scheme, allowing us to identify and retain all operators through a given order in the (hopefully) small power-counting parameter(s). This truncation should translate to a modest error in the calculation of observables. In a proper effective theory, the accuracy improves systematically as one progresses to higher-order in the power-counting.
 
 In elastic $\mu\rightarrow e$ conversion, the dimensionless parameters that govern the power-counting are the three velocities: the average single-nucleon velocity $\vec{v}_N$, the muon velocity $\vec{v}_{\mu}$, and the nuclear recoil velocity $\vec{v}_T$. In Section \ref{sec:muon_treatment}, we argued that the muon velocity can be neglected in our initial formulation of the effective theory. For calculations performed in the target rest frame, the center-of-mass velocity of the recoiling nucleus is quite small, $|\vec{v}_T|\approx q/m_T\approx 0.004$ in $^{27}$Al, and therefore this operator can be excluded as well. The average single-nucleon velocity does contribute significantly: Treating $^{27}$Al as a single unpaired $1d_{5/2}$ proton, we find $\sqrt{\braket{\vec{v}_N^{\;2}}}\approx 0.21$. To achieve better than $10$--$20\%$ accuracy in the effective theory, we must construct the operator basis through first order in the nucleon velocity. Beyond first order in $v_N/c$, ambiguities arise in the non-relativistic reduction of the nucleon currents \cite{Serot:1978vj}.
 
@@ -1023,7 +1023,7 @@ Here $\hat{q}$ is the unit vector along the three-momentum transfer to the lepto
 \end{split}
 \label{eq:basis_NRET}
 \end{equation}
-Twelve of the sixteen operators arise from scalar and vector exchanges whereas $\mathcal{O}_3,\mathcal{O}_{12},\mathcal{O}_{13}'$ and $\mathcal{O}_{15}$ arise from higher-spin mediators. The sixteen Pauli-reduced operators can also be obtained from a Lorentz-invariant current reduction (see Section \ref{sec:relativistic}).
+Twelve of the sixteen operators arise from scalar and vector exchanges whereas $\mathcal{O}_3,\mathcal{O}_{12},\mathcal{O}_{13}'$ and $\mathcal{O}_{15}$ arise from higher-spin mediators. The sixteen Pauli-reduced operators can also be obtained from a Lorentz-invariant current reduction (see Section \ref{sec:relativistic}). 
 
 The operators in Eq. (\ref{eq:basis_NRET}) form the basis of our effective theory; that is, we may write our effective Lagrangian density as
 \begin{equation}
@@ -1457,7 +1457,7 @@ The impact of higher order multipoles is also significant for spin-dependent nuc
 %\end{table}
 \section{Form Factors and LEC-independence}
 \label{sec:form_factors}
-The effective theory is constructed from single-nucleon operators and does not contain the pion---or other mesons or baryonic resonances---as an explicit degree of freedom. As the three-momentum-transfer in elastic $\mu\rightarrow e$ conversion satisfies $q=|\vec{q}\,|\approx m_{\mu}\approx m_{\pi}$, pionic contributions to single-nucleon form factors are expected to be significant. On the other hand, these form factors are evaluated at fixed $q^2$, and, as the magnitude of the three-momentum-transfer varies by only a few percent across the light- and medium-mass nuclei of primary interest, the effect of these form factors can be absorbed into the LECs. More generally, the momentum-transfer-squared $q^2$ is an invariant scalar quantity (in the non-relativistic effective theory), and so for every operator $\mathcal{O}$ that is allowed by symmetries, then so is $q^{2n}\mathcal{O}$ for every $n\geq 0$. We can group all such operators using a form factor
+The effective theory is constructed from single-nucleon operators and does not contain the pion, other mesons, or baryonic resonances as explicit degrees of freedom. As the three-momentum-transfer in elastic $\mu\rightarrow e$ conversion satisfies $q=|\vec{q}\,|\approx m_{\mu}\approx m_{\pi}$, pionic contributions to single-nucleon form factors are expected to be significant. On the other hand, these form factors are evaluated at fixed $q^2$, and, as the magnitude of the three-momentum-transfer varies by only a few percent across the light- and medium-mass nuclei of primary interest, the effect of these form factors can be absorbed into the LECs. More generally, the momentum-transfer-squared $q^2$ is an invariant scalar quantity (in the non-relativistic effective theory), and so for every operator $\mathcal{O}$ that is allowed by symmetries, then so is $q^{2n}\mathcal{O}$ for every $n\geq 0$. We can group all such operators using a form factor
 \begin{equation}
 c^{(0)}\mathcal{O}+c^{(2)} q^2\mathcal{O}+c^{(4)}q^4\mathcal{O}+...=F_{\mathcal{O}}\left(\frac{q^2}{M^2}\right)\mathcal{O},
 \end{equation}
@@ -1570,6 +1570,7 @@ $j$ & $\mathcal{L}^j_\mathrm{int}$ & Pauli Reduction & $\sum_ic_i\mathcal{O}_i$\
 % \hline
 %\end{tabular}}
 %\end{table}
+\section{Comparison to Dark Matter Effective Theory}
 \chapter{Nuclear Response Function Properties}
 \label{chap:nuclear_response}
 \thispagestyle{headings}
@@ -1927,7 +1928,7 @@ We reiterate that the scenario discussed here is not general. Although Eq. (\ref
 Finally, if the source of CLFV is such that the charge radius and magnetic dipole couplings are roughly equal $|\tilde{f}_R/\tilde{f}_M|\approx 1$, then we must also consider the possible cancellation in the $\mu\rightarrow e$ conversion rate. Without cancellation, we could observe one of four possible outcomes: (1) detection at MEG II, Mu2e/COMET and Mu3e (2) detection at Mu2e/COMET and Mu3e but not MEG II (3) detection only at Mu3e (4) no detection. If the cancellation is significant, then we don't expect any signal from the conversion experiments Mu2e and COMET. One particularly interesting possibility is that we may observe a CLFV signal at MEG II and Mu3e but not Mu2e/COMET. Such a result could be interpreted as good evidence for the cancellation scenario, though a more general analysis would be warranted.
 \chapter{The Muon Lower Component and Muon Velocity Operator}
 \label{chap:muon_lower}
-In our primary formulation of the nuclear effective theory of $\mu\rightarrow e$ conversion, we argued that for light- and medium-mass nuclei it is an acceptable approximation to neglect contributions proportional to the lower component of the muon wave function. This stands in contrast to many previous authors, who---typically focusing only on the case of coherent conversion---retain the complete numerical Dirac solution for the lower component. In that restricted setting, such a treatment makes it possible to obtain percent-level errors in the prediction for the $\mu\rightarrow e$ conversion rate without unduly complicating the calculation. In general, however, inclusion of the lower component of the muon requires a significant extension of the formalism, and the impact of these relativistic corrections is not as immediate as in the coherent case.  
+In our initial formulation of the nuclear effective theory of $\mu\rightarrow e$ conversion, we argued that for light- and medium-mass nuclei it is an acceptable approximation to neglect contributions proportional to the lower component of the muon wave function. This stands in contrast to many previous authors, who---typically focusing only on the case of coherent conversion---retain the complete numerical Dirac solution for the lower component. In that restricted setting, such a treatment makes it possible to obtain percent-level errors in the prediction for the $\mu\rightarrow e$ conversion rate without unduly complicating the calculation. In general, however, inclusion of the lower component of the muon requires a significant extension of the formalism, and the impact of these relativistic corrections is not as immediate as in the coherent case.  
 
 As we shall demonstrate in this chapter, the lower component of the muon's Dirac wave function is effectively generated by the action of the muon velocity operator $\vec{v}_{\mu}$ on the upper component. Thus, the inclusion of the muon's lower component in the effective theory is (approximately) equivalent to the addition of the muon velocity operator. The effective theory describes the intrinsic interactions that result from removing the center-of-mass motion of the system by a phase space integration [see Eq. (\ref{eq:H_NRET}) and subsequent discussion]. The initial system, assumed to be at rest, is described by $A-1$ inter-nucleon coordinates and one coordinate describing the muon's position relative to the nuclear center-of-mass. Consequently, there are $A-1$ inter-nucleon velocity operators and one muon velocity operator, which, again, is defined relative to the nuclear center-of-mass. From this perspective, the muon velocity operator is not privileged---it is one of $A$ internal bound-state velocities. In fact, one may argue that it is more essential to retain the nucleon velocity operator than that of the muon: In $^{27}$Al, $\sqrt{\braket{v_{\mu}^2}}\approx 0.05$, whereas for a single unpaired $1d_{5/2}$ proton $\sqrt{\braket{v_N^2}}\approx 0.21$. As the electron is ultra-relativistic, the muon's lower component always appears in combination with the upper component and therefore can be considered a correction. On the other hand, depending on the underlying CLFV operators, the $\mu\rightarrow e$ conversion response may be generated at leading order by $\vec{v}_N$. 
 
@@ -2017,9 +2018,24 @@ where the muon's $p$-wave lower component introduces an additional angular depen
 \begin{split}
 l^{\tau}_{0f}(\hat{x}_i)&\equiv b_2^{\tau}i\hat{q}\cdot\hat{x}_i+b_3^{\tau}i\hat{q}\cdot\left[\hat{x}_i\times\vec{\sigma}_L\right]+b_7^{\tau}\hat{x}_i\cdot\vec{\sigma}_L\\
 \vec{l}_{5f}^{\tau}(\hat{x}_i)&\equiv b_5^{\tau}i\hat{q}\times\vec{x}_i+b_8^{\tau}\hat{x}_i+b_{12}^{\tau}\hat{x}_i\times\vec{\sigma}_L+b_{13}^{\tau}i\hat{q}\times\left[\hat{x}_i\times\vec{\sigma}_L\right]\\
-&+b_{14}^{\tau}\hat{x}_i\cdot\vec{\sigma}_Li\hat{q}+b_{15}^{\tau}i\hat{q}\cdot\left[\hat{x}_i\times\vec{\sigma}_L\right]i\hat{q}+b_{16}^{\tau}i\hat{q}\cdot\hat{x}_ii\hat{q}
+&+b_{14}^{\tau}\hat{x}_i\cdot\vec{\sigma}_Li\hat{q}+b_{15}^{\tau}i\hat{q}\cdot\left[\hat{x}_i\times\vec{\sigma}_L\right]i\hat{q}+b_{16}^{\tau}i\hat{q}\cdot\hat{x}_ii\hat{q}.
 \end{split}
 \end{equation}
+When combined with the plane wave factor $\exp(-i\vec{q}_\mathrm{eff}\cdot\vec{x}_i)$, the operator $\hat{x}_i$ restructures the multipole expansion. Indeed, we identify 8 new nuclear operators associated with the muon lower component
+\begin{equation}
+\begin{split}
+M^{(1)}_{JM;\tau}(q)&\equiv \sum_{i=1}^A\sqrt{J(J+1)}\frac{1}{qx_i}j_J(qx_i)Y_{JM}(\hat{x}_i)\;t^{\tau}(i)\\
+M^{(2)}_{JM;\tau}(q)&\equiv \sum_{i=1}^A\frac{d}{dqx_i}j_J(qx_i)Y_{JM}(\hat{x}_i)\;t^{\tau}(i)\\
+\Sigma^{(1)}_{JM;\tau}(q)&\equiv \sum_{i=1}^A\sqrt{J(J+1)}\frac{1}{qx_i}j_J(qx_i)\vec{Y}_{JJM}(\hat{x}_i)\cdot\vec{\sigma}(i)\;t^{\tau}(i)\\
+\Sigma^{(2)}_{JM;\tau}(q)&\equiv \sum_{i=1}^A\frac{d}{dqx_i}j_J(qx_i)\vec{Y}_{JJM}(\hat{x}_i)\cdot\vec{\sigma}(i)\;t^{\tau}(i)\\
+\Sigma^{'(0)}_{JM;\tau}(q)&\equiv \sum_{i=1}^Aj_J(qx_i)\left[\sqrt{\frac{J}{2J+1}}\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J+1}{2J+1}}\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)\\
+\Sigma^{'(2)}_{JM;\tau}(q)&\equiv\sum_{i=1}^A\left[-\sqrt{\frac{J}{2J+1}}\frac{d}{dqx_i}j_{J+1}(qx_i)\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J+1}{2J+1}}\frac{d}{dqx_i}j_{J-1}(qx_i)\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)\\
+\Sigma^{''(0)}_{JM;\tau}(q)&\equiv\sum_{i=1}^Aj_J(qx_i)\left[-\sqrt{\frac{J+1}{2J+1}}\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J}{2J+1}}\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)\\
+\Sigma^{''(2)}_{JM;\tau}(q)&\equiv\sum_{i=1}^A\left[\sqrt{\frac{J+1}{2J+1}}\frac{d}{dqx_i}j_{J+1}(qx_i)\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J}{2J+1}}\frac{d}{dqx_i}j_{J-1}(qx_i)\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)
+\label{eq:response_functions_lower}
+\end{split}
+\end{equation}
+Table \ref{tab:operators_lower} summarizes the properties of the novel responses. Two of these operators, $\Sigma^{(1)}$ and $\Sigma^{(2)}$, have opposite P and T transformation properties and therefore cannot contribute to the elastic conversion process. Consequently, the lower-component operator $\mathcal{O}_5^f$, associated only with the response $\Sigma^{(1)}$, is not probed when the nucleus remains in the ground state. The elastic conversion amplitude can then be expressed as
 \begin{equation}
 \begin{split}
 &\mathcal{M}=\sqrt{\frac{E_e}{2m_e}}\frac{q_\mathrm{eff}}{q}\sum_{\tau=0,1}\bra{\frac{1}{2}s_f;j_Nm_f}\\
@@ -2027,46 +2043,47 @@ l^{\tau}_{0f}(\hat{x}_i)&\equiv b_2^{\tau}i\hat{q}\cdot\hat{x}_i+b_3^{\tau}i\hat
 &+\sum_{J=1,3,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(-il_{5\lambda}^{\tau}\Sigma^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(0)}_{5\lambda}\Sigma^{'(0)f}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(2)}_{5\lambda}\Sigma^{'(2)f}_{J-\lambda;\tau}(q_\mathrm{eff})\right.\\
 &\left.\hspace*{5.5cm}+i\frac{q_\mathrm{eff}}{m_N}l^{\tau}_{M\lambda}\lambda\Delta^g_{J-\lambda;\tau}(q_\mathrm{eff})\right]\\
 &+\sum_{J=2,4,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(-il_\lambda^{\tau(1)}M_{J-\lambda;\tau}^{(1)f}(q_\mathrm{eff})-\frac{q_\mathrm{eff}}{m_N}l_{E\lambda}^{\tau}\tilde{\Phi}^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})\right)\\
-&+\sum_{J=1,3,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\left(il_{50}^{\tau}\Sigma^{''g}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(0)}\Sigma^{''(0)f}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(2)}\Sigma^{''(2)f}_{J0;\tau}(q_\mathrm{eff})\right)\Bigg]\ket{\frac{1}{2}s_i;j_Nm_i}
+&+\sum_{J=1,3,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\left(il_{50}^{\tau}\Sigma^{''g}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(0)}\Sigma^{''(0)f}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(2)}\Sigma^{''(2)f}_{J0;\tau}(q_\mathrm{eff})\right)\Bigg]\ket{\frac{1}{2}s_i;j_Nm_i},
+\label{eq:M_lower}
 \end{split}
 \end{equation}
-We have introduced the notation
+where we have introduced the notation
 \begin{equation}
 \begin{split}
 \hat{O}^g_{JM}(q)&\equiv\sum_{i=1}^A\frac{g(x_i)}{\sqrt{4\pi}}\hat{O}_{JM}(qx_i)\rightarrow |\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|\sum_{i=1}^A\hat{O}_{JM}(qx_i)\\
-\hat{O}^f_{JM}(q)&\equiv\sum_{i=1}^A\frac{f(x_i)}{\sqrt{4\pi}}\hat{O}_{JM}(qx_i)\rightarrow|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|\frac{\braket{f}}{\braket{g}}\sum_{i=1}^A\hat{O}_{JM}(qx_i)
+\hat{O}^f_{JM}(q)&\equiv\sum_{i=1}^A\frac{f(x_i)}{\sqrt{4\pi}}\hat{O}_{JM}(qx_i)\rightarrow|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|\frac{\braket{f}}{\braket{g}}\sum_{i=1}^A\hat{O}_{JM}(qx_i).
 \end{split}
 \end{equation}
+The lower-component leptonic currents in Eq. \ref{eq:M_lower} are
 \begin{equation}
 \begin{split}
 l_{\lambda}^{\tau(1)}&=-i\left(b_3^{\tau}\lambda+b_7^{\tau}\right)\sigma_{L\lambda},\hspace*{3cm} l_0^{\tau(2)}=-b_2^{\tau}+ib_7^{\tau}\sigma_{L0},\\
 l^{\tau(0)}_{5\lambda}&=\left[\lambda\left(-b_{12}^{\tau}+b_{15}^{\tau}\right)+b_{14}^{\tau}\right]\sigma_{L\lambda},\hspace*{1.82cm}l^{\tau(2)}_{5\lambda}=\left[-b_{13}^{\tau}+b_{14}^{\tau}+\lambda b_{15}^{\tau}\right]\sigma_{L\lambda},\\
 l_{50}^{\tau(0)}&=-ib_8^{\tau}+b_{13}^{\tau}\sigma_{L0},\hspace*{3.51cm}l^{\tau(2)}_{50}=\left(b_{13}^{\tau}-b_{14}^{\tau}\right)\sigma_{L0}-ib_{16}^{\tau}.
 \end{split}
-\end{equation}
-We find six new nuclear operators associated with the muon lower component
-\begin{equation}
-\begin{split}
-M^{(1)}_{JM;\tau}(q)&\equiv \sum_{i=1}^A\sqrt{J(J+1)}\frac{1}{qx_i}j_J(qx_i)Y_{JM}(\hat{x}_i)\;t^{\tau}(i)\\
-M^{(2)}_{JM;\tau}(q)&\equiv \sum_{i=1}^A\frac{d}{dqx_i}j_J(qx_i)Y_{JM}(\hat{x}_i)\;t^{\tau}(i)\\
-\Sigma^{'(0)}_{JM;\tau}(q)&\equiv \sum_{i=1}^Aj_J(qx_i)\left[\sqrt{\frac{J}{2J+1}}\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J+1}{2J+1}}\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)\\
-\Sigma^{'(2)}_{JM;\tau}(q)&\equiv\sum_{i=1}^A\left[-\sqrt{\frac{J}{2J+1}}\frac{d}{dqx_i}j_{J+1}(qx_i)\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J+1}{2J+1}}\frac{d}{dqx_i}j_{J-1}(qx_i)\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)\\
-\Sigma^{''(0)}_{JM;\tau}(q)&\equiv\sum_{i=1}^Aj_J(qx_i)\left[-\sqrt{\frac{J+1}{2J+1}}\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J}{2J+1}}\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)\\
-\Sigma^{''(2)}_{JM;\tau}(q)&\equiv\sum_{i=1}^A\left[\sqrt{\frac{J+1}{2J+1}}\frac{d}{dqx_i}j_{J+1}(qx_i)\vec{Y}_{JJ+1M}(\hat{x}_i)+\sqrt{\frac{J}{2J+1}}\frac{d}{dqx_i}j_{J-1}(qx_i)\vec{Y}_{JJ-1M}(\hat{x}_i)\right]\cdot\vec{\sigma}_N(i)\;t^{\tau}(i)
-\end{split}
-\end{equation}
-Using the recurrence relations of the spherical Bessel functions
-\begin{equation}
-\begin{split}
-\frac{2J+1}{z}j_J(z)&=j_{J-1}(z)+j_{J+1}(z),\\
-(2J+1)\frac{d}{dz}j_J(z)&=Jj_{J-1}(z)-(J+1)j_{J+1}(z),
-\end{split}
-\end{equation}
-we find that harmonic oscillator matrix elements of the lower component response functions can be expressed in the usual way
-as
-\begin{equation}
-\braket{n'\left(\ell'\;1/2\right)j'||T_J(q\vec{r})||n\left(\ell\;1/2\right)j}=\frac{1}{\sqrt{4\pi}}y^{(J-K)/2}e^{-y}p(y)
-\end{equation}
+\end{equation}\\
+\begin{table}
+\centering
+{\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{ccccccccc}
+\hline
+\hline
+Operator & Even J & Odd J & LECs Probed &~~~~~& Operator & Even J & Odd J & LECs Probed\\
+\hline
+$M^{(1)}_{JM}$ & E-E & O-O & $b_3,b_7$ & & $M^{(2)}_{JM}$ & E-E & O-O & $b_2,b_7$\\
+$\Sigma^{(1)}_{JM}$ & E-O & O-E & $b_5,b_{12},b_{14},b_{15}$ &  & $\Sigma^{(2)}_{JM}$ & E-O & O-E & $b_{12},b_{13}$\\
+$\Sigma^{'(0)}_{JM}$ & O-O & E-E & $b_{12},b_{14},b_{15}$ & 
+& $\Sigma^{'(2)}_{JM}$ & O-O & E-E & $b_{13},b_{14},b_{15}$\\
+$\Sigma^{''(0)}_{JM}$ & O-O & E-E & $b_8,b_{13}$ & 
+& $\Sigma^{''(2)}_{JM}$ & O-O & E-E & $b_{13},b_{14},b_{16}$\\
+\hline
+\hline
+\end{tabular}
+\caption{Multipole operators associated with the muon's lower component, their transformation properties under parity and time-reversal, and the LECs associated with each response.}
+\label{tab:operators_lower}
+}
+\end{table}
+The nuclear-spin-averaged amplitude squared can be expressed as
 {
 \allowdisplaybreaks
 \begin{align*}
@@ -2095,41 +2112,52 @@ as
 &+\hat{q}\cdot\braket{\vec{l}_5^{\tau(2)}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*\braket{j_N||\Sigma^{''(2)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
 &+2\;\mathrm{Re}\left[\hat{q}\cdot\braket{\vec{l}_5^{\tau}}i\hat{q}\cdot\braket{\vec{l}_5^{\tau'(0)}}^*\right]\braket{j_N||\Sigma^{''g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(0)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
 &+2\;\mathrm{Re}\left[\hat{q}\cdot\braket{\vec{l}_5^{\tau}}i\hat{q}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*\right]\braket{j_N||\Sigma^{''g}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
-&+2\;\mathrm{Re}\left[\hat{q}\cdot\braket{\vec{l}_5^{\tau(0)}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*\right]\braket{j_N||\Sigma^{''(0)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\Bigg)\Bigg\}
+&+2\;\mathrm{Re}\left[\hat{q}\cdot\braket{\vec{l}_5^{\tau(0)}}\hat{q}\cdot\braket{\vec{l}_5^{\tau'(2)}}^*\right]\braket{j_N||\Sigma^{''(0)f}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(2)f}_{J;\tau'}(q_\mathrm{eff})||j_N}\Bigg)\Bigg\}.
+\label{eq:M_sq_lower}
 \end{align*}
 }
-We express the final decay rate by their dependence on the muon lower component
+The next step is to perform the summation over lepton spins and evaluate the resulting traces. The various contributions in Eq. \ref{eq:M_sq_lower} can be differentiated by their dependence on the muon lower component: there are terms that depend only on the upper component (no powers of $f$), terms that represent interference between the upper and lower components (one power of $f$), and terms that depend only on the lower component (two powers of $f$). To make this distinction manifest, we express the final decay rate as
 \begin{equation}
-\Gamma(\mu\rightarrow e)=\Gamma^{(0)}+2\frac{\braket{f}}{\braket{g}}\Gamma^{(1)}+\left(\frac{\braket{f}}{\braket{g}}\right)^2\Gamma^{(2)}
+\Gamma(\mu\rightarrow e)=\Gamma^{(0)}+2\frac{\braket{f}}{\braket{g}}\Gamma^{(1)}+\left(\frac{\braket{f}}{\braket{g}}\right)^2\Gamma^{(2)},
 \end{equation}
-The factor of two in the first-order corresponds stems from the fact that these are interference terms.
+where the factor of 2 in the coefficient of $\Gamma^{(1)}$ reflects the fact that these terms result from interference. The leading term $\Gamma^{(0)}$ is, of course, the result that we previously obtained in Eq. \ref{eq:mu2e_rate}. As we have incorporated the muon velocity (hence the lower component) to first order in the effective theory, we should technically only be concerned with the first-order correction $\Gamma^{(1)}$. However, as we will demonstrate, the form of $\Gamma^{(2)}$, although incomplete from an effective theory perspective, presents a useful crosscheck on the first-order term through the requirement that the theory properly embed into a relativistic framework; that is, the upper and lower components of the muon are constrained by Lorentz invariance to arise only in certain combinations---thereby generating only particular combinations of upper $c_i$ and lower $b_i$ LECs.
 
-Defining the leptonic tensors
+Defining the leptonic response functions
 \begin{equation}
 \begin{split}
 R_{MM^{(2)}}&\equiv \mathrm{Im}\left[c_1^{\tau}b_2^{\tau'*}-c_{11}^{\tau}b_7^{\tau'*}\right]\\
 R_{\Sigma\Sigma^{'(0)}}&\equiv \mathrm{Im}\left[c_4^{\tau}b_{14}^{\tau'*}+c_9^{\tau}(-b_{12}^{\tau'*}+b_{15}^{\tau'*})\right]\\
 R_{\Sigma\Sigma^{'(2)}}&\equiv \mathrm{Im}\left[c_4^{\tau}(-b_{13}^{\tau'*}+b_{14}^{\tau'*})+c_9^{\tau}b_{15}^{\tau'*}\right]\\
-R_{\Sigma''\Sigma^{''(0)}}&\equiv \mathrm{Im}\left[(c_6^{\tau}-c_4^{\tau})b_{13}^{\tau'*}-c_{10}^{\tau}b_8^{\tau'*}\right]\\
+R_{\Sigma''\Sigma^{''(0)}}&\equiv \mathrm{Im}\left[(c_6^{\tau}-c_4^{\tau})b_{13}^{\tau'*}+c_{10}^{\tau}b_8^{\tau'*}\right]\\
 R_{\Sigma''\Sigma^{''(2)}}&\equiv\mathrm{Im}\left[(c_6^{\tau}-c_4^{\tau})(b_{13}^{\tau'*}-b_{14}^{\tau'*})+c_{10}^{\tau}b_{16}^{\tau'*}\right]\\
-R_{\Delta\Sigma^{'(0)}}&\equiv \mathrm{Im}\left[c_5^{\tau}b_{14}^{\tau'*}+c_8^{\tau}(-b_{12}^{\tau'*}+b_{15}^{\tau'*})\right]\\
-R_{\Delta\Sigma^{'(2)}}&\equiv \mathrm{Im}\left[c_5^{\tau}(-b_{13}^{\tau'*}+b_{14}^{\tau'*})+c_8^{\tau}b_{15}^{\tau'*}\right]\\
-R_{\tilde{\Phi}'M^{(1)}}&\equiv \mathrm{Im}\left[c_{12}^{\tau}b_7^{\tau'*}-c_{13}^{\tau}b_3^{\tau'*}\right]\\
+R_{\Delta\Sigma^{'(0)}}&\equiv \mathrm{Im}\left[-c_5^{\tau}b_{14}^{\tau'*}+c_8^{\tau}(b_{12}^{\tau'*}-b_{15}^{\tau'*})\right]\\
+R_{\Delta\Sigma^{'(2)}}&\equiv \mathrm{Im}\left[c_5^{\tau}(b_{13}^{\tau'*}-b_{14}^{\tau'*})-c_8^{\tau}b_{15}^{\tau'*}\right]\\
+R_{\tilde{\Phi}'M^{(1)}}&\equiv \mathrm{Im}\left[-c_{12}^{\tau}b_7^{\tau'*}+c_{13}^{\tau}b_3^{\tau'*}\right]\\
 R_{\Phi''M^{(2)}}&\equiv \mathrm{Im}\left[-c_3^{\tau}b_2^{\tau'*}+(-c_{12}^{\tau}+c_{15}^{\tau})b_7^{\tau'*}\right]
 \end{split}
 \end{equation}
-
+The leading lower-component corrections to the conversion rate can be expressed as
 \begin{equation}
 \begin{split}
 \Gamma^{(1)}=\frac{G_F^2}{\pi}\frac{q_\mathrm{eff}^2}{1+\frac{q}{M_T}}|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|^2\sum_{\tau=0,1}\sum_{\tau'=0,1}&\Bigg\{\tilde{R}_{MM^{(2)}}^{\tau\tau'}W_{MM^{(2)}}^{\tau\tau'}(q_\mathrm{eff})\\
 &+\tilde{R}_{\Sigma'\Sigma^{'(0)}}^{\tau\tau'}W_{\Sigma'\Sigma^{'(0)}}^{\tau\tau'}+\tilde{R}_{\Sigma'\Sigma^{'(2)}}^{\tau\tau'}W_{\Sigma'\Sigma^{'(2)}}^{\tau\tau'}\\
 &+\tilde{R}_{\Sigma''\Sigma^{''(0)}}^{\tau\tau'}W_{\Sigma''\Sigma^{''(0)}}^{\tau\tau'}+\tilde{R}_{\Sigma''\Sigma^{''(2)}}^{\tau\tau'}W_{\Sigma''\Sigma^{''(2)}}^{\tau\tau'}\\
 &+\frac{q_\mathrm{eff}}{m_N}\left[\tilde{R}_{\Delta\Sigma^{'(0)}}^{\tau\tau'}W_{\Delta\Sigma^{'(0)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Delta\Sigma^{'(2)}}^{\tau\tau'}W_{\Delta\Sigma^{'(2)}}^{\tau\tau'}(q_\mathrm{eff})\right]\\
-&+\frac{q_\mathrm{eff}}{m_N}\left[\tilde{R}_{\Phi''M^{(2)}}^{\tau\tau'}W_{\Phi''M^{(2)}}(q_\mathrm{eff})+\tilde{R}_{\tilde{\Phi}'M^{(1)}}^{\tau\tau'}W_{\tilde{\Phi}'M^{(1)}}^{\tau\tau'}(q_\mathrm{eff})\right]\Bigg\}\\
+&+\frac{q_\mathrm{eff}}{m_N}\left[\tilde{R}_{\Phi''M^{(2)}}^{\tau\tau'}W_{\Phi''M^{(2)}}(q_\mathrm{eff})+\tilde{R}_{\tilde{\Phi}'M^{(1)}}^{\tau\tau'}W_{\tilde{\Phi}'M^{(1)}}^{\tau\tau'}(q_\mathrm{eff})\right]\Bigg\},
 \end{split}
 \end{equation}
+where $\tilde{R}$ denotes that the leptonic tensors are composed of dimensionless LECs $\tilde{b}$ and $\tilde{c}$, define with respect to the weak scale $v$. The corresponding nuclear response functions are
+\begin{equation}
+\begin{split}
+W^{\tau\tau'}_{OM^{(2)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=0,2,...}^{\infty}\braket{j_N||O_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(2)}_{J;\tau'}(q_\mathrm{eff})||j_N}\;\mathrm{for}\;O=M,\Phi''\\
+W^{\tau\tau'}_{O\Sigma^{'(i)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=1,3,...}^{\infty}\braket{j_N||O_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'(i)}_{J;\tau'}(q_\mathrm{eff})||j_N}\;\mathrm{for}\;O=\Delta,\Sigma',\;\mathrm{and}\;i=0,2\\
+W^{\tau\tau'}_{\Sigma''\Sigma^{''(i)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=1,3,...}^{\infty}\braket{j_N||\Sigma''_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(i)}_{J;\tau'}(q_\mathrm{eff})||j_N}\;\mathrm{for}\;i=0,2\\
+W^{\tau\tau'}_{\tilde{\Phi}'M^{(1)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=2,4,...}^{\infty}\braket{j_N||\tilde{\Phi}'_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(1)}_{J;\tau'}(q_\mathrm{eff})||j_N}
+\end{split}
+\end{equation}
+Every lower-component operator contributes except for $\mathcal{O}_5$. The upper component responses $M$, $\Sigma'$, $\Sigma''$, $\Delta$, $\tilde{\Phi}'$, and $\Phi''$ generically receive corrections (in the form of interference terms) from the lower component of the muon.
 
-
+The relevant leptonic response functions are defined as
 \begin{equation}
 \begin{split}
 R_{M^{(1)}}&\equiv b_3^{\tau}b_3^{\tau'*}+b_7^{\tau}b_7^{\tau'*}\\
@@ -2139,29 +2167,48 @@ R_{\Sigma^{''(2)}}&\equiv (b_{13}^{\tau}-b_{14}^{\tau})(b_{13}^{\tau'*}-b_{14}^{
 R_{\Sigma^{'(0)}}&\equiv (-b_{12}^{\tau}+b_{15}^{\tau})(-b_{12}^{\tau'*}+b_{15}^{\tau'*})+b_{14}^{\tau}b_{14}^{\tau'*}\\
 R_{\Sigma^{'(2)}}&\equiv (-b_{13}^{\tau}+b_{14}^{\tau})(-b_{13}^{\tau'*}+b_{14}^{\tau'*})+b_{15}^{\tau}b_{15}^{\tau'*}\\
 R_{\Sigma^{''(0)}\Sigma^{''(2)}}&\equiv \mathrm{Re}\left[b_8^{\tau}b_{16}^{\tau'*}+b_{13}^{\tau}(b_{13}^{\tau'*}-b_{14}^{\tau'*})\right]\\
-R_{\Sigma^{'(0)}\Sigma^{'(2)}}&\equiv \mathrm{Re}\left[(-b_{12}^{\tau}+b_{15}^{\tau})b_{15}^{\tau'*}+b_{14}^{\tau}(-b_{13}^{\tau'*}+b_{14}^{\tau'*})\right]
+R_{\Sigma^{'(0)}\Sigma^{'(2)}}&\equiv \mathrm{Re}\left[(-b_{12}^{\tau}+b_{15}^{\tau})b_{15}^{\tau'*}+b_{14}^{\tau}(-b_{13}^{\tau'*}+b_{14}^{\tau'*})\right],
 \end{split}
 \end{equation}
-%\begin{table}
-%\centering
-%{\renewcommand{\arraystretch}{1.6}
-%\begin{tabular}{cccccc}
-%\hline
-%\hline
-%Projection & Charge/Current & Operator & Even J & Odd J & LECs Probed\\
-%\hline
-%Charge & $\hat{x}\cdot\vec{\sigma}_N$ & $\Sigma^{''(0)}_{JM}$ & O-O & E-E & \\
-%Longitudinal & $\hat{x}$ & $M^{(2)}_{JM}$ & E-E & O-O & \\
-%Transverse magnetic & " & --- & --- & --- & --- \\
-%Transverse electric & " & $M^{(1)}_{JM}$ & E-E & O-O & \\
-%Longitudinal & $\hat{x}\times\vec{\sigma}_N$ & $\Sigma^{(1)}_{JM}$ & E-O & O-E & \\
-%Transverse magnetic & " & $\Sigma^{'(0)}_{JM}$ & O-O & E-E & \\
-%Transverse electric & " & $\Sigma^{(2)}_{JM}$ & E-O & O-E & \\
-%\hline
-%\hline
-%\end{tabular}
-%}
-%\end{table}
+and the second-order rate is
+\begin{equation}
+\begin{split}
+\Gamma^{(2)}=\frac{G_F^2}{\pi}\frac{q_\mathrm{eff}^2}{1+\frac{q}{M_T}}|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|^2\sum_{\tau=0,1}\sum_{\tau'=0,1}&\Bigg\{\tilde{R}_{M^{(1)}}^{\tau\tau'}W_{M^{(1)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{M^{(2)}}^{\tau\tau'}W_{M^{(2)}}^{\tau\tau'}(q_\mathrm{eff})\\
+&+\tilde{R}_{\Sigma^{'(0)}}^{\tau\tau'}W_{\Sigma^{'(0)}}^{\tau\tau'}+\tilde{R}_{\Sigma^{'(2)}}^{\tau\tau'}W_{\Sigma^{'(2)}}^{\tau\tau'}\\
+&+\tilde{R}_{\Sigma^{''(0)}}^{\tau\tau'}W_{\Sigma^{''(0)}}^{\tau\tau'}+\tilde{R}_{\Sigma^{''(2)}}^{\tau\tau'}W_{\Sigma^{''(2)}}^{\tau\tau'}\\
+&+2\left[\tilde{R}_{\Sigma^{'(0)}\Sigma^{'(2)}}^{\tau\tau'}W_{\Sigma^{'(0)}\Sigma^{'(2)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Sigma^{''(0)}\Sigma^{''(2)}}^{\tau\tau'}W_{\Sigma^{''(0)}\Sigma^{'(2)}}^{\tau\tau'}(q_\mathrm{eff})\right]\Bigg\},
+\end{split}
+\end{equation}
+where the nuclear response functions are
+\begin{equation}
+\begin{split}
+W^{\tau\tau'}_{M^{(1)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=2,4,...}^{\infty}\braket{j_N||M^{(1)}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(1)}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+W^{\tau\tau'}_{M^{(2)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=0,2,...}^{\infty}\braket{j_N||M^{(2)}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(2)}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+W^{\tau\tau'}_{O}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=1,3,...}^{\infty}\braket{j_N||O_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||O_{J;\tau'}(q_\mathrm{eff})||j_N},\;\mathrm{for}\;O=\Sigma^{'(0)},\Sigma^{'(2)},\Sigma^{''(0)},\Sigma^{''(2)}\\
+W^{\tau\tau'}_{\Sigma^{'(0)}\Sigma^{'(2)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=1,3,...}^{\infty}\braket{j_N||\Sigma^{'(0)}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'(2)}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+W^{\tau\tau'}_{\Sigma^{''(0)}\Sigma^{''(2)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=1,3,...}^{\infty}\braket{j_N||\Sigma^{''(0)}_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(2)}_{J;\tau'}(q_\mathrm{eff})||j_N}\\
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+&\sum_{\tau=0,1}\sum_{\tau'=0,1}R_M^{\tau\tau'}W_M^{\tau\tau'}+2R_{MM^{(2)}}^{\tau\tau'}W^{\tau\tau'}_{MM^{(2)}}+R^{\tau\tau'}_{M^{(2)}}W^{\tau\tau'}_{M^{(2)}}\\
+&=\frac{4\pi}{2j_N+1}\sum_{\tau=0,1}\sum_{\tau'=0,1}\sum_{J=0,2,...}\bigg[\braket{j_N||c_1^{\tau}M_{J;\tau}+ib_2^{\tau}M^{(2)}_{J;\tau}||j_N}\braket{j_N||c_1^{\tau'}M_{J;\tau'}+ib_2^{\tau'}M_{J;\tau'}^{(2)}||j_N}^*\\
+&\hspace{4.45cm}+\braket{j_N||c_{11}^{\tau}M_{J;\tau}-ib_7^{\tau}M^{(2)}_{J;\tau}||j_N}\braket{j_N||c_{11}^{\tau'}M_{J;\tau'}-ib_7^{\tau'}M_{J;\tau'}^{(2)}||j_N}^*\bigg]
+\end{split}
+\end{equation}
+Using the recurrence relations of the spherical Bessel functions
+\begin{equation}
+\begin{split}
+\frac{2J+1}{z}j_J(z)&=j_{J-1}(z)+j_{J+1}(z),\\
+(2J+1)\frac{d}{dz}j_J(z)&=Jj_{J-1}(z)-(J+1)j_{J+1}(z),
+\end{split}
+\end{equation}
+we find that harmonic oscillator matrix elements of the novel lower-component response functions can be expressed in the usual way
+as
+\begin{equation}
+\braket{n'\left(\ell'\;1/2\right)j'||T_J(q\vec{r})||n\left(\ell\;1/2\right)j}=\frac{1}{\sqrt{4\pi}}y^{(J-K)/2}e^{-y}p(y),
+\end{equation}
+where $p(y)$ is a finite-order polynomial and $T_J$ is any of the operators defined in Eq. (\ref{eq:response_functions_lower}). See Appendix \ref{app:single_nucleon_response_lower} for the details of evaluating the lower-component operators between harmonic oscillator wave functions.
 \section{Connection to Relativistic Amplitudes}
 The operators $\mathcal{O}^f_i$ naturally arise from a Pauli reduction of the lepton-nucleon Dirac spinor currents. In Appendix \ref{app:lepton_spinors}, the leptonic bilinears are expanded through first order in $\vec{v}_{\mu}$. The mappings between the relativistic amplitudes and the Pauli-reduced effective operators linear in $\vec{v}_{\mu}$ are shown in Table \ref{tab:operator_list_v_mu}. These results should be added to the corresponding terms in Table \ref{tab:operator_list} to obtain the complete expression. The fact that the upper and lower muon components are constrained by Lorentz covariance gives some advantage to the relativistic effective theory as a starting point over the Pauli-reduced form.
 
@@ -3448,7 +3495,13 @@ W_O^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\in
 W_{O}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||O_{J;\tau'}(q_\mathrm{eff})||j_i}\;\mathrm{for}\;O=\tilde{\Phi}',\Delta',\Sigma\\
 W_{\Phi''M}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=0,2,...}^{\infty}\braket{j_f||\Phi''_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||M_{J;\tau'}(q_\mathrm{eff})||j_i}\\
 W_{\Delta\Sigma'}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\Sigma'_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W_{\Delta'\Sigma}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\Sigma_{J;\tau'}(q_\mathrm{eff})||j_i}.
+W_{\Delta'\Sigma}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\Sigma_{J;\tau'}(q_\mathrm{eff})||j_i}\\
+W^{\tau\tau'}_{O\tilde{\Delta}''}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1}\sum_{J=0,2,...}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Delta}_{J;\tau'}(q_\mathrm{eff})||j_i},\;\mathrm{for}\;O=M,\tilde{\Phi}''\\
+W^{\tau\tau'}_{\Sigma''\tilde{\Omega}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Sigma''_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Omega}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
+W^{\tau\tau'}_{\Delta\tilde{\Phi}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
+W^{\tau\tau'}_{\Delta'\tilde{\Phi}'}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=2,4,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q_\mathrm{eff})||j_i}\\
+W^{\tau\tau'}_{\Sigma'\tilde{\Phi}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Sigma'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
+W^{\tau\tau'}_{\Sigma\tilde{\Phi}'}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=2,4,...}^{\infty}\braket{j_f||\Sigma_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q_\mathrm{eff})||j_i}\\
 \end{split}
 \end{equation}
 If the nucleus transitions to a state of opposite parity, then the nuclear response functions must change to opposite parity. In this case, the conversion rate is still described by Eq. \ref{eq:inelastic_rate}, the response functions $R$ are unchanged, but the nuclear response functions are given by
@@ -3459,7 +3512,13 @@ W_O^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=0,2,...}^{\in
 W_{O}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||O_{J;\tau'}(q_\mathrm{eff})||j_i}\;\mathrm{for}\;O=\tilde{\Phi},\Delta,\Sigma'\\
 W_{\Phi''M}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||\Phi''_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||M_{J;\tau'}(q_\mathrm{eff})||j_i}\\
 W_{\Delta\Sigma'}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\Sigma'_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W_{\Delta'\Sigma}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\Sigma_{J;\tau'}(q_\mathrm{eff})||j_i}.
+W_{\Delta'\Sigma}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\Sigma_{J;\tau'}(q_\mathrm{eff})||j_i}\\
+W^{\tau\tau'}_{O\tilde{\Delta}''}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1}\sum_{J=1,3,...}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Delta}_{J;\tau'}(q_\mathrm{eff})||j_i},\;\mathrm{for}\;O=M,\tilde{\Phi}''\\
+W^{\tau\tau'}_{\Sigma''\tilde{\Omega}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=0,2,...}^{\infty}\braket{j_f||\Sigma''_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Omega}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
+W^{\tau\tau'}_{\Delta\tilde{\Phi}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
+W^{\tau\tau'}_{\Delta'\tilde{\Phi}'}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q_\mathrm{eff})||j_i}\\
+W^{\tau\tau'}_{\Sigma'\tilde{\Phi}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=2,4,...}^{\infty}\braket{j_f||\Sigma'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
+W^{\tau\tau'}_{\Sigma\tilde{\Phi}'}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Sigma_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q_\mathrm{eff})||j_i}\\
 \end{split}
 \end{equation}
 Special attention must be given to the operators $\mathcal{O}_2'$ and $\mathcal{O}_{16}'$, which contain the longitudinal projection of the nuclear convection current $\hat{q}\cdot\vec{v}_N$, a quantity constrained by current conservation through Siegert's theorem\cite{PhysRev.52.787}. The continuity equation in position space takes the form
@@ -4239,6 +4298,7 @@ n-j-1
 \end{split}
 \end{equation}
 \section{Operators Generated by the Muon's Lower Component}
+\label{app:single_nucleon_response_lower}
 As discussed in Section \ref{sec:muon_lower}, the inclusion of the muon's lower Dirac component leads to the introduction of new nuclear multipole operators. We will now discuss how single-particle matrix elements of these operators can be evaluated in a harmonic oscillator basis. 
 
 \begin{equation}
