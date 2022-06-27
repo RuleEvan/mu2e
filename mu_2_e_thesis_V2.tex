@@ -102,7 +102,24 @@ University of California, Berkeley
 \vspace{0.5cm}
 Professor Wick Haxton, Chair
 \end{center}
-The coming decade promises exceptional experimental progress in searches for lepton flavor-violating $\mu\rightarrow e$ conversion due to efforts at Fermilab (Mu2E) and J-PARC (COMET). 
+The coming decade promises exceptional experimental progress in searches for charged lepton flavor-violating (CLFV) $\mu\rightarrow e$ conversion due to efforts at Fermilab (Mu2e) and J-PARC (COMET). Branching ratio sensitivities for this process are expected to advance by four orders of magnitude, potentially extending the reach of these probes up to energies of $10^4$ TeV. A pressing challenge for theorists is to ensure that the maximum amount of information about possible sources of CLFV is extracted from these measurements, whether or not a signal of new physics is detected. 
+
+Efforts to observe $\mu\rightarrow e$ conversion share many similarities with other experimental programs where the nucleus is employed as a laboratory in which to search for beyond standard model (BSM) physics. These approaches are utilized because they present certain practical advantages: In searches for CLFV, the act of trapping a muon into the Coulomb field of a nucleus allows one to control the energy of the final state electron, ensuring that it is maximal compared to the energy of background electrons originating in standard-model free muon decays. The downside of employing the nucleus as part of the apparatus is that a host of complex nuclear physics consequently intervenes between the experimentalist and the desired observable, i.e., in the case at hand, possible sources of CLFV. To extract meaningful constraints, one must have a method for disentangling the nuclear physics from the underlying BSM physics.
+
+Another experimental setting in which the nucleus is treated as a laboratory is in direct detection searches for weakly-interacting massive particle (WIMP) dark matter, where one aims to discern the mass, spin, and fundamental interactions of WIMP dark matter through scattering off of atomic nuclei. Again, to access the sought-after information about BSM physics, one must be able to separate it cleanly from the nuclear physics. In the case of dark matter direct detection, this separation has been achieved through the development of an effective theory that describes the most general interaction between the BSM physics (presently, the dark matter particle) and the nuclear target. Formulated at the nuclear scale, the effective theory factorizes the nuclear physics from the BSM physics and identifies the unknown parameters describing the BSM physics that are probed directly by experiment. As the effective theory describes the most general coupling between the WIMPs and the nucleus, the unknown coefficients that specify the effective theory represent the maximum information that can be obtained about the nature of dark matter from scattering off of nuclei. 
+
+In this thesis, we describe an analogous effective theory for the case of $\mu\rightarrow e$ conversion. This effective theory is also formulated at the nuclear scale and allows us to factorize the CLFV leptonic physics from the nuclear physics, thereby isolating all of the information about CLFV operators that can be obtained from low-energy measurements of $\mu\rightarrow e$ conversion. In particular, we find that the CLFV amplitude is governed by six unique response functions (assuming that the nucleus remains in the ground state throughout the process). Accounting for two additional interference terms and allowing for distinct couplings to protons and neutrons, measurements of $\mu\rightarrow e$ conversion can probe sixteen independent quantities associated with CLFV. 
+
+The energy of the outgoing electron is maximal in the elastic conversion process, wherein the nucleus remains in its ground state. The approximate parity and time-reversal symmetries of the nuclear ground state then exclude certain operators from contributing to elastic conversion. Indeed, the sixteen independent quantities that can be probed in elastic $\mu\rightarrow e$ conversion is exactly half the number of the distinct parameters that are required to specify the most general CLFV single-nucleon interaction---the nuclear embedding and associated symmetries restrict the information that can be probed in $\mu\rightarrow e$ conversion.
+
+Much of the previous literature has focused on a narrow special case in which the leading operator that mediates $\mu\rightarrow e$ conversion couples equally to protons and neutrons and is spin- and velocity-independent. Such an operator sums coherently in the conversion amplitude and receives an enhancement by the atomic mass number $A$ relative to incoherent operators, thereby dominating the CLFV response in cases where it is present. The primary advantage of working in this limited case is that the nuclear physics, which is so difficult to separate in the general case, becomes exceedingly simple. In fact, the nuclear response is governed entirely by the scalar nucleon density, a quantity that is accurately determined by experiments. There do exist CLFV extensions of standard model that generate the coherent response.
+
+The outgoing electron receives nearly all of the muon's rest mass as kinetic energy and is therefore ultra-relativistic. The electron interacts through the Coulomb potential with the nuclear charge The multipole expansion is performed by replacing the Coulomb-distorted electron wave function with a plane wave evaluated at an effective momentum. 
+
+The effective theory expansion is performed in terms of the relevant velocity operators for the nucleons $\vec{v}_N$ and the bound muon $\vec{v}_{\mu}$. (The electron velocity is, in essence, ``integrated out'' of the theory by the assumption that it is ultra-relativistic). We describe a nested set of three effective theories: The most fundamental theory is generated by including neither $\vec{v}_N$ nor $\vec{v}_{\mu}$. Relativistic effects related to the muon are completed ignored and the CLFV amplitude depends on three nuclear response functions. Next, we extend the theory by considering $\vec{v}_N$ to first order. The set of nuclear responses is expanded by three velocity-dependent response functions. Finally, we formulate a theory that include both velocity operators, $\vec{v}_N$ and $\vec{v}_{\mu}$, each to first order. This corresponds to the inclusion of relativistic muon effects and introduces six additional nuclear responses.  
+
+
+
 \frontmatter
 \vspace*{10cm}
 In memory
@@ -2961,191 +2978,33 @@ The same is true for the isovector operators
 \chapter{Two-Nucleon Contribution to $\mu\rightarrow \lowercase{e}$ Conversion}
 \label{chap:two_nucleon}
 \thispagestyle{headings}
-In the previous chapter, we found that at next-to-leading order in the chiral power counting, there is a two-nucleon diagram that contributes to scalar-mediated $\mu\rightarrow e$ conversion. In this section, we will first discuss in detail how the two-nucleon operator can be evaluated in the nuclear shell model. Then we study the behavior of the two-nucleon operator as a function of the three-momentum transfer and relate this matrix element to the effective one-body operator obtained through the Fermi gas average procedure.
-\section{Fourier Transform of Two-Nucleon Operator}
-\label{sec:ft_two}
-The two-nucleon current that contributes to $\mu\rightarrow e$ conversion has the form
-\begin{equation}
-J^{(2)}_{ud,\alpha}(\vec{q}_1,\vec{q}_2)=-\frac{g_A^2m_{\pi}^2}{4f_{\pi}^2}\rho\left(\vec{k}_1,\pvec{k}_1',\vec{k}_2,\pvec{k}_2'\right)\;\vec{\tau}(1)\cdot\vec{\tau}(2)\;C^{(0)}_{S\alpha},
-\label{eq:two_body_current}
-\end{equation}
-where we have defined the two-nucleon density
-\begin{equation}
-\rho\left(\vec{k}_1,\pvec{k}_1',\vec{k}_2,\pvec{k}_2'\right)\equiv\frac{\vec{q}_1\cdot\vec{\sigma}(1)\;\vec{q}_2\cdot\vec{\sigma}(2)}{(q_1^2+m_{\pi}^2)(q_2^2+m_{\pi}^2)}
-\end{equation}
-The three-momentum transfers are defined to be
-\begin{equation}
-\vec{q}_1\equiv \vec{p}_1-\pvec{p}_1',\;\;\;\vec{q}_2\equiv \vec{p}_2-\pvec{p}_2',
-\end{equation}
-and we use the notation $q_i=|\vec{q}_i|$ to denote the length of the three-vectors. Then to transform to coordinate space and enforce momentum conservation, we have
-\begin{equation}
-\begin{split}
-&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})\\
-&=\frac{1}{(2\pi)^{12}}\int d^3p_1\;d^3p_1'\;d^3p_2\;d^3p'_2\;\tilde{J}_2(\vec{q}_1,\vec{q}_2,\vec{q})(2\pi)^3\delta(\vec{p}_1+\vec{p}_2-\pvec{p}'_1-\pvec{p}'_2-\vec{q})e^{i\left(\pvec{p}'_1\cdot\pvec{x}_1'+\pvec{p}'_2\cdot\pvec{x}'_2-\vec{p}_1\cdot\vec{x}_1-\vec{p}_2\cdot\vec{x}_2\right)}
-\end{split}
-\end{equation}
-We transform our integration variables to
-\begin{equation}
-\begin{split}
-\vec{q}_1&=\vec{p}_1-\pvec{p}'_1,\;\vec{P}_1=\frac{1}{2}\left(\vec{p}_1+\pvec{p}'_1\right)\\
-\vec{q}_2&=\vec{p}_2-\pvec{p}'_2,\;\vec{P}_2=\frac{1}{2}\left(\vec{p}_2+\pvec{p}'_2\right),
-\end{split}
-\end{equation}
-so that
-\begin{equation}
-\begin{split}
-&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}'_2,\vec{q})\\
-&=\frac{1}{(2\pi)^9}\int d^3P_1\;d^3P_2\;d^3q_1\;d^3q_2\;\rho(\vec{q}_1,\vec{q}_2,\vec{q})\delta(\vec{q}_1+\vec{q}_2-\vec{q})e^{i\left[\vec{P}_1\cdot(\pvec{x}_1'-\vec{x}_1)+\vec{P}_2\cdot(\pvec{x}_2'-\vec{x}_2)-\frac{1}{2}\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')-\frac{1}{2}\vec{q}_2\cdot(\vec{x}_2+\pvec{x}_2')\right]}\\
-&=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}'_1)\delta(\vec{x}_2-\pvec{x}_2')\int d^3q_1\;d^3q_2\;\rho(\vec{q}_1,\vec{q}_2,\vec{q})\delta(\vec{q}_1+\vec{q}_2-\vec{q})e^{-\frac{i}{2}\left[\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')+\vec{q}_2\cdot(\vec{x}_2+\pvec{x}_2')\right]}\\
-&=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\int d^3 q_1\;\rho(\vec{q}_1,\vec{q}-\vec{q}_1,\vec{q})e^{-\frac{i}{2}\left[\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')+(\vec{q}-\vec{q}_1)\cdot(\vec{x}_2+\pvec{x}_2')\right]}.
-\end{split}
-\end{equation}
-Next we employ the Feynman parameter representation
-\begin{equation}
-\frac{1}{AB}=\int_0^1 d\alpha \frac{1}{\left[\alpha A+(1-\alpha)B\right]^2},
-\end{equation}
-with 
-\begin{equation}
-A=q_1^2+m_{\pi}^2,\;B=(\vec{q}-\vec{q}_1)^2+m_{\pi}^2.
-\end{equation}
-Then
-\begin{equation}
-\alpha A + (1-\alpha)B=\left[\vec{q}_1-(1-\alpha)\vec{q}\right]^2+\alpha(1-\alpha)q^2+m_{\pi}^2.
-\end{equation}
-Now let us shift the integration variable
-\begin{equation}
-\vec{q}_1\rightarrow \vec{q}_1+(1-\alpha)\vec{q},
-\end{equation}
-so that 
-\begin{equation}
-\begin{split}
-\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})&=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')e^{-\frac{i}{2}\vec{q}\cdot(\vec{x}_1+\pvec{x}_1')}\int_0^1 d\alpha \;e^{i\alpha\vec{q}\cdot\vec{r}}\\
-&\times \int d^3q_1\frac{\left[\vec{q}_1+(1-\alpha)\vec{q}\;\right]\cdot\vec{\sigma}(1)\left[\alpha\vec{q}-\vec{q}_1\right]\cdot\vec{\sigma}(2)}{\left[q_1^2+\Pi^2(q,\alpha)\right]^2}e^{-i\vec{q}_1\cdot\vec{r}},
-\end{split}
-\end{equation}
-where we have defined
-\begin{equation}
-\Pi^2(q,\alpha)\equiv \alpha(1-\alpha)q^2+m_{\pi}^2,
-\end{equation}
-and introduced the relative coordinate
-\begin{equation}
-\begin{split}
-\vec{r}&\equiv\frac{1}{2}\left(\vec{x}_1+\pvec{x}_1'-\vec{x}_2-\pvec{x}_2'\right)\\
-&=\vec{x}_1 - \vec{x}_2.
-\end{split}
-\end{equation}
-The quantity $\Pi(q,\alpha)$ can be interpreted as an effective pion mass arising from the finite momentum-transfer. Indeed, $\Pi(q,\alpha)\rightarrow m_{\pi}$ when $q\rightarrow 0$.
-Now we can perform the final momentum integral. There are three distinct integrands. First, with a trivial angular integrand:
-\begin{equation}
-\int d^3 q_1 \frac{e^{-i\vec{q}_1\cdot\vec{r}}}{\left[q_1^2+\Pi^2(q,\alpha)\right]^2}=\pi^2\frac{e^{-r\Pi(q,\alpha)}}{\Pi(q,\alpha)},
-\end{equation}
-then with one factor of $\hat{q}_1$ in the angular integrand:
-\begin{equation}
-\int d^3 q_1 \frac{\vec{q}_1\cdot\vec{\sigma}(i)e^{-i\vec{q}_1\cdot\vec{r}}}{\left[q_1^2+\Pi^2(q,\alpha)\right]^2}=-i\pi^2\hat{r}\cdot\vec{\sigma}(i)e^{-r\Pi(q,\alpha)},
-\end{equation}
-and finally with two factors of $\hat{q}_1$:
-\begin{equation}
-\begin{split}
-\int d^3q_1\frac{\vec{q}_1\cdot\vec{\sigma}(1)\vec{q}_1\cdot\vec{\sigma}(2)e^{-i\vec{q}_1\cdot\vec{r}}}{\left[q_1^2+\Pi^2(q,\alpha)\right]^2}&=\frac{\pi^2}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\frac{e^{-r\Pi(q,\alpha)}}{r}\left[2-r\Pi(q,\alpha)\right]\\
-&-\pi^2\sqrt{\frac{8\pi}{15}}\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\odot Y_2(\hat{r})\frac{e^{-r\Pi(q,\alpha)}}{r}\left[1+\Pi(q,\alpha)r\right].
-\end{split}
-\end{equation}
-For this last integration we have employed the identity
-\begin{equation}
-\left(\hat{q}\cdot\vec{\sigma}(1)\right)\left(\hat{q}\cdot\vec{\sigma}(2)\right)=\frac{1}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)+\sqrt{\frac{8\pi}{15}}Y_2(\hat{q})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2.
-\label{eq:tensor_identity}
-\end{equation}
-Putting these pieces together yields
-\begin{equation}
-\begin{split}
-&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}'_2)e^{-i\vec{q}\cdot\vec{x}_1}\int_0^1d\alpha\;e^{i\alpha\vec{q}\cdot\vec{r}-\Pi(q,\alpha)r}\Bigg\{-i\alpha\hat{r}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)\\
-&+i(1-\alpha)\vec{q}\cdot\vec{\sigma}(1)\hat{r}\cdot\vec{\sigma}(2)-\frac{1}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\frac{1}{r}\left[2-r\Pi(q,\alpha)\right]+\alpha(1-\alpha)\frac{1}{\Pi(q,\alpha)}\vec{q}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)\\
-&+\sqrt{\frac{8\pi}{15}}\frac{1}{r}\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\odot Y_2(\hat{r})\left[1+r\Pi(q,\alpha)\right]\Bigg\}
-\label{eq:two_body_master}
-\end{split}
-\end{equation}
-In the $\vec{q}\rightarrow 0$ limit, the Feynman parameter integral becomes trivial, $\Pi(q,\alpha)\rightarrow m_{\pi}$, and the two-body current becomes
-\begin{equation}
-\begin{split}
-\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',0)=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\frac{1}{r}\bigg\{&\frac{1}{3}F_1(r/m_{\pi})\vec{\sigma}(1)\cdot\vec{\sigma}(2)\\
-&+\sqrt{\frac{8\pi}{15}}F_2(r/m_{\pi})Y_2(\hat{r})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\bigg\},
-\label{eq:two_body_q_zero}
-\end{split}
-\end{equation}
-where the form factors are given by
-\begin{equation}
-F_1(x)\equiv e^{-x}(x-2),\;F_2(x)\equiv e^{-x}(x+1).
-\end{equation}
-This is a familiar result from studies of $0\nu\beta\beta$-decay (e.g. \cite{2003PhRvD..68c4016P}), where the leading long-range contribution is due to two-pion exchange. In that case, however, the three-momentum transfer is small compared to the pion mass, and so it is justified to work in the limit $\vec{q}\rightarrow 0$. In coherent $\mu\rightarrow e$ conversion, $q\approx m_{\mu}$, and we must work at finite q. 
+In the previous chapter, we identified a two-nucleon diagram [Fig. \ref{fig:mm_decay_diagrams} (c)] that contributes to scalar-mediated $\mu\rightarrow e$ conversion at next-to-leading order in the chiral power counting. Such operators have far-reaching consequences for the interpretation of experimental outcomes: In coherent conversion, the two-nucleon contribution can reduce the expected CLFV rate by $\approx 20\%$. More generally, the ability to fully utilize the single-nucleon effective theory that we have developed in this work depends on understanding the impact of higher-body operators and the degree to which they can be approximated by effective one-body operators. 
 
-If we were to Fourier transform the two-body current in Eq. (\ref{eq:two_body_master}) with respect to the momentum transfer $\vec{q}$
+Here, we discuss in greater detail how the coherent two-nucleon operator is evaluated in the nuclear shell model, demonstrating how the shell-model estimate can be compared to that obtained from the Fermi gas effective one-body operator. We discuss the limitations of the shell-model calculation
+
+To first order in $q/m_{\pi}$, we may approximate $\Pi(q,\alpha)\approx m_{\pi}$. 
+
 \begin{equation}
-\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{x})=\int \frac{d^3q}{(2\pi)^3} \;e^{i\vec{q}\cdot\vec{x}}\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q}),
-\end{equation}
-then the resulting position space current will exhibit a complicated dependence on the Fourier transform coordinate $\vec{x}$. The dominant piece will be the $J=0$ component of this current and so we must project the spatial two-body current onto charge multipoles
-\begin{equation}
-\begin{split}
-\mathcal{M}_{J,M}(\kappa)&=\int d^3x \;j_J(\kappa x)Y_{J,M}(\hat{x})\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{x})\\
-&=\frac{1}{4\pi}i^J\delta(\kappa-q)\int d\Omega_q\; Y_{J,M}(\hat{q})\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q}).
-\end{split}
-\end{equation}
-Our focus is then the $J=M=0$ contribution. We begin by considering the first term in the second line of Eq. (\ref{eq:two_body_master}). The only angular dependence on $\hat{q}$ in this term is in the exponentials, so we compute
-\begin{equation}
-\int d\Omega_q\;Y_{0,0}(\hat{q})e^{-i\vec{q}\cdot\vec{R}}e^{i(\alpha-1/2)\vec{q}\cdot\vec{r}}=(4\pi)^{3/2}\sum_{l=0}^{\infty}j_l(q R)j_l\left(q r(\alpha-1/2)\right)Y_l(\hat{R})\odot Y_l(\hat{r}),
-\end{equation}
-where we have defined the center-of-mass coordinate
-\begin{equation}
-\vec{R}\equiv \frac{1}{2}\left(\vec{x}_1+\vec{x}_2\right).
+\frac{1}{48\pi^{3/2}}\vec{\sigma}(1)\cdot\vec{\sigma}(2)j_0(qR)e^{-rm_{\pi}}\frac{1}{r}\left[\mathrm{Si}(qr/2)\left(\frac{2m_{\pi}}{q}+\frac{q}{2m_{\pi}}\right)-\frac{2q}{m_{\pi}}j_1(qr/2)-2j_0(qr/2)\right]
 \end{equation}
 
-Thus we have the two-body operator
-\begin{equation}
-\begin{split}
-\mathcal{O}_1(\vec{r},\vec{R},q)&=-\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0}^{\infty}Y_L(\hat{r})\odot\ Y_L(\hat{R})j_L(q R)\\
-&\times\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_L\left(q r(\alpha-1/2)\right)\frac{2-r\Pi(q,\alpha)}{r}.
-\end{split}
-\end{equation}
-The Feynman parameter integral vanishes unless $L$ is even. This can be seen by shifting the Feynman parameter $\beta=\alpha-1/2$ and noting that $\Pi(q,\beta)$ (and thus the entire Feynman parameter integrand) is an even function of $\beta$. Therefore
 \begin{equation}
 \begin{split}
 \mathcal{O}_1(\vec{r},\vec{R},q)&=-\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot\ Y_L(\hat{R})\;j_L(q R)\\
 &\times\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_L\left(q r(\alpha-1/2)\right)\frac{2-r\Pi(q,\alpha)}{r}
 \end{split}
 \end{equation}
-Now let's look at the second term in the second line of Eq. (\ref{eq:two_body_master}) and apply the identity of Eq. (\ref{eq:tensor_identity}). We find one term that has the same tensor structure as $\mathcal{O}_1$; that is
 \begin{equation}
 \begin{split}
 \mathcal{O}_2(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot Y_L(\hat{R})\;j_L(q R)\\
 &\times\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}j_L(q r\left(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)},
 \end{split}
 \end{equation}
-where again the Feynman parameter integral vanishes unless $L$ is even. 
-
-The second term that we get from applying the tensor decomposition of Eq. (\ref{eq:tensor_identity}) has a quadrupole dependence on $\hat{q}$:
-\begin{equation}
-\begin{split}
-&\int d\Omega_q\;Y_{0,0}(\hat{q})e^{-i\vec{q}\cdot\vec{R}}e^{i(\alpha-1/2)\vec{q}\cdot\vec{r}}Y_2(\hat{q})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\\
-&=4\pi\sum_{L_1,L_2}(i)^{L_1-L_2}(-1)^{L_1+L_2}C^{20}_{L_10L_20}\sqrt{\frac{(2L_1+1)(2L_2+1)}{5}}j_{L_1}\left(q r(\alpha-1/2)\right)j_{l_2}(q R)\\
-&\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2.
-\end{split}
-\end{equation}
-Therefore we have the operator
-\begin{equation}
-\begin{split}
-\mathcal{O}_3(\vec{r},\vec{R},q)&=\frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1,L_2}i^{L_1-L_2}(-1)^{L_1+L_2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
-&\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)}
-\end{split}
-\end{equation}
-As before, the Feynman parameter integral vanishes unless $L_1$ is even. The Clebsch-Gordan coefficient then implies that $L_2$ must be even as well. Thus
 \begin{equation}
 \begin{split}
 \mathcal{O}_3(\vec{r},\vec{R},q)&=\frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(L_1-L_2)/2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}\\
 &\times j_{L_2}(q R)\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)}.
 \end{split}
-\end{equation}
-Now we turn our attention to the term in the third line of Eq. (\ref{eq:two_body_master}). The only angular dependence on $\hat{q}$ is in the exponentials but after completing the angular integral we must recouple the resulting two $\hat{r}$ spherical harmonics. For this task we need the identity
-\begin{equation}
-Y_{l_2}(\hat{r})\odot Y_{l_2}(\hat{R})\;Y_2(\hat{r})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2=(-1)^{l_2}\sqrt{\frac{2l_2+1}{4\pi}}\sum_{l_1}C_{l_2020}^{l_10}\left[Y_{l_1}(\hat{r})\otimes Y_{l_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2
 \end{equation}
 As before, we find that the integrand vanishes unless $L_2$ is even and the Clebsch-Gordon coefficient then requires that $L_1$ be even as well. Thus
 \begin{equation}
@@ -3154,51 +3013,12 @@ As before, we find that the integrand vanishes unless $L_2$ is even and the Cleb
 &\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_2}(q r(\alpha-1/2))\frac{1}{r}\left[1+r\Pi(q,\alpha)\right]
 \end{split}
 \end{equation}
-Now we turn our attention to the final set of terms, the first line of Eq. (\ref{eq:two_body_master}). First we decompose the tensor structure as
-\begin{equation}
--\alpha \hat{r}\cdot\vec{\sigma}(1)\hat{q}\cdot\vec{\sigma}(2)+(1-\alpha)\hat{q}\cdot\vec{\sigma}(1)\hat{r}\cdot\vec{\sigma}(2)=\frac{4\pi}{3}\sum_{K=0}^2\left[Y_1(\hat{q})\otimes Y_1(\hat{r})\right]_K\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_K\left[-\alpha + (1-\alpha)(-1)^K\right].
-\end{equation}
-Next we must perform a more complicated angular integral: the $Y_1(\hat{q})$-dependence is non-trivially coupled to the $Y_1(\hat{r})$. After integrating and re-coupling (using an identity to rewrite a sum of three Clebsch-Gordon coefficients as a single Clebsch-Gordon coefficient and a Wigner 6-$j$ symbol), we find
-\begin{equation}
-\begin{split}
-&\int d\Omega_q\;Y_{00}(\hat{q})e^{-i\vec{q}\cdot{R}}e^{i(\alpha-1/2)\vec{q}\cdot\vec{r}}\left[Y_1(\hat{q})\otimes Y_1(\hat{r})\right]_K\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_K\\
-&=3\sqrt{4\pi}\sum_{L_1,L_2}(i)^{L_1-L_2}(2L_1+1)C_{L_1010}^{L_20}\sum_J (-1)^{1+J}C_{L_1010}^{J0}\left\{
-\begin{array}{ccc}
-L_1 & 1 & L_2\\
-K & J & 1
-\end{array}\right\}
-\\ &\times\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_K\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_Kj_{L_1}(q r(\alpha-1/2))j_{L_2}(q R)
-\end{split}
-\end{equation}
-Now let us consider the three cases: $K=0,1,2$. When $K=0$, then $J=L_2$ and many of the angular momentum factors simplify. In particular,
-\begin{equation}
-\left\{\begin{array}{ccc}
-L_1 & 1 & L_2\\
-0 & L_2 & 1
-\end{array}\right\}=\frac{(-1)^{1+L_1+L_2}}{\sqrt{3(2L_2+1)}},
-\end{equation}
-\begin{equation}
-\left[Y_{L_2}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_{0,0}=\frac{(-1)^{L_2}}{\sqrt{2L_2+1}}Y_{L_2}(\hat{r})\odot Y_{L_2}(\hat{R}),
-\end{equation}
-and
-\begin{equation}
-\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_{0,0}=-\frac{1}{\sqrt{3}}\vec{\sigma}(1)\odot\vec{\sigma}(2).
-\end{equation}
-Therefore we have the operator
-\begin{equation}
-\begin{split}
-\mathcal{O}_5(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L1,L2}(i)^{1+L_1-L_2}\left(\frac{2L_1+1}{2L_2+1}\right)\left(C_{L_1010}^{L_20}\right)^2\\
-&\times j_{L_2}(q R)\;Y_{L_2}(\hat{r})\odot Y_{L_2}(\hat{R})\;\vec{\sigma}(1)\odot\vec{\sigma}(2)\;q\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(q r(\alpha-1/2)).
-\end{split}
-\end{equation}
-The integral with respect to $\alpha$ vanishes unless $L_1$ is odd, and the Clebsch-Gordon coefficient then implies that $L_2$ must be even. Therefore
 \begin{equation}
 \begin{split}
 \mathcal{O}_5(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}\left(\frac{2L_1+1}{2L_2+1}\right)\left(C_{L_1010}^{L_20}\right)^2\\
-&\times j_{L_2}(q R)\;Y_{L_2}(\hat{r})\odot Y_{L_2}(\hat{R})\;\vec{\sigma}(1)\odot\vec{\sigma}(2)\;q\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(q r(\alpha-1/2))
+&\times j_{L_2}(q R)\;Y_{L_2}(\hat{r})\odot Y_{L_2}(\hat{R})\;\vec{\sigma}(1)\cdot\vec{\sigma}(2)\;q\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(q r(\alpha-1/2))
 \end{split}
 \end{equation}
-Similarly when $K=1$, we have
 \begin{equation}
 \begin{split}
 &\mathcal{O}_6(\vec{r},\vec{R},q)=-\frac{1}{4\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=1,3,...}^{\infty}\sum_{J=1,3,...}^{\infty}(-1)^{(1+L_1-L_2)/2}(2L_1+1)C_{L_1010}^{L_20}C_{L_1010}^{J0}\\
@@ -3208,7 +3028,6 @@ L_1 & 1 & L_2\\
 \end{array}\right\}\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_1\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_1 j_{L_2}(q R)\;q\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}(qr(\alpha-1/2)).
 \end{split}
 \end{equation}
-Finally when $K=2$,
 \begin{equation}
 \begin{split}
 &\mathcal{O}_7(\vec{r},\vec{R},q)=-\frac{1}{4\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}\sum_{J=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}(2L_1+1)C_{L_1020}^{L_20}C_{L_1020}^{J0}\\
@@ -3247,87 +3066,6 @@ Figure \ref{fig:two_body_finite_q} also compares the nuclear shell-model result 
 \end{equation}
 where $M_{00}(q)=\sum_{i=1}^Aj_0(qr_i)Y_{00}(\hat{r}_i)$ is the isoscalar one-body monopole charge operator. The resulting values of $f^{SI}_\mathrm{eff,NSM}$ for the nuclear targets of interest are shown in Table \ref{tab:two_body}. We see that the effective coupling implied by the shell model is essentially constant across the range of nuclei from $^{12}$C to $^{63}$Cu, and the value is insensitive to the interaction employed to obtain the wave function. 
 
-\section{Correlation Function}
-\label{sec:cor_fun}
-The nuclear shell-model calculation may still overestimate the strength of the two-nucleon contribution. The nuclear shell-model wave functions are obtained by diagonalizing an effective phenomenological interaction that has been tuned to reproduce low-energy nuclear observables, such as charge radii and low-lying spectra. The model space for these calculations is severely truncated. In $^{27}$Al, the valence nucleons are restricted to the $2s$-$1d$ harmonic oscillator shells. Although this formalism is capable of accurately reproducing many nuclear observables, it is known to fail in the following regard: at short range, the two-nucleon potential is strongly repulsive, and therefore the two-nucleon correlation function must develop at hole at very small separations.
-
-\begin{figure}
-\centering
-\includegraphics[scale=1.0]{deuteron_s_comp.png}
-\caption{The $S$-wave component of the deuteron wave function projected into various harmonic oscillator spaces indexed by cutoff in oscillator quanta $N$. The exact solution is obtained from the potential Av18. A value for the harmonic oscillator parameter $b=1.7$ was employed in these calculations.}
-\label{fig:deuteron_proj}
-\end{figure}
-
-Resolving this fine structure, however, requires high momentum modes that are not included in the typically very soft Hilbert spaces of nuclear shell-model calculations. To demonstrate this concretely, we take the exact $S$-channel deuteron wave function obtained by solving the Schr\"odinger equation with potential given by Av18\cite{PhysRevC.51.38} and project this solution into harmonic oscillator spaces of varying dimension specified by a cutoff in harmonic oscillator quanta of $N=100$ (101 states), $N=50$ (51 states), $N=10$ (6 states) and finally $N=0$ (1 state). In Fig. \ref{fig:deuteron_proj}, these projections are compared to exact wave function. In particular, we notice that the ``hole'' in the exact wave function at small separations is removed when the higher momentum modes are integrated out. The closest analog to our nuclear shell-model calculations is the $N=1$ curve. Thus the two-nucleon correlation function obtained from our shell-model calculations is erroneously enhanced at short range.
-
-\begin{figure}
-\centering
-\includegraphics[scale=1.0]{V1_radial.png}
-\caption{Dependence of the leading 2-body multipole on the relative radial coordinate $r$.}
-\label{fig:V1_radial}
-\end{figure}
-
-We find that the strength of the two-nucleon $\mu\rightarrow e$ conversion operator strongly depends on the short-range behavior of the two-nucleon correlation function. The leading contribution is the $L=0$ multipole of the $\mathcal{O}_1$ operator, which has the following dependence on the relative radial coordinate
-\begin{equation}
-V_1(r,q)\equiv \int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_0(qr(\alpha-1/2))\frac{2-r\Pi(q,\alpha)}{r}
-\end{equation}
-For small values of $r$, $V_1(r,q)\sim 1/r$ and the potential divergences. This behavior is illustrated in Fig. \ref{fig:V1_radial}. In matrix elements, the divergence is regulated by the harmonic oscillator basis yielding a finite result. Nonetheless, the matrix element is very sensitive to the behavior of the two-nucleon correlation function. We can see this explicitly by modifying the two nucleon density with the addition of an ad hoc correlation function
-\begin{equation}
-\begin{split}
-\psi(\vec{r}_i,\vec{r}_j)&\rightarrow\left(1-\beta(r_{ij})\right)\psi(\vec{r}_i,\vec{r}_j)\\
-\beta(r)&=e^{-ar^2}\left(1-br^2\right),
-\label{eq:f_corr}
-\end{split}
-\end{equation}
-where $a=1.1$[fm]$^{-2}$ and $b=0.68$[fm]$^{-2}$. The radial coordinate here is $r_{ij}=|\vec{r}_i-\vec{r}_j|$. The effect of this modification is to add a hole to the two-nucleon density at separations $r\lesssim 1$ fm while leaving the long-distance behavior unchanged. We see this effect in Fig. \ref{fig:V1_radial}, where the additional correlation function removes the divergence. Compared to the bare result, the total two-body matrix element in $^{27}$Al is reduced by $\approx 40\%$ by the additional correlation function. 
-
-The shell-model wave functions are not proper effective wave functions. No attempt is made to properly normalize them in the model space (to account for the proportional of the total wave function that lies outside the model space). As well, to compute matrix elements with the shell-model wave functions, we (erroneously) evaluate only the bare operator. Having truncated the full Hilbert space down to a model space, the bare operator must be replaced by an effective operator, which accounts for the physics that has been integrated out. All of these considerations are beyond the scope of the current work. For now, it suffices to have some estimate of the strength of the two-nucleon operator in $\mu\rightarrow e$ conversion, particularly as our estimates likely represent an upper limit.
-\subsection{Comparison to One-Body Average}
-We began this section by considering the two-body current in Eq. (\ref{eq:two_body_current}). The current associated with the diagram in Fig. \ref{fig:two_body_labelled} contains some additional factors. Including the coupling to the lepton current, the two-body Lagrangian is
-\begin{equation}
-\begin{split}
-\mathcal{L}_{2-N}&=-\frac{B_0 \mathring{g}_A^2}{\mathring{f}_{\pi}^2\Lambda^2}\left(J_u+J_d\right)\frac{1}{\left(q_1^2-m_{\pi}^2\right)\left(q_2^2-m_{\pi}^2\right)}\sum_a\left(\bar{N}'_1 S\cdot q_1\tau_a N_1\right)\left(\bar{N}_2' S\cdot q_2 \tau_a N_2\right)\\
-&=-\frac{B_0\mathring{g}_A^2}{4\mathring{f}_{\pi}^2\Lambda^2}\left(J_u+J_d\right)\frac{1}{\left(|\vec{q}_1|^2+m_{\pi}^2\right)\left(|\vec{q}_2|^2+m_{\pi}^2\right)}\sum_a \left(\bar{N}_1' \vec{q}_1\cdot\vec{\sigma}(1) N_1 \right)\left(\bar{N}_2' \vec{q}_2\cdot\vec{\sigma}(2) N_2\right),
-\end{split}
-\end{equation}
-where the $\circ$ over $\mathring{g}_A$ and $\mathring{f}_{\pi}$ indicates that these quantities should be evaluated in the chiral limit.
-
-After one-body averaging, the coherent part of the resulting effective one-nucleon operator is written as
-\begin{equation}
-\mathcal{L}_\mathrm{eff}=-\frac{3B_0K_F \mathring{g}_A^2}{64\pi \mathring{f}_{\pi}^2\Lambda^2}\left(J_u+J_d\right)f_\mathrm{eff}^{SI}\bar{N}N,
-\end{equation}
-where $K_F$ is the Fermi momentum of the nucleus and $f_\mathrm{eff}^{SI}(\vec{q},\vec{k})$ is a dimensionless function that encodes the momentum-dependence of the effective operator. In their work, Bartolotta and Ramsey-Musolf approximate $f_\mathrm{eff}^{SI}$ as being constant. Comparing to previous studies of one-body averaging of two-nucleon operators, the authors obtain an expected value and error bars that reflect the fact that the effective operator is likely an overestimate of the true two-body operator:
-\begin{equation}
-f_\mathrm{eff}^{SI}=1.05^{+0.07}_{-0.53}.
-\end{equation}
-
-In Walecka's formalism, the leading piece of the one-body charge $\bar{N}N$ is the monopole term
-\begin{equation}
-M_0(q)=\sum_{j=1}^A Y_{0,0}(\hat{x}_j)j_0(qx_j)
-\end{equation}
-Disregarding common factors (including the lepton current) we can now make a direct comparison between the true two-body term
-\begin{equation}
-\braket{J_i||\mathcal{O}^{(2)}||J_i},
-\end{equation}
-and the effective operator
-\begin{equation}
-\braket{J_i||\mathcal{O}_\mathrm{eff}||J_i}=\frac{3K_F}{16\pi}f_\mathrm{eff}^{SI}\braket{J_f||M_0(q)||J_i}.
-\end{equation}
-The one-body monopole operator can be evaluated using either measured proton and neutron densities or the same many-body wavefunction that is used for the two-body operator. Using the measured densities we find
-\begin{equation}
-\braket{J_i||M_0(q)||J_i}=11.69\pm 0.23,
-\end{equation}
-whereas the NSM wavefunction yields
-\begin{equation}
-\braket{J_i||M_0(q)||J_i}_\mathrm{NSM}=11.81.
-\end{equation}
-Thus the NSM value is consistent with the measured nuclear density result. The uncertainty in the value computed from proton and neutron densities is due entirely to the uncertainty in the neutron density. 
-
-Linearly interpolating between the measured nuclear Fermi momenta for $^{24}$Mg and $^{40}$Ca, the authors in \cite{2018PhRvC..98a5208B} obtain $K_F=238\pm 5$ MeV.  Combining these results for the effective operator we find
-\begin{equation}
-\braket{J_f||\mathcal{O}_\mathrm{eff}||J_i}=0.88^{+0.06}_{-0.45}\;\left[\mathrm{fm}\right]^{-1}.
-\end{equation}
-Figure \ref{fig:two_body_finite_q} shows the leading coherent two-body operator evaluated for a range of momentum transfer $q$ for the case of $^{27}$Al. The two-body matrix element is computed from a nuclear shell model wavefunction with and without the additional short-range correlation function. We see that the correlation function reduces the two-body matrix element by roughly 40\%. Even without this addition reduction, the two-body matrix element computed in the nuclear shell model falls outside of the 1$\sigma$ error bar on the 1-body effective operator, though well within the 2$\sigma$ error.
 \begin{table}
 \centering
 \begin{tabular}{lccccccc}
@@ -3352,6 +3090,53 @@ $^{63}_{29}$Cu & 2.097 & 21.322 & 259.0 & 103.471 & $0.51^{+0.03}_{-0.26}$ & $(0
 \label{tab:two_body}
 \end{table}
 We observe this same overestimation in the case at hand; the ratio of the FGA to NSM result ranges from 2.0 for $^{12}$C to 2.83 for $^{63}$Cu. It is worth noting that the value of the effective one-body coupling implied by the NSM calculation $f^{SI}_\mathrm{eff,NSM}$ is nearly constant across the range of nuclei considered in Table \ref{tab:two_body}.
+
+The one-body monopole operator can be evaluated using either measured proton and neutron densities or the same many-body wavefunction that is used for the two-body operator. Using the measured densities we find
+\begin{equation}
+\braket{J_i||M_0(q)||J_i}=11.69\pm 0.23,
+\end{equation}
+whereas the NSM wavefunction yields
+\begin{equation}
+\braket{J_i||M_0(q)||J_i}_\mathrm{NSM}=11.81.
+\end{equation}
+Thus the NSM value is consistent with the measured nuclear density result. The uncertainty in the value computed from proton and neutron densities is due entirely to the uncertainty in the neutron density. 
+
+\section{Correlation Function}
+\label{sec:cor_fun}
+The nuclear shell-model calculation may still overestimate the strength of the two-nucleon contribution. The nuclear shell-model wave functions are obtained by diagonalizing an effective phenomenological interaction that has been tuned to reproduce low-energy nuclear observables, such as charge radii and low-lying spectra. The model space for these calculations is severely truncated. In $^{27}$Al, the valence nucleons are restricted to the $2s$-$1d$ harmonic oscillator shells. Although this formalism is capable of accurately reproducing many nuclear observables, it is known to fail at capturing the following behavior: at short range, the two-nucleon potential is strongly repulsive, and therefore the two-nucleon correlation function must develop at hole at very small separations.
+
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{deuteron_s_comp.png}
+\caption{The $^3S_1$ component of the deuteron wave function projected into various harmonic oscillator spaces indexed by cutoff in oscillator quanta $N$. The exact solution is obtained from the potential A$v_{18}$. A value for the harmonic oscillator parameter $b=1.7$ fm was employed in these calculations.}
+\label{fig:deuteron_proj}
+\end{figure}
+
+Resolving this fine structure, however, requires high momentum modes that are not included in the typically very soft Hilbert spaces of nuclear shell-model calculations. To demonstrate this concretely, we take the exact $S$-channel deuteron wave function obtained by solving the Schr\"odinger equation with potential given by the Argonne $v_{18}$ (A$v_{18}$) potential\cite{PhysRevC.51.38} and project this solution into harmonic oscillator spaces of varying dimension, specified by a cutoff in harmonic oscillator quanta of $N=100$ (101 states), $N=50$ (51 states), $N=10$ (6 states) and finally $N=0$ (1 state). In Fig. \ref{fig:deuteron_proj}, these projections are compared to the exact wave function. Although the long-range behavior is faithfully reproduced by the projected wave functions, the ``hole'' in the exact wave function at small separations is removed when the higher momentum modes are integrated out. The closest analog to the nuclear shell-model calculations that we employ in our $\mu\rightarrow e$ studies is the $N=1$ curve. Thus, the two-nucleon correlation function obtained from our shell-model calculations is erroneously enhanced at short range.
+
+\begin{figure}
+\centering
+\includegraphics[scale=1.0]{V1_radial.png}
+\caption{Dependence of the leading 2-body multipole on the relative radial coordinate $r$.}
+\label{fig:V1_radial}
+\end{figure}
+
+In the present case, the induced error is of particular consequence because the strength of the two-nucleon $\mu\rightarrow e$ conversion operator strongly depends on the short-range behavior of the two-nucleon correlation function. As illustrated in Fig. \ref{fig:rel_op_str}, the leading contribution to the two-nucleon amplitude in $^{27}$Al is the $L=0$ multipole of the $\mathcal{O}_1$ operator, which has the following dependence on the relative radial coordinate:
+\begin{equation}
+V_1(r,q)\equiv \int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_0(qr(\alpha-1/2))\frac{2-r\Pi(q,\alpha)}{r}
+\end{equation}
+For small values of $r$, $V_1(r,q)\propto 1/r$, and the potential divergences. This behavior is illustrated in Fig. \ref{fig:V1_radial}. In matrix elements, the divergence is regulated by the harmonic oscillator basis yielding a finite result. Nonetheless, the matrix element is very sensitive to the behavior of the two-nucleon correlation function. We can see this explicitly by modifying the two nucleon density with the addition of an ad hoc correlation function \cite{MILLER1976562}
+\begin{equation}
+\begin{split}
+\psi(\vec{r}_i,\vec{r}_j)&\rightarrow\left(1-\beta(r_{ij})\right)\psi(\vec{r}_i,\vec{r}_j)\\
+\beta(r)&=e^{-ar^2}\left(1-br^2\right),
+\label{eq:f_corr}
+\end{split}
+\end{equation}
+where $a=1.1$ fm$^{-2}$ and $b=0.68$ fm$^{-2}$. The radial coordinate here is $r_{ij}=|\vec{r}_i-\vec{r}_j|$. The effect of this modification is to add a hole to the two-nucleon density at separations $r\lesssim 1$ fm while leaving the long-distance behavior unchanged. We see this effect in Fig. \ref{fig:V1_radial}, where the additional correlation function removes the divergence at $r=0$. Compared to the bare result, the total two-body matrix element in $^{27}$Al is reduced by $\approx 40\%$ by the additional correlation function, as in Fig. \ref{fig:two_body_finite_q}. 
+
+The shell-model wave functions that we obtain are not genuine effective wave functions. No attempt is made to properly normalize them in the model space (i.e., to account for the proportion of the total wave function that lies outside of the model space). Furthermore, when computing matrix elements with the shell-model wave functions, we (erroneously) evaluate only the bare operator. Having truncated the full Hilbert space down to a model space, the bare operator must be replaced by an effective operator that accounts for the physics that has been integrated out. Although a framework does exist for promoting the nuclear-shell model to a bona fide effective theory \cite{PhysRevLett.84.5484,HAXTON200115,PhysRevLett.89.182503,PhysRevC.77.034005,MCELVAIN2019}, these considerations are beyond the scope of the current work. For now, it suffices to have some estimate of the strength of the two-nucleon operator in $\mu\rightarrow e$ conversion, particularly given that our estimates likely represent an upper limit, as evidenced by the significant reduction effected by the addition of the ad hoc correlation function.
+
 \chapter{Conclusions}
 Before summarizing the work presented in this thesis, we discuss two directions for future work: First, we generalize the effective theory to describe the inelastic process in which the nucleus transitions to an excited state. This result will enable future efforts, in close consultation with experimentalists, to identify the best opportunities for constraining the unique CLFV operators that are probed when $\mu\rightarrow e$ conversion proceeds via nuclear excitation. Second, we discuss the steps that remain in connecting the nuclear-scale effective theory to higher-scale effective theories. Once completed, this program will allow us to leverage the full information extracted from $\mu\rightarrow e$ conversion experiments to constrain candidate BSM theories.
 \label{chap:conclusion}
@@ -4546,6 +4331,265 @@ Note that these functions depend on not only the magnitude of the dimensionless 
 
 This calculation was first performed in \cite{2018PhRvC..98a5208B} but several errors were committed that resulted in incorrect expressions for $f^\mathrm{SI}(\bar{q},\bar{k}$, $f^\mathrm{SD}(\bar{q},\bar{k})$ and all quantities derived from them.
 
+\chapter{Fourier Transform of Two-Nucleon Operator}
+The two-nucleon current that contributes to $\mu\rightarrow e$ conversion has the form
+\begin{equation}
+J^{(2)}_{ud,\alpha}(\vec{q}_1,\vec{q}_2)=-\frac{g_A^2m_{\pi}^2}{4f_{\pi}^2}\rho\left(\vec{k}_1,\pvec{k}_1',\vec{k}_2,\pvec{k}_2'\right)\;\vec{\tau}(1)\cdot\vec{\tau}(2)\;C^{(0)}_{S\alpha},
+\label{eq:two_body_current}
+\end{equation}
+where we have defined the two-nucleon density
+\begin{equation}
+\rho\left(\vec{k}_1,\pvec{k}_1',\vec{k}_2,\pvec{k}_2'\right)\equiv\frac{\vec{q}_1\cdot\vec{\sigma}(1)\;\vec{q}_2\cdot\vec{\sigma}(2)}{(q_1^2+m_{\pi}^2)(q_2^2+m_{\pi}^2)}
+\end{equation}
+The three-momentum transfers are defined to be
+\begin{equation}
+\vec{q}_1\equiv \vec{p}_1-\pvec{p}_1',\;\;\;\vec{q}_2\equiv \vec{p}_2-\pvec{p}_2',
+\end{equation}
+and we use the notation $q_i=|\vec{q}_i|$ to denote the length of the three-vectors. Then to transform to coordinate space and enforce momentum conservation, we have
+\begin{equation}
+\begin{split}
+&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})\\
+&=\frac{1}{(2\pi)^{12}}\int d^3p_1\;d^3p_1'\;d^3p_2\;d^3p'_2\;\tilde{J}_2(\vec{q}_1,\vec{q}_2,\vec{q})(2\pi)^3\delta(\vec{p}_1+\vec{p}_2-\pvec{p}'_1-\pvec{p}'_2-\vec{q})e^{i\left(\pvec{p}'_1\cdot\pvec{x}_1'+\pvec{p}'_2\cdot\pvec{x}'_2-\vec{p}_1\cdot\vec{x}_1-\vec{p}_2\cdot\vec{x}_2\right)}
+\end{split}
+\end{equation}
+We transform our integration variables to
+\begin{equation}
+\begin{split}
+\vec{q}_1&=\vec{p}_1-\pvec{p}'_1,\;\vec{P}_1=\frac{1}{2}\left(\vec{p}_1+\pvec{p}'_1\right)\\
+\vec{q}_2&=\vec{p}_2-\pvec{p}'_2,\;\vec{P}_2=\frac{1}{2}\left(\vec{p}_2+\pvec{p}'_2\right),
+\end{split}
+\end{equation}
+so that
+\begin{equation}
+\begin{split}
+&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}'_2,\vec{q})\\
+&=\frac{1}{(2\pi)^9}\int d^3P_1\;d^3P_2\;d^3q_1\;d^3q_2\;\rho(\vec{q}_1,\vec{q}_2,\vec{q})\delta(\vec{q}_1+\vec{q}_2-\vec{q})e^{i\left[\vec{P}_1\cdot(\pvec{x}_1'-\vec{x}_1)+\vec{P}_2\cdot(\pvec{x}_2'-\vec{x}_2)-\frac{1}{2}\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')-\frac{1}{2}\vec{q}_2\cdot(\vec{x}_2+\pvec{x}_2')\right]}\\
+&=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}'_1)\delta(\vec{x}_2-\pvec{x}_2')\int d^3q_1\;d^3q_2\;\rho(\vec{q}_1,\vec{q}_2,\vec{q})\delta(\vec{q}_1+\vec{q}_2-\vec{q})e^{-\frac{i}{2}\left[\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')+\vec{q}_2\cdot(\vec{x}_2+\pvec{x}_2')\right]}\\
+&=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\int d^3 q_1\;\rho(\vec{q}_1,\vec{q}-\vec{q}_1,\vec{q})e^{-\frac{i}{2}\left[\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')+(\vec{q}-\vec{q}_1)\cdot(\vec{x}_2+\pvec{x}_2')\right]}.
+\end{split}
+\end{equation}
+Next we employ the Feynman parameter representation
+\begin{equation}
+\frac{1}{AB}=\int_0^1 d\alpha \frac{1}{\left[\alpha A+(1-\alpha)B\right]^2},
+\end{equation}
+with 
+\begin{equation}
+A=q_1^2+m_{\pi}^2,\;B=(\vec{q}-\vec{q}_1)^2+m_{\pi}^2.
+\end{equation}
+Then
+\begin{equation}
+\alpha A + (1-\alpha)B=\left[\vec{q}_1-(1-\alpha)\vec{q}\right]^2+\alpha(1-\alpha)q^2+m_{\pi}^2.
+\end{equation}
+Now let us shift the integration variable
+\begin{equation}
+\vec{q}_1\rightarrow \vec{q}_1+(1-\alpha)\vec{q},
+\end{equation}
+so that 
+\begin{equation}
+\begin{split}
+\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})&=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')e^{-\frac{i}{2}\vec{q}\cdot(\vec{x}_1+\pvec{x}_1')}\int_0^1 d\alpha \;e^{i\alpha\vec{q}\cdot\vec{r}}\\
+&\times \int d^3q_1\frac{\left[\vec{q}_1+(1-\alpha)\vec{q}\;\right]\cdot\vec{\sigma}(1)\left[\alpha\vec{q}-\vec{q}_1\right]\cdot\vec{\sigma}(2)}{\left[q_1^2+\Pi^2(q,\alpha)\right]^2}e^{-i\vec{q}_1\cdot\vec{r}},
+\end{split}
+\end{equation}
+where we have defined
+\begin{equation}
+\Pi^2(q,\alpha)\equiv \alpha(1-\alpha)q^2+m_{\pi}^2,
+\end{equation}
+and introduced the relative coordinate
+\begin{equation}
+\begin{split}
+\vec{r}&\equiv\frac{1}{2}\left(\vec{x}_1+\pvec{x}_1'-\vec{x}_2-\pvec{x}_2'\right)\\
+&=\vec{x}_1 - \vec{x}_2.
+\end{split}
+\end{equation}
+The quantity $\Pi(q,\alpha)$ can be interpreted as an effective pion mass arising from the finite momentum-transfer. Indeed, $\Pi(q,\alpha)\rightarrow m_{\pi}$ when $q\rightarrow 0$.
+Now we can perform the final momentum integral. There are three distinct integrands. First, with a trivial angular integrand:
+\begin{equation}
+\int d^3 q_1 \frac{e^{-i\vec{q}_1\cdot\vec{r}}}{\left[q_1^2+\Pi^2(q,\alpha)\right]^2}=\pi^2\frac{e^{-r\Pi(q,\alpha)}}{\Pi(q,\alpha)},
+\end{equation}
+then with one factor of $\hat{q}_1$ in the angular integrand:
+\begin{equation}
+\int d^3 q_1 \frac{\vec{q}_1\cdot\vec{\sigma}(i)e^{-i\vec{q}_1\cdot\vec{r}}}{\left[q_1^2+\Pi^2(q,\alpha)\right]^2}=-i\pi^2\hat{r}\cdot\vec{\sigma}(i)e^{-r\Pi(q,\alpha)},
+\end{equation}
+and finally with two factors of $\hat{q}_1$:
+\begin{equation}
+\begin{split}
+\int d^3q_1\frac{\vec{q}_1\cdot\vec{\sigma}(1)\vec{q}_1\cdot\vec{\sigma}(2)e^{-i\vec{q}_1\cdot\vec{r}}}{\left[q_1^2+\Pi^2(q,\alpha)\right]^2}&=\frac{\pi^2}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\frac{e^{-r\Pi(q,\alpha)}}{r}\left[2-r\Pi(q,\alpha)\right]\\
+&-\pi^2\sqrt{\frac{8\pi}{15}}\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\odot Y_2(\hat{r})\frac{e^{-r\Pi(q,\alpha)}}{r}\left[1+\Pi(q,\alpha)r\right].
+\end{split}
+\end{equation}
+For this last integration we have employed the identity
+\begin{equation}
+\left(\hat{q}\cdot\vec{\sigma}(1)\right)\left(\hat{q}\cdot\vec{\sigma}(2)\right)=\frac{1}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)+\sqrt{\frac{8\pi}{15}}Y_2(\hat{q})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2.
+\label{eq:tensor_identity}
+\end{equation}
+Putting these pieces together yields
+\begin{equation}
+\begin{split}
+&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}'_2)e^{-i\vec{q}\cdot\vec{x}_1}\int_0^1d\alpha\;e^{i\alpha\vec{q}\cdot\vec{r}-\Pi(q,\alpha)r}\Bigg\{-i\alpha\hat{r}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)\\
+&+i(1-\alpha)\vec{q}\cdot\vec{\sigma}(1)\hat{r}\cdot\vec{\sigma}(2)-\frac{1}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\frac{1}{r}\left[2-r\Pi(q,\alpha)\right]+\alpha(1-\alpha)\frac{1}{\Pi(q,\alpha)}\vec{q}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)\\
+&+\sqrt{\frac{8\pi}{15}}\frac{1}{r}\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\odot Y_2(\hat{r})\left[1+r\Pi(q,\alpha)\right]\Bigg\}
+\label{eq:two_body_master}
+\end{split}
+\end{equation}
+In the $\vec{q}\rightarrow 0$ limit, the Feynman parameter integral becomes trivial, $\Pi(q,\alpha)\rightarrow m_{\pi}$, and the two-body current becomes
+\begin{equation}
+\begin{split}
+\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',0)=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\frac{1}{r}\bigg\{&\frac{1}{3}F_1(r/m_{\pi})\vec{\sigma}(1)\cdot\vec{\sigma}(2)\\
+&+\sqrt{\frac{8\pi}{15}}F_2(r/m_{\pi})Y_2(\hat{r})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\bigg\},
+\label{eq:two_body_q_zero}
+\end{split}
+\end{equation}
+where the form factors are given by
+\begin{equation}
+F_1(x)\equiv e^{-x}(x-2),\;F_2(x)\equiv e^{-x}(x+1).
+\end{equation}
+This is a familiar result from studies of $0\nu\beta\beta$-decay (e.g. \cite{2003PhRvD..68c4016P}), where the leading long-range contribution is due to two-pion exchange. In that case, however, the three-momentum transfer is small compared to the pion mass, and so it is justified to work in the limit $\vec{q}\rightarrow 0$. In coherent $\mu\rightarrow e$ conversion, $q\approx m_{\mu}$, and we must work at finite q. 
 
+If we were to Fourier transform the two-body current in Eq. (\ref{eq:two_body_master}) with respect to the momentum transfer $\vec{q}$
+\begin{equation}
+\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{x})=\int \frac{d^3q}{(2\pi)^3} \;e^{i\vec{q}\cdot\vec{x}}\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q}),
+\end{equation}
+then the resulting position space current will exhibit a complicated dependence on the Fourier transform coordinate $\vec{x}$. The dominant piece will be the $J=0$ component of this current and so we must project the spatial two-body current onto charge multipoles
+\begin{equation}
+\begin{split}
+\mathcal{M}_{J,M}(\kappa)&=\int d^3x \;j_J(\kappa x)Y_{J,M}(\hat{x})\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{x})\\
+&=\frac{1}{4\pi}i^J\delta(\kappa-q)\int d\Omega_q\; Y_{J,M}(\hat{q})\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q}).
+\end{split}
+\end{equation}
+Our focus is then the $J=M=0$ contribution. We begin by considering the first term in the second line of Eq. (\ref{eq:two_body_master}). The only angular dependence on $\hat{q}$ in this term is in the exponentials, so we compute
+\begin{equation}
+\int d\Omega_q\;Y_{0,0}(\hat{q})e^{-i\vec{q}\cdot\vec{R}}e^{i(\alpha-1/2)\vec{q}\cdot\vec{r}}=(4\pi)^{3/2}\sum_{l=0}^{\infty}j_l(q R)j_l\left(q r(\alpha-1/2)\right)Y_l(\hat{R})\odot Y_l(\hat{r}),
+\end{equation}
+where we have defined the center-of-mass coordinate
+\begin{equation}
+\vec{R}\equiv \frac{1}{2}\left(\vec{x}_1+\vec{x}_2\right).
+\end{equation}
+
+Thus we have the two-body operator
+\begin{equation}
+\begin{split}
+\mathcal{O}_1(\vec{r},\vec{R},q)&=-\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0}^{\infty}Y_L(\hat{r})\odot\ Y_L(\hat{R})j_L(q R)\\
+&\times\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_L\left(q r(\alpha-1/2)\right)\frac{2-r\Pi(q,\alpha)}{r}.
+\end{split}
+\end{equation}
+The Feynman parameter integral vanishes unless $L$ is even. This can be seen by shifting the Feynman parameter $\beta=\alpha-1/2$ and noting that $\Pi(q,\beta)$ (and thus the entire Feynman parameter integrand) is an even function of $\beta$. Therefore
+\begin{equation}
+\begin{split}
+\mathcal{O}_1(\vec{r},\vec{R},q)&=-\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot\ Y_L(\hat{R})\;j_L(q R)\\
+&\times\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_L\left(q r(\alpha-1/2)\right)\frac{2-r\Pi(q,\alpha)}{r}
+\end{split}
+\end{equation}
+Now let's look at the second term in the second line of Eq. (\ref{eq:two_body_master}) and apply the identity of Eq. (\ref{eq:tensor_identity}). We find one term that has the same tensor structure as $\mathcal{O}_1$; that is
+\begin{equation}
+\begin{split}
+\mathcal{O}_2(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot Y_L(\hat{R})\;j_L(q R)\\
+&\times\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}j_L(q r\left(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)},
+\end{split}
+\end{equation}
+where again the Feynman parameter integral vanishes unless $L$ is even. 
+
+The second term that we get from applying the tensor decomposition of Eq. (\ref{eq:tensor_identity}) has a quadrupole dependence on $\hat{q}$:
+\begin{equation}
+\begin{split}
+&\int d\Omega_q\;Y_{0,0}(\hat{q})e^{-i\vec{q}\cdot\vec{R}}e^{i(\alpha-1/2)\vec{q}\cdot\vec{r}}Y_2(\hat{q})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\\
+&=4\pi\sum_{L_1,L_2}(i)^{L_1-L_2}(-1)^{L_1+L_2}C^{20}_{L_10L_20}\sqrt{\frac{(2L_1+1)(2L_2+1)}{5}}j_{L_1}\left(q r(\alpha-1/2)\right)j_{l_2}(q R)\\
+&\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2.
+\end{split}
+\end{equation}
+Therefore we have the operator
+\begin{equation}
+\begin{split}
+\mathcal{O}_3(\vec{r},\vec{R},q)&=\frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1,L_2}i^{L_1-L_2}(-1)^{L_1+L_2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
+&\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)}
+\end{split}
+\end{equation}
+As before, the Feynman parameter integral vanishes unless $L_1$ is even. The Clebsch-Gordan coefficient then implies that $L_2$ must be even as well. Thus
+\begin{equation}
+\begin{split}
+\mathcal{O}_3(\vec{r},\vec{R},q)&=\frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(L_1-L_2)/2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}\\
+&\times j_{L_2}(q R)\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)}.
+\end{split}
+\end{equation}
+Now we turn our attention to the term in the third line of Eq. (\ref{eq:two_body_master}). The only angular dependence on $\hat{q}$ is in the exponentials but after completing the angular integral we must recouple the resulting two $\hat{r}$ spherical harmonics. For this task we need the identity
+\begin{equation}
+Y_{l_2}(\hat{r})\odot Y_{l_2}(\hat{R})\;Y_2(\hat{r})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2=(-1)^{l_2}\sqrt{\frac{2l_2+1}{4\pi}}\sum_{l_1}C_{l_2020}^{l_10}\left[Y_{l_1}(\hat{r})\otimes Y_{l_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2
+\end{equation}
+As before, we find that the integrand vanishes unless $L_2$ is even and the Clebsch-Gordon coefficient then requires that $L_1$ be even as well. Thus
+\begin{equation}
+\begin{split}
+\mathcal{O}_4(\vec{r},\vec{R},q) &= \frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1,L_2\;\mathrm{even}}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
+&\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_2}(q r(\alpha-1/2))\frac{1}{r}\left[1+r\Pi(q,\alpha)\right]
+\end{split}
+\end{equation}
+Now we turn our attention to the final set of terms, the first line of Eq. (\ref{eq:two_body_master}). First we decompose the tensor structure as
+\begin{equation}
+-\alpha \hat{r}\cdot\vec{\sigma}(1)\hat{q}\cdot\vec{\sigma}(2)+(1-\alpha)\hat{q}\cdot\vec{\sigma}(1)\hat{r}\cdot\vec{\sigma}(2)=\frac{4\pi}{3}\sum_{K=0}^2\left[Y_1(\hat{q})\otimes Y_1(\hat{r})\right]_K\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_K\left[-\alpha + (1-\alpha)(-1)^K\right].
+\end{equation}
+Next we must perform a more complicated angular integral: the $Y_1(\hat{q})$-dependence is non-trivially coupled to the $Y_1(\hat{r})$. After integrating and re-coupling (using an identity to rewrite a sum of three Clebsch-Gordon coefficients as a single Clebsch-Gordon coefficient and a Wigner 6-$j$ symbol), we find
+\begin{equation}
+\begin{split}
+&\int d\Omega_q\;Y_{00}(\hat{q})e^{-i\vec{q}\cdot{R}}e^{i(\alpha-1/2)\vec{q}\cdot\vec{r}}\left[Y_1(\hat{q})\otimes Y_1(\hat{r})\right]_K\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_K\\
+&=3\sqrt{4\pi}\sum_{L_1,L_2}(i)^{L_1-L_2}(2L_1+1)C_{L_1010}^{L_20}\sum_J (-1)^{1+J}C_{L_1010}^{J0}\left\{
+\begin{array}{ccc}
+L_1 & 1 & L_2\\
+K & J & 1
+\end{array}\right\}
+\\ &\times\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_K\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_Kj_{L_1}(q r(\alpha-1/2))j_{L_2}(q R)
+\end{split}
+\end{equation}
+Now let us consider the three cases: $K=0,1,2$. When $K=0$, then $J=L_2$ and many of the angular momentum factors simplify. In particular,
+\begin{equation}
+\left\{\begin{array}{ccc}
+L_1 & 1 & L_2\\
+0 & L_2 & 1
+\end{array}\right\}=\frac{(-1)^{1+L_1+L_2}}{\sqrt{3(2L_2+1)}},
+\end{equation}
+\begin{equation}
+\left[Y_{L_2}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_{0,0}=\frac{(-1)^{L_2}}{\sqrt{2L_2+1}}Y_{L_2}(\hat{r})\odot Y_{L_2}(\hat{R}),
+\end{equation}
+and
+\begin{equation}
+\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_{0,0}=-\frac{1}{\sqrt{3}}\vec{\sigma}(1)\cdot\vec{\sigma}(2).
+\end{equation}
+Therefore we have the operator
+\begin{equation}
+\begin{split}
+\mathcal{O}_5(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L1,L2}(i)^{1+L_1-L_2}\left(\frac{2L_1+1}{2L_2+1}\right)\left(C_{L_1010}^{L_20}\right)^2\\
+&\times j_{L_2}(q R)\;Y_{L_2}(\hat{r})\odot Y_{L_2}(\hat{R})\;\vec{\sigma}(1)\cdot\vec{\sigma}(2)\;q\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(q r(\alpha-1/2)).
+\end{split}
+\end{equation}
+The integral with respect to $\alpha$ vanishes unless $L_1$ is odd, and the Clebsch-Gordon coefficient then implies that $L_2$ must be even. Therefore
+\begin{equation}
+\begin{split}
+\mathcal{O}_5(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}\left(\frac{2L_1+1}{2L_2+1}\right)\left(C_{L_1010}^{L_20}\right)^2\\
+&\times j_{L_2}(q R)\;Y_{L_2}(\hat{r})\odot Y_{L_2}(\hat{R})\;\vec{\sigma}(1)\cdot\vec{\sigma}(2)\;q\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(q r(\alpha-1/2))
+\end{split}
+\end{equation}
+Similarly when $K=1$, we have
+\begin{equation}
+\begin{split}
+&\mathcal{O}_6(\vec{r},\vec{R},q)=-\frac{1}{4\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=1,3,...}^{\infty}\sum_{J=1,3,...}^{\infty}(-1)^{(1+L_1-L_2)/2}(2L_1+1)C_{L_1010}^{L_20}C_{L_1010}^{J0}\\
+&\times\left\{\begin{array}{ccc}
+L_1 & 1 & L_2\\
+1 & J & 1
+\end{array}\right\}\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_1\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_1 j_{L_2}(q R)\;q\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}(qr(\alpha-1/2)).
+\end{split}
+\end{equation}
+Finally when $K=2$,
+\begin{equation}
+\begin{split}
+&\mathcal{O}_7(\vec{r},\vec{R},q)=-\frac{1}{4\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}\sum_{J=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}(2L_1+1)C_{L_1020}^{L_20}C_{L_1020}^{J0}\\
+&\times\left\{\begin{array}{ccc}
+L_1 & 1 & L_2\\
+2 & J & 1
+\end{array}\right\}\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2 j_{L_2}(q R)\;q \int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(qr(\alpha-1/2)).
+\end{split}
+\end{equation}
+The total two-body operator can then be expressed as 
+\begin{equation}
+\mathcal{O}^{(2)}(q)=-\frac{g_A^2m_{\pi}^2}{4f_{\pi}^2}\frac{1}{2}\sum_{i\neq j}\sum_{k=1}^7\mathcal{O}_k(\vec{r}_{ij},\vec{R}_{ij},q)\;\vec{\tau}(i)\cdot\vec{\tau}(j),
+\end{equation}
+where the summation over $i,j$ extends over all nucleons in the target nucleus.
 
 \end{document}
