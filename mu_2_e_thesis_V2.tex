@@ -18,6 +18,13 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{notoccite}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=blue,
+    urlcolor=blue
+}
 \DeclareUnicodeCharacter{2032}{$^\prime$}
 \DeclareUnicodeCharacter{2212}{-}
 \newcommand{\pvec}[1]{\vec{#1}\mkern2mu\vphantom{#1}}
@@ -272,7 +279,9 @@ The nucleon-level operators thus obtained must ultimately be embedded in a nucle
 
 These difficulties can be circumvented if one restricts focus to the case of coherent $\mu\rightarrow e$ conversion, in which the only nuclear operator under consideration is the isoscalar monopole charge operator. The term ``coherent'' refers to the fact that this operator couples to every nucleon in the nucleus, and therefore the amplitude is enhanced by roughly a factor of $A=N+Z$ relative to the incoherent process. Specializing to the coherent case results in a dramatic simplification of the nuclear physics: rather than relying on difficult and imprecise modeling of the nuclear many-body wave function, the coherent amplitude can be computed from an experimentally determined quantity, the scalar nucleon density. Thus, if one connects the coherent nucleon operator to its quark-level counterparts---relying on lattice QCD to quantify the associated matching errors---it is possible to complete the chain of effective theories from the scale of $\mu\rightarrow e$ conversion up to the high-energy realm of candidate UV CLFV theories, yielding a prediction for the coherent conversion branching ratio with well-understood uncertainties. This construction was recently completed though next-to-leading order in the quark/hadron matching \cite{2018PhRvC..98a5208B,Cirigliano:2022ekw}, providing a valuable tool for discriminating among BSM theories.
 
-On the other hand, this ``top-down'' approach is not general and can only be used to exclude those particular UV models that yield a leading coherent operator. At present, there is no reason to expect that nature has been so kind as to concentrate sources of CLFV into such a narrow response. Indeed, one should consider the problem in general, including all operators allowed by the relevant symmetries through a given order in some small parameter. Of course, each of the various effective theories represented in Fig. \ref{fig:eft_tower} provides a complete description of the physics within its domain of applicability, and if one were to, say, begin from the most general effective theory of CLFV at the level of standard-model degrees of freedom and proceed downward to the nuclear scale, then one must recover the most general nuclear-level effective theory. In doing so, however, it is highly likely that one has horribly obscured the underlying CLFV physics, convoluting it with the nuclear physics. The $\mu\rightarrow e$ conversion experiments have the advantage that the nuclear target can be varied, potentially providing additional complementary measurements. As such, a formalism that factorizes the part of the response that depends on the choice of nuclear target from the CLFV physics is highly desirable. Furthermore, being the scale at which the relevant measurements are conducted, the nuclear scale is the most natural setting for an effective theory of $\mu\rightarrow e$ conversion, allowing one to identify those quantities that are directly probed by experiment. In this sense, the nuclear-scale effective theory represents the most general constraint that elastic $\mu\rightarrow e$ conversion can place on underlying CLFV operators.
+On the other hand, this ``top-down'' approach is not general and can only be used to exclude those particular UV models that yield a leading coherent operator. At present, there is no reason to expect that nature has been so kind as to concentrate sources of CLFV into such a narrow response. Indeed, one should consider the problem in general, including all operators allowed by the relevant symmetries through a given order in some small parameter. Of course, each of the various effective theories represented in Fig. \ref{fig:eft_tower} provides a complete description of the physics within its domain of applicability, and if one were to, say, begin from the most general effective theory of CLFV at the level of standard-model degrees of freedom and proceed downward to the nuclear scale, then one must recover the most general nuclear-level effective theory. In doing so, however, it is highly likely that one has horribly obscured the underlying CLFV physics, convoluting it with the nuclear physics. 
+
+The $\mu\rightarrow e$ conversion experiments have the advantage that the nuclear target can be varied, potentially providing additional complementary measurements. As such, a formalism that factorizes the part of the response that depends on the choice of nuclear target from the CLFV physics is highly desirable. Furthermore, being the scale at which the relevant measurements are conducted, the nuclear scale is the most natural setting for an effective theory of $\mu\rightarrow e$ conversion, allowing one to identify those quantities that are directly probed by experiment. In this sense, the nuclear-scale effective theory represents the most general constraint that elastic $\mu\rightarrow e$ conversion can place on underlying CLFV operators.
 
 The bulk of this thesis is dedicated to the development and application of a nuclear effective theory for the elastic $\mu\rightarrow e$ conversion process. This formalism was first introduced in \cite{rule2021nucleonlevel,haxton_2022}. The development of the effective theory is mirrored in the structure of this thesis, which we now outline.
 
@@ -1382,11 +1391,11 @@ The $R$ coefficients defined above are in terms of the dimensionful LECs $c_i^{\
 where the factor $(1+q/M_T)^{-1}$ accounts for the distortion of phase space by nuclear recoil, and where we have defined the nuclear response functions
 \begin{equation}
 \begin{split}
-W_O^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=0,2,...}^{\infty}\braket{j_N||O_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||O_{J;\tau'}(q_\mathrm{eff})||j_N}\;\mathrm{for}\;O=M,\Phi''\\
-W_O^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1} \sum_{J=1,3,...}^{\infty}\braket{j_N||O_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||O_{J;\tau'}(q_\mathrm{eff})||j_N}\;\mathrm{for}\;O=\Sigma',\Sigma'',\Delta\\
-W_{\tilde{\Phi'}}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1} \sum_{J=2,4,...}^{\infty}\braket{j_N||\tilde{\Phi}'_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\tilde{\Phi}'_{J;\tau'}(q_\mathrm{eff})||j_N}\\
-W_{\Phi''M}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1} \sum_{J=0,2,...}^{\infty}\braket{j_N||\Phi''_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M_{J;\tau'}(q_\mathrm{eff})||j_N}\\
-W_{\Delta\Sigma'}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1} \sum_{J=1,3,...}^{\infty}\braket{j_N||\Delta_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma'_{J;\tau'}(q_\mathrm{eff})||j_N}.
+W_O^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_N+1}\sum_{J=0,2,...}^{\infty}\braket{j_N||O_{J;\tau}(q)||j_N}\braket{j_N||O_{J;\tau'}(q)||j_N}\;\mathrm{for}\;O=M,\Phi''\\
+W_O^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_N+1} \sum_{J=1,3,...}^{\infty}\braket{j_N||O_{J;\tau}(q)||j_N}\braket{j_N||O_{J;\tau'}(q)||j_N}\;\mathrm{for}\;O=\Sigma',\Sigma'',\Delta\\
+W_{\tilde{\Phi'}}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_N+1} \sum_{J=2,4,...}^{\infty}\braket{j_N||\tilde{\Phi}'_{J;\tau}(q)||j_N}\braket{j_N||\tilde{\Phi}'_{J;\tau'}(q)||j_N}\\
+W_{\Phi''M}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_N+1} \sum_{J=0,2,...}^{\infty}\braket{j_N||\Phi''_{J;\tau}(q)||j_N}\braket{j_N||M_{J;\tau'}(q)||j_N}\\
+W_{\Delta\Sigma'}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_N+1} \sum_{J=1,3,...}^{\infty}\braket{j_N||\Delta_{J;\tau}(q)||j_N}\braket{j_N||\Sigma'_{J;\tau'}(q)||j_N}.
 \end{split}
 \label{eq:w_response}
 \end{equation}
@@ -1406,10 +1415,10 @@ Calculation of the nuclear response functions defined in Eq. (\ref{eq:w_response
 \end{equation}
 where $\ket{j_N}$ is a wave function for the nuclear ground state, and $T_{J;\tau}$ is any of the basic single-nucleon operators in Eq. (\ref{eq:single_nucleon_responses}). Here, the isospin of the nuclear states has been suppressed. We will demonstrate how to compute these matrix elements using the nuclear shell-model. Restoring isospin explicitly, we may write the desired matrix element in terms of one that has been doubly-reduced in total angular momentum $J$ and total isospin $\tau$
 \begin{equation}
-\braket{j_N;TM_T||T_{J;\tau}(q_\mathrm{eff})||j_N;TM_T}=(-1)^{T-M_T}\left(\begin{array}{ccc}
+\braket{j_N;TM_T||T_{J;\tau}(q)||j_N;TM_T}=(-1)^{T-M_T}\left(\begin{array}{ccc}
 T & \tau & T\\
 -M_T & 0 & M_T
-\end{array}\right)\braket{j_N;T|||T_{J;\tau}(q_\mathrm{eff})|||j_N;T}.
+\end{array}\right)\braket{j_N;T|||T_{J;\tau}(q)|||j_N;T}.
 \end{equation}
 Each nuclear operator is a sum of single-nucleon operators
 \begin{equation}
@@ -1417,7 +1426,7 @@ T_{J;\tau}(q)=\sum_{i=1}^AT_{J;\tau}(q\vec{x}_i),
 \end{equation}
 and therefore the doubly-reduced total nuclear matrix element can be expressed in terms of the doubly-reduced one-body density matrix $\rho^{J,\tau}_{ab}$  (see Appendix \ref{app:density}) as
 \begin{equation}
-\braket{j_N;T|||T_{J;\tau}(q_\mathrm{eff})|||j_N;T}=\sum_{a,b}\rho^{J,\tau}_{ab}\;\braket{n_a\left(\ell_a\;1/2\right)j_a;1/2|||T_{J;\tau}(q_\mathrm{eff})|||n_b\left(\ell_b\;1/2\right)j_b;1/2},
+\braket{j_N;T|||T_{J;\tau}(q)|||j_N;T}=\sum_{a,b}\rho^{J,\tau}_{ab}\;\braket{n_a\left(\ell_a\;1/2\right)j_a;1/2|||T_{J;\tau}(q)|||n_b\left(\ell_b\;1/2\right)j_b;1/2},
 \end{equation}
 where the sum extends over all single-particle \textit{orbits}, labeled by harmonic oscillator quantum numbers $n$, $\ell$, and $j$ but not $j_z$. As $T_{J;\tau}(q_\mathrm{eff})=T_J(q_\mathrm{eff})t^\tau$, the single-particle isospin matrix elements are readily evaluated
 \begin{equation}
@@ -2099,11 +2108,12 @@ Table \ref{tab:operators_lower} summarizes the properties of these novel respons
 \begin{equation}
 \begin{split}
 &\mathcal{M}=\sqrt{\frac{E_e}{2m_e}}\frac{q_\mathrm{eff}}{q}\sum_{\tau=0,1}\bra{\frac{1}{2}s_f;j_Nm_f}\\
-&\Bigg[\sum_{J=0,2,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\left(l_0^{\tau}M^g_{J0;\tau}(q_\mathrm{eff})-il_0^{\tau(2)}M_{J0;\tau}^{(2)f}(q_\mathrm{eff})+\frac{q_\mathrm{eff}}{m_N}l_{E0}^{\tau}\Phi^{''g}_{J0;\tau}(q_\mathrm{eff})\right)\\
-&+\sum_{J=1,3,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(-il_{5\lambda}^{\tau}\Sigma^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(0)}_{5\lambda}\Sigma^{'(0)f}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(2)}_{5\lambda}\Sigma^{'(2)f}_{J-\lambda;\tau}(q_\mathrm{eff})\right.\\
-&\left.\hspace*{5.5cm}+i\frac{q_\mathrm{eff}}{m_N}l^{\tau}_{M\lambda}\lambda\Delta^g_{J-\lambda;\tau}(q_\mathrm{eff})\right]\\
-&+\sum_{J=2,4,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\left(-il_\lambda^{\tau(1)}M_{J-\lambda;\tau}^{(1)f}(q_\mathrm{eff})-\frac{q_\mathrm{eff}}{m_N}l_{E\lambda}^{\tau}\tilde{\Phi}^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})\right)\\
-&+\sum_{J=1,3,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\left(il_{50}^{\tau}\Sigma^{''g}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(0)}\Sigma^{''(0)f}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(2)}\Sigma^{''(2)f}_{J0;\tau}(q_\mathrm{eff})\right)\Bigg]\ket{\frac{1}{2}s_i;j_Nm_i},
+&\Bigg\{\sum_{J=0,2,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\bigg[(l_0^{\tau}M^g_{J0;\tau}(q_\mathrm{eff})-il_0^{\tau(2)}M_{J0;\tau}^{(2)f}(q_\mathrm{eff})+\frac{q_\mathrm{eff}}{m_N}l_{E0}^{\tau}\Phi^{''g}_{J0;\tau}(q_\mathrm{eff})\bigg]\\
+&+\sum_{J=1,3,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\bigg[-il_{5\lambda}^{\tau}\Sigma^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(0)}_{5\lambda}\Sigma^{'(0)f}_{J-\lambda;\tau}(q_\mathrm{eff})+l^{\tau(2)}_{5\lambda}\Sigma^{'(2)f}_{J-\lambda;\tau}(q_\mathrm{eff})\\
+&\hspace*{5.5cm}+i\frac{q_\mathrm{eff}}{m_N}l^{\tau}_{M\lambda}\lambda\Delta^g_{J-\lambda;\tau}(q_\mathrm{eff})\bigg]\\
+&+\sum_{J=2,4,...}^\infty\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda=\pm 1}\bigg[-il_\lambda^{\tau(1)}M_{J-\lambda;\tau}^{(1)f}(q_\mathrm{eff})-\frac{q_\mathrm{eff}}{m_N}l_{E\lambda}^{\tau}\tilde{\Phi}^{'g}_{J-\lambda;\tau}(q_\mathrm{eff})\bigg]\\
+&+\sum_{J=1,3,...}^\infty\sqrt{4\pi(2J+1)}(-i)^J\bigg[il_{50}^{\tau}\Sigma^{''g}_{J0;\tau}(q_\mathrm{eff})+l_{50}^{\tau(0)}\Sigma^{''(0)f}_{J0;\tau}(q_\mathrm{eff})\\
+&\hspace*{10cm}+l_{50}^{\tau(2)}\Sigma^{''(2)f}_{J0;\tau}(q_\mathrm{eff})\bigg]\Bigg\}\ket{\frac{1}{2}s_i;j_Nm_i},
 \label{eq:M_lower}
 \end{split}
 \end{equation}
@@ -2115,9 +2125,9 @@ where we have introduced the notation
 \end{split}
 \label{eq:muon_replace}
 \end{equation}
-In most practical calculations, we will replace both radial wave functions $f$ and $g$ by constant values. [The quantity $\braket{f}/\braket{g}$ was defined in Eq. \ref{eq:f_g_ratio}.] It is not strictly necessary to make this approximation; the radial wave functions of the muon may be retained inside the nuclear matrix elements, where they contribute an additional weight to the corresponding radial integrals. The downside of this approach is that nuclear matrix elements that include the muon wave function can no longer be evaluated analytically---each multipole operator requires a distinct radial integral that must be evaluated numerically. Nonetheless, the effective theory framework can be extended in this way to more accurately describe the muon physics, which may be particularly important in heavy nuclei where the curvature of the muon wave function over the nuclear size becomes significant. Throughout the remainder of this chapter, we will continue with the intention of utilizing the approximate constant values.
+In most practical calculations, we will replace both radial wave functions $f$ and $g$ by constant values. [The quantity $\braket{f}/\braket{g}$ was defined in Eq. (\ref{eq:f_g_ratio}).] It is not strictly necessary to make this approximation; the radial wave functions of the muon may be retained inside the nuclear matrix elements, where they contribute an additional weight to the corresponding radial integrals. The downside of this approach is that nuclear matrix elements that include the muon wave function can no longer be evaluated analytically---each multipole operator requires a distinct radial integral that must be evaluated numerically. Nonetheless, the effective theory framework can be extended in this way to more accurately describe the muon physics, which may be particularly important in heavy nuclei where the curvature of the muon wave function over the nuclear size becomes significant. Throughout the remainder of this chapter, we will continue with the intention of utilizing the approximate constant values.
 
-The lower-component leptonic currents in Eq. \ref{eq:M_lower} are
+The lower-component leptonic currents in Eq. (\ref{eq:M_lower}) are
 \begin{equation}
 \begin{split}
 l_{\lambda}^{\tau(1)}&=-i\left(b_3^{\tau}\lambda+b_7^{\tau}\right)\sigma_{L\lambda},\hspace*{3cm} l_0^{\tau(2)}=-b_2^{\tau}+ib_7^{\tau}\sigma_{L0},\\
@@ -2183,7 +2193,7 @@ The next step is to perform the summation over lepton spins and evaluate the res
 \begin{equation}
 \Gamma(\mu\rightarrow e)=\Gamma^{(0)}+2\frac{\braket{f}}{\braket{g}}\Gamma^{(1)}+\left(\frac{\braket{f}}{\braket{g}}\right)^2\Gamma^{(2)},
 \end{equation}
-where the factor of 2 in the coefficient of $\Gamma^{(1)}$ reflects the fact that these terms result from interference. The leading term $\Gamma^{(0)}$ is, of course, the result that we previously obtained in Eq. \ref{eq:mu2e_rate}. As we have incorporated the muon velocity (hence the lower component) to first order in the single-nucleon effective theory, we should technically only be concerned with the first-order correction $\Gamma^{(1)}$. However, as we will demonstrate, the form of $\Gamma^{(2)}$, although incomplete from an effective theory perspective, presents a useful crosscheck on the first-order term through the requirement that the theory properly embed into a relativistic framework; that is, the upper and lower components of the muon are constrained by Lorentz invariance to arise only in certain combinations---thereby generating only particular combinations of upper $c_i$ and lower $b_i$ LECs.
+where the factor of 2 in the coefficient of $\Gamma^{(1)}$ reflects the fact that these terms result from interference. The leading term $\Gamma^{(0)}$ is, of course, the result that we previously obtained in Eq. (\ref{eq:mu2e_rate}). As we have incorporated the muon velocity (hence the lower component) to first order in the single-nucleon effective theory, we should technically only be concerned with the first-order correction $\Gamma^{(1)}$. However, as we will demonstrate, the form of $\Gamma^{(2)}$, although incomplete from an effective theory perspective, presents a useful crosscheck on the first-order term through the requirement that the theory properly embed into a relativistic framework; that is, the upper and lower components of the muon are constrained by Lorentz invariance to arise only in certain combinations---thereby generating only particular combinations of upper $c_i$ and lower $b_i$ LECs.
 
 Likewise, the lower component operators are all velocity-independent but there are cross terms between the lower component and velocity-dependent upper component responses. These are genuine contributions to the CLFV rate but the effective theory as constructed is not complete through the power counting (first order in $\vec{v}_N$ and $\vec{v}_{\mu})$. 
 
@@ -2205,8 +2215,8 @@ The leading lower-component corrections to the conversion rate can be expressed 
 \begin{equation}
 \begin{split}
 \Gamma^{(1)}=\frac{G_F^2}{\pi}\frac{q_\mathrm{eff}^2}{1+\frac{q}{M_T}}|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|^2&\sum_{\tau=0,1}\sum_{\tau'=0,1}\Bigg\{\tilde{R}_{MM^{(2)}}^{\tau\tau'}W_{MM^{(2)}}^{\tau\tau'}(q_\mathrm{eff})\\
-&+\tilde{R}_{\Sigma'\Sigma^{'(0)}}^{\tau\tau'}W_{\Sigma'\Sigma^{'(0)}}^{\tau\tau'}+\tilde{R}_{\Sigma'\Sigma^{'(2)}}^{\tau\tau'}W_{\Sigma'\Sigma^{'(2)}}^{\tau\tau'}\\
-&+\tilde{R}_{\Sigma''\Sigma^{''(0)}}^{\tau\tau'}W_{\Sigma''\Sigma^{''(0)}}^{\tau\tau'}+\tilde{R}_{\Sigma''\Sigma^{''(2)}}^{\tau\tau'}W_{\Sigma''\Sigma^{''(2)}}^{\tau\tau'}\\
+&+\tilde{R}_{\Sigma'\Sigma^{'(0)}}^{\tau\tau'}W_{\Sigma'\Sigma^{'(0)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Sigma'\Sigma^{'(2)}}^{\tau\tau'}W_{\Sigma'\Sigma^{'(2)}}^{\tau\tau'}(q_\mathrm{eff})\\
+&+\tilde{R}_{\Sigma''\Sigma^{''(0)}}^{\tau\tau'}W_{\Sigma''\Sigma^{''(0)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Sigma''\Sigma^{''(2)}}^{\tau\tau'}W_{\Sigma''\Sigma^{''(2)}}^{\tau\tau'}(q_\mathrm{eff})\\
 &+\frac{q_\mathrm{eff}}{m_N}\left[\tilde{R}_{\Delta\Sigma^{'(0)}}^{\tau\tau'}W_{\Delta\Sigma^{'(0)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Delta\Sigma^{'(2)}}^{\tau\tau'}W_{\Delta\Sigma^{'(2)}}^{\tau\tau'}(q_\mathrm{eff})\right]\\
 &+\frac{q_\mathrm{eff}}{m_N}\left[\tilde{R}_{\Phi''M^{(2)}}^{\tau\tau'}W_{\Phi''M^{(2)}}(q_\mathrm{eff})+\tilde{R}_{\tilde{\Phi}'M^{(1)}}^{\tau\tau'}W_{\tilde{\Phi}'M^{(1)}}^{\tau\tau'}(q_\mathrm{eff})\right]\Bigg\},
 \end{split}
@@ -2214,11 +2224,11 @@ The leading lower-component corrections to the conversion rate can be expressed 
 where $\tilde{R}$ denotes that the leptonic tensors are composed of dimensionless LECs $\tilde{b}$ and $\tilde{c}$, define with respect to the weak scale $v$. The corresponding nuclear response functions are
 \begin{equation}
 \begin{split}
-W^{\tau\tau'}_{OM^{(2)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=0,2,...}^{\infty}\braket{j_N||O_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(2)}_{J;\tau'}(q_\mathrm{eff})||j_N}\;\mathrm{for}\;O=M,\Phi''\\
-W^{\tau\tau'}_{O\Sigma^{'(i)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=1,3,...}^{\infty}\braket{j_N||O_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{'(i)}_{J;\tau'}(q_\mathrm{eff})||j_N}\;\mathrm{for}\;O=\Delta,\Sigma',\\
-&\hspace*{10.5cm}\mathrm{and}\;i=0,2\\
-W^{\tau\tau'}_{\Sigma''\Sigma^{''(i)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=1,3,...}^{\infty}\braket{j_N||\Sigma''_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||\Sigma^{''(i)}_{J;\tau'}(q_\mathrm{eff})||j_N}\;\mathrm{for}\;i=0,2\\
-W^{\tau\tau'}_{\tilde{\Phi}'M^{(1)}}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_N+1}\sum_{J=2,4,...}^{\infty}\braket{j_N||\tilde{\Phi}'_{J;\tau}(q_\mathrm{eff})||j_N}\braket{j_N||M^{(1)}_{J;\tau'}(q_\mathrm{eff})||j_N}
+W^{\tau\tau'}_{OM^{(2)}}(q)&\equiv \frac{4\pi}{2j_N+1}\sum_{J=0,2,...}^{\infty}\braket{j_N||O_{J;\tau}(q)||j_N}\braket{j_N||M^{(2)}_{J;\tau'}(q)||j_N}\;\mathrm{for}\;O=M,\Phi''\\
+W^{\tau\tau'}_{O\Sigma^{'(i)}}(q)&\equiv \frac{4\pi}{2j_N+1}\sum_{J=1,3,...}^{\infty}\braket{j_N||O_{J;\tau}(q)||j_N}\braket{j_N||\Sigma^{'(i)}_{J;\tau'}(q)||j_N}\;\mathrm{for}\;O=\Delta,\Sigma',\\
+&\hspace*{9.7cm}\mathrm{and}\;i=0,2\\
+W^{\tau\tau'}_{\Sigma''\Sigma^{''(i)}}(q)&\equiv \frac{4\pi}{2j_N+1}\sum_{J=1,3,...}^{\infty}\braket{j_N||\Sigma''_{J;\tau}(q)||j_N}\braket{j_N||\Sigma^{''(i)}_{J;\tau'}(q)||j_N}\;\mathrm{for}\;i=0,2\\
+W^{\tau\tau'}_{\tilde{\Phi}'M^{(1)}}(q)&\equiv \frac{4\pi}{2j_N+1}\sum_{J=2,4,...}^{\infty}\braket{j_N||\tilde{\Phi}'_{J;\tau}(q)||j_N}\braket{j_N||M^{(1)}_{J;\tau'}(q)||j_N}
 \end{split}
 \end{equation}
 Every lower-component operator contributes except for $\mathcal{O}_5$. The upper component responses $M$, $\Sigma'$, $\Sigma''$, $\Delta$, $\tilde{\Phi}'$, and $\Phi''$ generically receive corrections (in the form of interference terms) from the lower component of the muon.
@@ -2240,8 +2250,8 @@ and the second-order rate is
 \begin{equation}
 \begin{split}
 \Gamma^{(2)}=\frac{G_F^2}{\pi}\frac{q_\mathrm{eff}^2}{1+\frac{q}{M_T}}|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|^2&\sum_{\tau=0,1}\sum_{\tau'=0,1}\Bigg\{\tilde{R}_{M^{(1)}}^{\tau\tau'}W_{M^{(1)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{M^{(2)}}^{\tau\tau'}W_{M^{(2)}}^{\tau\tau'}(q_\mathrm{eff})\\
-&+\tilde{R}_{\Sigma^{'(0)}}^{\tau\tau'}W_{\Sigma^{'(0)}}^{\tau\tau'}+\tilde{R}_{\Sigma^{'(2)}}^{\tau\tau'}W_{\Sigma^{'(2)}}^{\tau\tau'}\\
-&+\tilde{R}_{\Sigma^{''(0)}}^{\tau\tau'}W_{\Sigma^{''(0)}}^{\tau\tau'}+\tilde{R}_{\Sigma^{''(2)}}^{\tau\tau'}W_{\Sigma^{''(2)}}^{\tau\tau'}\\
+&+\tilde{R}_{\Sigma^{'(0)}}^{\tau\tau'}W_{\Sigma^{'(0)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Sigma^{'(2)}}^{\tau\tau'}W_{\Sigma^{'(2)}}^{\tau\tau'}(q_\mathrm{eff})\\
+&+\tilde{R}_{\Sigma^{''(0)}}^{\tau\tau'}W_{\Sigma^{''(0)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Sigma^{''(2)}}^{\tau\tau'}W_{\Sigma^{''(2)}}^{\tau\tau'}(q_\mathrm{eff})\\
 &+2\left[\tilde{R}_{\Sigma^{'(0)}\Sigma^{'(2)}}^{\tau\tau'}W_{\Sigma^{'(0)}\Sigma^{'(2)}}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Sigma^{''(0)}\Sigma^{''(2)}}^{\tau\tau'}W_{\Sigma^{''(0)}\Sigma^{'(2)}}^{\tau\tau'}(q_\mathrm{eff})\right]\Bigg\},
 \end{split}
 \end{equation}
@@ -2507,15 +2517,15 @@ The quark-level operators hadronize into nucleon-level operators as
 \end{split}
 \end{equation}
 where the corresponding nucleon currents are given by
-\begin{subequations}
-\begin{alignat}{4}
+\begin{equation}
+\begin{split}
 J^{(1)}_{ud,\alpha}(q)&=\left[\sigma_{\pi N}-\frac{3m_{\pi}^3 g_A^2}{64\pi f_{\pi}^2}F(q^2/m_{\pi}^2)\right]C^{(0)}_{S\alpha}-\frac{\delta m_N}{4}\tau_3 C_{S\alpha}^{(1)}\\
 J^{(2)}_{ud,\alpha}\left(\vec{q}_1,\vec{q}_2\right)&=-\frac{g_A^2m_{\pi}^2}{4f_{\pi}^2}\frac{\vec{\sigma}_1\cdot\vec{q}_1\;\vec{\sigma}_2\cdot\vec{q}_2}{\left(q_1^2+m_{\pi}^2\right)\left(q_2^2+m_{\pi}^2\right)}\;\vec{\tau}_1\cdot\vec{\tau}_2\;C^{(0)}_{S\alpha}\\
 J^{(1)}_{s,\alpha}(q)&=\left(\sigma_s-\dot{\sigma}_sq^2\right)C^{(s)}_{S\alpha}\\
 J^{(1)}_{G,\alpha}(q)&=-\frac{8\pi}{9}C_{G\alpha}\left\{m_N-\left[\sigma_{\pi N}-\frac{3m_{\pi}^3g_A^2}{64\pi f_{\pi}^2}F(q^2/m_{\pi}^2)\right]+\frac{\delta m_N}{2}\tau_3-\left(\sigma_s-\dot{\sigma}_sq^2\right)\right\}\\
 J^{(2)}_{G,\alpha}(\vec{q}_1,\vec{q}_2)&=-\frac{8\pi}{9}C_{G\alpha}\frac{g_A^2m_{\pi}^2}{4f_{\pi}^2}\frac{\vec{\sigma}_1\cdot\vec{q}_1\;\vec{\sigma}_2\cdot\vec{q}_2}{\left(q_1^2+m_{\pi}^2\right)\left(q_2^2+m_{\pi}^2\right)}\;\vec{\tau}_1\cdot\vec{\tau}_2.
-\end{alignat}
-\end{subequations}
+\end{split}
+\end{equation}
 The isoscalar and isovector combinations of scalar Wilson coefficients are
 \begin{equation}
 \begin{split}
@@ -2866,8 +2876,8 @@ The Yukawa-like CLFV interaction generates a coupling of the leptons to on-shell
 Given the hierarchy of the lepton Yukawas, $Y_{\mu\mu}\gg Y_{ee}$, diagram (b) dominates, and the one-loop contributions to the CLFV dipole couplings are given approximately by \cite{Harnik:2012pb}
 \begin{equation}
 \begin{split}
-\frac{1}{\Lambda^2}C_{DR}^{1\mathrm{loop}}&\approx-\frac{e}{32\pi^2}\frac{1}{m_h^2}Y_{\mu\mu}\left[\log\frac{m_h^2}{m_{\mu}^2}-\frac{4}{3}\right]Y_{e\mu}\approx -5.27\times 10^{-6}\frac{1}{m_h^2}Y_{e\mu},\\
-\frac{1}{\Lambda^2}C_{DL}^{1\mathrm{loop}}&\approx-\frac{e}{32\pi^2}\frac{1}{m_h^2}Y_{\mu\mu}\left[\log\frac{m_h^2}{m_{\mu}^2}-\frac{4}{3}\right]Y_{\mu e}\approx -5.27\times 10^{-6}\frac{1}{m_h^2}Y_{\mu e}.
+\frac{1}{\Lambda^2}C_{DR}^{1\mathrm{loop}}&\approx-\frac{e}{32\pi^2}\frac{1}{m_h^2}Y_{\mu\mu}\left[\ln\frac{m_h^2}{m_{\mu}^2}-\frac{4}{3}\right]Y_{e\mu}\approx -5.27\times 10^{-6}\frac{1}{m_h^2}Y_{e\mu},\\
+\frac{1}{\Lambda^2}C_{DL}^{1\mathrm{loop}}&\approx-\frac{e}{32\pi^2}\frac{1}{m_h^2}Y_{\mu\mu}\left[\ln\frac{m_h^2}{m_{\mu}^2}-\frac{4}{3}\right]Y_{\mu e}\approx -5.27\times 10^{-6}\frac{1}{m_h^2}Y_{\mu e}.
 \end{split}
 \end{equation}
 Thus, the leading one-loop diagram is suppressed by the muon's standard-model Yukawa coupling to the Higgs, $Y_{\mu\mu}$. At two-loop order, this suppression can be avoided by the Bar-Zee type diagrams shown in Fig. \ref{fig:CLFV_higgs_diagrams_2_loops}, whose flavor-conserving analogs contribute to fermion electric dipole moments \cite{PhysRevLett.65.21,Abe:2013qla}. We do not reproduce the full result for the two-loop amplitudes here---complete gauge-invariant expressions can be found in \cite{Cirigliano:2021img}. Numerically, the two-loop contributions to the dipole Wilson coefficients are roughly three orders of magnitude larger than the one-loop contributions
@@ -2883,7 +2893,7 @@ The $\mu\rightarrow e\gamma$ branching ratio can be written explicitly in terms 
 \begin{equation}
 B_{\mu\rightarrow e\gamma}\approx 0.312\left(|Y_{e\mu}|^2+|Y_{\mu e}|^2\right),
 \end{equation}
-from which one can immediately exclude regions of parameter space using the existing limit from MEG, $B_{\mu\rightarrow e\gamma}<4.2\times 10^{-13}$, and the expected limit from MEG II, $B_{\mu\rightarrow e\gamma}<6\times 10^{-14}$. Using Eq. \ref{eq:coherent_mu2e_BR}, the branching ratio for the coherent conversion process can also be used to restrict the values of $Y_{e\mu}$ and $Y_{\mu e}$. The resulting exclusion plot is shown in Fig. \ref{fig:higgs_clfv_exclusion}. The strongest limit on the CLFV Yukawas is currently provided by MEG. In the future, the conversion experiments, Mu2e and COMET, should provide a more sensitive probe of Higgs-mediated CLFV than MEG II. In addition to tree-level Higgs exchange, $\mu\rightarrow e$ is also induced by the dipole operator through exchange of a virtual photon with the nuclear charge. In fact, the contribution to the conversion rate in $^{27}$Al from virtual photon exchange is roughly 4 times larger than the contribution from tree-level Higgs exchange---the quark Yukawa in the latter process introduces a suppression factor $\approx m_N/v\approx 10^{-3}$, even for the heaviest quarks. 
+from which one can immediately exclude regions of parameter space using the existing limit from MEG, $B_{\mu\rightarrow e\gamma}<4.2\times 10^{-13}$, and the expected limit from MEG II, $B_{\mu\rightarrow e\gamma}<6\times 10^{-14}$. Using Eq. (\ref{eq:coherent_mu2e_BR}), the branching ratio for the coherent conversion process can also be used to restrict the values of $Y_{e\mu}$ and $Y_{\mu e}$. The resulting exclusion plot is shown in Fig. \ref{fig:higgs_clfv_exclusion}. The strongest limit on the CLFV Yukawas is currently provided by MEG. In the future, the conversion experiments, Mu2e and COMET, should provide a more sensitive probe of Higgs-mediated CLFV than MEG II. In addition to tree-level Higgs exchange, $\mu\rightarrow e$ is also induced by the dipole operator through exchange of a virtual photon with the nuclear charge. In fact, the contribution to the conversion rate in $^{27}$Al from virtual photon exchange is roughly 4 times larger than the contribution from tree-level Higgs exchange---the quark Yukawa in the latter process introduces a suppression factor $\approx m_N/v\approx 10^{-3}$, even for the heaviest quarks. 
 \begin{figure}
 \centering
 \subfloat[]{
@@ -3024,14 +3034,16 @@ The low-energy coefficient $c_1$ corresponds to the scalar leptonic charge and t
 \begin{equation}
 \begin{split}
 &\tilde{c}_1^0=\frac{1}{2\sqrt{2}}\frac{m_{\mu}}{\Lambda^2}\bigg\{\left[\sigma_{\pi N}-\frac{3g_A^2m_{\pi}^2}{64\pi f_{\pi}^2}\Big(k_Ff_\mathrm{eff}^{SI}+m_{\pi}F\left(q_\mathrm{eff}^2/m_{\pi}^2\right)\Big)\right]\left[C_{SR}^{(0)}+C_{SL}^{(0)}+\frac{8\pi}{9}(C_{GR}+C_{GL})\right]\\
-&+\left(\sigma_s-\dot{\sigma}_sq_\mathrm{eff}^2\right)\left[C_{SR}^{(s)}+C_{SL}^{(s)}+\frac{8\pi}{9}\left(C_{GR}+C_{GL}\right)\right]+\frac{8\pi}{9}m_N\left(C_{GR}+C_{GL}\right)\bigg\}+\sqrt{\alpha\pi}\frac{v^2}{\Lambda^2}\left(C_{DR}+C_{DL}\right),
+&+\left(\sigma_s-\dot{\sigma}_sq_\mathrm{eff}^2\right)\left[C_{SR}^{(s)}+C_{SL}^{(s)}+\frac{8\pi}{9}\left(C_{GR}+C_{GL}\right)\right]+\frac{8\pi}{9}m_N\left(C_{GR}+C_{GL}\right)\bigg\}\\
+&+\sqrt{\alpha\pi}\frac{v^2}{\Lambda^2}\left(C_{DR}+C_{DL}\right),
 \end{split}
 \end{equation}
 whereas $c_{11}$ corresponds to the lepton axial charge and depends on the \textit{difference} of left- and right-handed Wilson coefficients
 \begin{equation}
 \begin{split}
 &\tilde{c}_{11}^0=\frac{1}{2\sqrt{2}}\frac{m_{\mu}}{\Lambda^2}\bigg\{\left[\sigma_{\pi N}-\frac{3g_A^2m_{\pi}^2}{64\pi f_{\pi}^2}\Big(k_Ff_\mathrm{eff}^{SI}+m_{\pi}F\left(q_\mathrm{eff}^2/m_{\pi}^2\right)\Big)\right]\left[C_{SR}^{(0)}-C_{SL}^{(0)}+\frac{8\pi}{9}(C_{GR}-C_{GL})\right]\\
-&+\left(\sigma_s-\dot{\sigma}_sq_\mathrm{eff}^2\right)\left[C_{SR}^{(s)}-C_{SL}^{(s)}+\frac{8\pi}{9}\left(C_{GR}-C_{GL}\right)\right]+\frac{8\pi}{9}m_N\left(C_{GR}-C_{GL}\right)\bigg\}+i\sqrt{\alpha\pi}\frac{v^2}{\Lambda^2}\left(C_{DR}-C_{DL}\right).
+&+\left(\sigma_s-\dot{\sigma}_sq_\mathrm{eff}^2\right)\left[C_{SR}^{(s)}-C_{SL}^{(s)}+\frac{8\pi}{9}\left(C_{GR}-C_{GL}\right)\right]+\frac{8\pi}{9}m_N\left(C_{GR}-C_{GL}\right)\bigg\}\\
+&+i\sqrt{\alpha\pi}\frac{v^2}{\Lambda^2}\left(C_{DR}-C_{DL}\right).
 \end{split}
 \end{equation}
 The same is true for the isovector operators
@@ -3056,51 +3068,52 @@ In Appendix \ref{app:two_nucleon}, we demonstrate that the total two-nucleon ope
 where $\vec{r}_{ij}=\vec{r}_i-\vec{r}_j$, $\vec{R}_{ij}=(\vec{r}_i+\vec{r}_j)/2$, and the summation over $i,j$ extends over all nucleons in the target nucleus. The seven independent operators are
 \begin{equation}
 \begin{split}
-\mathcal{O}_1(\vec{r},\vec{R},q)&=-\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot\ Y_L(\hat{R})\;j_L(q R)\\
+\mathcal{O}_1(\vec{r},\vec{R},q)&=-\frac{1}{12\sqrt{\pi}}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot\ Y_L(\hat{R})\;j_L(q R)\\
 &\times\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_L\left(q r(\alpha-1/2)\right)\frac{2-r\Pi(q,\alpha)}{r},
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
-\mathcal{O}_2(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot Y_L(\hat{R})\;j_L(q R)\\
+\mathcal{O}_2(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot Y_L(\hat{R})\;j_L(q R)\\
 &\times\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}j_L(q r\left(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)},
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
-\mathcal{O}_3(\vec{r},\vec{R},q)&=\frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(L_1-L_2)/2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}\\
-&\times j_{L_2}(q R)\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)},
+&\mathcal{O}_3(\vec{r},\vec{R},q)=\frac{1}{5\sqrt{24\pi}}\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(L_1-L_2)/2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
+&\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)},
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
-\mathcal{O}_4(\vec{r},\vec{R},q) &= \frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1,L_2\;\mathrm{even}}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
+&\mathcal{O}_4(\vec{r},\vec{R},q) = \frac{1}{5\sqrt{24\pi}}\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
 &\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_2}(q r(\alpha-1/2))\frac{1}{r}\left[1+r\Pi(q,\alpha)\right],
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
-\mathcal{O}_5(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}\left(\frac{2L_1+1}{2L_2+1}\right)\left(C_{L_1010}^{L_20}\right)^2\\
+&\mathcal{O}_5(\vec{r},\vec{R},q)=\frac{1}{12\sqrt{\pi}}\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}\left(\frac{2L_1+1}{2L_2+1}\right)\left(C_{L_1010}^{L_20}\right)^2\\
 &\times j_{L_2}(q R)\;Y_{L_2}(\hat{r})\odot Y_{L_2}(\hat{R})\;\vec{\sigma}(1)\cdot\vec{\sigma}(2)\;q\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(q r(\alpha-1/2)),
 \end{split}
 \end{equation}
 \begin{equation}
 \begin{split}
-&\mathcal{O}_6(\vec{r},\vec{R},q)=-\frac{1}{4\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=1,3,...}^{\infty}\sum_{J=1,3,...}^{\infty}(-1)^{(1+L_1-L_2)/2}(2L_1+1)C_{L_1010}^{L_20}C_{L_1010}^{J0}\\
-&\times\left\{\begin{array}{ccc}
+&\mathcal{O}_6(\vec{r},\vec{R},q)=-\frac{1}{4\sqrt{\pi}}\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=1,3,...}^{\infty}\sum_{J=1,3,...}^{\infty}(-1)^{(1+L_1-L_2)/2}C_{L_1010}^{L_20}C_{L_1010}^{J0}\left\{\begin{array}{ccc}
 L_1 & 1 & L_2\\
 1 & J & 1
-\end{array}\right\}\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_1\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_1 j_{L_2}(q R)\;q\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}(qr(\alpha-1/2)),
+\end{array}\right\}\\
+&\times(2L_1+1)\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_1\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_1 j_{L_2}(q R)\;q\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}(qr(\alpha-1/2)),
 \end{split}
 \end{equation}
 and
 \begin{equation}
 \begin{split}
-&\mathcal{O}_7(\vec{r},\vec{R},q)=-\frac{1}{4\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}\sum_{J=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}(2L_1+1)C_{L_1020}^{L_20}C_{L_1020}^{J0}\\
-&\times\left\{\begin{array}{ccc}
+\mathcal{O}_7(\vec{r},\vec{R},q)&=-\frac{1}{4\sqrt{\pi}}\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}\sum_{J=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}C_{L_1020}^{L_20}C_{L_1020}^{J0}\left\{\begin{array}{ccc}
 L_1 & 1 & L_2\\
 2 & J & 1
-\end{array}\right\}\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2 j_{L_2}(q R)\;q \int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(qr(\alpha-1/2)).
+\end{array}\right\}\\
+&\times(2L_1+1)\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2 \\
+&\times j_{L_2}(q R)\;q \int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(qr(\alpha-1/2)).
 \end{split}
 \end{equation}
 
@@ -3168,8 +3181,9 @@ Thus the NSM value is consistent with the measured nuclear density result. The u
 Having identified the most important components of the two-nucleon operator, we may obtain a simplified form by expanding to first order in $q/m_{\pi}$. To this order, $\Pi(q,\alpha)\approx m_{\pi}$, and consequently the Feynman parameter integrals can be performed analytically. Combining the leading multipoles of $\mathcal{O}_1$, $\mathcal{O}_2$, $\mathcal{O}_4$, $\mathcal{O}_5$, and $\mathcal{O}_6$, we may express the total two-nucleon operator in terms of three unique tensor structures
 \begin{equation}
 \begin{split}
-&\mathcal{O}^{(2)}(q)=-\frac{g_A^2m_{\pi}^2}{64\pi^{3/2}f_{\pi}^2}\frac{1}{2}\sum_{i\neq j}\frac{e^{-r_{ij}m_{\pi}}}{r_{ij}}\Bigg\{\frac{1}{3}\vec{\sigma}(i)\cdot\vec{\sigma}(j)\;j_0(qR_{ij})\left[F^{(0)}(qr_{ij}/2)+\frac{q}{m_{\pi}}F^{'(0)}(qr_{ij}/2)\right]\\
-&+\hat{r}\cdot\vec{\sigma}(i)\;\hat{r}\cdot\vec{\sigma}(j)\;j_0(qR_{ij})F^{(1)}(qr_{ij}/2)-\big[\hat{r}_{ij}\times\hat{R}_{ij}\big]\cdot\big[\vec{\sigma}(i)\times\vec{\sigma}(j)\big]\;j_1(qR_{ij})F^{(2)}(qr_{ij}/2)\Bigg\}\vec{\tau}(i)\cdot\vec{\tau}(j).
+\mathcal{O}^{(2)}(q)=-\frac{g_A^2m_{\pi}^2}{64\pi^{3/2}f_{\pi}^2}\frac{1}{2}&\sum_{i\neq j}\frac{e^{-r_{ij}m_{\pi}}}{r_{ij}}\Bigg\{\frac{1}{3}\vec{\sigma}(i)\cdot\vec{\sigma}(j)\;j_0(qR_{ij})\left[F^{(0)}(qr_{ij}/2)+\frac{q}{m_{\pi}}F^{'(0)}(qr_{ij}/2)\right]\\
+&+\hat{r}\cdot\vec{\sigma}(i)\;\hat{r}\cdot\vec{\sigma}(j)\;j_0(qR_{ij})F^{(1)}(qr_{ij}/2)\\
+&-\big[\hat{r}_{ij}\times\hat{R}_{ij}\big]\cdot\big[\vec{\sigma}(i)\times\vec{\sigma}(j)\big]\;j_1(qR_{ij})F^{(2)}(qr_{ij}/2)\Bigg\}\vec{\tau}(i)\cdot\vec{\tau}(j).
 \end{split}
 \end{equation}
 
@@ -3267,10 +3281,12 @@ q^2_\mathrm{eff}=\frac{M_T}{m_{\mu}+M_T}\left[\left(m_{\mu}-E_{\mu}^\mathrm{bind
 The sixteen operators introduced in Sec. \ref{sec:single_nucleon_operators} still represent the most general basis of single-nucleon CLFV operators in the inelastic case. The $\mu\rightarrow e$ conversion amplitude is then expressed in terms of eleven independent nuclear response functions
 \begin{equation}
 \begin{split}
-&\mathcal{M}=\sqrt{\frac{E_e}{2m_e}}|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|\frac{q_\mathrm{eff}}{q}\sum_{\tau=0,1}\bra{\frac{1}{2}s_f;j_fm_f}\Bigg\{\sum_{J=0}^{\infty}\sqrt{4\pi(2J+1)}(-i)^J\left[l_0^{\tau}M_{J0;\tau}(q_\mathrm{eff})-il_0^{A\;\tau}\frac{q_\mathrm{eff}}{m_N}\tilde{\Omega}_{J0;\tau}(q_\mathrm{eff})\right]\\
-&+\sum_{J=1}^{\infty}\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda =\pm 1}\Big[-l_{5\lambda}^{\tau}\left(\lambda\Sigma_{J-\lambda;\tau}(q_\mathrm{eff})+i\Sigma'_{J-\lambda;\tau}(q_\mathrm{eff})\right)\\
-&+i\frac{q_\mathrm{eff}}{m_N}l_{M\lambda}^{\tau}\left(\lambda\Delta_{J-\lambda;\tau}(q_\mathrm{eff})+i\Delta'_{J-\lambda;\tau}(q_\mathrm{eff})\right)+i\frac{q_\mathrm{eff}}{m_N}l^{\tau}_{E\lambda}\left(\lambda\tilde{\Phi}_{J-\lambda;\tau}(q_\mathrm{eff})+i\tilde{\Phi}'_{J-\lambda;\tau}(q_\mathrm{eff})\right)\Big]\\
-&+\sum_{J=0}^{\infty}\sqrt{4\pi(2J+1)}(-i)^J\left[il_{50}^{\tau}\Sigma''_{J0;\tau}(q_\mathrm{eff})+\frac{q_\mathrm{eff}}{m_N}l_{M0}^{\tau}\tilde{\Delta}''_{J0;\tau}(q_\mathrm{eff})+\frac{q_\mathrm{eff}}{m_N}l_{E0}^{\tau}\Phi''_{J0;\tau}(q_\mathrm{eff})\right]\Bigg\}\ket{\frac{1}{2}s_i;j_im_i},
+&\mathcal{M}=\sqrt{\frac{E_e}{2m_e}}|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|\frac{q_\mathrm{eff}}{q}\sum_{\tau=0,1}\bra{\frac{1}{2}s_f;j_fm_f}\\
+&\Bigg\{\sum_{J=0}^{\infty}\sqrt{4\pi(2J+1)}(-i)^J\left[l_0^{\tau}M_{J0;\tau}(q_\mathrm{eff})-il_0^{A\;\tau}\frac{q_\mathrm{eff}}{m_N}\tilde{\Omega}_{J0;\tau}(q_\mathrm{eff})\right]\\
+&+\sum_{J=1}^{\infty}\sqrt{2\pi(2J+1)}(-i)^J\sum_{\lambda =\pm 1}\bigg[-l_{5\lambda}^{\tau}\left(\lambda\Sigma_{J-\lambda;\tau}(q_\mathrm{eff})+i\Sigma'_{J-\lambda;\tau}(q_\mathrm{eff})\right)\\
+&+i\frac{q_\mathrm{eff}}{m_N}l_{M\lambda}^{\tau}\left(\lambda\Delta_{J-\lambda;\tau}(q_\mathrm{eff})+i\Delta'_{J-\lambda;\tau}(q_\mathrm{eff})\right)+i\frac{q_\mathrm{eff}}{m_N}l^{\tau}_{E\lambda}\left(\lambda\tilde{\Phi}_{J-\lambda;\tau}(q_\mathrm{eff})+i\tilde{\Phi}'_{J-\lambda;\tau}(q_\mathrm{eff})\right)\bigg]\\
+&+\sum_{J=0}^{\infty}\sqrt{4\pi(2J+1)}(-i)^J\bigg[il_{50}^{\tau}\Sigma''_{J0;\tau}(q_\mathrm{eff})+\frac{q_\mathrm{eff}}{m_N}l_{M0}^{\tau}\tilde{\Delta}''_{J0;\tau}(q_\mathrm{eff})\\
+&\hspace*{10cm}+\frac{q_\mathrm{eff}}{m_N}l_{E0}^{\tau}\Phi''_{J0;\tau}(q_\mathrm{eff})\bigg]\Bigg\}\ket{\frac{1}{2}s_i;j_im_i},
 \end{split}
 \label{eq:inelastic_amplitude}
 \end{equation}
@@ -3355,7 +3371,7 @@ In total, we identify 15 unique CLFV response functions, allowing one to probe 1
 The rate for inelastic $\mu\rightarrow e$ conversion can then be expressed as
 \begin{equation}
 \begin{split}
-\Gamma\left(\mu\rightarrow e\right)=\frac{G_F^2}{\pi}&\frac{q_\mathrm{eff}^2}{1+\frac{q}{M_T}}|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|^2\sum_{\tau=0,1}\sum_{\tau'=0,1}\Bigg\{\tilde{R}_M^{\tau\tau'}W_M^{\tau\tau'}(q_\mathrm{eff})+\frac{q_\mathrm{eff}^2}{m_N^2}\tilde{R}_{\tilde{\Omega}}^{\tau\tau'}W_{\tilde{\Omega}}^{\tau\tau'}(q_\mathrm{eff})\\
+\Gamma&=\frac{G_F^2}{\pi}\frac{q_\mathrm{eff}^2}{1+\frac{q}{M_T}}|\phi_{1s}^{Z_\mathrm{eff}}(\vec{0})|^2\sum_{\tau=0,1}\sum_{\tau'=0,1}\Bigg\{\tilde{R}_M^{\tau\tau'}W_M^{\tau\tau'}(q_\mathrm{eff})+\frac{q_\mathrm{eff}^2}{m_N^2}\tilde{R}_{\tilde{\Omega}}^{\tau\tau'}W_{\tilde{\Omega}}^{\tau\tau'}(q_\mathrm{eff})\\
 &+\tilde{R}_{\Sigma''}^{\tau\tau'}W_{\Sigma''}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Sigma'}^{\tau\tau'}\left(W_{\Sigma'}^{\tau\tau'}(q_\mathrm{eff})+W_{\Sigma}^{\tau\tau'}(q_\mathrm{eff})\right)\\
 &+\frac{q_\mathrm{eff}^2}{m_N^2}\left[\tilde{R}_{\tilde{\Delta}''}^{\tau\tau'}W_{\tilde{\Delta}''}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\Delta'}^{\tau\tau'}\left(W_{\Delta'}^{\tau\tau'}(q_\mathrm{eff})+W_{\Delta}^{\tau\tau'}(q_\mathrm{eff})\right)\right]\\
 &+\frac{q_\mathrm{eff}^2}{m_N^2}\left[\tilde{R}_{\Phi''}^{\tau\tau'}W_{\Phi''}^{\tau\tau'}(q_\mathrm{eff})+\tilde{R}_{\tilde{\Phi}'}^{\tau\tau'}\left(W_{\tilde{\Phi}'}^{\tau\tau'}(q_\mathrm{eff})+W_{\tilde{\Phi}}^{\tau\tau'}(q_\mathrm{eff})\right)\right]\\
@@ -3368,35 +3384,35 @@ The rate for inelastic $\mu\rightarrow e$ conversion can then be expressed as
 As usual, the notation $\tilde{R}$ indicates that the leptonic responses have been expressed in terms of dimensionless LECs, defined relative to the weak scale $v$. For transitions that conserve parity, the nuclear response functions are 
 {\allowdisplaybreaks
 \begin{align*}
-W_O^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1}\sum_{J=0,2,...}^{\infty}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||O_{J;\tau'}(q_\mathrm{eff})||j_i}\;\mathrm{for}\;O=M,\Phi'',\tilde{\Delta}''\\
-W_O^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||O_{J;\tau'}(q_\mathrm{eff})||j_i}\;\mathrm{for}\;O=\Sigma',\Sigma'',\Delta,\tilde{\Omega},\tilde{\Phi}\\
-W_{O}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||O_{J;\tau'}(q_\mathrm{eff})||j_i}\;\mathrm{for}\;O=\tilde{\Phi}',\Delta',\Sigma\\
-W_{\Phi''M}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=0,2,...}^{\infty}\braket{j_f||\Phi''_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||M_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W_{\Delta\Sigma'}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\Sigma'_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W_{\Delta'\Sigma}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\Sigma_{J;\tau'}(q_\mathrm{eff})||j_i}\tag{\refstepcounter{equation}\theequation}\\
-W^{\tau\tau'}_{O\tilde{\Delta}''}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1}\sum_{J=0,2,...}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Delta}_{J;\tau'}(q_\mathrm{eff})||j_i},\;\mathrm{for}\;O=M,\tilde{\Phi}''\\
-W^{\tau\tau'}_{\Sigma''\tilde{\Omega}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Sigma''_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Omega}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W^{\tau\tau'}_{\Delta\tilde{\Phi}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W^{\tau\tau'}_{\Delta'\tilde{\Phi}'}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=2,4,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W^{\tau\tau'}_{\Sigma'\tilde{\Phi}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Sigma'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W^{\tau\tau'}_{\Sigma\tilde{\Phi}'}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=2,4,...}^{\infty}\braket{j_f||\Sigma_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q_\mathrm{eff})||j_i}.
+W_O^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1}\sum_{J=0,2,...}^{\infty}\braket{j_f||O_{J;\tau}(q)||j_i}\braket{j_f||O_{J;\tau'}(q)||j_i}\;\mathrm{for}\;O=M,\Phi'',\tilde{\Delta}''\\
+W_O^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||O_{J;\tau}(q)||j_i}\braket{j_f||O_{J;\tau'}(q)||j_i}\;\mathrm{for}\;O=\Sigma',\Sigma'',\Delta,\tilde{\Omega},\tilde{\Phi}\\
+W_{O}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||O_{J;\tau}(q)||j_i}\braket{j_f||O_{J;\tau'}(q)||j_i}\;\mathrm{for}\;O=\tilde{\Phi}',\Delta',\Sigma\\
+W_{\Phi''M}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1} \sum_{J=0,2,...}^{\infty}\braket{j_f||\Phi''_{J;\tau}(q)||j_i}\braket{j_f||M_{J;\tau'}(q)||j_i}\\
+W_{\Delta\Sigma'}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q)||j_i}\braket{j_f||\Sigma'_{J;\tau'}(q)||j_i}\\
+W_{\Delta'\Sigma}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q)||j_i}\braket{j_f||\Sigma_{J;\tau'}(q)||j_i}\tag{\refstepcounter{equation}\theequation}\\
+W^{\tau\tau'}_{O\tilde{\Delta}''}(q)&\equiv \frac{4\pi}{2j_i+1}\sum_{J=0,2,...}\braket{j_f||O_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Delta}_{J;\tau'}(q)||j_i},\;\mathrm{for}\;O=M,\tilde{\Phi}''\\
+W^{\tau\tau'}_{\Sigma''\tilde{\Omega}}(q)&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Sigma''_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Omega}_{J;\tau'}(q)||j_i}\\
+W^{\tau\tau'}_{\Delta\tilde{\Phi}}(q)&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q)||j_i}\\
+W^{\tau\tau'}_{\Delta'\tilde{\Phi}'}(q)&\equiv\frac{4\pi}{2j_i+1}\sum_{J=2,4,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q)||j_i}\\
+W^{\tau\tau'}_{\Sigma'\tilde{\Phi}}(q)&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Sigma'_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q)||j_i}\\
+W^{\tau\tau'}_{\Sigma\tilde{\Phi}'}(q)&\equiv\frac{4\pi}{2j_i+1}\sum_{J=2,4,...}^{\infty}\braket{j_f||\Sigma_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q)||j_i}.
 \end{align*}
 }
-If the nucleus transitions to a state of opposite parity, then the nuclear response functions must change to opposite parity. In this case, the conversion rate is still described by Eq. \ref{eq:inelastic_rate}, the leptonic response functions $R$ are unchanged, but the nuclear response functions are given by
+If the nucleus transitions to a state of opposite parity, then the nuclear response functions must change to opposite parity. In this case, the conversion rate is still described by Eq. (\ref{eq:inelastic_rate}), the leptonic response functions $R$ are unchanged, but the nuclear response functions are given by
 {\allowdisplaybreaks
 \begin{align*}
-W_O^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||O_{J;\tau'}(q_\mathrm{eff})||j_i}\;\mathrm{for}\;O=M,\Phi'',\tilde{\Delta}'',\tilde{\Phi}',\Delta',\Sigma\\
-W_O^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=0,2,...}^{\infty}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||O_{J;\tau'}(q_\mathrm{eff})||j_i}\;\mathrm{for}\;O=\Sigma'',\tilde{\Omega}\\
-W_{O}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||O_{J;\tau'}(q_\mathrm{eff})||j_i}\;\mathrm{for}\;O=\tilde{\Phi},\Delta,\Sigma'\\
-W_{\Phi''M}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||\Phi''_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||M_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W_{\Delta\Sigma'}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\Sigma'_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W_{\Delta'\Sigma}^{\tau\tau'}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\Sigma_{J;\tau'}(q_\mathrm{eff})||j_i}\tag{\refstepcounter{equation}\theequation}\\
-W^{\tau\tau'}_{O\tilde{\Delta}''}(q_\mathrm{eff})&\equiv \frac{4\pi}{2j_i+1}\sum_{J=1,3,...}\braket{j_f||O_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Delta}_{J;\tau'}(q_\mathrm{eff})||j_i},\;\mathrm{for}\;O=M,\tilde{\Phi}''\\
-W^{\tau\tau'}_{\Sigma''\tilde{\Omega}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=0,2,...}^{\infty}\braket{j_f||\Sigma''_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Omega}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W^{\tau\tau'}_{\Delta\tilde{\Phi}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W^{\tau\tau'}_{\Delta'\tilde{\Phi}'}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W^{\tau\tau'}_{\Sigma'\tilde{\Phi}}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=2,4,...}^{\infty}\braket{j_f||\Sigma'_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q_\mathrm{eff})||j_i}\\
-W^{\tau\tau'}_{\Sigma\tilde{\Phi}'}(q_\mathrm{eff})&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Sigma_{J;\tau}(q_\mathrm{eff})||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q_\mathrm{eff})||j_i}.
+W_O^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||O_{J;\tau}(q)||j_i}\braket{j_f||O_{J;\tau'}(q)||j_i}\;\mathrm{for}\;O=M,\Phi'',\tilde{\Delta}'',\tilde{\Phi}',\Delta',\Sigma\\
+W_O^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1} \sum_{J=0,2,...}^{\infty}\braket{j_f||O_{J;\tau}(q)||j_i}\braket{j_f||O_{J;\tau'}(q)||j_i}\;\mathrm{for}\;O=\Sigma'',\tilde{\Omega}\\
+W_{O}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||O_{J;\tau}(q)||j_i}\braket{j_f||O_{J;\tau'}(q)||j_i}\;\mathrm{for}\;O=\tilde{\Phi},\Delta,\Sigma'\\
+W_{\Phi''M}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||\Phi''_{J;\tau}(q)||j_i}\braket{j_f||M_{J;\tau'}(q)||j_i}\\
+W_{\Delta\Sigma'}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1} \sum_{J=2,4,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q)||j_i}\braket{j_f||\Sigma'_{J;\tau'}(q)||j_i}\\
+W_{\Delta'\Sigma}^{\tau\tau'}(q)&\equiv \frac{4\pi}{2j_i+1} \sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q)||j_i}\braket{j_f||\Sigma_{J;\tau'}(q)||j_i}\tag{\refstepcounter{equation}\theequation}\\
+W^{\tau\tau'}_{O\tilde{\Delta}''}(q)&\equiv \frac{4\pi}{2j_i+1}\sum_{J=1,3,...}\braket{j_f||O_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Delta}_{J;\tau'}(q)||j_i},\;\mathrm{for}\;O=M,\tilde{\Phi}''\\
+W^{\tau\tau'}_{\Sigma''\tilde{\Omega}}(q)&\equiv\frac{4\pi}{2j_i+1}\sum_{J=0,2,...}^{\infty}\braket{j_f||\Sigma''_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Omega}_{J;\tau'}(q)||j_i}\\
+W^{\tau\tau'}_{\Delta\tilde{\Phi}}(q)&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q)||j_i}\\
+W^{\tau\tau'}_{\Delta'\tilde{\Phi}'}(q)&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Delta'_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q)||j_i}\\
+W^{\tau\tau'}_{\Sigma'\tilde{\Phi}}(q)&\equiv\frac{4\pi}{2j_i+1}\sum_{J=2,4,...}^{\infty}\braket{j_f||\Sigma'_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Phi}_{J;\tau'}(q)||j_i}\\
+W^{\tau\tau'}_{\Sigma\tilde{\Phi}'}(q)&\equiv\frac{4\pi}{2j_i+1}\sum_{J=1,3,...}^{\infty}\braket{j_f||\Sigma_{J;\tau}(q)||j_i}\braket{j_f||\tilde{\Phi}'_{J;\tau'}(q)||j_i}.
 \end{align*}
 }
 Having obtained the expression for the inelastic $\mu\rightarrow e$ conversion rate, significant work remains in fully utilizing this formalism. In order to determine the most suitable targets for constraining CLFV-induced transitions to excited nuclear states, we must work with experimentalists to carefully consider the impacts of various backgrounds and detector limitations. In addition, further study of the novel inelastic nuclear response functions $\tilde{\Delta}''$ and $\tilde{\Omega}$ must undertaken in hopes of identifying nuclear targets with enhanced sensitivity to inelastic CLFV operators. To this end, additional nuclear shell-model calculations must be performed in order to obtain wave functions that accurately describe the low-lying excited states of interest. 
@@ -3780,7 +3796,10 @@ Next, as one may expect, there are many close relationships between the scalar a
 %is the magnetic field of electric multipole  radiation and the electric field of magnetic multipole radiation.is the electric field of electric multipole radiation and the magnetic field of magnetic multipole radiation
 or the gradient operator
 \begin{equation}
-\vec{\nabla}\left(f(r)Y_{\ell\;M}(\hat{r})\right)=-\sqrt{\frac{\ell+1}{2\ell+1}}\left(\frac{d}{dr}-\frac{\ell}{r}\right)f(r)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})+\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}+\frac{\ell+1}{r}\right)f(r)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r}),
+\begin{split}
+\vec{\nabla}\left(f(r)Y_{\ell\;M}(\hat{r})\right)&=-\sqrt{\frac{\ell+1}{2\ell+1}}\left(\frac{d}{dr}-\frac{\ell}{r}\right)f(r)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})\\
+&\hspace*{3cm}+\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}+\frac{\ell+1}{r}\right)f(r)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r}),
+\end{split}
 \end{equation}
 where $f(r)$ is any (well-behaved) scalar function. Conversely, the ordinary spherical harmonics arise through application of the divergence operator to the vector spherical harmonics
 \begin{equation}
@@ -3802,7 +3821,8 @@ Finally, as the curl operator $\vec{\nabla}\times$ maps vector fields to vector 
 \begin{equation}
 \begin{split}
 \vec{\nabla}\times\left(f(r)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})\right)&=i\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}+\frac{\ell+2}{r}\right)f(r)\vec{Y}_{\ell\;\ell\;M}(\hat{r}),\\
-\vec{\nabla}\times\left(f(r)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)&=i\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}-\frac{\ell}{r}\right)f(r)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})+i\sqrt{\frac{\ell+1}{2\ell+1}}\left(\frac{d}{dr}+\frac{\ell+1}{r}\right)f(r)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r}),\\
+\vec{\nabla}\times\left(f(r)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)&=i\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}-\frac{\ell}{r}\right)f(r)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})\\
+&\hspace*{3cm}+i\sqrt{\frac{\ell+1}{2\ell+1}}\left(\frac{d}{dr}+\frac{\ell+1}{r}\right)f(r)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r}),\\
 \vec{\nabla}\times\left(f(r)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})\right)&=i\sqrt{\frac{\ell+1}{2\ell+1}}\left(\frac{d}{dr}-\frac{\ell-1}{r}\right)f(r)\vec{Y}_{\ell\;\ell\;M}(\hat{r}).
 \end{split}
 \end{equation}
@@ -3824,25 +3844,31 @@ In this work, we often find that the scalar function is the regular spherical Be
 Using these relations, we obtain the following expressions for the gradient and curl specialized to the case $f(r)=j_\ell(qr)$:
 \begin{equation}
 \begin{split}
-\vec{\nabla}\left(j_\ell(qy)Y_{\ell\;M}(\hat{r})\right)&=q\left[\sqrt{\frac{\ell+1}{2\ell+1}}j_{\ell+1}(qr)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})+\sqrt{\frac{\ell}{2\ell+1}}j_{\ell-1}(qr)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})\right]\\
-\vec{\nabla}\times\left(j_\ell(qr)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)&=iq\left[-\sqrt{\frac{\ell}{2\ell+1}}j_{\ell+1}(qr)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})+\sqrt{\frac{\ell+1}{2\ell+1}}j_{\ell-1}(qr)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})\right].
+\vec{\nabla}\left(j_\ell(qy)Y_{\ell\;M}(\hat{r})\right)&=q\Bigg[\sqrt{\frac{\ell+1}{2\ell+1}}j_{\ell+1}(qr)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})\\
+&\hspace*{3cm}+\sqrt{\frac{\ell}{2\ell+1}}j_{\ell-1}(qr)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})\Bigg]\\
+\vec{\nabla}\times\left(j_\ell(qr)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)&=iq\Bigg[-\sqrt{\frac{\ell}{2\ell+1}}j_{\ell+1}(qr)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})\\
+&\hspace*{3cm}+\sqrt{\frac{\ell+1}{2\ell+1}}j_{\ell-1}(qr)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})\Bigg].
 \end{split}
 \end{equation}
 We can invert these expressions to obtain
 \begin{equation}
 \begin{split}
-j_{\ell+1}(qr)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})&=\frac{1}{q}\left[\sqrt{\frac{\ell+1}{2\ell+1}}\vec{\nabla}\left(j_\ell(qr)Y_{\ell\;M}(\hat{r})\right)+i\sqrt{\frac{\ell}{2\ell+1}}\vec{\nabla}\times\left(j_\ell(qr)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)\right]\\
-j_{\ell-1}(qr)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})&=\frac{1}{q}\left[\sqrt{\frac{\ell}{2\ell+1}}\vec{\nabla}\left(j_\ell(qr)Y_{\ell\;M}(\hat{r})\right)-i\sqrt{\frac{\ell+1}{2\ell+1}}\vec{\nabla}\times\left(j_\ell(qr)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)\right],
+j_{\ell+1}(qr)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})&=\frac{1}{q}\Bigg[\sqrt{\frac{\ell+1}{2\ell+1}}\vec{\nabla}\left(j_\ell(qr)Y_{\ell\;M}(\hat{r})\right)\\
+&\hspace*{3cm}+i\sqrt{\frac{\ell}{2\ell+1}}\vec{\nabla}\times\left(j_\ell(qr)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)\Bigg]\\
+j_{\ell-1}(qr)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})&=\frac{1}{q}\Bigg[\sqrt{\frac{\ell}{2\ell+1}}\vec{\nabla}\left(j_\ell(qr)Y_{\ell\;M}(\hat{r})\right)\\
+&\hspace*{3cm}-i\sqrt{\frac{\ell+1}{2\ell+1}}\vec{\nabla}\times\left(j_\ell(qr)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)\Bigg],
 \end{split}
 \end{equation}
 or equivalently
 \begin{equation}
 \begin{split}
-j_{\ell}(qr)\vec{Y}_{\ell-1\;\ell\;M}(\hat{r})&=\frac{1}{q}\left[\sqrt{\frac{\ell}{2\ell-1}}\vec{\nabla}\left(j_{\ell-1}(qr)Y_{\ell-1\;M}(\hat{r})\right)+i\sqrt{\frac{\ell-1}{2\ell-1}}\vec{\nabla}\times\left(j_{\ell-1}(qr)\vec{Y}_{\ell-1\;\ell-1\;M}(\hat{r})\right)\right]\\
-j_{\ell}(qr)\vec{Y}_{\ell+1\;\ell\;M}(\hat{r})&=\frac{1}{q}\left[\sqrt{\frac{\ell+1}{2\ell+3}}\vec{\nabla}\left(j_{\ell+1}(qr)Y_{\ell+1\;M}(\hat{r})\right)-i\sqrt{\frac{\ell+2}{2\ell+3}}\vec{\nabla}\times\left(j_{\ell+1}(qr)\vec{Y}_{\ell+1\;\ell+1\;M}(\hat{r})\right)\right],
+j_{\ell}(qr)\vec{Y}_{\ell-1\;\ell\;M}(\hat{r})&=\frac{1}{q}\Bigg[\sqrt{\frac{\ell}{2\ell-1}}\vec{\nabla}\left(j_{\ell-1}(qr)Y_{\ell-1\;M}(\hat{r})\right)\\
+&\hspace*{3cm}+i\sqrt{\frac{\ell-1}{2\ell-1}}\vec{\nabla}\times\left(j_{\ell-1}(qr)\vec{Y}_{\ell-1\;\ell-1\;M}(\hat{r})\right)\Bigg]\\
+j_{\ell}(qr)\vec{Y}_{\ell+1\;\ell\;M}(\hat{r})&=\frac{1}{q}\Bigg[\sqrt{\frac{\ell+1}{2\ell+3}}\vec{\nabla}\left(j_{\ell+1}(qr)Y_{\ell+1\;M}(\hat{r})\right)\\
+&\hspace*{3cm}-i\sqrt{\frac{\ell+2}{2\ell+3}}\vec{\nabla}\times\left(j_{\ell+1}(qr)\vec{Y}_{\ell+1\;\ell+1\;M}(\hat{r})\right)\Bigg],
 \end{split}
 \end{equation}
-The utility of these expressions is that the two vector fields $j_\ell(qr)\vec{Y}_{\ell\pm 1\;\ell\;M}$ have been decomposed into longitudinal (curl-free) and transverse (divergence-free) components. The third vector field $j_{\ell}(qr)\vec{Y}_{\ell\;\ell\;M}$ is automatically transverse.
+The utility of these expressions is that the two vector fields $j_\ell(qr)\vec{Y}_{\ell\pm 1\;\ell\;M}$ have been decomposed into longitudinal (curl-free) and transverse (divergence-free) components. The third vector field $j_{\ell}(qr)\vec{Y}_{\ell\;\ell\;M}$ is inherently transverse.
 
 In general, a plane wave can be expanded in partial waves as
 \begin{equation}
@@ -4027,7 +4053,7 @@ We note that in Eq. (\ref{eq:MJ_mat}), the 3-$j$ symbol implies that $(-1)^{J+\e
 \ell' & j' & \frac{1}{2}\\
 j & \ell & J
 \end{array}\right\}\\
-&\times\Bigg\{-\sqrt{\ell+1}[\ell+1]\left\{\begin{array}{ccc}
+&\times\Bigg[-\sqrt{\ell+1}[\ell+1]\left\{\begin{array}{ccc}
 L & 1 & J\\
 \ell & \ell' & \ell + 1
 \end{array}\right\}\left(\begin{array}{ccc}
@@ -4040,20 +4066,21 @@ L & 1 & J\\
 \end{array}\right\}\left(\begin{array}{ccc}
 \ell' & L & \ell - 1\\
 0 & 0 & 0
-\end{array}\right)\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}\Bigg\}
+\end{array}\right)\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}\Bigg]
 \end{split}
 \end{equation}
 Here the 3-$j$ symbols imply that $L+\ell'+\ell$ must be odd. 
 \begin{equation}
 \begin{split}
-&\braket{n'\left(\ell'\;1/2\right)j'||M_J(q\vec{r})\vec{\sigma}\cdot\frac{1}{q}\vec{\nabla}||n\left(\ell\;1/2\right)j}=\frac{1}{\sqrt{4\pi}}(-1)^{\ell'}[\ell'][j'][j][2j-\ell][J]\left\{\begin{array}{ccc}
+&\braket{n'\left(\ell'\;1/2\right)j'||M_J(q\vec{r})\vec{\sigma}\cdot\frac{1}{q}\vec{\nabla}||n\left(\ell\;1/2\right)j}\\
+&=\frac{1}{\sqrt{4\pi}}(-1)^{\ell'}[\ell'][j'][j][2j-\ell][J]\left\{\begin{array}{ccc}
 \ell' & j' & \frac{1}{2}\\
 j & 2j-\ell & J
-\end{array}\right\}\\
-&\times\left(\begin{array}{ccc}
+\end{array}\right\}\left(\begin{array}{ccc}
 \ell' & J & 2j-\ell\\
 0 & 0 & 0
-\end{array}\right)\Bigg\{-\delta_{j,\ell+1/2}\braket{n'\ell'|j_J(\rho)\left(\frac{d}{d\rho}-\frac{\ell}{\rho}\right)|n\ell}+\delta_{j,\ell-1/2}\braket{n'\ell'|j_J(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}\Bigg\}
+\end{array}\right)\\
+&\times\Bigg[-\delta_{j,\ell+1/2}\braket{n'\ell'|j_J(\rho)\left(\frac{d}{d\rho}-\frac{\ell}{\rho}\right)|n\ell}+\delta_{j,\ell-1/2}\braket{n'\ell'|j_J(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}\Bigg]
 \end{split}
 \end{equation}
 again we find $J+\ell'+\ell$ is odd.
@@ -4067,28 +4094,29 @@ J & K & L
 Then the projections of the spin-velocity current are
 \begin{equation}
 \begin{split}
-&\braket{n'\left(\ell\;1/2\right)j'||\vec{M}_{J\;L}(q\vec{r})\cdot\left(\vec{\sigma}\times\frac{1}{q}\vec{\nabla}\right)||n\left(\ell\;1/2\right)j}=\frac{i}{\sqrt{4\pi}}(-1)^{L+J+\ell}6[l'][j'][j][L][J]\sum_{K=J-1}^{J+1}(-1)^K[K]\\
-&\times\left\{\begin{array}{ccc}
+&\braket{n'\left(\ell\;1/2\right)j'||\vec{M}_{J\;L}(q\vec{r})\cdot\left(\vec{\sigma}\times\frac{1}{q}\vec{\nabla}\right)||n\left(\ell\;1/2\right)j}\\
+&=\frac{i}{\sqrt{4\pi}}(-1)^{L+J+\ell}6[l'][j'][j][L][J]\sum_{K=J-1}^{J+1}(-1)^K[K]\left\{\begin{array}{ccc}
 \ell' & \ell & K\\
 \frac{1}{2} & \frac{1}{2} & 1\\
 j' & j & J
-\end{array}\right\}\Bigg[\sqrt{\ell+1}[\ell+1]\left\{\begin{array}{ccc}
+\end{array}\right\}\left\{\begin{array}{ccc}
+1 & 1 & 1\\
+J & K & L
+\end{array}\right\}\\
+&\times\Bigg[\sqrt{\ell+1}[\ell+1]\left\{\begin{array}{ccc}
 L & 1 & K\\
 \ell & \ell' & \ell + 1
 \end{array}\right\}\left(\begin{array}{ccc}
 \ell' & L & \ell+1\\
 0 & 0 & 0
 \end{array}\right)\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}-\frac{\ell}{\rho}\right)|n\ell}\\
-&-\sqrt{\ell}[\ell-1]\left\{\begin{array}{ccc}
+&\hspace*{9.5mm}-\sqrt{\ell}[\ell-1]\left\{\begin{array}{ccc}
 L & 1 & K\\
 \ell & \ell' & \ell-1
 \end{array}\right\}\left(\begin{array}{ccc}
 \ell' & L & \ell-1\\
 0 & 0 & 0
-\end{array}\right)\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}\Bigg]\left\{\begin{array}{ccc}
-1 & 1 & 1\\
-J & K & L
-\end{array}\right\}
+\end{array}\right)\braket{n'\ell'|j_L(\rho)\left(\frac{d}{d\rho}+\frac{\ell+1}{\rho}\right)|n\ell}\Bigg]
 \end{split}
 \end{equation}
 and $L+\ell'+\ell$ is odd.
@@ -4141,8 +4169,10 @@ n-i-1
 \end{equation}
 The required radial integrals are of the form
 \begin{equation}
-I_L(m,y)\equiv
-\int_0^{\infty}dx\;x^me^{-x^2}j_L(qbx)=\frac{\sqrt{\pi}}{4}y^{L/2}e^{-y}\frac{\Gamma\left(\frac{1}{2}(L+m+1)\right)}{\Gamma(L+3/2)}\;_1F_1\left(1+\frac{L-m}{2};L+\frac{3}{2};y\right),
+\begin{split}
+I_L(m,y)&\equiv\int_0^{\infty}dx\;x^me^{-x^2}j_L(qbx)\\
+&=\frac{\sqrt{\pi}}{4}y^{L/2}e^{-y}\frac{\Gamma\left(\frac{1}{2}(L+m+1)\right)}{\Gamma(L+3/2)}\;_1F_1\left(1+\frac{L-m}{2};L+\frac{3}{2};y\right),
+\end{split}
 \end{equation} 
 which converges for $L+m>-1$. Here the confluent hypergeometric function appears with parameter $\alpha=1+(L-m)/2$. As we see below, for the physically relevant values of $m$, $\alpha$ is always a non-positive integer and therefore the summation terminates at order $\alpha$. The radial matrix elements can then be expressed in terms of the basic integral $I_L(m,y)$ as
 \begin{equation}
@@ -4150,11 +4180,11 @@ which converges for $L+m>-1$. Here the confluent hypergeometric function appears
 \braket{n'\ell'|j_L(\rho)|n\ell}&=\sqrt{\frac{2\Gamma(n')}{\Gamma(n'+\ell'+1/2)}\frac{2\Gamma(n)}{\Gamma(n+\ell+1/2)}}\sum_{i=0}^{n'-1}\sum_{j=0}^{n-1}\left(\begin{array}{c}
 n'+\ell'-1/2\\
 n'-i-1
-\end{array}\right)\left(\begin{array}{c}
+\end{array}\right)\\
+&\times\left(\begin{array}{c}
 n+\ell-1/2\\
 n-j-1
-\end{array}\right)\\
-&\times\frac{(-1)^{i+j}}{i!j!}I_L\left(2+2i+2j+\ell'+\ell,y\right),
+\end{array}\right)\frac{(-1)^{i+j}}{i!j!}I_L\left(2+2i+2j+\ell'+\ell,y\right),
 \end{split}
 \end{equation}
 \begin{equation}
@@ -4178,12 +4208,13 @@ n'-i-1
 &\times\left(\begin{array}{c}
 n+\ell-1/2\\
 n-j-1
-\end{array}\right)\frac{(-1)^{i+j}}{i!j!}\left[\left(2j+2\ell+1\right)I_L\left(1+2i+2j+\ell'+\ell,y\right)-I_L\left(3+2i+2j+\ell'+\ell,y\right)\right],
+\end{array}\right)\frac{(-1)^{i+j}}{i!j!}\bigg[\left(2j+2\ell+1\right)I_L\left(1+2i+2j+\ell'+\ell,y\right)\\
+&\hspace*{7.4cm}-I_L\left(3+2i+2j+\ell'+\ell,y\right)\bigg],
 \end{split}
 \end{equation}
 \section{Operators Generated by the Muon's Lower Component}
 \label{app:single_nucleon_response_lower}
-As discussed in Section \ref{sec:muon_lower}, the inclusion of the muon's lower Dirac component leads to the introduction of new nuclear multipole operators. We will now discuss how single-particle matrix elements of these operators can be evaluated in a harmonic oscillator basis. 
+In Chapter \ref{chap:muon_lower}, we found that the inclusion of the muon's lower Dirac component leads to the introduction of new nuclear multipole operators. We will now discuss how single-particle matrix elements of these operators can be evaluated in a harmonic oscillator basis. 
 
 \begin{equation}
 \begin{split}
@@ -4251,11 +4282,11 @@ For the lower component matrix elements we have
 \braket{n'\ell'|\frac{1}{\rho}j_L(\rho)|n\ell}&=\sqrt{\frac{2\Gamma(n')}{\Gamma(n'+\ell'+1/2)}\frac{2\Gamma(n)}{\Gamma(n+\ell+1/2)}}\sum_{i=0}^{n'-1}\sum_{j=0}^{n-1}\left(\begin{array}{c}
 n'+\ell'-1/2\\
 n'-i-1
-\end{array}\right)\left(\begin{array}{c}
+\end{array}\right)\\
+&\times\left(\begin{array}{c}
 n+\ell-1/2\\
 n-j-1
-\end{array}\right)\\
-&\times\frac{(-1)^{i+j}}{i!j!}\frac{1}{2\sqrt{y}}I_L\left(1+2i+2j+\ell'+\ell,y\right)
+\end{array}\right)\frac{(-1)^{i+j}}{i!j!}\frac{1}{2\sqrt{y}}I_L\left(1+2i+2j+\ell'+\ell,y\right)
 \end{split}
 \end{equation}
 \begin{equation}
@@ -4263,11 +4294,12 @@ n-j-1
 &\braket{n'\ell'|\frac{dj_L(\rho)}{d\rho}|n\ell}=\sqrt{\frac{2\Gamma(n')}{\Gamma(n'+\ell'+1/2)}\frac{2\Gamma(n)}{\Gamma(n+\ell+1/2)}}\sum_{i=0}^{n'-1}\sum_{j=0}^{n-1}\left(\begin{array}{c}
 n'+\ell'-1/2\\
 n'-i-1
-\end{array}\right)\left(\begin{array}{c}
+\end{array}\right)\\
+&\times\left(\begin{array}{c}
 n+\ell-1/2\\
 n-j-1
-\end{array}\right)\\
-&\times\frac{(-1)^{i+j}}{i!j!}\frac{1}{2L+1}\left[LI_{L-1}\left(2+2i+2j+\ell'+\ell,y\right)-(L+1)I_{L+1}\left(2+2i+2j+\ell'+\ell,y\right)\right]
+\end{array}\right)\frac{(-1)^{i+j}}{i!j!}\frac{1}{2L+1}\bigg[LI_{L-1}\left(2+2i+2j+\ell'+\ell,y\right)\\
+&\hspace*{5cm}-(L+1)I_{L+1}\left(2+2i+2j+\ell'+\ell,y\right)\bigg]
 \end{split}
 \end{equation}
 As before, these radial matrix elements are finite polynomials in $y$.
@@ -4353,7 +4385,10 @@ We also have to consider the angular dependence of $\vec{p}_{\gamma}\cdot\vec{k}
 \end{equation}
 Therefore
 \begin{equation}
-f^\mathrm{SI}(\vec{q},\vec{k})=-\frac{4}{\pi}\int_{-1/2}^{1/2}d\beta \int_0^{K_F}dp\;p^2 \int_{-1}^1d\mu \left(2p\frac{\vec{k}\cdot\left(\vec{k}-\beta\vec{q}\right)}{Q}\mu+\frac{1}{4}|\vec{q}\,|^2-|\vec{k}|^2-p^2\right)\frac{1}{\left[p^2-2pQ\mu+\Delta\right]^2},
+\begin{split}
+f^\mathrm{SI}(\vec{q},\vec{k})&=-\frac{4}{\pi}\int_{-1/2}^{1/2}d\beta \int_0^{K_F}dp\;p^2\\
+&\times \int_{-1}^1d\mu \left(2p\frac{\vec{k}\cdot\left(\vec{k}-\beta\vec{q}\right)}{Q}\mu+\frac{1}{4}|\vec{q}\,|^2-|\vec{k}|^2-p^2\right)\frac{1}{\left[p^2-2pQ\mu+\Delta\right]^2},
+\end{split}
 \end{equation}
 where we have defined $Q=|\vec{k}-\beta\vec{q}\,|$ and $p=|\vec{p}_\gamma|$.
 
@@ -4390,22 +4425,26 @@ The following three integrals necessary to compute the form factors can be perfo
 \begin{equation}
 \begin{split}
 \int_0^1 d\bar{p}\;\frac{\bar{p}^2}{(\bar{p}^2+\bar{\Delta})^2-4\bar{p}^2\bar{Q}^2}&=\frac{1}{4}\frac{1}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\left[\arctan\left(\frac{1-\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)+\arctan\left(\frac{1+\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)\right]\\
-&-\frac{1}{8\bar{Q}}\log\left(\frac{1+\bar{\Delta}+2\bar{Q}}{1+\bar{\Delta}-2\bar{Q}}\right)\\
+&-\frac{1}{8\bar{Q}}\ln\left(\frac{1+\bar{\Delta}+2\bar{Q}}{1+\bar{\Delta}-2\bar{Q}}\right)\\
 \int_0^1 d\bar{p}\;\frac{\bar{p}^4}{(\bar{p}^2+\bar{\Delta})^2-4\bar{p}^2\bar{Q}^2}&=-\frac{1}{4}\frac{3\bar{\Delta}-4\bar{Q}^2}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\left[\arctan\left(\frac{1-\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)+\arctan\left(\frac{1+\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)\right]\\
-&+1+\frac{\bar{\Delta}-4\bar{Q}^2}{8\bar{Q}}\log\left(\frac{1+\bar{\Delta}+2\bar{Q}}{1+\bar{\Delta}-2\bar{Q}}\right)\\
-\int_0^1d\bar{p}\;\bar{p}\;\mathrm{arctanh}\left(\frac{2\bar{p}\bar{Q}}{\bar{p}^2+\bar{\Delta}}\right)&=\bar{Q}+\bar{Q}\sqrt{\bar{\Delta}-\bar{Q}^2}\left[\mathrm{arctan}\left(\frac{1-\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)+\mathrm{arctan}\left(\frac{1+\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)\right]\\
-&-\frac{1}{4}\left(1-2\bar{Q}^2+\Delta\right)\log\left(\frac{1+2\bar{Q}+\bar{\Delta}}{1-2\bar{Q}+\bar{\Delta}}\right)
+&+1+\frac{\bar{\Delta}-4\bar{Q}^2}{8\bar{Q}}\ln\left(\frac{1+\bar{\Delta}+2\bar{Q}}{1+\bar{\Delta}-2\bar{Q}}\right)\\
+\int_0^1d\bar{p}\;\bar{p}\;\mathrm{arctanh}\left(\frac{2\bar{p}\bar{Q}}{\bar{p}^2+\bar{\Delta}}\right)&=\bar{Q}\sqrt{\bar{\Delta}-\bar{Q}^2}\left[\mathrm{arctan}\left(\frac{1-\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)+\mathrm{arctan}\left(\frac{1+\bar{Q}}{\sqrt{\bar{\Delta}-\bar{Q}^2}}\right)\right]\\
+&+\bar{Q}-\frac{1}{4}\left(1-2\bar{Q}^2+\Delta\right)\ln\left(\frac{1+2\bar{Q}+\bar{\Delta}}{1-2\bar{Q}+\bar{\Delta}}\right)
 \end{split}
 \end{equation}
 Combining these results with the proper prefactors in Eq. (\ref{eq:fsi_fsd_pre_int}), the resulting spin-independent and spin-dependent form factors are 
 \begin{equation}
 \begin{split}
-f^{SI}(\bar{q},\bar{k})&=\frac{2}{\pi}\int_{-1/2}^{1/2}d\beta\Bigg\{2\left(1+\frac{-\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}\right)-\left(\frac{4(\frac{1}{4}-\beta^2)\bar{q}^2+3\bar{m}^2}{\sqrt{(\frac{1}{4}-\beta^2)\bar{q}^2+\bar{m}^2}}\right)\\
+&f^{SI}(\bar{q},\bar{k})=\frac{2}{\pi}\int_{-1/2}^{1/2}d\beta\Bigg\{2\left(1+\frac{-\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}\right)-\left(\frac{4(\frac{1}{4}-\beta^2)\bar{q}^2+3\bar{m}^2}{\sqrt{(\frac{1}{4}-\beta^2)\bar{q}^2+\bar{m}^2}}\right)\\
 &\times\left[\arctan\left(\frac{1+\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}{\sqrt{(\frac{1}{4}-\beta^2)\bar{q}^2+\bar{m}^2}}\right)+\arctan\left(\frac{1-\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}{\sqrt{(\frac{1}{4}-\beta^2)\bar{q}^2+\bar{m}^2}}\right)\right]\\
-&+\frac{1}{2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}\log\left(\frac{1+2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}{1-2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}\right)\\
-&\times\Bigg[1+2\bar{m}^2+\left(\frac{3}{4}-4\beta^2\right)\bar{q}^2-\bar{k}^2+2\beta\bar{k}\cdot\bar{q}+\beta\frac{\left(1+\frac{1}{4}\bar{q}^2+\bar{m}^2+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}\right)\left(\bar{k}\cdot\bar{q}-\beta\bar{q}^2\right)}{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}\Bigg]\Bigg\}\\
-f^{SD}(\bar{q},\bar{k})&=-\frac{2}{\pi}\int_{-1/2}^{1/2}d\beta\frac{1}{\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}\left[\frac{1}{\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}\right.\\
-&\left.-\frac{1+\bar{m}^2+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2}{4\left(\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2\right)}\log\left(\frac{1+2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}{1-2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}\right)\right]
+&+\frac{1}{2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}\ln\left(\frac{1+2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}{1-2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}\right)\times\\
+&\Bigg[1+2\bar{m}^2+\left(\frac{3}{4}-4\beta^2\right)\bar{q}^2-\bar{k}^2+2\beta\bar{k}\cdot\bar{q}+\beta\frac{\left(1+\frac{1}{4}\bar{q}^2+\bar{m}^2+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}\right)\left(\bar{k}\cdot\bar{q}-\beta\bar{q}^2\right)}{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}\Bigg]\Bigg\}\\
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+&f^{SD}(\bar{q},\bar{k})=-\frac{2}{\pi}\int_{-1/2}^{1/2}d\beta\frac{1}{\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}\left[\frac{1}{\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}}\right.\\
+&\left.-\frac{1+\bar{m}^2+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2}{4\left(\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2\right)}\ln\left(\frac{1+2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}{1-2\sqrt{\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\beta^2\bar{q}^2}+\bar{k}^2-2\beta\bar{k}\cdot\bar{q}+\frac{1}{4}\bar{q}^2+\bar{m}^2}\right)\right]
 \end{split}
 \end{equation}
 Note that these functions depend on not only the magnitude of the dimensionless momentum transfer $\bar{q}$ and average momentum $\bar{k}$, but on their relative angle. Fortunately, for the physically relevant values of these momenta, $f^{SI}$ and $f^{SD}$ do not vary significantly over the range of possible angular values. Therefore we may replace each function by its angular average. The angle-averaged functions then depend only on the magnitude of the momentum transfer and the average momentum. For $\mu^-\rightarrow e^-$ conversion in $^{27}$Al, $|\vec{q}\,|\approx m_{\mu}$. Fixing the magnitude of the momentum transfer, $f^{SI}$ and $f^{SD}$ are now functions of the dimensionless average nucleon momentum $\bar{k}$, as shown in Fig. \ref{fig:1body_f_functions}. In order to recover a local one-body effective operator, we now wish to replace these slowly-varying functions of $\bar{k}$ by a constant. We can weight our average by the nucleon momentum probability distribution obtained from the measured nucleon density.
@@ -4445,8 +4484,8 @@ The three-momentum transfers are defined to be
 and we use the notation $q_i=|\vec{q}_i|$ to denote the length of the three-vectors. Then to transform to coordinate space and enforce momentum conservation, we have
 \begin{equation}
 \begin{split}
-&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})\\
-&=\frac{1}{(2\pi)^{12}}\int d^3p_1\;d^3p_1'\;d^3p_2\;d^3p'_2\;\tilde{J}_2(\vec{q}_1,\vec{q}_2,\vec{q})(2\pi)^3\delta(\vec{p}_1+\vec{p}_2-\pvec{p}'_1-\pvec{p}'_2-\vec{q})e^{i\left(\pvec{p}'_1\cdot\pvec{x}_1'+\pvec{p}'_2\cdot\pvec{x}'_2-\vec{p}_1\cdot\vec{x}_1-\vec{p}_2\cdot\vec{x}_2\right)}
+\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})&=\frac{1}{(2\pi)^{12}}\int d^3p_1\;d^3p_1'\;d^3p_2\;d^3p'_2\;\tilde{J}_2(\vec{q}_1,\vec{q}_2,\vec{q})\\
+&\times(2\pi)^3\delta(\vec{p}_1+\vec{p}_2-\pvec{p}'_1-\pvec{p}'_2-\vec{q})e^{i\left(\pvec{p}'_1\cdot\pvec{x}_1'+\pvec{p}'_2\cdot\pvec{x}'_2-\vec{p}_1\cdot\vec{x}_1-\vec{p}_2\cdot\vec{x}_2\right)}
 \end{split}
 \end{equation}
 We transform our integration variables to
@@ -4459,10 +4498,7 @@ We transform our integration variables to
 so that
 \begin{equation}
 \begin{split}
-&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}'_2,\vec{q})\\
-&=\frac{1}{(2\pi)^9}\int d^3P_1\;d^3P_2\;d^3q_1\;d^3q_2\;\rho(\vec{q}_1,\vec{q}_2,\vec{q})\delta(\vec{q}_1+\vec{q}_2-\vec{q})e^{i\left[\vec{P}_1\cdot(\pvec{x}_1'-\vec{x}_1)+\vec{P}_2\cdot(\pvec{x}_2'-\vec{x}_2)-\frac{1}{2}\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')-\frac{1}{2}\vec{q}_2\cdot(\vec{x}_2+\pvec{x}_2')\right]}\\
-&=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}'_1)\delta(\vec{x}_2-\pvec{x}_2')\int d^3q_1\;d^3q_2\;\rho(\vec{q}_1,\vec{q}_2,\vec{q})\delta(\vec{q}_1+\vec{q}_2-\vec{q})e^{-\frac{i}{2}\left[\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')+\vec{q}_2\cdot(\vec{x}_2+\pvec{x}_2')\right]}\\
-&=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\int d^3 q_1\;\rho(\vec{q}_1,\vec{q}-\vec{q}_1,\vec{q})e^{-\frac{i}{2}\left[\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')+(\vec{q}-\vec{q}_1)\cdot(\vec{x}_2+\pvec{x}_2')\right]}.
+&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}'_2,\vec{q})\\&=\frac{1}{(2\pi)^3}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\int d^3 q_1\;\rho(\vec{q}_1,\vec{q}-\vec{q}_1,\vec{q})e^{-\frac{i}{2}\left[\vec{q}_1\cdot(\vec{x}_1+\pvec{x}_1')+(\vec{q}-\vec{q}_1)\cdot(\vec{x}_2+\pvec{x}_2')\right]}.
 \end{split}
 \end{equation}
 Next we employ the Feynman parameter representation
@@ -4523,16 +4559,16 @@ For this last integration we have employed the identity
 Putting these pieces together yields
 \begin{equation}
 \begin{split}
-&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}'_2)e^{-i\vec{q}\cdot\vec{x}_1}\int_0^1d\alpha\;e^{i\alpha\vec{q}\cdot\vec{r}-\Pi(q,\alpha)r}\Bigg\{-i\alpha\hat{r}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)\\
-&+i(1-\alpha)\vec{q}\cdot\vec{\sigma}(1)\hat{r}\cdot\vec{\sigma}(2)-\frac{1}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\frac{1}{r}\left[2-r\Pi(q,\alpha)\right]+\alpha(1-\alpha)\frac{1}{\Pi(q,\alpha)}\vec{q}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)\\
-&+\sqrt{\frac{8\pi}{15}}\frac{1}{r}\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\odot Y_2(\hat{r})\left[1+r\Pi(q,\alpha)\right]\Bigg\}
+&\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',\vec{q})=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}'_2)e^{-i\vec{q}\cdot\vec{x}_1}\int_0^1d\alpha\;e^{i\alpha\vec{q}\cdot\vec{r}-\Pi(q,\alpha)r}\\
+&\Bigg\{-i\alpha\hat{r}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)+i(1-\alpha)\vec{q}\cdot\vec{\sigma}(1)\hat{r}\cdot\vec{\sigma}(2)-\frac{1}{3}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\frac{1}{r}\left[2-r\Pi(q,\alpha)\right]\\
+&+\alpha(1-\alpha)\frac{1}{\Pi(q,\alpha)}\vec{q}\cdot\vec{\sigma}(1)\vec{q}\cdot\vec{\sigma}(2)+\sqrt{\frac{8\pi}{15}}\frac{1}{r}\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\odot Y_2(\hat{r})\left[1+r\Pi(q,\alpha)\right]\Bigg\}.
 \label{eq:two_body_master}
 \end{split}
 \end{equation}
 In the $\vec{q}\rightarrow 0$ limit, the Feynman parameter integral becomes trivial, $\Pi(q,\alpha)\rightarrow m_{\pi}$, and the two-body current becomes
 \begin{equation}
 \begin{split}
-\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',0)=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\frac{1}{r}\bigg\{&\frac{1}{3}F_1(r/m_{\pi})\vec{\sigma}(1)\cdot\vec{\sigma}(2)\\
+\rho(\vec{x}_1,\pvec{x}_1',\vec{x}_2,\pvec{x}_2',0)=\frac{1}{8\pi}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\frac{1}{r}&\bigg\{\frac{1}{3}F_1(r/m_{\pi})\vec{\sigma}(1)\cdot\vec{\sigma}(2)\\
 &+\sqrt{\frac{8\pi}{15}}F_2(r/m_{\pi})Y_2(\hat{r})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\bigg\},
 \label{eq:two_body_q_zero}
 \end{split}
@@ -4566,21 +4602,21 @@ where we have defined the center-of-mass coordinate
 Thus we have the two-body operator
 \begin{equation}
 \begin{split}
-\mathcal{O}_1(\vec{r},\vec{R},q)&=-\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0}^{\infty}Y_L(\hat{r})\odot\ Y_L(\hat{R})j_L(q R)\\
+\mathcal{O}_1(\vec{r},\vec{R},q)&=-\frac{1}{12\sqrt{\pi}}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0}^{\infty}Y_L(\hat{r})\odot\ Y_L(\hat{R})j_L(q R)\\
 &\times\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_L\left(q r(\alpha-1/2)\right)\frac{2-r\Pi(q,\alpha)}{r}.
 \end{split}
 \end{equation}
 The Feynman parameter integral vanishes unless $L$ is even. This can be seen by shifting the Feynman parameter $\beta=\alpha-1/2$ and noting that $\Pi(q,\beta)$ (and thus the entire Feynman parameter integrand) is an even function of $\beta$. Therefore
 \begin{equation}
 \begin{split}
-\mathcal{O}_1(\vec{r},\vec{R},q)&=-\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot\ Y_L(\hat{R})\;j_L(q R)\\
+\mathcal{O}_1(\vec{r},\vec{R},q)&=-\frac{1}{12\sqrt{\pi}}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot\ Y_L(\hat{R})\;j_L(q R)\\
 &\times\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_L\left(q r(\alpha-1/2)\right)\frac{2-r\Pi(q,\alpha)}{r}
 \end{split}
 \end{equation}
 Now let's look at the second term in the second line of Eq. (\ref{eq:two_body_master}) and apply the identity of Eq. (\ref{eq:tensor_identity}). We find one term that has the same tensor structure as $\mathcal{O}_1$; that is
 \begin{equation}
 \begin{split}
-\mathcal{O}_2(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot Y_L(\hat{R})\;j_L(q R)\\
+\mathcal{O}_2(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\vec{\sigma}(1)\cdot\vec{\sigma}(2)\sum_{L=0,2,...}^{\infty}Y_L(\hat{r})\odot Y_L(\hat{R})\;j_L(q R)\\
 &\times\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}j_L(q r\left(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)},
 \end{split}
 \end{equation}
@@ -4597,31 +4633,37 @@ The second term that we get from applying the tensor decomposition of Eq. (\ref{
 Therefore we have the operator
 \begin{equation}
 \begin{split}
-\mathcal{O}_3(\vec{r},\vec{R},q)&=\frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1,L_2}i^{L_1-L_2}(-1)^{L_1+L_2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
+&\mathcal{O}_3(\vec{r},\vec{R},q)=\frac{1}{5\sqrt{24\pi}}\sum_{L_1,L_2}i^{L_1-L_2}(-1)^{L_1+L_2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
 &\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)}
 \end{split}
 \end{equation}
 As before, the Feynman parameter integral vanishes unless $L_1$ is even. The Clebsch-Gordan coefficient then implies that $L_2$ must be even as well. Thus
 \begin{equation}
 \begin{split}
-\mathcal{O}_3(\vec{r},\vec{R},q)&=\frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(L_1-L_2)/2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}\\
-&\times j_{L_2}(q R)\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)}.
+&\mathcal{O}_3(\vec{r},\vec{R},q)=\frac{1}{5\sqrt{24\pi}}\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(L_1-L_2)/2}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
+&\times \left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}\left(q r(\alpha-1/2)\right)\frac{q^2\alpha(1-\alpha)}{\Pi(q,\alpha)}.
 \end{split}
 \end{equation}
 Now we turn our attention to the term in the third line of Eq. (\ref{eq:two_body_master}). The only angular dependence on $\hat{q}$ is in the exponentials but after completing the angular integral we must recouple the resulting two $\hat{r}$ spherical harmonics. For this task we need the identity
 \begin{equation}
-Y_{l_2}(\hat{r})\odot Y_{l_2}(\hat{R})\;Y_2(\hat{r})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2=(-1)^{l_2}\sqrt{\frac{2l_2+1}{4\pi}}\sum_{l_1}C_{l_2020}^{l_10}\left[Y_{l_1}(\hat{r})\otimes Y_{l_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2
+\begin{split}
+&Y_{l_2}(\hat{r})\odot Y_{l_2}(\hat{R})\;Y_2(\hat{r})\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\\
+&=(-1)^{l_2}\sqrt{\frac{2l_2+1}{4\pi}}\sum_{l_1}C_{l_2020}^{l_10}\left[Y_{l_1}(\hat{r})\otimes Y_{l_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2.
+\end{split}
 \end{equation}
 As before, we find that the integrand vanishes unless $L_2$ is even and the Clebsch-Gordon coefficient then requires that $L_1$ be even as well. Thus
 \begin{equation}
 \begin{split}
-\mathcal{O}_4(\vec{r},\vec{R},q) &= \frac{1}{5\sqrt{24\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1,L_2\;\mathrm{even}}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
-&\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_2}(q r(\alpha-1/2))\frac{1}{r}\left[1+r\Pi(q,\alpha)\right]
+&\mathcal{O}_4(\vec{r},\vec{R},q) = \frac{1}{5\sqrt{24\pi}}\sum_{L_1,L_2\;\mathrm{even}}C_{L_10L_20}^{20}\sqrt{(2L_1+1)(2L_2+1)}j_{L_2}(q R)\\
+&\times\left[Y_{L_1}(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_2}(q r(\alpha-1/2))\frac{1}{r}\left[1+r\Pi(q,\alpha)\right].
 \end{split}
 \end{equation}
 Now we turn our attention to the final set of terms, the first line of Eq. (\ref{eq:two_body_master}). First we decompose the tensor structure as
 \begin{equation}
--\alpha \hat{r}\cdot\vec{\sigma}(1)\hat{q}\cdot\vec{\sigma}(2)+(1-\alpha)\hat{q}\cdot\vec{\sigma}(1)\hat{r}\cdot\vec{\sigma}(2)=\frac{4\pi}{3}\sum_{K=0}^2\left[Y_1(\hat{q})\otimes Y_1(\hat{r})\right]_K\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_K\left[-\alpha + (1-\alpha)(-1)^K\right].
+\begin{split}
+&-\alpha \hat{r}\cdot\vec{\sigma}(1)\hat{q}\cdot\vec{\sigma}(2)+(1-\alpha)\hat{q}\cdot\vec{\sigma}(1)\hat{r}\cdot\vec{\sigma}(2)\\
+&=\frac{4\pi}{3}\sum_{K=0}^2\left[Y_1(\hat{q})\otimes Y_1(\hat{r})\right]_K\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_K\left[-\alpha + (1-\alpha)(-1)^K\right].
+\end{split}
 \end{equation}
 Next we must perform a more complicated angular integral: the $Y_1(\hat{q})$-dependence is non-trivially coupled to the $Y_1(\hat{r})$. After integrating and re-coupling (using an identity to rewrite a sum of three Clebsch-Gordon coefficients as a single Clebsch-Gordon coefficient and a Wigner 6-$j$ symbol), we find
 \begin{equation}
@@ -4652,35 +4694,36 @@ and
 Therefore we have the operator
 \begin{equation}
 \begin{split}
-\mathcal{O}_5(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L1,L2}(i)^{1+L_1-L_2}\left(\frac{2L_1+1}{2L_2+1}\right)\left(C_{L_1010}^{L_20}\right)^2\\
+&\mathcal{O}_5(\vec{r},\vec{R},q)=\frac{1}{12\sqrt{\pi}}\sum_{L1,L2}(i)^{1+L_1-L_2}\left(\frac{2L_1+1}{2L_2+1}\right)\left(C_{L_1010}^{L_20}\right)^2\\
 &\times j_{L_2}(q R)\;Y_{L_2}(\hat{r})\odot Y_{L_2}(\hat{R})\;\vec{\sigma}(1)\cdot\vec{\sigma}(2)\;q\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(q r(\alpha-1/2)).
 \end{split}
 \end{equation}
 The integral with respect to $\alpha$ vanishes unless $L_1$ is odd, and the Clebsch-Gordon coefficient then implies that $L_2$ must be even. Therefore
 \begin{equation}
 \begin{split}
-\mathcal{O}_5(\vec{r},\vec{R},q)&=\frac{1}{12\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}\left(\frac{2L_1+1}{2L_2+1}\right)\left(C_{L_1010}^{L_20}\right)^2\\
+&\mathcal{O}_5(\vec{r},\vec{R},q)=\frac{1}{12\sqrt{\pi}}\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}\left(\frac{2L_1+1}{2L_2+1}\right)\left(C_{L_1010}^{L_20}\right)^2\\
 &\times j_{L_2}(q R)\;Y_{L_2}(\hat{r})\odot Y_{L_2}(\hat{R})\;\vec{\sigma}(1)\cdot\vec{\sigma}(2)\;q\int_0^1 d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(q r(\alpha-1/2))
 \end{split}
 \end{equation}
 Similarly when $K=1$, we have
 \begin{equation}
 \begin{split}
-&\mathcal{O}_6(\vec{r},\vec{R},q)=-\frac{1}{4\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=1,3,...}^{\infty}\sum_{J=1,3,...}^{\infty}(-1)^{(1+L_1-L_2)/2}(2L_1+1)C_{L_1010}^{L_20}C_{L_1010}^{J0}\\
-&\times\left\{\begin{array}{ccc}
+&\mathcal{O}_6(\vec{r},\vec{R},q)=-\frac{1}{4\sqrt{\pi}}\sum_{L_1=0,2,...}^{\infty}\sum_{L_2=1,3,...}^{\infty}\sum_{J=1,3,...}^{\infty}(-1)^{(1+L_1-L_2)/2}C_{L_1010}^{L_20}C_{L_1010}^{J0}\left\{\begin{array}{ccc}
 L_1 & 1 & L_2\\
 1 & J & 1
-\end{array}\right\}\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_1\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_1 j_{L_2}(q R)\;q\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}(qr(\alpha-1/2)).
+\end{array}\right\}\\
+&\times(2L_1+1)\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_1\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_1 j_{L_2}(q R)\;q\int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}j_{L_1}(qr(\alpha-1/2)).
 \end{split}
 \end{equation}
 Finally when $K=2$,
 \begin{equation}
 \begin{split}
-&\mathcal{O}_7(\vec{r},\vec{R},q)=-\frac{1}{4\sqrt{\pi}}\delta(\vec{x}_1-\pvec{x}_1')\delta(\vec{x}_2-\pvec{x}_2')\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}\sum_{J=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}(2L_1+1)C_{L_1020}^{L_20}C_{L_1020}^{J0}\\
-&\times\left\{\begin{array}{ccc}
+\mathcal{O}_7(\vec{r},\vec{R},q)&=-\frac{1}{4\sqrt{\pi}}\sum_{L_1=1,3,...}^{\infty}\sum_{L_2=0,2,...}^{\infty}\sum_{J=0,2,...}^{\infty}(-1)^{(1+L_1-L_2)/2}C_{L_1020}^{L_20}C_{L_1020}^{J0}\left\{\begin{array}{ccc}
 L_1 & 1 & L_2\\
 2 & J & 1
-\end{array}\right\}\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2 j_{L_2}(q R)\;q \int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(qr(\alpha-1/2)).
+\end{array}\right\}\\
+&\times (2L_1+1)\left[Y_J(\hat{r})\otimes Y_{L_2}(\hat{R})\right]_2\odot\left[\vec{\sigma}(1)\otimes\vec{\sigma}(2)\right]_2\\
+&\times j_{L_2}(q R)\;q \int_0^1d\alpha\;e^{-r\Pi(q,\alpha)}(1-2\alpha)j_{L_1}(qr(\alpha-1/2)).
 \end{split}
 \end{equation}
 The total two-body operator can then be expressed as 
