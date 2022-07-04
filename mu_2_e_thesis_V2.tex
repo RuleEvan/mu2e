@@ -319,24 +319,27 @@ In Chapter \ref{chap:muon_lower}, we restore the muon's lower component to the e
 
 In Chapter \ref{chap:coherent_conversion}, we explicitly perform the matching required to connect experimental CLFV constraints directly to BSM parameters for the particular scenario of coherent $\mu\rightarrow e$ conversion mediated by a heavy scalar particle. We demonstrate how---within this special case---CLFV branching ratios can be computed with controlled uncertainties, allowing one to exclude candidate UV models that fall within this category. The matching between quark and nucleon degrees of freedom is performed through next-to-leading order in chiral power-counting, including the effect of two-nucleon operators. We apply this formalism to the case in which $\mu\rightarrow e$ conversion is induced by flavor-violating Yukawa couplings to the standard-model Higgs boson.
 
-Chapter \ref{chap:two_nucleon} describes in greater detail the treatment of the two-nucleon operator that contributes to scalar-mediated coherent conversion at next-to-leading order. including the shell-model calculation.
+Chapter \ref{chap:two_nucleon} describes in greater detail the treatment of the two-nucleon operator that contributes to scalar-mediated coherent conversion at next-to-leading order. After transforming to position-space, we evaluate the two-nucleon operator using nuclear shell-model wave functions. We discuss the limitations of this approach, and comment on the broader impact of two-nucleon contributions upon efforts to interpret $\mu\rightarrow e$ conversion limits.
 
-In Chapter \ref{chap:conclusion}, we conclude with a summary of the progress reported in this thesis and discuss a few directions for future work. In particular, we describe an extension of the effective theory formalism to include the inelastic conversion process in which the nucleus transitions to an excited state. Second, we describe the work that remains in matching the nuclear-scale effective theory to higher-scale effective theories.
+In Chapter \ref{chap:conclusion}, we conclude with a summary of the progress reported in this thesis and introduce two directions for future work. First, we describe an extension of the effective theory formalism to include the inelastic conversion process in which the nucleus transitions to an excited state. The inelastic process circumvents the constraints imposed by nuclear parity and time-reversal symmetries and allows one to probe operators that are otherwise forbidden by the elastic process. Significant collaboration with experimentalists will be required in order to more fully understand the feasibility of such a measurement.
 
-In order to maintain a clear and concise narrative, many detailed calculations have been relegated to a series of Appendices:
+Finally, we outline the work that remains in matching the nuclear-scale effective theory to higher-scale effective theories. Once complete, this program will allow us to connect general constraints obtained from conversion experiments to candidate BSM theories. We note a few related works in the literature that will aid in these efforts.
+
+Striving to maintain a clear and concise narrative, we have relegated the details of many calculations to a series of Appendices:
 
 Appendix \ref{app:notation}
 
-Appendix \ref{app:spinor_expansion}
+Appendix \ref{app:spinor_expansion} details the expansion of the nucleon and lepton Dirac currents in terms of Pauli spinors.
 
-Appendix \ref{app:tensors} provides an introduction to spherical tensor operators. Particular attention is devoted to the vector spherical harmonics which arise frequently in the nuclear multipole decomposition.
+Appendix \ref{app:tensors} provides an introduction to spherical tensor operators. Particular attention is devoted to the vector spherical harmonics, which arise frequently in the nuclear multipole decomposition.
 
-Appendix \ref{app:density} introduces the one- and two-body density matrices that are used to efficiently compute many-body matrix elements of few-body operators.
+Appendix \ref{app:density} introduces the one- and two-body density matrices that are used to efficiently compute many-body nuclear matrix elements of few-body operators.
 
-Appendix \ref{app:single_nucleon_response} contains details of the calculation of harmonic oscillator matrix elements of the single-nucleon response functions.
+Appendix \ref{app:single_nucleon_response} contains detailed expressions required in the evaluation of harmonic oscillator matrix elements of the single-nucleon response functions. 
 
-Appendix \ref{app:fga} provides a detailed calculation of the Fermi gas average approach to reducing the two-nucleon operator to an effective single-nucleon operator.
+Appendix \ref{app:fga} provides the details of the Fermi gas averaging procedure that we employ in order to reduce the two-nucleon operator to an effective single-nucleon operator. Results are reported for both the spin-dependent and spin-independent effective operators.
 
+Appendix \ref{app:two_nucleon} contains the details of the Fourier transform of the two-nucleon operator, including the full momentum-transfer-dependent result in position space.
 
 %In many ways, the effective theory of $\mu\rightarrow e$ conversion is analogous to the effective theory of dark matter direct detection \cite{Fitzpatrick_2013,Anand:2014kea}.
 
@@ -359,7 +362,7 @@ In comparison to the nuclear physics, the leptonic physics of $\mu\rightarrow e$
 %The muon binding energy in light nuclei up to $^{40}$Ca is not much more than 1 MeV; for very heavy nuclei, like $^{184}$W, $E^\mathrm{bind}_{\mu}$ approaches 10 MeV. In any case, the energy of the outgoing electron is roughly two orders of magnitude larger than its rest mass, and therefore the electron is ultra-relativistic. For the bound muon, relativistic effects are governed by the dimensionless parameter $\alpha Z$, where $\alpha\approx 1/137$ is the fine structure constant. In order to obtain accurate solutions for the leptons, we must solve the relativistic wave equation for spin $1/2$ particles, the Dirac equation. 
 Nuclear charge distributions have been determined from electron scattering experiments, and so one may (numerically) solve the Dirac equation for the captured muon in the field of a realistic nuclear Coulomb potential. This procedure yields the wave function and determines the binding energy of the muon. Conservation of energy then dictates the energy of the outgoing electron, and again one may solve the Dirac equation for the electron in the Coulomb field of the nucleus. The resulting wave functions account for relativistic effects and the finite extent of the nuclear charge. The downside of this approach is that one is now burdened with numerical solutions for the lepton wave functions, which can make subsequent calculations exceedingly complicated.
 
-In this chapter, we describe in detail how to obtain the Dirac solutions for the muon and electron. We highlight the special cases where the precise numerical solutions can be employed with minimal overhead and then demonstrate the difficulties that one encounters when attempting to incorporate these solutions into a fully general approach. Finally, based on careful study of the Dirac solutions, we introduce approximate lepton wave functions that dramatically simply the formalism and illuminate the underlying physics. 
+In this chapter, we describe in detail how to obtain the Dirac solutions for the muon and electron. We highlight the special cases where the precise numerical solutions can be employed with minimal overhead and then demonstrate the difficulties that one encounters when attempting to incorporate these solutions into a fully general approach. Finally, based on careful study of the Dirac solutions, we introduce approximate lepton wave functions that dramatically simply the formalism and illuminate the underlying physics.
 
 \section{Solutions of the Dirac Equation for a Spherically Symmetric Potential}
 
@@ -2374,7 +2377,7 @@ Assuming that the leptonic response functions are equal in magnitude, the inclus
 \begin{tabular}{ccccccc}
 \hline
 \hline\\[-0.75cm]
-Target & $\frac{\braket{f}\vphantom{\big\|}}{\braket{g}\rule{0pt}{0.75em}}$ & $\frac{W^{00}_{MM^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{00}_M}$ & $\frac{W^{00}_{\Sigma'\Sigma'^{(0)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{00}_{\Sigma'}}$ & $\frac{W^{00}_{\Sigma'\Sigma'^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{00}_{\Sigma'}}$ & $\frac{W^{00}_{\Sigma'\Sigma''^{(0)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{00}_{\Sigma''}}$ & $\frac{W^{00}_{\Sigma'\Sigma''^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{00}_{\Sigma''}}$\\[3mm]
+Target & $\frac{\braket{f}\vphantom{\big\|}}{\braket{g}\rule{0pt}{0.75em}}$ & $\frac{W^{00}_{MM^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{00}_M}$ & $\frac{W^{00}_{\Sigma'\Sigma'^{(0)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{00}_{\Sigma'}}$ & $\frac{W^{00}_{\Sigma'\Sigma'^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{00}_{\Sigma'}}$ & $\frac{W^{00}_{\Sigma''\Sigma''^{(0)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{00}_{\Sigma''}}$ & $\frac{W^{00}_{\Sigma''\Sigma''^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{00}_{\Sigma''}}$\\[3mm]
 \hline
 C  & -0.013 & -0.49 & 2.23 & -1.31 & -0.83 & 0.07 \\
 O  & -0.017 & -0.49 & --- & --- & --- & --- \\
@@ -2391,7 +2394,7 @@ Cu & -0.048 & -0.95 & 0.95 & -0.55 & 0.56 & -0.39 \\
 \hline
 \end{tabular}
 }
-\caption{Importance of the relativistic muon corrections compared to the leading-order result. $\braket{f}/\braket{g}$ is the ratio of monopole-averaged lower and upper muon wave functions, as defined in Eq. (\ref{eq:f_g_ratio}). In the remaining columns, the interference term $W_{OO^{(i)}}$ between upper- and lower-component nuclear responses is compared to the corresponding upper component response function $W_{O}$.}
+\caption{Importance of the relativistic muon corrections compared to the leading-order result. $\braket{f}/\braket{g}$ is the ratio of monopole-averaged lower and upper muon wave functions, as defined in Eq. (\ref{eq:f_g_ratio}). In the remaining columns, the interference term $W^{00}_{OO^{(i)}}$ between upper- and lower-component isoscalar nuclear responses is compared to the corresponding upper-component response function $W^{00}_{O}$.}
 \label{tab:relativistic_compare_t0}
 \end{table}
 
@@ -2401,7 +2404,7 @@ Cu & -0.048 & -0.95 & 0.95 & -0.55 & 0.56 & -0.39 \\
 \begin{tabular}{ccccccc}
 \hline
 \hline
-Target & $\frac{\braket{f}\vphantom{\big\|}}{\braket{g}\rule{0pt}{0.75em}}$ & $\frac{W^{11}_{MM^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{11}_M}$ & $\frac{W^{11}_{\Sigma'\Sigma'^{(0)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{11}_{\Sigma'}}$ & $\frac{W^{11}_{\Sigma'\Sigma'^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{11}_{\Sigma'}}$ & $\frac{W^{11}_{\Sigma'\Sigma''^{(0)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{11}_{\Sigma''}}$ & $\frac{W^{11}_{\Sigma'\Sigma''^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{11}_{\Sigma''}}$\\[3mm]
+Target & $\frac{\braket{f}\vphantom{\big\|}}{\braket{g}\rule{0pt}{0.75em}}$ & $\frac{W^{11}_{MM^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{11}_M}$ & $\frac{W^{11}_{\Sigma'\Sigma'^{(0)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{11}_{\Sigma'}}$ & $\frac{W^{11}_{\Sigma'\Sigma'^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{11}_{\Sigma'}}$ & $\frac{W^{11}_{\Sigma''\Sigma''^{(0)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{11}_{\Sigma''}}$ & $\frac{W^{11}_{\Sigma''\Sigma''^{(2)}}\vphantom{\Big\|}}{\rule{0pt}{0.75em}W^{11}_{\Sigma''}}$\\[3mm]
 \hline
 C  & -0.013 & -0.55 & 2.42 & -1.39 & -0.89 & 0.10 \\
 O  & -0.017 & -0.68 & --- & --- & --- & --- \\
@@ -2423,7 +2426,11 @@ Cu & -0.048 & -1.22 & 1.04 & -0.54 & 0.46 & -0.35 \\
 \end{table}
 \section{Comparison to Coherent Calculation}
 Table \ref{tab:average2} summarizes the extent to which the muon's lower component can be described by a constant approximation. In $^{27}$Al, the ratio $\braket{f}/\braket{g}$ varies by as much as 15\% across different combinations of isospin, nuclear response type, and number of multipoles included. 
-If the interaction is described purely by the relativistic scalar isoscalar interaction $\bar{e}\mu\bar{N}N$, then the relevant LECs must obey $b_2^0=ic_1^0$. The leading-order contribution comes from $W_M$. There is also a first-order relativistic correction from the interference of $M$ with the lower-component operator $M^{(2)}$. Without the lower-component correction, the rate predicted by the effective theory differs from the exact coherent prediction by $\approx 2.7\%$. The addition interference term reduces this discrepancy to $\approx 0.6\%$.
+If the interaction is described purely by the relativistic scalar isoscalar interaction $\bar{e}\mu\bar{N}N$, then the relevant LECs must obey $b_2^0=ic_1^0$. The leading-order contribution comes from $W_M$. There is also a first-order relativistic correction from the interference of $M$ with the lower-component operator $M^{(2)}$. Without the lower-component correction, the rate predicted by the effective theory differs from the exact coherent prediction by $\approx 2.7\%$. The addition interference term reduces this discrepancy to $\approx 0.6\%$. 
+
+The consideration of relativistic corrections to the muon wave function is most sensible in a ``top-down'' approach to $\mu\rightarrow e$ conversion. That is, if one begins from a particular UV theory of CLFV and proceeds down to the nuclear scale, then it is straightforward---using the formalism developed here---to include the effect of the lower-component of the muon, sharpening the prediction of the branching ratio by a few percent. (Of course, uncertainties arising elsewhere in the procedure, for example in the evaluation of nuclear responses, may, at least partially, negate the benefit of including these corrections.) In general, however, the quantities probed by $\mu\rightarrow e$ conversion experiments are not particularly sensitive to these relativistic effects: The muon's lower component always enters as a correction to the upper-component result, which is itself described by 12 independent response functions. Considerable experimental efforts will be required to distinguish among these, the leading order responses. In light- and medium-mass nuclei, it is far more important to include in the effective theory the operators associated with the nucleon velocity, which heretofore has been completely ignored in the literature.
+
+Any attempts to discern relativistic corrections would almost certainly require conversion experiments to be performed on very heavy nuclei. In $^{184}$W, the inclusion of the muon's lower component reduces the expected coherent conversion rate by $50\%$. In $^{63}$Cu, the corresponding effect is only at the level of 10\%. Assuming that $\mu\rightarrow e$ conversion were observed in $^{27}$Al at Mu2e and COMET, there would be little motivation to thereafter consider an exceedingly heavy target, aside from perhaps probing the isospin-dependence of CLFV operators through a very neutron-rich target. The spin- and velocity-dependence can be investigated without resorting to heavy nuclei where relativistic muon corrections complicate the analysis. Nonetheless, the nucleon-scale effective theory is now equipped to describe very heavy nuclei, which may play a role in determining the nature of CLFV.
 \chapter{Scalar-mediated Coherent \texorpdfstring{$\mu\rightarrow \lowercase{e}$}{Muon-to-Electron} Conversion}
 \label{chap:coherent_conversion}
 \thispagestyle{headings}
@@ -3666,16 +3673,16 @@ Then we may compute
 \chapter{Expansion of Spinor Currents}
 \label{app:spinor_expansion}
 \thispagestyle{headings}
-Following Bjorken \& Drell, we work in the Dirac representation of the $\gamma$ matrices and employ the following normalization convention for spinors:
+Following Bjorken \& Drell \cite{Bjorken:1965sts}, we work in the Dirac representation of the $\gamma$ matrices and employ the following normalization convention for spinors:
 \begin{equation}
 u(p)=\sqrt{\frac{E+m}{2m}}\left(\begin{array}{c}
 \xi\\
 \frac{\vec{\sigma}\cdot\vec{p}}{E+m}\xi
-\end{array}\right)
+\end{array}\right),
 \end{equation}
 so that
 \begin{equation}
-\bar{u}u=1.
+\bar{u}(p)u(p)=1.
 \end{equation}
 The $\gamma$ matrices in the Dirac basis are
 \begin{equation}
@@ -3700,7 +3707,7 @@ The basis for Dirac spinors is then furnished by the scalar $1$, pseudo-scalar $
 \sigma^{ij}&=\frac{i}{2}\left[\gamma^i,\gamma^j\right]=\epsilon^{ijk}\left(\begin{array}{cc}
 \sigma^k & 0\\
 0 & \sigma^k
-\end{array}\right)
+\end{array}\right).
 \end{split}
 \end{equation}
 \section{Non-relativistic Expansion of Nucleon Spinor Currents}
@@ -3773,20 +3780,21 @@ Then it is a straightforward exercise in vector and spinor algebra to derive the
 \bar{\chi}_e\sigma^{ij}\gamma_5\frac{q_j}{m_L}\chi_{\mu}&\approx \frac{q}{m_L}\left[i\vec{\sigma}_L-i\left(\hat{q}\cdot\vec{\sigma}_L\right)\hat{q}-\frac{1}{2}\hat{q}\times\vec{v}_{\mu}-\frac{i}{2}\hat{q}\times\left(\vec{v}_{\mu}\times\vec{\sigma}_L\right)\right]^i\xi
 \end{split}
 \end{equation}
-Combining these results with the analogous expressions for the reduction of the nucleon currents, one can arrive at Table \ref{tab:operator_list}. As for the nucleons, there are four unique Hermitian operators that appear in the reduction of the leptonic currents: $1_L$, $i\hat{q}$, $\vec{v}_{\mu}$ and $\vec{\sigma}_L$. 
-\chapter{The Spherical Basis and Tensor Operators}
+Combining these results with the analogous expressions for the reduction of the nucleon currents, one can arrive at Table \ref{tab:operator_list}. Just as we found in the case of the nucleons, there are four unique Hermitian operators that appear in the reduction of the leptonic currents: $1_L$, $i\hat{q}$, $\vec{v}_{\mu}$ and $\vec{\sigma}_L$. 
+\chapter{Spherical Tensor Operators}
 \label{app:tensors}
 \thispagestyle{headings}
-We follow the conventions of Edmonds \cite{edmonds1996angular}. 
-\section{Spherical Basis}
-Consider a three-dimensional coordinate system where $\hat{e}_x$, $\hat{e}_y$, and $\hat{e}_z$ are the unit vectors along the $x$, $y$, and $z$ axes respectively. The generators of rotations about these three axes are the operators 
+Many calculations performed in this thesis are greatly simplified by working in terms of mathematical objects with well-defined angular momentum that transform in a prescribed manner under rotations of the coordinate system. Not only can one decompose scalar-valued functions in this way but also vector fields and more general tensor- and spinor-valued functions as well. In this appendix, we introduce the basic machinery required in such a treatment. We follow the conventions of Edmonds \cite{edmonds1996angular}. 
+\section{The Spherical Basis}
+Consider a three-dimensional coordinate system where $\hat{e}_x$, $\hat{e}_y$, and $\hat{e}_z$ are unit vectors along the $x$, $y$, and $z$ axes respectively. The generators of rotations about these three axes are the operators 
 \begin{equation}
-S_x=i\hat{e}_x\times;\;S_y=i\hat{e}_y\times;\;S_z=i\hat{e}_z\times,
+S_x=i\hat{e}_x\times,\;\;S_y=i\hat{e}_y\times,\;\;S_z=i\hat{e}_z\times,
 \end{equation}
 where $\times$ indicates the vector cross product. The operators $\vec{S}$ satisfy the usual commutation relations of angular momentum operators
 \begin{equation}
 \left[S_i,S_j\right]=i\epsilon_{ijk}S_k.
 \end{equation}
+We identify simultaneous eigenvectors of $\vec{S}^2$ and $S_z$ by taking appropriate linear combinations of the spherical basis vectors
 \begin{equation}
 \begin{split}
 \hat{e}_{+1}&=-\frac{1}{\sqrt{2}}\left(\hat{e}_x+i\hat{e}_y\right)\\
@@ -3801,9 +3809,7 @@ which satisfy
 S_z\hat{e}_\lambda&=\lambda\hat{e}_\lambda,
 \end{split}
 \end{equation}
-where $\lambda=0,\pm 1$. The eigenvalue of the total spin operator $\vec{S}^2$ indicates that the representation is spin 1. The spherical unit vectors $\hat{e}_\lambda$ have the following useful properties:
-
-Under complex conjugation
+where $\lambda=0,\pm 1$. The eigenvalue of the total spin operator $\vec{S}^2$ indicates that the representation is spin 1. The spherical unit vectors $\hat{e}_\lambda$ have the following useful properties: Under complex conjugation
 \begin{equation}
 \hat{e}_\lambda^*=(-1)^\lambda\hat{e}_{-\lambda},\;\mathrm{for}\;\lambda=0,\pm 1
 \end{equation}
@@ -3826,12 +3832,12 @@ These vector components can be obtained by projecting with the spherical basis v
 \begin{equation}
 V_\lambda=\hat{e}_\lambda\cdot\vec{V}.
 \end{equation}
-Taking cross products of the spherical basis vectors
+Taking cross products of the spherical basis vectors yields
 \begin{equation}
 \begin{split}
 \hat{e}_{\lambda}\times\hat{e}_{\lambda}&=0\\
 \hat{e}_{\pm}\times\hat{e}_{\mp}&=\pm i\hat{e}_0\\
-\hat{e}_{\pm}\times\hat{e}_0&=\pm i\hat{e}_{\pm}
+\hat{e}_{\pm}\times\hat{e}_0&=\pm i\hat{e}_{\pm}.
 \end{split}
 \end{equation}
 \section{Vector Spherical Harmonics}
@@ -3855,7 +3861,7 @@ One would like to find an analogous basis for vector-valued functions on the sph
 \begin{equation}
 \vec{V}(\theta,\phi)=\sum_{\lambda}(-1)^\lambda \hat{e}_{\lambda}\sum_{\ell=0}^{\infty}\sum_{m=-\ell}^\ell\left(V_{-\lambda}\right)_{\ell m}Y_{\ell m}(\theta,\phi),
 \end{equation}
-where we see that $\hat{e}_{\lambda}$ and $Y_{\ell m}$ carry angular momentum under the operators $\vec{S}$ and $\vec{L}$, respectively. Therefore we combine these two objects into a tensor of definite total angular momentum $\vec{J}=\vec{L}+\vec{S}$
+where we see that $\hat{e}_{\lambda}$ and $Y_{\ell m}$ carry angular momentum under the operators $\vec{S}$ and $\vec{L}$, respectively. Therefore, we may combine these two objects into a tensor of definite total angular momentum $\vec{J}=\vec{L}+\vec{S}$
 \begin{equation}
 \begin{split}
 \vec{Y}_{J\;\ell\;M}(\hat{r})&\equiv
@@ -3906,6 +3912,7 @@ where $f(r)$ is any (well-behaved) scalar function. Conversely, the ordinary sph
 \vec{\nabla}\cdot\left(f(r)\vec{Y}_{\ell\;\ell\;M}(\hat{r})\right)&=0,\;\mathrm{for\;any}\;f(r)\\
 \vec{\nabla}\cdot\left(f(r)\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})\right)&=\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}-\frac{\ell-1}{r}\right)f(r)\;Y_{\ell\;M}(\hat{r}),
 \end{split}
+\label{eq:Y_spherical_grad}
 \end{equation}
 as well as the unit vector 
 \begin{equation}
@@ -3915,7 +3922,7 @@ as well as the unit vector
 \hat{r}\cdot\vec{Y}_{\ell;\ell-1\;M}(\hat{r})&=\sqrt{\frac{\ell}{2\ell+1}}Y_{\ell\;M}(\hat{r}).
 \end{split}
 \end{equation}
-Finally, as the curl operator $\vec{\nabla}\times$ maps vector fields to vector fields, so it relates the vector spherical harmonics
+Finally, as the curl operator $\vec{\nabla}\times$ maps vector fields to vector fields, so it transforms the vector spherical harmonics among themselves:
 \begin{equation}
 \begin{split}
 \vec{\nabla}\times\left(f(r)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})\right)&=i\sqrt{\frac{\ell}{2\ell+1}}\left(\frac{d}{dr}+\frac{\ell+2}{r}\right)f(r)\vec{Y}_{\ell\;\ell\;M}(\hat{r}),\\
@@ -3932,14 +3939,14 @@ Similarly,
 \hat{r}\times\vec{Y}_{\ell\;\ell-1\;M}(\hat{r})&=i\sqrt{\frac{\ell+1}{2\ell+1}}\vec{Y}_{\ell\;\ell\;M}(\hat{r}).
 \end{split}
 \end{equation}
-In this work, we often find that the scalar function is the regular spherical Bessel function of order $J$, $f(r)=j_\ell(qr)$. Then it is useful to know the raising and lowering operators for the spherical Bessel functions
+In this work, we often find that the scalar function is the regular spherical Bessel function of order $\ell$, $f(r)=j_\ell(qr)$. It is useful to know the raising and lowering operators for the spherical Bessel functions
 \begin{equation}
 \begin{split}
 \left(\frac{d}{dr}-\frac{\ell}{r}\right)j_\ell(qr)&=-qj_{\ell+1}(qr),\\
 \left(\frac{d}{dr}+\frac{\ell+1}{r}\right)j_\ell(qr)&=qj_{\ell-1}(qr).
 \end{split}
 \end{equation}
-Using these relations, we obtain the following expressions for the gradient and curl specialized to the case $f(r)=j_\ell(qr)$:
+Using these relations, we obtain the following expressions for the gradient and curl, specialized to the case $f(r)=j_\ell(qr)$:
 \begin{equation}
 \begin{split}
 \vec{\nabla}\left(j_\ell(qy)Y_{\ell\;M}(\hat{r})\right)&=q\Bigg[\sqrt{\frac{\ell+1}{2\ell+1}}j_{\ell+1}(qr)\vec{Y}_{\ell\;\ell+1\;M}(\hat{r})\\
@@ -3966,40 +3973,41 @@ j_{\ell}(qr)\vec{Y}_{\ell+1\;\ell\;M}(\hat{r})&=\frac{1}{q}\Bigg[\sqrt{\frac{\el
 &\hspace*{3cm}-i\sqrt{\frac{\ell+2}{2\ell+3}}\vec{\nabla}\times\left(j_{\ell+1}(qr)\vec{Y}_{\ell+1\;\ell+1\;M}(\hat{r})\right)\Bigg],
 \end{split}
 \end{equation}
-The utility of these expressions is that the two vector fields $j_\ell(qr)\vec{Y}_{\ell\pm 1\;\ell\;M}$ have been decomposed into longitudinal (curl-free) and transverse (divergence-free) components. The third vector field $j_{\ell}(qr)\vec{Y}_{\ell\;\ell\;M}$ is inherently transverse.
+The utility of these expressions is that the two vector fields $j_\ell(qr)\vec{Y}_{\ell\pm 1\;\ell\;M}$ have been decomposed into longitudinal (curl-free) and transverse (divergence-free) components. The vector field $j_{\ell}(qr)\vec{Y}_{\ell\;\ell\;M}$ is inherently transverse [see Eq. (\ref{eq:Y_spherical_grad})].
 
 In general, a plane wave can be expanded in partial waves as
 \begin{equation}
-e^{i\vec{q}\cdot\vec{r}}=4\pi \sum_{L=0}^{\infty}i^Lj_L(qr)Y_L(\hat{q})\odot Y_L(\hat{r})
+e^{i\vec{q}\cdot\vec{r}}=4\pi \sum_{L=0}^{\infty}i^Lj_L(qr)Y_L(\hat{q})\odot Y_L(\hat{r}).
 \end{equation}
-If we define our basis to be along the direction of $\hat{q}$, then the plane wave expansion takes the form
+If we define our basis so that $\hat{z}$ is along the direction of $\hat{q}$, then the plane wave expansion takes the form
 \begin{equation}
-e^{i\vec{q}\cdot\vec{r}}=\sum_{L=0}^{\infty}\sqrt{4\pi(2L+1)}i^Lj_L(qr)Y_{L0}(\hat{r})
+e^{i\vec{q}\cdot\vec{r}}=\sum_{L=0}^{\infty}\sqrt{4\pi(2L+1)}i^Lj_L(qr)Y_{L0}(\hat{r}).
 \end{equation}
 Defining the multipole projection functions
 \begin{equation}
 \begin{split}
 M_{JM}(q\vec{x})&\equiv j_J(qr)Y_{JM}(\hat{r})\\
-\vec{M}_{J\;L\;M}(q\vec{r})&\equiv j_L(qr)\vec{Y}_{J\;L\;M}(\hat{r})
+\vec{M}_{JLM}(q\vec{r})&\equiv j_L(qr)\vec{Y}_{JLM}(\hat{r})
 \end{split}
 \end{equation}
+we find that the expansion of a plane wave times a vector field can be written as
 \begin{equation}
-e^{i\vec{q}\cdot\vec{r}}\hat{e}_{\lambda}=-\sum_{L=1}^{\infty}\sqrt{2\pi(2L+1)}i^L\left[\lambda \vec{M}_{L\;L\;\lambda}(q\vec{r})+\frac{1}{q}\vec{\nabla}\times\vec{M}_{L\;L\;\lambda}(q\vec{r})\right]
+e^{i\vec{q}\cdot\vec{r}}\hat{e}_{\lambda}=-\sum_{L=1}^{\infty}\sqrt{2\pi(2L+1)}i^L\left[\lambda \vec{M}_{LL\lambda}(q\vec{r})+\frac{1}{q}\vec{\nabla}\times\vec{M}_{LL\lambda}(q\vec{r})\right]
 \end{equation}
 for $\lambda = \pm 1$, whereas when $\lambda = 0$ we have
 \begin{equation}
-e^{i\vec{q}\cdot\vec{r}}\hat{e}_0=-\frac{i}{q}\sum_{L=0}^{\infty}\sqrt{4\pi(2L+1)}i^L\vec{\nabla}M_{J0}(q\vec{r})
+e^{i\vec{q}\cdot\vec{r}}\hat{e}_0=-\frac{i}{q}\sum_{L=0}^{\infty}\sqrt{4\pi(2L+1)}i^L\vec{\nabla}M_{J0}(q\vec{r}).
 \end{equation}
-We identify the basic multipole projections: an arbitrary charge $\rho(\vec{r})$ can be decomposed as
+We identify the basic multipole projections: an arbitrary charge $\rho(\vec{r})$ can be decomposed into component with good angular momentum
 \begin{equation}
 \mathcal{M}_{JM}(q)=\int d^3r\;M_{JM}(q\vec{r})\rho(\vec{r})
 \end{equation}
-whereas an arbitrary three-current has three independent projections 
+whereas an arbitrary three-current $\vec{J}(\vec{r})$ admits three independent projections 
 \begin{equation}
 \begin{split}
 \mathcal{L}_{JM}(q)&=\frac{i}{q}\int d^3r\;\left[\vec{\nabla}M_{JM}(q\vec{r})\right]\cdot\vec{J}(\vec{r})\\
-\mathcal{T}^\mathrm{el}_{JM}(q)&=\frac{1}{q}\int d^3r\;\left[\vec{\nabla}\times\vec{M}_{J\;J\;M}(q\vec{r})\right]\cdot\vec{J}(\vec{r})\\
-\mathcal{T}^\mathrm{mag}_{JM}(q)&=\int d^3r\;\vec{M}_{J\;J\;M}(q\vec{r})\cdot\vec{J}(\vec{r})
+\mathcal{T}^\mathrm{el}_{JM}(q)&=\frac{1}{q}\int d^3r\;\left[\vec{\nabla}\times\vec{M}_{JJM}(q\vec{r})\right]\cdot\vec{J}(\vec{r})\\
+\mathcal{T}^\mathrm{mag}_{JM}(q)&=\int d^3r\;\vec{M}_{JJM}(q\vec{r})\cdot\vec{J}(\vec{r}).
 \end{split}
 \end{equation}
 \chapter{Nuclear Matrix Elements of Few-body Operators}
@@ -4007,7 +4015,7 @@ whereas an arbitrary three-current has three independent projections
 \thispagestyle{headings}
 In order to make contact with $\mu\rightarrow e$ conversion experiments, the underlying nuclear operators must be evaluated between many-body wave functions that accurately capture the detailed structure of the target nucleus. Although many competing methods for these evaluations exist, our preferred paradigm is that of the nuclear shell model. In the shell-model approach, the total nuclear wave function is composed of linear combinations of Slater determinant basis elements. Each Slater determinant is a totally anti-symmetric combination of single-particle harmonic oscillator states labeled by nodal quantum number $n$, orbital angular momentum $\ell$, spin $s=1/2$, and total angular momentum $j=\ell\pm 1/2$. Separate Slater determinants are constructed for neutron and proton degrees of freedom, which are distinguished by the isospin quantum number $m_t=+1/2$ $(-1/2)$ for protons (neutrons). 
 
-Having specified the basis, the required wave functions are obtained by diagonalizing a suitable Hamiltonian that describes the interactions among the nucleons. One encounters several difficulties in this construction: first, the exact form of these interaction---which contain two-body, three-body, and higher contributions---is not known precisely; the proper theory is that specified by quantum chromodynamics (QCD), which does not lend itself to a simple description in the strongly-coupled regime of nuclear physics. Second, the shell-model space that we have adopted must be severely truncated in practical calculations, requiring one to perform a program of operator and wave function renormalization. These complications can be avoided by abandoning efforts to root the calculation of the nuclear wave function in the first-principles of QCD and instead adopting a phenomenological interaction that has been tuned in the model space to reproduce low-energy nuclear observables such as charge radii and low-lying spectra. This is the strategy that we apply in work; the interactions and shell-model spaces that we employ are given in Table \ref{tab:nsm_params}. 
+Having specified the basis, the required wave functions are obtained by diagonalizing a suitable Hamiltonian that describes the interactions among the nucleons. One encounters several difficulties in this construction: first, the exact form of these interactions---which contain two-body, three-body, and higher contributions---is not known precisely; the proper theory is that specified by quantum chromodynamics (QCD), which does not lend itself to a simple description in the strongly-coupled regime of nuclear physics. Second, the shell-model space that we have adopted must be severely truncated in practical calculations, requiring one to perform a program of operator and wave function renormalization. These complications can be avoided by abandoning efforts to root the calculation of the nuclear wave function in the first-principles of QCD and instead adopting a phenomenological interaction that has been tuned in the model space to reproduce low-energy nuclear observables such as charge radii and low-lying spectra. This is the strategy that we apply in work: The interactions and shell-model spaces that we employ are given in Table \ref{tab:nsm_params}. 
 
 Having thus obtained the nuclear wave functions, there remains a significant computational task in evaluating matrix elements of few-body operators. A well-organized approach is required to avoid unnecessary effort and potential confusion. By formulating the problem in terms of irreducible tensor operators and exploiting the good angular momentum $J$ and (approximate) isospin $T$ quantum numbers of the nuclear ground state, we are able to factorize many-body matrix elements of few-body operators in terms of few-body matrix elements, extracting from the total nuclear wave function only that nuclear structure information that is required to evaluate the few-body operators under consideration. In this appendix, we will demonstrate how this factorization is performed for one- and two-body operators.
 \section{One-body Density Matrices}
@@ -4017,7 +4025,7 @@ The total one-body tensor operator for a system of $A$ nucleons can be written i
 \end{equation}
 or in the second-quantized form as
 \begin{equation}
-\mathcal{O}_{JM}=\sum_{\alpha,\beta}\mathcal{O}_{JM}^{\alpha\beta}c^{\dag}_{\alpha}c_{\beta}
+\mathcal{O}_{JM}=\sum_{\alpha,\beta}\mathcal{O}_{JM}^{\alpha\beta}c^{\dag}_{\alpha}c_{\beta},
 \end{equation}
 with 
 \begin{equation}
@@ -4027,7 +4035,7 @@ with
 \end{equation}
 The summation $\alpha$ extends to all single-particle states; that is, $\alpha=(j_{\alpha},m_{\alpha})$. The operators and the states may carry additional isospin quantum numbers, which we suppress here for brevity (the generalization to include isospin is straightforward).
 
-Our aim is to evaluate the given operator for a total nuclear wave function. The nuclear response can be factorized into a piece that describes how the operator acts on single-particle states and a piece that encodes how the single-particle states are embedded in the initial and final nuclear wave functions. The latter quantity is known as the one-body density matrix. Its form can be obtained directly from the second-quantized form of the operator:
+Our aim is to evaluate the given operator for a total nuclear wave function. The nuclear response can be factorized into a piece that describes how the operator acts on single-particle states and a piece that encodes how the single-particle states are embedded in the initial and final nuclear wave functions. The latter quantity is known as the one-body density matrix. An expression for the one-body density matrix can be obtained directly from the second-quantized form of a one-body operator operator:
 \begin{equation}
 \begin{split}
 \braket{J_f||\mathcal{O}_J||J_i}
@@ -4565,8 +4573,7 @@ Note that these functions depend on not only the magnitude of the dimensionless 
 \label{fig:1body_f_functions}
 \end{figure}
 
-
-This calculation was first performed in \cite{2018PhRvC..98a5208B} but several errors were committed that resulted in incorrect expressions for $f^\mathrm{SI}(\bar{q},\bar{k}$, $f^\mathrm{SD}(\bar{q},\bar{k})$ and all quantities derived from them.
+This calculation was first performed in \cite{2018PhRvC..98a5208B} but several errors were committed that resulted in incorrect expressions for the form factors $f^\mathrm{SI}(\bar{q},\bar{k}$ and $f^\mathrm{SD}(\bar{q},\bar{k})$ and all quantities derived from them.
 
 \chapter{Fourier Transform of Two-Nucleon Operator}
 \label{app:two_nucleon}
